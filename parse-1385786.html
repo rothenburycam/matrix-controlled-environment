@@ -1,0 +1,173 @@
+<MySource_AREA id_name="exit_area" design_area="exit" print="no"></MySource_AREA>
+  <MySource_AREA id_name="nested_EES_code" design_area="nest_content" print="no" />
+  <MySource_AREA id_name="simple_edit_EES" design_area="show_if">
+      <MySource_SET name="condition" value="simple_edit_mode" />    
+      <MySource_THEN>    
+          <!DOCTYPE html>
+          <html lang="en">
+              <head>
+                  <meta charset="utf-8" />                
+                  <!-- EES install and implementation help: http://manuals.matrix.squizsuite.net/ees/chapters/installation -->                
+                  <!-- The title tag is dynamically replaced by EES code, see your EES config.js file to customise -->
+                  <!-- Related install step: http://manuals.matrix.squizsuite.net/ees/chapters/installation/#Constructing-the-Configuration-File -->
+                  <title>Loading Easy Edit Suite...</title>                
+                  <!-- Use a nested standard page (set to raw html) for custom CSS and JS file references. Avoids editing design file. -->
+                  <MySource_PRINT id_name="nested_EES_code" />                
+              </head>
+              <body></body>
+          </html>        
+          <MySource_PRINT id_name="exit_area" />        
+      </MySource_THEN>
+  </MySource_AREA>
+  <!DOCTYPE html>
+  <html>
+  <head>
+      <meta charset="utf-8" />
+      <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+      <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+      <title><MySource_PRINT id_name="__global__" var="asset_name" /> : <MySource_PRINT id_name="__global__" var="site_name" /></title>
+      
+      <!--
+      This website is managed centrally by the External Relations Digital Team. digital-team@unimelb.edu.au
+  
+      Page Maintained by: %asset_metadata_UM.Maintainer.Name%, %asset_metadata_UM.Maintainer.Department%
+      Content Authorised by: %asset_metadata_UM.Authoriser.Title%, %asset_metadata_UM.Organisational.Unit%
+      Last updated by: %asset_updated_by_name% on %asset_updated_readable%
+      Asset ID: %globals_asset_assetid%
+      -->
+  
+      <!-- Metadata -->
+      <MySource_AREA id_name="metadata" design_area="metadata"/>
+      <!-- /Metadata -->
+  
+      <MySource_AREA id_name="template_version" design_area="declared_vars" print="yes"><MySource_DECLARE name="template_version" value="0.6" type="text" description="Version of the Unimelb Design System in use for this site"/></MySource_AREA>
+      
+      
+      <!--[if lt IE 9]><script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><![endif]-->
+      <link rel="stylesheet" href="//uom-design-system.s3.amazonaws.com/v<MySource_PRINT id_name='template_version' var='template_version' />/uom.css">
+      <script src="//uom-design-system.s3.amazonaws.com/v<MySource_PRINT id_name='template_version' var='template_version' />/uom.js"></script>
+      
+      <MySource_AREA id_name="head" design_area="head" />
+  
+      <MySource_AREA id_name="custom_css" design_area="linked_css" print="yes">
+        <MySource_SET name="tag_type" value="link_tag" /> 
+        <MySource_SET name="media" value="all" />
+      </MySource_AREA>
+  
+  </head>
+  
+  
+  <body>
+  <div class="uomcontent">
+      <div class="page-inner">
+  
+          <!-- breadcrumbs -->     
+          <MySource_AREA id_name="page_lineage" design_area="asset_lineage">
+              <div class="page-local-history">
+                    <a href="<MySource_PRINT id_name='__global__' var='site_link' full_url='true'/>" rel="home" class="root"><MySource_PRINT id_name="__global__" var="site_name" /></a>
+                   <MySource_SET name="levels_to_print" value="0" />
+                   <MySource_SET name="prefix_with_home_link" value="false" />
+                   <MySource_SET name="suffix_with_current_link" value="true" />
+                   <MySource_SET name="prefix_with_divider" value="true" />
+                   <MySource_SET name="suffix_with_divider" value="false" />
+                   <MySource_SET name="show_hidden_links" value="false" />
+                   <MySource_DIVIDER><span>/</span></MySource_DIVIDER> 
+                   <MySource_ASSET>
+                       <a href="<MySource_PRINT var='asset_link' />"><MySource_PRINT var='asset_short_name' /></a>
+                   </MySource_ASSET>
+               </div>
+          </MySource_AREA>
+          <!-- breadcrumbs -->
+  
+      <!-- main-content -->
+
+          <MySource_AREA id_name="home_page_template" design_area="show_if">
+              <MySource_SET name="condition" value="logical"/>
+                <MySource_THEN><div class="floating"></div></MySource_THEN>
+          </MySource_AREA>
+          
+          <div class='main' id='main-content' role='main'>
+              <MySource_AREA id_name="body" design_area="body" />
+              <MySource_AREA id_name="local_footer" design_area="nest_content" cache="1"><MySource_SET name="type_codes" value="page" /></MySource_AREA>
+          </div>
+      <!-- /main-content -->
+      
+  <!--googleoff: all-->
+  
+          <div data-absolute-root="%globals_site_href%" class="no-js" id="sitemap" role="navigation">
+              <h2>%globals_site_name%</h2>
+              <ul>
+  <MySource_AREA id_name="standard_menu" design_area="menu_normal" cache="1"> 
+  <MySource_SET name="level" value="top" /> 
+  <MySource_SET name="show_subs" value="always" />
+          <!-- set navigation to ignore a range of asset types -->
+  <MySource_SET name="unwanted_asset_types" value="image, news_item, calendar_event, file" />
+  
+  <MySource_ASSET> 
+                  <li><a href="<MySource_PRINT var='asset_href' />"> <MySource_PRINT var="asset_short_name" /> </a> 
+  <MySource_SUB design_area="menu_normal"> 
+  <MySource_SET name="show_subs" value="always" />
+  <MySource_SET name="unwanted_asset_types" value="image, news_item, calendar_event, file" />
+                          <div class="inner">
+                              <ul>
+  <MySource_ASSET> 
+                                  <li><a href="<MySource_PRINT var='asset_href' />"> <MySource_PRINT var="asset_short_name" /> </a>
+  <MySource_SUB design_area="menu_normal"> 
+  <MySource_SET name="show_subs" value="always" />
+  <MySource_SET name="unwanted_asset_types" value="image, news_item, calendar_event, file" />
+                                          <div class="inner">
+                                              <ul>
+  <MySource_ASSET> 
+                                                  <li class="<MySource_PRINT var="settings.class" />"><a href="<MySource_PRINT var='asset_href' />"> <MySource_PRINT var="asset_short_name" /> </a>
+                                                  </li> 
+  </MySource_ASSET> 
+                                              </ul>
+                                          </div>
+  </MySource_SUB> 
+                                  </li> 
+  </MySource_ASSET> 
+                              </ul>
+                          </div>
+  </MySource_SUB> 
+                  </li> 
+  </MySource_ASSET> 
+  
+  </MySource_AREA>
+  
+  
+  <MySource_AREA id_name="sidebarSearch" design_area="searchbox" print="no">
+  <MySource_SET name="search_page_assetid" value="1374049" />
+  <MySource_SET name="field_name" value="name" />
+      <li>
+  <MySource_PRINT var="form_start" />
+        <fieldset>
+                  <div class="inline">
+                      <input aria-label="Search" autocomplete="off" data-required="" type="text" name="queries_search_query" placeholder="Search this site" title="Please enter a keyword" value="" class="sq-form-field" id="queries_search_query">
+                      <input type="text" name="search_page_1373109_extra_field" id="search_page_1373109_extra_field" disabled="disabled" style="display:none">
+                      <button class="search-button" type="submit" value="Go"><svg class="icon" role="img"><use xlink:href="#icon-search"></use></svg></button>
+                  </div>
+              </fieldset>
+    <MySource_PRINT var="form_end" />
+      </li>
+  </MySource_AREA>
+  
+  
+  <MySource_AREA id_name="logout_box" design_area="login_form" print="no">
+      <MySource_LOGIN_SECTION>
+      <li><a class="login" href="%globals_asset_url%/_login">Login</a></li>
+      <!-- not logged in -->
+      </MySource_LOGIN_SECTION>
+      <MySource_LOGOUT_SECTION>
+      <MySource_PRINT var="form_open" />
+      <li><a href="%globals_asset_url:1022685%?SQ_ACTION=logout&end_url=%globals_asset_url^urlencode%">Log out</a></li>
+      <MySource_PRINT var="form_close" />
+      </MySource_LOGOUT_SECTION>
+  </MySource_AREA>
+  
+              </ul>
+          </div><!-- /#sitemap -->
+      </div><!-- /page-inner -->
+  </div><!-- /uomcontent -->
+  <!--googleon: all-->
+  </body>
+  </html>
