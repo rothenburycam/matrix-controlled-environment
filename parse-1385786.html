@@ -41,6 +41,9 @@
       <!-- /Metadata -->
   
       <MySource_AREA id_name="template_version" design_area="declared_vars" print="yes"><MySource_DECLARE name="template_version" value="0.6" type="text" description="Version of the Unimelb Design System in use for this site"/></MySource_AREA>
+      <MySource_AREA id_name="set_page_header_home_link" design_area="declared_vars" print="yes">
+      	<MySource_DECLARE name="set_page_header_home_link" value="" type="text" description="Name of academic division or service area to display next to UoM logo on the home page banner. Must be in the form of <strong>&#60;a class=&#34;page-header-home&#34; href=&#34;/&#34; &#62;Faculty of Foo&#60;./?a=1383744a&#62;</strong>"/>
+      </MySource_AREA>
       
       
       <!--[if lt IE 9]><script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><![endif]-->
@@ -83,7 +86,7 @@
 
           <MySource_AREA id_name="home_page_template" design_area="show_if">
               <MySource_SET name="condition" value="logical"/>
-                <MySource_THEN><div class="floating"></div></MySource_THEN>
+                <MySource_THEN><div class="floating"><MySource_PRINT id_name="set_page_header_home_link" var="set_page_header_home_link"/></div></MySource_THEN>
           </MySource_AREA>
           
           <div class='main' id='main-content' role='main'>
