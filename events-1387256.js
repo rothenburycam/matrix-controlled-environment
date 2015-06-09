@@ -41,6 +41,7 @@ $(document).ready(function () {
         if (todayGroupTally === 0) {
             $(todayGrouping).remove();
         }
+        tinysort('ul.event-listing>li',{selector:'span.date',data:'timestamp'});
     }
 
     // Identify the elements that contain the Presenters json data    
@@ -78,5 +79,4 @@ $(document).ready(function () {
     // On details page, remove elements with no content
     $('.bookingLink[href=""], .details span:empty, .details span a[href=""], .details span a[href="mailto:"]').remove();
     
-    tinysort('ul.event-listing>li',{selector:'span.date',data:'timestamp'});
 });
