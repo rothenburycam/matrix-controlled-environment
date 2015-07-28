@@ -39,6 +39,31 @@
   
       <!-- Metadata -->
       <MySource_AREA id_name="metadata" design_area="metadata"/>
+      
+      <!-- Social Media, Thumbnail -->
+<!-- og: -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="%globals_asset_url%" />
+<meta property="og:title" content="%globals_asset_name%" />
+<meta property="og:description" content="%globals_asset_metadata_Description%" />
+<meta property="og:site_name" content="%globals_site_name%" />
+<!-- Twitter card -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="%globals_asset_metadata_Twitter_handle^empty:@unimelb%" />
+<meta name="twitter:title" content="%globals_asset_name%" />
+<meta name="twitter:description" content="%globals_asset_metadata_Description%" />
+<!-- Thumbnail -->
+<MySource_AREA id_name="has_thumbnail" design_area="show_if">
+<MySource_SET name="condition" value="keyword_regexp"/>
+<MySource_SET name="condition_keyword" value="asset_thumbnail_assetid"/>
+<MySource_SET name="condition_keyword_match" value="[0-9]+" />
+<MySource_THEN><meta name="twitter:image" content="%asset_thumbnail_url%" />
+<meta property="og:image" content="%asset_thumbnail_url%" />
+<meta name="thumbnail" content="%asset_thumbnail_url%" /></MySource_THEN>
+</MySource_AREA>
+<!-- Geo location -->
+<meta name="geo.placename" content="Victoria, Australia, Oceania, World">
+<meta name="geo.region" content="AU">
       <!-- /Metadata -->
   
       <MySource_AREA id_name="template_version" design_area="declared_vars" print="yes"><MySource_DECLARE name="template_version" value="0.6" type="text" description="Version of the Unimelb Design System in use for this site"/></MySource_AREA>
