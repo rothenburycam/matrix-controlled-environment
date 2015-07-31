@@ -27,16 +27,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible" />
 <MySource_AREA id_name="favicon" design_area="nest_content" ><MySource_SET name="type_codes" value="page" /></MySource_AREA>
 <title><MySource_PRINT id_name="__global__" var="asset_name" /> : <MySource_PRINT id_name="__global__" var="site_name" /></title>
-
 <!--
 This website is managed centrally by the External Relations Digital Team. digital-team@unimelb.edu.au
 Last updated by: %asset_updated_by_name% on %asset_updated_readable%
 Asset ID: %globals_asset_assetid%
 -->
-
 <!-- Metadata -->
 <MySource_AREA id_name="metadata" design_area="metadata"/>
-
 <!-- Social Media, Thumbnail -->
 <!-- og: -->
 <meta property="og:type" content="website" />
@@ -62,7 +59,6 @@ Asset ID: %globals_asset_assetid%
 <!-- Geo location -->
 <meta name="geo.placename" content="Victoria, Australia, Oceania, World">
 <meta name="geo.region" content="AU">
-
 <!-- webmaster verification -->
 <MySource_AREA id_name="webmaster" design_area="declared_vars" print="no">
 <MySource_DECLARE name="google_verify" value="14L1qmSifouVkhuHJ_bjLKfy8ySshqb5pHTkKOiSI6Q" type="text" description="Google console account code"/>
@@ -73,19 +69,14 @@ Asset ID: %globals_asset_assetid%
 <!-- Bing verification code -->
 <meta name="msvalidate.01" content="<MySource_PRINT id_name='webmaster' var='bing_verify' />" />
 <!-- /Metadata -->
-
 <MySource_AREA id_name="template_version" design_area="declared_vars" print="yes"><MySource_DECLARE name="template_version" value="0.6" type="text" description="Version of the Unimelb Design System in use for this site"/></MySource_AREA>
 <MySource_AREA id_name="set_page_header_home_link" design_area="declared_vars" print="yes">
   <MySource_DECLARE name="set_page_header_home_link" value="" type="text" description="Name of academic division or service area to display next to UoM logo on the home page banner. Must be in the form of <strong>&#60;a class=&#34;page-header-home&#34; href=&#34;/&#34; &#62;Faculty of Foo&#60;./?a=1383744a&#62;</strong>"/>
 </MySource_AREA>
-
-
 <!--[if lt IE 9]><script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><![endif]-->
 <link rel="stylesheet" href="//uom-design-system.s3.amazonaws.com/v<MySource_PRINT id_name='template_version' var='template_version' />/uom.css">
 <script src="//uom-design-system.s3.amazonaws.com/v<MySource_PRINT id_name='template_version' var='template_version' />/uom.js"></script>
-
 <MySource_AREA id_name="head" design_area="head" />
-
 <MySource_AREA id_name="custom_css" design_area="linked_css" print="yes">
   <MySource_SET name="tag_type" value="link_tag" /> 
   <MySource_SET name="media" value="all" />
@@ -94,7 +85,6 @@ Asset ID: %globals_asset_assetid%
 <body>
 <div class="uomcontent">
     <div class="page-inner">
-
         <!-- breadcrumbs -->     
         <MySource_AREA id_name="page_lineage" design_area="asset_lineage">
             <div class="page-local-history">
@@ -112,31 +102,24 @@ Asset ID: %globals_asset_assetid%
              </div>
         </MySource_AREA>
         <!-- breadcrumbs -->
-
     <!-- main-content -->
-
         <MySource_AREA id_name="home_page_template" design_area="show_if">
             <MySource_SET name="condition" value="logical"/>
               <MySource_THEN><div class="floating"><MySource_PRINT id_name="set_page_header_home_link" var="set_page_header_home_link"/></div></MySource_THEN>
         </MySource_AREA>
-        
         <div class='main' id='main-content' role='main'>
             <MySource_AREA id_name="body" design_area="body" />
             <MySource_AREA id_name="local_footer" design_area="nest_content" cache="1"><MySource_SET name="type_codes" value="page" /></MySource_AREA>
         </div>
     <!-- /main-content -->
-    
 <!--googleoff: all-->
-
         <div data-absolute-root="%globals_site_href%" class="no-js" id="sitemap" role="navigation">
             <h2>%globals_site_name%</h2>
             <ul>
 <MySource_AREA id_name="standard_menu" design_area="menu_normal" cache="1"> 
 <MySource_SET name="level" value="top" /> 
 <MySource_SET name="show_subs" value="always" />
-        <!-- set navigation to ignore a range of asset types -->
 <MySource_SET name="unwanted_asset_types" value="image, news_item, calendar_event, file" />
-
 <MySource_ASSET> 
                 <li><a href="<MySource_PRINT var='asset_href' />"> <MySource_PRINT var="asset_short_name" /> </a> 
 <MySource_SUB design_area="menu_normal"> 
@@ -165,13 +148,7 @@ Asset ID: %globals_asset_assetid%
 </MySource_SUB> 
                 </li> 
 </MySource_ASSET> 
-
 </MySource_AREA>
-
-
-</MySource_AREA>
-
-
 <MySource_AREA id_name="logout_box" design_area="login_form" print="no">
     <MySource_LOGIN_SECTION>
     <li><a class="login" href="%globals_asset_url%/_login">Login</a></li>
@@ -183,14 +160,11 @@ Asset ID: %globals_asset_assetid%
     <MySource_PRINT var="form_close" />
     </MySource_LOGOUT_SECTION>
 </MySource_AREA>
-
             </ul>
         </div><!-- /#sitemap -->
     </div><!-- /page-inner -->
 </div><!-- /uomcontent -->
 <!--googleon: all-->
-
 <MySource_AREA id_name="after_body" design_area="nest_content" ><MySource_SET name="type_codes" value="page" /></MySource_AREA>
-
 </body>
 </html>
