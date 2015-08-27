@@ -1,0 +1,39 @@
+%begin_asset_metadata_DESIGN.PageTemplate^contains:template-standard-page-blue-header%
+
+<!-- Begin blue header -->
+<header>
+%begin_enable_header_subtext% 
+	<h1>%globals_asset_metadata_HEADER.HeaderText%</h1>
+	<p>%globals_asset_metadata_HEADER.Subline%</p>
+		%begin_hero_button%
+	<p><a href="%globals_asset_metadata_CONTENT.HeaderHeroButtonLink%" class="button-hero%globals_asset_metadata_CONTENT.HeaderHeroButtonInverse%">%globals_asset_metadata_CONTENT.HeaderHeroButtonText%</a></p>
+		%end_hero_button%
+%else_enable_header_text%
+	<h1>%globals_asset_metadata_HEADER.HeaderText%</h1>
+		%begin_hero_button%
+	<p><a href="%globals_asset_metadata_CONTENT.HeaderHeroButtonLink%" class="button-hero%globals_asset_metadata_CONTENT.HeaderHeroButtonInverse%">%globals_asset_metadata_CONTENT.HeaderHeroButtonText%</a></p>
+		%end_hero_button%
+%end_enable_header_subtext%
+</header>
+<!-- end blue header -->
+
+%globals_asset_metadata_CONTENT.JumpNav%
+
+%begin_tabbed_nav%
+%globals_asset_contents_raw:1383610% 
+%else_tabbed_nav%
+
+  %begin_add_content% 
+    <section class="lead">
+      %globals_asset_metadata_CONTENT.LandingPageShort%
+    </section>
+    <hr>
+  %end_add_content% 
+
+  <section>
+    %asset_contents%
+  </section>
+
+%end_tabbed_nav%
+
+%end_asset_metadata_DESIGN.PageTemplate^contains:template-standard-page-blue-header%
