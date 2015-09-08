@@ -63,7 +63,7 @@ Asset ID: %globals_asset_assetid%
 <!-- Bing verification code -->
     <meta name="msvalidate.01" content="<MySource_PRINT id_name='webmaster' var='bing_verify' />" />
 <!-- /Metadata -->
-<MySource_AREA id_name="template_version" design_area="declared_vars" print="no"><MySource_DECLARE name="template_version" value="0.6" type="text" description="Version of the Unimelb Design System in use for this site"/></MySource_AREA>
+<MySource_AREA id_name="template_version" design_area="declared_vars" print="yes"><MySource_DECLARE name="template_version" value="3.0" type="text" description="Version of the Unimelb Design System in use for this site"/></MySource_AREA>
 <MySource_AREA id_name="set_page_header_home_link" design_area="declared_vars" print="no"><MySource_DECLARE name="set_page_header_home_link" value="" type="text" description="Name of academic division or service area to display next to UoM logo on the home page banner. Must be in the form of <strong>&#60;a class=&#34;page-header-home&#34; href=&#34;/&#34; &#62;Faculty of Foo&#60;./?a=1383744a&#62;</strong>"/></MySource_AREA>
 
 <!--[if lt IE 9]><script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><![endif]-->
@@ -75,13 +75,36 @@ Asset ID: %globals_asset_assetid%
 <body>
 <div class="uomcontent">
 	<div class="page-inner">
-<!-- breadcrumbs --><MySource_AREA id_name="page_lineage" design_area="asset_lineage">
-		<div class="page-local-history">
-			<a href="<MySource_PRINT id_name='__global__' var='site_link' full_url='true'/>" rel="home" class="root"><MySource_PRINT id_name="__global__" var="site_name" /></a>
-<MySource_SET name="levels_to_print" value="0" /><MySource_SET name="prefix_with_home_link" value="false" /><MySource_SET name="suffix_with_current_link" value="true" /><MySource_SET name="prefix_with_divider" value="true" /><MySource_SET name="suffix_with_divider" value="false" /><MySource_SET name="show_hidden_links" value="false" /><MySource_DIVIDER><span>/</span></MySource_DIVIDER>
-<MySource_ASSET>			<a href="<MySource_PRINT var='asset_link' />"><MySource_PRINT var='asset_short_name' /></a></MySource_ASSET>
-		</div>
-</MySource_AREA><!-- /breadcrumbs -->
+		<!-- breadcrumbs -->     
+        <MySource_AREA id_name="page_lineage" design_area="asset_lineage">    
+         <ol class="page-local-history" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+          <li class="root" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <a href="<MySource_PRINT id_name='__global__' var='site_link' full_url='true'/>" title="Home" itemprop="item"><span itemprop="name"><MySource_PRINT id_name="__global__" var="site_name" /></span></a>
+            <meta content="1" itemprop="position" />
+          </li>        
+         <MySource_SET name="levels_to_print" value="0" />
+         <MySource_SET name="prefix_with_home_link" value="false" />
+         <MySource_SET name="suffix_with_current_link" value="true" />
+         <MySource_SET name="prefix_with_divider" value="false" />
+         <MySource_SET name="suffix_with_divider" value="false" />
+         <MySource_SET name="show_hidden_links" value="false" />
+         <MySource_SET name="unwanted_asset_types" value="image, folder" />
+         <MySource_DIVIDER></MySource_DIVIDER>
+         <MySource_ASSET>
+            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+               <a href="<MySource_PRINT var='asset_link' />" itemprop="item" title="<MySource_PRINT var='asset_short_name' />"><span itemprop="name"><MySource_PRINT var='asset_short_name' /></span></a>
+               <meta content="" itemprop="position" />
+            </li>  
+         </MySource_ASSET>
+        </ol>
+        </MySource_AREA>
+        <!-- breadcrumbs -->
+        <!-- Co-branding customisation -->
+  		<MySource_AREA id_name="cobranding_logo_css_img_links" design_area="linked_css"/>
+  		<MySource_AREA id_name="cobranding_logo_code_base" design_area="nest_content" cache="1">
+     	<MySource_SET name="type_codes"  value="page file" />
+  		</MySource_AREA>
+		<!-- /Co-branding customisation -->
 <!-- main-content -->
 <MySource_AREA id_name="home_page_template" design_area="show_if">
 <MySource_SET name="condition" value="logical"/>
