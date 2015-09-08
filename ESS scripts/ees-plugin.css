@@ -1,0 +1,326 @@
+/**************** Styles for METADATA TABS PLUGIN **********************
+***************** For version 0.2.1 - March 2012 ***********************/
+#mt-tabs{
+  position: relative;
+  overflow: hidden;
+  padding: 20px 0 15px 0;
+  margin: 0 auto;
+  width: 760px;
+}
+#mt-tabs ul{
+  margin: 0px;
+  border-bottom: 2px solid #ccc;
+  padding: 0px;
+  overflow: hidden;
+}
+#mt-tabs li{
+  list-style: none;
+  float: left;
+  margin: 0 0.3em 0 0;
+}
+#mt-tabs li a {
+  display: block;
+  border-radius: 6px 6px 0 0;
+  -moz-border-radius: 6px 6px 0 0;
+  -webkit-border-radius: 6px 6px 0 0;
+  border: solid 1px #ccc;
+  border-bottom: none;
+  background-color: #f0f0f0;
+  padding: 1em 1.2em 0.8em;
+  font-size: 13px;
+  font-weight: bold;
+  color: #5c5c5c;
+  text-shadow: 0 1px 0 #fff;
+  text-decoration: none;
+  overflow: hidden;
+}
+#mt-tabs li a:hover {
+  background-color: #e7e7e7;
+}
+#mt-tabs li a.selected{
+  border: solid 1px #3f5da0;
+  border-bottom: none;
+  color: #fff;
+  background-color: #0383da;
+  box-shadow: 0 0 3px rgba(0,0,0,0.3) inset;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+}
+#mt-tabs h2{
+  clear: both;
+}
+/**************** END styles for METADATA TABS PLUGIN **********************/
+
+
+
+/**************** Styles for fixing metadata text fields with associated values **********************/
+.cellData td{
+/*  display: block; */
+  position: relative;
+  clear: both;
+}
+/**************** END styles for fixing metadata text fields with associated values **********************/
+
+/**************** Styles for Custom Creator tools **********************/
+#cc-menu-wrapper{
+  display: none;
+  position: absolute;
+  height: 10px;
+  width: 175px;
+}
+#ees_createNew:hover #cc-menu-wrapper{
+  display: block;
+}
+
+#ees_createNew,
+#ees_toolBar {
+  overflow: visible;
+}
+a#ees_initCreationWizard {
+  width: 72px;
+}
+
+#cc-menu-wrapper ul{
+  position: absolute;
+  top: 5px;
+  left: 0px;
+  width: 175px;
+  background: #444;
+  border: 1px solid #000;
+  border-bottom: 0px solid #000;
+  padding: 0px;
+  margin: 0px;
+}
+#cc-menu-wrapper ul li{
+  list-style: none;
+  border-bottom: 1px solid #000;
+  position: relative;
+}
+#cc-menu-wrapper ul li a,
+#cc-menu-wrapper ul li span{
+  display: block;
+  padding: 7px 7px;
+  color: #fff;
+  text-decoration: none;
+  background: url(mysource_files/top-bar-bg.png) 0 0 repeat-x #000;
+}
+#cc-menu-wrapper ul li span{
+  cursor: default;
+}
+#cc-menu-wrapper ul li a:hover,
+#cc-menu-wrapper ul li span:hover,
+#cc-menu-wrapper ul li:hover>a,
+#cc-menu-wrapper ul li:hover>span{
+  color: #fff;
+  background: url(mysource_files/infoBox-top2.png);
+}
+#cc-menu-wrapper li ul{
+  display: none;
+  position: absolute;
+  top: -1px;
+  left: 175px;
+}
+#cc-menu-wrapper li:hover>ul{
+  display: block;
+}
+#cc-menu-wrapper li ul li ul{
+  display: none;
+}
+#cc-menu-wrapper li:hover>ul li:hover>ul{
+  display: block;
+}
+/**************** END Styles for Custom Creator tools **********************/
+
+#ees_runningWorkflows td span.required {
+background: url(mysource_files/icon-round-bg.png) no-repeat left top;
+    float: right;
+    height: 14px;
+    margin: 0;
+    width: 14px;
+    display: block;
+}
+#ees_runningWorkflows td span.required span {
+    background: url(mysource_files/required_stars.png) no-repeat left top;
+    display: block;
+    height: 14px;
+    margin: 0;
+    width: 14px;
+}
+
+
+/**********************************************/
+/* Styling for Subject Checkbox functionality */
+/**********************************************/
+
+#select_subject,
+#select_location {
+    height: auto;
+    left: auto;
+    right: 1%;
+    margin: 0;
+    overflow: auto;
+    position: absolute;
+    top: 25px;
+    width: 58%;
+    z-index: 9999;
+    display: block;
+    padding: 20px 5% 0;
+    background: #ebf4fe;
+}
+
+#select_subject ul.lvl_0,
+#select_location ul.lvl_0 {
+   margin: 0;
+   padding: 0;
+list-style: none;
+}
+#select_subject ul li,
+#select_location ul li {
+list-style: none;
+   margin: 0;
+   padding: 5px 0 5px 20px;
+   width: auto;
+   position: relative;
+}
+#select_subject ul li input,
+#select_location ul li input {
+   position: absolute;
+   left: 0;
+}
+
+#select_subject ul.level_0>li>a,
+#select_location ul.level_0>li>a {
+/* Styles now clash with Edit+ font size
+  font-size: 110%;
+*/
+  font-weight: bold;
+}
+
+#selection_highlight,
+#selection_highlight_loc {
+    list-style: none;
+    margin: 0;
+    padding: 20px 1% 20px 2%;
+    position: fixed;
+    left: 1%;
+    top: 25px;
+    width: 26%;
+    height:auto;
+    background: #EBF4FE;
+    z-index:9999;
+}
+#selection_highlight li,
+#selection_highlight_loc li {
+    list-style: none;
+    margin: 0;
+    padding: 5px 0;
+}
+#selection_close,
+#selection_close_loc {
+position: fixed;
+color: #fff;
+top: 0px;
+left: 48%;
+padding: 5px 30px 5px;
+background: #000;
+z-index: 9999;
+font-weight: bold;
+text-transform: uppercase;
+text-decoration: none;
+}
+#selection_close:hover,
+#selection_close_loc:hover {
+  background: #555;
+}
+
+#picker_loader,
+#picker_loader_location {
+    cursor: pointer;
+    color: #fff;
+    height: 28px;
+    width: auto;
+    display: block;
+    padding: 0 0 0 30px;
+    background: #000 url("mysource_files/finder_icon.png") no-repeat 0 1px;
+    line-height: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+}
+#metadata-row-887 {
+  background: #EBF4FE;
+  padding: 10px;
+}
+
+
+    #metadata-row-859 {
+        padding: 0;
+        border: none;
+    }
+    #metadata-row-859 .cellName {
+      display: none;
+    }
+    #metadata-row-859 .cellData {
+        border: 0;
+        border-bottom: 2px solid #ccc;
+        margin: 0;
+        overflow: visible;
+        padding: 10px 10px 0;
+        position: relative;
+        background: url(mysource_files/row-bg-blue.gif) repeat 0 0 ;
+        width: 650px;
+    }
+    #metadata-row-859 .defaultCheckbox, #metadata-row-859 .defaultLabel {
+        display: none;
+    }
+
+body #metadata-row-888, body #metadata-row-3253, body #metadata-row-1561 {
+  border: none;
+}
+
+
+#current_location li {
+  padding-bottom: 5px;
+}
+
+
+
+#ees_linkingUpdate {
+    background: -moz-linear-gradient(center top , #568D2B 15%, #224C05 50%, #0F2500 80%) repeat scroll 0 0 transparent;
+    height: 27px;
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#568d2b',endColorstr='#0f2500',GradientType=0);
+
+}
+#ees_linkingUpdate:hover {
+    background: -moz-linear-gradient(center top , #52A413 15%, #235900 50%, #133000 80%) repeat scroll 0 0 transparent;
+}
+#ees_linkingUpdate span {
+    padding: 0 30px;
+}
+#ees_linkingUpdate.disabled, #ees_linkingUpdate.disabled:hover {
+    background: -moz-linear-gradient(center top , #555555 0px, #000000 70%) repeat scroll 0 0 transparent;
+    border-color: #222222 #222222 #3A3A3A;
+    color: #666666;
+    cursor: not-allowed;
+    height: 27px;
+    text-shadow: 0 -1px 1px #333333;
+}
+
+/**/
+
+
+/**********************************************************/
+/* Styling for Filter Event Metadata plugin functionality */
+/**********************************************************/
+
+.editSection .row.filtered-row,
+.editSection .row.filtered-event-row {
+  background: #efefef;
+}
+.editSection .row.filtered-row .notes,
+.editSection .row.filtered-event-row .notes {
+  color: #000;
+}
+
+#ees_editMetadata .rowWithWYSIWYG .notes {
+  padding-left: 20px;
+}
