@@ -5,18 +5,22 @@
 class="image" style="background-image: url(%asset_metadata_BANNER.Image^as_asset:asset_url%);"
 %end_enable_banner_image%>
 	<div class="mid-align">
-	%begin_enable_header_subtext% 
-		<h1 %asset_metadata_HEADER.HeaderTextHighlight%>%asset_metadata_HEADER.HeaderText%</h1>
-		<p>%asset_metadata_HEADER.Subline%</p>
-			%begin_hero_button%
-		<p><a href="%asset_metadata_CONTENT.HeaderHeroButtonLink%" class="button-hero%asset_metadata_CONTENT.HeaderHeroButtonInverse%">%asset_metadata_CONTENT.HeaderHeroButtonText%</a></p>
-			%end_hero_button%
-	%else_enable_header_subtext%
-		<h1 %asset_metadata_HEADER.HeaderTextHighlight%>%asset_metadata_HEADER.HeaderText%</h1>
-			%begin_hero_button%
-		<p><a href="%asset_metadata_CONTENT.HeaderHeroButtonLink%" class="button-hero%asset_metadata_CONTENT.HeaderHeroButtonInverse%">%asset_metadata_CONTENT.HeaderHeroButtonText%</a></p>
-			%end_hero_button%
-	%end_enable_header_subtext%
+     
+  	%begin_asset_metadata_HEADER.HeaderText% 
+        <h1>%asset_metadata_HEADER.HeaderText%</h1>     
+  	%else_asset_metadata_HEADER.HeaderText% 
+        <h1>%asset_name%</h1> 
+  	%end_asset_metadata_HEADER.HeaderText% 
+  
+  	%begin_asset_metadata_HEADER.Subline% 
+        <p>%asset_metadata_HEADER.Subline%</p>
+  	%else_asset_metadata_HEADER.Subline% 
+  	%end_asset_metadata_HEADER.Subline% 
+    
+	%begin_hero_button% 	
+  	<p><a href="%asset_metadata_CONTENT.HeaderHeroButtonLink%" class="button-hero-inverse">%asset_metadata_CONTENT.HeaderHeroButtonText%</a></p>
+    %else_hero_button% 
+  	%end_hero_button% 
 	</div>
 </header>
 <!-- End background image header -->
@@ -27,12 +31,12 @@ class="image" style="background-image: url(%asset_metadata_BANNER.Image^as_asset
 %globals_asset_contents_raw:1383610% 
 %else_tabbed_nav%
 
-  %begin_add_content% 
-    <section class="lead">
-      %asset_metadata_CONTENT.LandingPageShort%
-    </section>
-    
-  %end_add_content% 
+%begin_asset_metadata_CONTENT.LandingPageShort% 
+<section class="lead">
+  <p>%asset_metadata_CONTENT.LandingPageShort%</p>
+</section>
+%else_asset_metadata_CONTENT.LandingPageShort% 
+%end_asset_metadata_CONTENT.LandingPageShort%
 
   %asset_contents%
 
