@@ -1,33 +1,36 @@
 %begin_asset_metadata_DESIGN.PageTemplate^contains:template-filtered-listing%
         
-<!-- Begin background image header -->
-<header %begin_enable_banner_image% 
-class="image" style="background-image: url(%asset_metadata_BANNER.Image^as_asset:asset_url%);"
-%end_enable_banner_image%>
-	<div class="mid-align">
-	%begin_enable_header_subtext% 
-		<h1 %globals_asset_metadata_HEADER.HeaderTextHighlight%>%globals_asset_metadata_HEADER.HeaderText%</h1>
-		<p>%globals_asset_metadata_HEADER.Subline%</p>
-			%begin_hero_button%
-		<p><a href="%globals_asset_metadata_CONTENT.HeaderHeroButtonLink%" class="button-hero%globals_asset_metadata_CONTENT.HeaderHeroButtonInverse%">%globals_asset_metadata_CONTENT.HeaderHeroButtonText%</a></p>
-			%end_hero_button%
-	%else_enable_header_subtext%
-		<h1 %globals_asset_metadata_HEADER.HeaderTextHighlight%>%globals_asset_metadata_HEADER.HeaderText%</h1>
-			%begin_hero_button%
-		<p><a href="%globals_asset_metadata_CONTENT.HeaderHeroButtonLink%" class="button-hero%globals_asset_metadata_CONTENT.HeaderHeroButtonInverse%">%globals_asset_metadata_CONTENT.HeaderHeroButtonText%</a></p>
-			%end_hero_button%
-	%end_enable_header_subtext%
-	</div>
+<!-- Begin banner -->
+<header class="image" style="background-image: url(%asset_metadata_BANNER.Image^as_asset:asset_url%);">
+  <div class="mid-align">
+   
+  	%begin_asset_metadata_HEADER.HeaderText% 
+        <h1>%asset_metadata_HEADER.HeaderText%</h1>     
+  	%else_asset_metadata_HEADER.HeaderText% 
+        <h1>%asset_name%</h1> 
+  	%end_asset_metadata_HEADER.HeaderText% 
+  
+  	%begin_asset_metadata_HEADER.Subline% 
+        <p>%asset_metadata_HEADER.Subline%</p>
+  	%else_asset_metadata_HEADER.Subline% 
+  	%end_asset_metadata_HEADER.Subline% 
+  
+	%begin_hero_button% 	
+  	<p><a href="%asset_metadata_CONTENT.HeaderHeroButtonLink%" class="button-hero-inverse">%asset_metadata_CONTENT.HeaderHeroButtonText%</a></p>
+    %else_hero_button% 
+  	%end_hero_button% 
+  
+    </div>
 </header>
-<!-- End background image header -->
+<!-- End banner -->
 
-
-%begin_add_content% 
+%begin_asset_metadata_CONTENT.LandingPageShort% 
 <section class="lead">
-  %globals_asset_metadata_CONTENT.LandingPageShort%
+  <p>%asset_metadata_CONTENT.LandingPageShort%</p>
 </section>
 <hr>
-%end_add_content% 
+%else_asset_metadata_CONTENT.LandingPageShort% 
+%end_asset_metadata_CONTENT.LandingPageShort% 
 
 %globals_asset_contents_raw:1437473% 
       
