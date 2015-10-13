@@ -1,5 +1,6 @@
 <MySource_AREA id_name="exit_area" design_area="exit" print="no"></MySource_AREA>
 <MySource_AREA id_name="nested_EES_code" design_area="nest_content" print="no" />
+<MySource_AREA id_name="DESIGN_eesconfig" design_area="nest_content" print="no" />
 <MySource_AREA id_name="simple_edit_EES" design_area="show_if">
     <MySource_SET name="condition" value="simple_edit_mode" /> 
     <MySource_THEN> 
@@ -12,7 +13,8 @@
                 <!-- Related install step: http://manuals.matrix.squizsuite.net/ees/chapters/installation/#Constructing-the-Configuration-File -->
                 <title>Loading Easy Edit Suite...</title>             
                 <!-- Use a nested standard page (set to raw html) for custom CSS and JS file references. Avoids editing design file. -->
-                <MySource_PRINT id_name="nested_EES_code" />             
+                <MySource_PRINT id_name="nested_EES_code" />
+                <MySource_PRINT id_name="DESIGN_eesconfig" />             
             </head>
             <body></body>
         </html>     
@@ -74,8 +76,8 @@ Asset ID: %globals_asset_assetid%
 </head>
 <body>
 <div class="uomcontent">
-	<div class="page-inner">
-		<!-- breadcrumbs -->     
+    <div class="page-inner">
+        <!-- breadcrumbs -->     
         <MySource_AREA id_name="page_lineage" design_area="asset_lineage">    
          <ol class="page-local-history" itemscope="" itemtype="http://schema.org/BreadcrumbList">
           <li class="root" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
@@ -100,11 +102,11 @@ Asset ID: %globals_asset_assetid%
         </MySource_AREA>
         <!-- breadcrumbs -->
         <!-- Co-branding customisation -->
-  		<MySource_AREA id_name="cobranding_logo_css_img_links" design_area="linked_css"/>
-  		<MySource_AREA id_name="cobranding_logo_code_base" design_area="nest_content" cache="1">
-     	<MySource_SET name="type_codes"  value="page file" />
-  		</MySource_AREA>
-		<!-- /Co-branding customisation -->
+          <MySource_AREA id_name="cobranding_logo_css_img_links" design_area="linked_css"/>
+          <MySource_AREA id_name="cobranding_logo_code_base" design_area="nest_content" cache="1">
+         <MySource_SET name="type_codes"  value="page file" />
+          </MySource_AREA>
+        <!-- /Co-branding customisation -->
 <!-- main-content -->
 <MySource_AREA id_name="home_page_template" design_area="show_if">
 <MySource_SET name="condition" value="logical"/>
@@ -113,6 +115,7 @@ Asset ID: %globals_asset_assetid%
         <div class='main' id='main-content' role='main'>
 <MySource_AREA id_name="body" design_area="body" />
 <MySource_AREA id_name="local_footer" design_area="nest_content" cache="1"><MySource_SET name="type_codes" value="page" /></MySource_AREA>
+<MySource_AREA id_name="DESIGN_footer" design_area="nest_content" cache="1"><MySource_SET name="type_codes" value="page" /></MySource_AREA>
         </div>
 <!-- /main-content -->
 <!--googleoff: all-->
