@@ -1,6 +1,5 @@
 <MySource_AREA id_name="exit_area" design_area="exit" print="no"></MySource_AREA>
 <MySource_AREA id_name="nested_EES_code" design_area="nest_content" print="no" />
-<MySource_AREA id_name="DESIGN_eesconfig" design_area="nest_content" print="no" />
 <MySource_AREA id_name="simple_edit_EES" design_area="show_if">
     <MySource_SET name="condition" value="simple_edit_mode" /> 
     <MySource_THEN> 
@@ -13,8 +12,7 @@
                 <!-- Related install step: http://manuals.matrix.squizsuite.net/ees/chapters/installation/#Constructing-the-Configuration-File -->
                 <title>Loading Easy Edit Suite...</title>             
                 <!-- Use a nested standard page (set to raw html) for custom CSS and JS file references. Avoids editing design file. -->
-                <MySource_PRINT id_name="nested_EES_code" />
-                <MySource_PRINT id_name="DESIGN_eesconfig" />             
+                <MySource_PRINT id_name="nested_EES_code" />           
             </head>
             <body></body>
         </html>     
