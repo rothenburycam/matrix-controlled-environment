@@ -4,27 +4,37 @@
     <h1>
       %asset_attribute_name%
     </h1>
-    %asset_attribute_summary%%asset_attribute_body%
+    %asset_attribute_summary%
+    %asset_attribute_body%
   </div>
   <aside>
     <div>
       <time datetime="%asset_published_short%">%asset_published_readabledate%</time>
     </div>
     <div>
+     %begin_enable_more_information%
       <p>
         <em>More Information</em>
       </p>
+      %begin_asset_attribute_contact_name% 
       <p>
         %asset_attribute_contact_name%
       </p>
-      <p>
-        <a href="mailto:%asset_metadata_NEWS.EmailAddress%">%asset_metadata_NEWS.EmailAddress%</a>
-      </p>
-%begin_phone%
-      <p>
-        <a href="tel:%asset_attribute_contact_phone^replace:(\s):%">T: %asset_attribute_contact_phone%</a>
-      </p>
-%end_phone%
+      %else_asset_attribute_contact_name% 
+      %end_asset_attribute_contact_name% 
+      
+      %begin_asset_metadata_NEWS.EmailAddress%
+      <p><a href="mailto:%asset_metadata_NEWS.EmailAddress%">%asset_metadata_NEWS.EmailAddress%</a></p>
+      %else_asset_metadata_NEWS.EmailAddress%
+      %end_asset_metadata_NEWS.EmailAddress%
+
+      %begin_asset_attribute_contact_phone%
+      <p><a href="tel:%asset_attribute_contact_phone^replace:(\s):%">T: %asset_attribute_contact_phone%</a></p>
+      %else_asset_attribute_contact_phone%
+      %end_asset_attribute_contact_phone%
+
+     %else_enable_more_information%
+     %end_enable_more_information%
     </div>
   </aside>
 </article>
