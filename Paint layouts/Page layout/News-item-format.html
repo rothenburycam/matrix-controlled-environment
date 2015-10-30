@@ -36,7 +36,11 @@
       %end_asset_metadata_NEWS.EmailAddress%
 
       %begin_asset_attribute_show_contact_phone%
+
+        %begin_phone%
       <p><a href="tel:%asset_attribute_contact_phone^replace:(\s):%">T: %asset_attribute_contact_phone%</a></p>
+        %else_phone%
+        %end_phone%
       %else_asset_attribute_show_contact_phone%
       %end_asset_attribute_show_contact_phone%
 
