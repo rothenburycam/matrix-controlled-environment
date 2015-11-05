@@ -1,0 +1,64 @@
+<div class="detail">
+  <div class="upper">
+    <aside>
+      <div class="when">
+      
+      <time datetime="%event_start_datetime_o-m-d%"> %event_start_datetime_l% <strong>%event_start_datetime_j% %event_start_datetime_M%</strong> %event_start_datetime_Y%</time>
+
+      <time datetime="%event_start_time_24h%">%event_short_start_time% - %event_short_end_time%</time>
+     
+      </div>
+    </aside>
+   %begin_asset_thumbnail%
+    <img src="%asset_thumbnail_url%">
+   %end_asset_thumbnail%
+  </div>
+  <div class="lower">
+    <aside>
+
+      %begin_enable_map%
+      <div>
+      
+      %begin_asset_metadata_LOCATION.Address%       
+      <p>%asset_metadata_LOCATION.Address%</p>
+      %end_asset_metadata_LOCATION.Address%  
+
+      %begin_asset_metadata_LOCATION.Map%  
+        <a class="button-small" href="%asset_metadata_LOCATION.Map%" target="_blank">Map<span class="small" data-icon="location"></span></a>
+      %end_asset_metadata_LOCATION.Map%     
+      
+      </div>
+      %end_enable_map%
+      
+      %begin_enable_contact%
+      <div>
+      <p>
+        <em>More Information</em>
+      </p>
+      %begin_asset_metadata_CONTACT.Name%
+      <p>%asset_metadata_CONTACT.Name%</p>
+      %else_asset_metadata_CONTACT.Name%
+      %end_asset_metadata_CONTACT.Name%
+     
+      %begin_asset_metadata_CONTACT.Email%
+      <p><a href="mailto:%asset_metadata_CONTACT.Email%">%asset_metadata_CONTACT.Email%</a></p>
+      %else_asset_metadata_CONTACT.Email%
+      %end_asset_metadata_CONTACT.Email%
+
+      %begin_asset_metadata_CONTACT.Phone%
+      <p><a href="tel:%asset_metadata_CONTACT.Phone^replace:(\s):%">T: %asset_metadata_CONTACT.Phone%</a></p>
+      %else_asset_metadata_CONTACT.Phone%
+      %end_asset_metadata_CONTACT.Phone%
+     
+      </div>
+      %else_enable_contact%
+      %end_enable_contact%
+
+    </aside>
+    <h1>
+      %asset_attribute_name%
+    </h1>
+     %asset_attribute_description%
+  </div>
+</div>
+<footer></footer>
