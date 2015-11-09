@@ -1,0 +1,35 @@
+%begin_asset_metadata_DESIGN.PageTemplate^contains:template-side-tab-nav%
+
+<!-- Begin blue header -->
+<header>
+
+    %begin_asset_metadata_HEADER.HeaderText% 
+    <h1>%asset_metadata_HEADER.HeaderText%</h1>     
+    %else_asset_metadata_HEADER.HeaderText% 
+    <h1>%asset_name%</h1>  
+    %end_asset_metadata_HEADER.HeaderText% 
+  
+</header>
+<!-- end blue header -->
+
+<div class="tabbed-course">
+<div class="with-aside left">
+   <div>
+   <aside>
+        <h2 class="subtitle">%asset_short_name%</h2>
+        %globals_asset_contents_raw:1647348%
+   </aside>
+
+   <!-- start bside -->
+   <div class="bside">
+      <div class="degree-plan-section">
+        %globals_asset_contents_raw:1647365%
+      </div>
+   </div>
+   <!-- end bside -->
+   </div>
+</div>
+
+</div>
+
+%end_asset_metadata_DESIGN.PageTemplate^contains:template-side-tab-nav%
