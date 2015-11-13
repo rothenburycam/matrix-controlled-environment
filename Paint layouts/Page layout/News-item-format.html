@@ -18,6 +18,17 @@
     <div>
       <time datetime="%asset_published_short%">%asset_published_readabledate%</time>
     </div>
+    <div class="share">
+      <ul>
+        <li>
+          <a href="https://twitter.com/intent/tweet?text=%asset_attribute_name^replace:(\s):+%++%asset_url%" title="Tweet This">
+            <span class="small" data-icon="twitter"></span>
+          </a>
+        </li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=%asset_url%" title="Share on Facebook"><span class="small" data-icon="facebook"></span></a></li>
+        <li><a href="https://www.linkedin.com/shareArticle?title=%asset_attribute_name^replace:(\s):+%&amp;url=%asset_url%" title="Share on LinkedIn"><span class="small" data-icon="linkedin"></span></a></li>
+      </ul>
+    </div>
     <div>
      %begin_enable_more_information%
       <p>
