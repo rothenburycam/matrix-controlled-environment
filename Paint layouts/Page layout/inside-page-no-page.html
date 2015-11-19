@@ -1,15 +1,17 @@
 %begin_asset_metadata_DESIGN.PageTemplate^contains:template-standard-page-no-header%
 
-	%begin_asset_metadata_HEADER.HeaderText%
-	<h1>%asset_metadata_HEADER.HeaderText%</h1>
+<div class="headerless"></div>
+
+	%begin_asset_metadata_HEADER.HeaderText%	
+        <h1 class="aligned-title">%asset_metadata_HEADER.HeaderText%</h1>
 	%else_asset_metadata_HEADER.HeaderText%
-	<h1>%asset_name%</h1>
+	<h1 class="aligned-title">%asset_name%</h1>
 	%end_asset_metadata_HEADER.HeaderText%
 	
 	%asset_metadata_CONTENT.JumpNav%
 
 	%begin_asset_metadata_CONTENT.LandingPageShort% 
-    	<section class="lead">
+    	<section class="lead left">
           <p> %asset_metadata_CONTENT.LandingPageShort% </p>
     	</section>
   	%else_asset_metadata_CONTENT.LandingPageShort%  
