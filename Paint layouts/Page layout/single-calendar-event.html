@@ -1,5 +1,11 @@
 <div class="detail">
   <div class="upper">
+    <h1>
+      %asset_attribute_name%
+    </h1>
+    %begin_asset_metadata_TAG.Keyword%
+    <h2>%asset_metadata_TAG.Keyword%</h2>
+    %end_asset_metadata_TAG.Keyword%
     <aside>
       <div class="when">
       
@@ -29,6 +35,18 @@
       
       </div>
       %end_enable_map%
+
+      <div>
+        <ul class="social-links">
+        <li>
+          <a href="https://twitter.com/intent/tweet?text=%asset_name^replace:(\s):+%++%asset_url%" title="Tweet This">
+            <span class="small" data-icon="twitter"></span>
+          </a>
+        </li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=%asset_url%" title="Share on Facebook"><span class="small" data-icon="facebook"></span></a></li>
+        <li><a href="https://www.linkedin.com/shareArticle?title=%asset_name^replace:(\s):+%&amp;url=%asset_url%" title="Share on LinkedIn"><span class="small" data-icon="linkedin"></span></a></li>
+      </ul>
+      </div>
       
       %begin_enable_contact%
       <div>
@@ -55,9 +73,6 @@
       %end_enable_contact%
 
     </aside>
-    <h1>
-      %asset_attribute_name%
-    </h1>
      %asset_attribute_description%
   </div>
 </div>
