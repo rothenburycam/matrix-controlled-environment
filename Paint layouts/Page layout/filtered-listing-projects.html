@@ -1,0 +1,63 @@
+%begin_asset_metadata_DESIGN.PageTemplate^contains:template-filtered-list-project%
+        
+<!-- Begin banner -->
+<div style="background-image: url(%asset_metadata_BANNER.Image^as_asset:asset_url%);" class="contrast-helper">
+<header class="image with-filters">  
+  
+  	%begin_asset_metadata_HEADER.Subline% 
+        <p>%asset_metadata_HEADER.Subline%</p>
+  	%else_asset_metadata_HEADER.Subline% 
+  	%end_asset_metadata_HEADER.Subline% 
+
+ <div class="bottom-align-flat">
+    <div class="filtered-listing-wrapper">
+    <form class="filtered-listing-select">
+
+    <fieldset class="left">
+      <legend>Project status</legend>
+      
+      <!-- insert the checkbox -->
+      %globals_asset_contents_raw:1669352% 
+    </fieldset>
+    
+     <!-- insert the drop down -->
+    <div class="right">
+    <label for="f-select2">Area of interest</label>
+        <div>
+            <select class="clear" id="f-select2" name="f[select2]" title="Please make a selection from the 2nd dropdown">
+              <option value="-1">
+                All areas
+              </option>
+             <!-- insert the dropdown --> 
+             %globals_asset_contents_raw:1544269% 
+            </select>
+        </div>
+    </div>
+  
+  </form>
+</div>
+</div>
+</header>
+</div>
+<!-- End banner -->
+%begin_asset_metadata_CONTENT.LandingPageShort% 
+<section>
+  <p class="lead">%asset_metadata_CONTENT.LandingPageShort%</p>
+</section>
+<hr>
+%else_asset_metadata_CONTENT.LandingPageShort% 
+%end_asset_metadata_CONTENT.LandingPageShort% 
+
+%begin_asset_contents% 
+<section>
+%asset_contents%
+</section>
+<hr class="spacer">
+%else_asset_contents% 
+<div class="section-spacer"></div>
+%end_asset_contents%
+
+<!-- insert filtered list -->
+%globals_asset_contents_raw:1550714% 
+      
+%end_asset_metadata_DESIGN.PageTemplate^contains:template-filtered-list-project%
