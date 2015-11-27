@@ -1,22 +1,36 @@
 %begin_asset_metadata_DESIGN.PageTemplate^contains:template-researchproject%
 
-%asset_metadata_CONTENT.JumpNav%
+<div class="headerless"></div>
 
 <div class="with-aside">
 	
-		<div class="bside">
-			<section>
-				%begin_asset_metadata_HEADER.HeaderText% 
-				<h1>%asset_metadata_HEADER.HeaderText%</h1>
+	<div class="bside">
+	  <section>
+		%begin_asset_metadata_HEADER.HeaderText% 
+		<h1>%asset_metadata_HEADER.HeaderText%</h1>
                 %else_asset_metadata_HEADER.HeaderText% 
                 <h1>%asset_name%</h1>
                 %end_asset_metadata_HEADER.HeaderText% 
 
+               %begin_asset_metadata_CONTENT.LandingPageShort%
+    		<section class="lead left">
+     			<p> %asset_metadata_CONTENT.LandingPageShort%</p>
+    		</section>
+   		%else_asset_metadata_CONTENT.LandingPageShort%
+   		%end_asset_metadata_CONTENT.LandingPageShort% 
+
                 %asset_contents%
             </section>
 
-		</div>
-		%globals_asset_contents_raw:1386270%
+	 </div>
+         <aside>
+                  %begin_asset_metadata_TAG.Keyword% 
+                   <h2>%asset_metadata_TAG.Keyword%</h2>
+                   %else_asset_metadata_TAG.Keyword% 
+                   <h2>Research Program</h2>
+                   %end_asset_metadata_TAG.Keyword% 
+		   %globals_asset_contents_raw:1669557%
+         </aside>
 	
 </div>
 

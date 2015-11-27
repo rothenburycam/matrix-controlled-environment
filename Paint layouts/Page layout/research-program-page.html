@@ -1,39 +1,31 @@
 %begin_asset_metadata_DESIGN.PageTemplate^contains:template-researchprogram%
 
-%asset_metadata_CONTENT.JumpNav%
+<div class="headerless"></div>
 
 <div class="with-aside">
 	<div>
 		<div class="bside">
-			<section>
-			%begin_enable_header_subtext% 
-				<h1 %asset_metadata_HEADER.HeaderTextHighlight%>%asset_metadata_HEADER.HeaderText%</h1>
-				<p>%asset_metadata_HEADER.Subline%</p>
-					%begin_hero_button%
-				<p><a href="%asset_metadata_CONTENT.HeaderHeroButtonLink%" class="button-hero%asset_metadata_CONTENT.HeaderHeroButtonInverse%">%asset_metadata_CONTENT.HeaderHeroButtonText%</a></p>
-					%end_hero_button%
-				%else_enable_header_subtext%
-				<h1 %asset_metadata_HEADER.HeaderTextHighlight%>%asset_metadata_HEADER.HeaderText%</h1>
-					%begin_hero_button%
-				<p><a href="%asset_metadata_CONTENT.HeaderHeroButtonLink%" class="button-hero%asset_metadata_CONTENT.HeaderHeroButtonInverse%">%asset_metadata_CONTENT.HeaderHeroButtonText%</a></p>
-					%end_hero_button%
-			%end_enable_header_subtext%
-				
-				<hr>
+		
+		<h1>%asset_name%</h1>
+		
+  		%begin_asset_metadata_CONTENT.LandingPageShort%
+    		<section class="lead left">
+     			<p> %asset_metadata_CONTENT.LandingPageShort%</p>
+    		</section>
+   		%else_asset_metadata_CONTENT.LandingPageShort%
+   		%end_asset_metadata_CONTENT.LandingPageShort%
 
-  %begin_add_content% 
-    <section class="lead">
-      %asset_metadata_CONTENT.LandingPageShort%
-    </section>
-  %end_add_content% 
-
-  <section>
-    %asset_contents%
-  </section>
-
-			</section>
+    		%asset_contents%
+		
 		</div>
-		%globals_asset_contents_raw:1386259%
+                <aside>
+                  %begin_asset_metadata_TAG.Keyword% 
+                   <h2>%asset_metadata_TAG.Keyword%</h2>
+                   %else_asset_metadata_TAG.Keyword% 
+                   <h2>Research Projects</h2>
+                   %end_asset_metadata_TAG.Keyword% 
+		   %globals_asset_contents_raw:1669438%
+                </aside>
 	</div>
 </div>
 
