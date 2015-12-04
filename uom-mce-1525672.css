@@ -1,0 +1,75 @@
+/* 
+  Template Name: uom-mce.css
+  UOM Version: 3.4.3
+  Author: External Relations Digital Team - Based on UoM Design Template
+  Updated: 18/11/2015
+  */
+  
+  /* give some padding to the top of pages - this is a fix until release 5.3*/
+  .uomcontent .section-spacer {padding-bottom: 3rem;}
+  .uomcontent .section-spacer-top {padding-top: 3rem;}
+  
+  /* fix padding in local site footer */
+  
+  .uomcontent footer.cta .center {margin: 0 auto; padding: 0;}
+  .uomcontent footer.cta ul.quicklinks {max-width: 100%;}
+  .uomcontent footer.cta ul.quicklinks li {padding: 0px;}
+  .uomcontent footer.cta ul.site-links li {padding: 0px;}
+  .uomcontent [role="main"] footer {padding-bottom: 0rem;}
+  
+  /* bug 3/11/2015 issue #420 and #419 from v3.3.1 to v3.4.1 
+     template: blue header with jump nav    
+     page: apply now */
+  .uomcontent fieldset label {width: 40rem;}
+  
+  
+  /* bug 27/11/2015 from v3.6 only issue when jump nav is on for inside page with header */
+  .jumpnav-active .uomcontent .lead {padding: 4.5rem 0 72px;}
+  
+  /* fix form styling for native Matrix styles */
+legend.sq-form-section-title {
+	font-size: 0.9375rem;
+	font-weight: 700;
+	letter-spacing: 0.0625rem;
+	line-height: 1.5rem;
+	text-transform: uppercase;
+	padding-top: 10px;
+}
+.sq-form-question.sq-form-question-error input.sq-form-field,
+.sq-form-error.sq-captcha-error {
+	background-color: #fff;
+	border-color: #fb6a7b;
+	color: #fb6a7b;
+}
+.sq-form-question.sq-form-question-error p.sq-form-error,
+.sq-form-error.sq-captcha-error {
+	font-size: 0.875rem;
+	padding: 0.3125rem 0;
+	-webkit-animation: flash 0.4s 0.1s 1 ease-in-out;
+	animation: flash 0.4s 0.1s 1 ease-in-out;
+	color: #df0620;
+	display: block;
+	font-style: italic;
+	margin: 0;
+	text-transform: none
+}
+fieldset div.sq-form-question-answer {padding: 0px;}
+fieldset div.sq-form-question-answer div.styled-select { margin-top: 0.3125rem; }
+#sq_normal_captcha input[type="text"]:hover {border-color: #adb8c1}
+#sq_normal_captcha input[type="text"] {
+	font-size: 1.25rem;
+	background-color: #f6f6f6;
+	border: 1px solid #d3d3d3;
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
+	padding: 0.5rem 0.625rem;
+	font-family: Roboto, Helvetica, Arial, sans-serif;
+	font-weight: 300;
+	margin-top: 0.3125rem;
+	border-radius: 0.1875rem;
+}
+div.sq-form-captcha {
+	border-bottom: 1px solid #e9e9e9;
+	border-top: 1px solid #e9e9e9;
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+}
