@@ -15,21 +15,26 @@
  ** Set the description and order of each tab, and also create the JS API object for the batching */
 var inceptionTabs = [
 {
+  "name": "Design",
+  "desc": "Select a page layout and configure the design settings."
+}, 
+{
   "name": "Content",
-  "desc": "Manage page content here."
+  "desc": "Additional page settings can be managed here. Some of these settings are also used on pages such as filtered lists."
 },
 
 {
-  "name": "Design",
-  "desc": "Select page layout and configure design settings."
+  "name": "Research",
+  "desc": "Manage your research project page here."
+},
+ 
+{
+  "name": "Scholarships",
+  "desc": "Manage your research project page here."
 },
  {
-  "name": "Authoring",
-  "desc": "Who owns and maintains this content?"
-},   
- {
   "name": "SEO",
-  "desc": "Increase your organic search results."
+  "desc": "Improve your organic search results."
 },
 
 ];
