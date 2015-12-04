@@ -36,7 +36,7 @@ var EasyEditConfig = {
     // Cascade status change threshold
     // If the number of children affected by a cascade status change exceeds this value
     // the user will be warned
-    cascadeThreshold:           4,
+    cascadeThreshold:           1,
 
     
     // Timeout to show a warning for overlays that are active for more than X number of
@@ -47,8 +47,7 @@ var EasyEditConfig = {
     // An array of asset id's to use as extra locations (like main news folder) in the first panel of
     // the asset finder. Assets will be listed below the configured root node (usually the current site asset)
     // and be navigable. Example = [xxxx,xxxx,xxxx] where xxxx is a parent asset id.
-    assetFinderLocations:       [1370548,1509744],
-
+    assetFinderLocations:       [],
 
     // PERFORMANCE FEATURE.
     // Maximum number of assets to show in an asset finder panel before
@@ -60,11 +59,26 @@ var EasyEditConfig = {
     // PERFORMANCE FEATURE.
     // Cache manager default expiry, minutes expressed as a whole number.
     cacheManagerDefaultExpiry:    2,
+    
+    // The default mode to use on initial load. Can be 'edit' or 'preview'.
+    // Can be overridden in the url by using the hash #mode=mode_name e.g. #mode=preview.
+    // If missing from config defaults to edit mode.
+    defaultMode:                'edit',
+
+    // Default screen to use on initial edit mode load.
+    // Can be overridden in the url by using the hash #screen=screen_name e.g. #screen=content.
+    // If missing from config defaults to details screen.
+    defaultScreen:              'details',
+
+    // Should the ?SQ_ACTION=diff flag be used in preview mode?
+    // If missing from config or set to false preview mode will require
+    // user interaction with the 'Compare to Live' button.
+    showDifferencesInPreviewMode: false,
 
     // Show 'Set Thumbnail' section on details screen.
     // Adds the ability to add/remove/update a thumbnail to all assets.
     // If missing from config thumbnail will show by default, set to false to hide.
-    useThumbnail:                false,
+    useThumbnail:                true,
 
     // Display and allow editing of future statuses via the details screen.
     // If missing from config or false the details screen will not display 'Show Future Status'.
@@ -87,69 +101,16 @@ var EasyEditConfig = {
 
     // Default expiry time (minutes) for any cached items stored by the cache manager
     cacheManagerDefaultExpiry:  2,
-    // [OPTIONAL] Create wizard customisations
-    // If this configuration is present it will determine the categories and asset types
-    // and their order in the create wizard. read this http://forums.squizsuite.net/index.php?showtopic=12087
-    //createWizardCategories: {}, // Specifying anything here will completely replace any defaults
-
-
-    // [OPTIONAL] Create wizard asset type black lists
-    // Remove individual asset types from the wizard
-    //createWizardAssetBlackList: ['news_item'],
-
-    // [OPTIONAL] Create wizard category black lists
-    // Remove an entire category from the wizard
-    //createWizardCategoryBlackList: ['Events','Other'],
-
-    // [OPTIONAL] Enforce workflow approval/rejection log messaging
-    // If this option is set to false users will not have to fill out the
-    // mandatory workflow log message when approving or rejecting assets on
-    // the Workflow screen. By default this option is set to true.
-    // mandatoryWorkflowLog: false,
 
     // [OPTIONAL] - [PLUS only]
-    // Array of classes to show as available selections in bodycopy containers
-    // 'Text' is the presentation value users will see
-    // 'Value' is the class to be applied
-   
-    classSelect: [
-        {
-            text: "lead",
-            value: "lead"
-        },
-        {
-            text: "alt",
-            value: "alt"
-        }
-    ],
-    
+    // If markdown is enabled setting this value to true will allow the creation of
+    // markdown divs in content pages. Requires Markdown to be installed and enabled
+    // in the system configuration menu. Check with your system administrator before
+    // enabling this.
+    //markdownEnabled:            true,
 
-    // [OPTIONAL] - [PLUS only]
-    // Array of paint layouts with name to display and asset id of the layout. This
-    // option is used to display a drop down list of layouts available in the nest
-    // content division on the contents screen.
-    // NOTE: these are example paintlayouts
-    
-    paintLayouts: [
-        {
-            id: 1277287,
-            name: "Component 1 - Paint Layout"
-        },
-        {
-            id: 1277295,
-            name: "Component 2 - Paint Layout"
-        }
-    ],
-
-
-    // Should the ?SQ_ACTION=diff flag be used in preview mode?
-    // If missing from config or set to false preview mode will require
-    // user interaction with the 'Compare to Live' button.
-    showDifferencesInPreviewMode:  true,
-
-    // Default screen to use on initial edit mode load.
-    // Can be overridden in the url by using the hash #screen=screen_name e.g. #screen=content.
-    // If missing from config defaults to details screen.
-    defaultScreen:              'content',
+    // Display and allow editing of future statuses via the details screen.
+    // If missing from config or false the details screen will not display 'Show Future Status'.
+    allowFutureStatusChange:     true
 
 }; // End EasyEditConfig.
