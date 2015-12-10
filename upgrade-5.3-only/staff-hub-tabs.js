@@ -25,9 +25,8 @@ var inceptionTabs = [{
   "name": "About/Project",
   "desc": "Customisation specific to the 'About and Project page' design template."
 }
-
-
 ];
+
 var plugin_js_api = new Squiz_Matrix_API({
   key: '49341721'
 });
@@ -62,7 +61,9 @@ function iniInceptionMetadataTabs() {
     $('#ees_editMetadata>h3, #ees_editMetadata>h4, #ees_editMetadata div.row').hide();
 
     // add some html
-    $('#ees_editMetadata').before('<div id="mt-tabs"><ul></ul><h2></h2><p><em>Loading...</em></p></div>');
+    if($('#mt-tabs').length == 0){ //if mt-tabs already exist, do not create again
+        $('#ees_editMetadata').before('<div id="mt-tabs"><ul></ul><h2></h2><p><em>Loading...</em></p></div>');
+    }
 
     // add some syling to hide empty sections
     $('#ees_editMetadata .editSection').css('border-top', 'none').css('margin-bottom', '0px');
@@ -135,14 +136,16 @@ function iniInceptionMetadataTabs() {
 
       //console.log($('#metadata-row-82743').attr('rel'));
       //create the tabs
-      $(inceptionTabs).each(function(i) {
-        //check if category exists first on the current page, then create it
-        var thisTab = '|' + inceptionTabs[i].name + '|';
-        if (allCats.indexOf(thisTab) > -1) {
-          $('#mt-tabs ul').append('<li><a href="#" title="' + inceptionTabs[i].desc + '" rel="' + inceptionTabs[i].name + '">' + inceptionTabs[i].name + '</a></li>');
-
-        }
-      });
+      if( $('#mt-tabs ul li').length == 0 ){ //if tabs already exist, do not create again
+          $(inceptionTabs).each(function(i) {
+            //check if category exists first on the current page, then create it
+            var thisTab = '|' + inceptionTabs[i].name + '|';
+            if (allCats.indexOf(thisTab) > -1) {
+              $('#mt-tabs ul').append('<li><a href="#" title="' + inceptionTabs[i].desc + '" rel="' + inceptionTabs[i].name + '">' + inceptionTabs[i].name + '</a></li>');
+    
+            }
+          });
+      }
 
       //if no tabs, then show all fields
       if ($('#mt-tabs a').length < 1) {
