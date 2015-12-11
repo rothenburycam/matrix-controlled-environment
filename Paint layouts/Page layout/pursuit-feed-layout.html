@@ -1,0 +1,25 @@
+<!-- PAGE CONTENTS -->
+<section class="alt">
+	<ul class="block-listing narrow">
+	%asset_listing%
+	</ul>
+</section>
+
+<!-- DEFAULT FORMAT -->
+<li class="news">
+  <div class="block-container">
+    <div class="top-unit">
+      <a href="%ds__link_href%">
+        <div class="crop-height" style="background-image: url('%ds__content^preg_replace:1624720%')"></div>
+        <strong>%ds__title%</strong>
+        <p>%ds__summary%</p>
+      </a>
+    </div>
+    <div class="meta">
+      <time class="meta-left" datetime="%ds__published%">
+        %ds__published^date_format:j% %ds__published^date_format:M% %ds__published^date_format:Y% 
+      </time>
+      <em class="meta-right">Pursuit</em>
+    </div>
+  </div>
+</li>
