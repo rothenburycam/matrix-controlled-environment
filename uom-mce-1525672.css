@@ -74,3 +74,16 @@ div.sq-form-captcha {
     padding-bottom: 48px;
     padding-bottom: 3rem;
 }
+.uomcontent ul.sq-form-summary-semantic {
+	padding-top: 48px;
+	padding-top: 3rem;
+	padding-bottom: 48px;
+	padding-bottom: 3rem
+}
+.uomcontent ul.sq-form-summary-semantic li {
+	list-style-type: none;
+}
+.uomcontent ul.sq-form-summary-semantic li dl {
+	font-size: 16px;
+	overflow:hidden;
+}
