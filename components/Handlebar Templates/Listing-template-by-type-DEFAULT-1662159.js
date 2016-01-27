@@ -8,7 +8,7 @@
       <li class="event double {{whatIndex @index}}" style="background-image: url({{img_url}});" data-type="{{type}}">
         <a href="{{link}}" class="block-container">
           <div class="top-unit">
-            <strong>{{charLimit title 40}}</strong>
+            <strong>{{{charLimit title 40}}}</strong>
             <span href="" class="button-hero-inverse"> Read more</span>
           </div>
         </a>
@@ -28,8 +28,8 @@
               {{else}}
                 <div style="height: 15px;"></div>
               {{/if}}
-              <strong>{{charLimit title 100}}</strong>
-              <p>{{description_text}}</p>
+              <strong>{{{charLimit title 120}}}</strong>
+              <p>{{{description_text}}}</p>
             </a>
           </div>
           <div class="meta">
@@ -76,18 +76,11 @@
                     <strong>{{charLimit title 100}}</strong>
                   </div>
                   <div class="meta">
-                    <span class="meta-left">
-
-                      {{#if location.address}}
-                      {{location.address}}<br>
-                      {{/if}}
-                      {{#if location.building}}
-                      {{location.building}}<br>
-                      {{/if}}
-                      {{#if location.room_or_theatre}}
-                      {{location.room_or_theatre}}
-                      {{/if}}
-                    </span>
+                    <!-- <span class="meta-left">
+				 		{{#if location.address}} {{location.address}} <br> {{/if}} 				
+				 		{{#if location.building}} {{location.building}} <br> {{/if}}
+				 		{{#if location.room_or_theatre}} {{location.room_or_theatre}} {{/if}} 
+              		</span> -->
                     <em class="meta-right">Event</em>
                   </div>
                 </a>
@@ -112,7 +105,7 @@
         <li class="event {{isItAHero id}} {{whatIndex @index}}" data-type="{{event_type}}" data-public="{{public}}">
           <!-- Id: {{id}} -->
           <!-- Days Away: {{daysAwayToday start_time type}} --> 
-          <a href="{{doesItHaveDetails id link}}" target="_blank" class="block-container">
+          <a href="{{doesItHaveDetails id link}}" target="{{doesItNeedNewWindow id link}}" class="block-container">
             <div class="top-unit no-image">
               <div class="when">
                 {{formatDateDay start_time}}
@@ -124,17 +117,11 @@
               <strong>{{charLimit title 100}}</strong>
             </div>
             <div class="meta">
-              <span class="meta-left">
-                {{#if location.address}}
-                {{location.address}}<br>
-                {{/if}}
-                {{#if location.building}}
-                {{location.building}}<br>
-                {{/if}}
-                {{#if location.room_or_theatre}}
-                {{location.room_or_theatre}}
-                {{/if}}
-              </span>
+               <!-- <span class="meta-left">
+				 		{{#if location.address}} {{location.address}} <br> {{/if}} 				
+				 		{{#if location.building}} {{location.building}} <br> {{/if}}
+			     		{{#if location.room_or_theatre}} {{location.room_or_theatre}} {{/if}} 
+              </span> -->
               <em class="meta-right">Event</em>
             </div>
           </a>
