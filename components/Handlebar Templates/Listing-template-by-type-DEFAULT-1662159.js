@@ -8,7 +8,7 @@
       <li class="event double {{whatIndex @index}}" style="background-image: url({{img_url}});" data-type="{{type}}">
         <a href="{{link}}" class="block-container">
           <div class="top-unit">
-            <strong>{{charLimit title 40}}</strong>
+            <strong>{{{charLimit title 40}}}</strong>
             <span href="" class="button-hero-inverse"> Read more</span>
           </div>
         </a>
@@ -28,8 +28,8 @@
               {{else}}
                 <div style="height: 15px;"></div>
               {{/if}}
-              <strong>{{charLimit title 100}}</strong>
-              <p>{{description_text}}</p>
+              <strong>{{{charLimit title 100}}}</strong>
+              <p>{{{description_text}}}</p>
             </a>
           </div>
           <div class="meta">
