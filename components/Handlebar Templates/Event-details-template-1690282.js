@@ -12,7 +12,7 @@
       </div>
     </aside>
     {{#if image_versions}}
-    <img alt="Photo of my event" src="{{image_versions.w1000xh500}}" />
+    <img alt="Photo of my event" src="{{image_versions.w740xh320}}" />
     {{/if}}
   </div>
   <div class="lower">
