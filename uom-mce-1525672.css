@@ -1,32 +1,34 @@
 /* 
-  Template Name: uom-mce.css
-  UOM Version: 3.4.3
-  Author: External Relations Digital Team - Based on UoM Design Template
-  Updated: 18/11/2015
-  */
-  
-  /* give some padding to the top of pages - this is a fix until release 5.3*/
-  .uomcontent .section-spacer {padding-bottom: 3rem;}
-  .uomcontent .section-spacer-top {padding-top: 3rem;}
-  
-  /* fix padding in local site footer */
-  
-  .uomcontent footer.cta .center {margin: 0 auto; padding: 0;}
-  .uomcontent footer.cta ul.quicklinks {max-width: 100%;}
-  .uomcontent footer.cta ul.quicklinks li {padding: 0px;}
-  .uomcontent footer.cta ul.site-links li {padding: 0px;}
-  .uomcontent [role="main"] footer {padding-bottom: 0rem;}
-  
-  /* bug 3/11/2015 issue #420 and #419 from v3.3.1 to v3.4.1 
-     template: blue header with jump nav    
-     page: apply now */
-  .uomcontent fieldset label {width: 40rem;}
-  
-  
-  /* bug 27/11/2015 from v3.6 only issue when jump nav is on for inside page with header */
-  .jumpnav-active .uomcontent .lead {padding: 4.5rem 0 72px;}
-  
-  /* correcting issues with styles when using native Matrix form builder */
+Template Name: uom-mce.css
+UOM Version: 3.4.4
+Author: External Relations Digital Team - Based on UoM Design Template
+Updated: 22/01/2016
+*/
+
+/* give some padding to the top of pages - this is a fix until release 5.3*/
+.uomcontent .section-spacer {padding-bottom: 3rem;}
+.uomcontent .section-spacer-top {padding-top: 3rem;}
+
+/* fix padding in local site footer */
+
+.uomcontent footer.cta .center {margin: 0 auto; padding: 0;}
+.uomcontent footer.cta ul.quicklinks {max-width: 100%;}
+.uomcontent footer.cta ul.quicklinks li {padding: 0px;}
+.uomcontent footer.cta ul.site-links li {padding: 0px;}
+.uomcontent [role="main"] footer {padding-bottom: 0rem;}
+
+/* bug 3/11/2015 issue #420 and #419 from v3.3.1 to v3.4.1 
+   template: blue header with jump nav    
+   page: apply now */
+.uomcontent fieldset label {width: 40rem;}
+
+/* bug 22/01/2016 for images on events.unimelb feed. temporay fix */
+@media screen and (min-width: 1099px)
+.uomcontent [role="main"] .block-listing .crop-height img {
+    width: 100%;
+}
+
+/* correcting issues with styles when using native Matrix form builder */
 .uomcontent legend.sq-form-section-title {
     font-size: 0.9375rem;
     font-weight: 700;
@@ -75,15 +77,15 @@ div.sq-form-captcha {
     padding-bottom: 3rem;
 }
 .uomcontent ul.sq-form-summary-semantic {
-	padding-top: 48px;
-	padding-top: 3rem;
-	padding-bottom: 48px;
-	padding-bottom: 3rem
+    padding-top: 48px;
+    padding-top: 3rem;
+    padding-bottom: 48px;
+    padding-bottom: 3rem;
 }
 .uomcontent ul.sq-form-summary-semantic li {
-	list-style-type: none;
+    list-style-type: none;
 }
 .uomcontent ul.sq-form-summary-semantic li dl {
-	font-size: 16px;
-	overflow:hidden;
+    font-size: 16px;
+    overflow: hidden;
 }
