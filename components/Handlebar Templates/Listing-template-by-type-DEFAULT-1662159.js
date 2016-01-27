@@ -8,7 +8,7 @@
       <li class="event double {{whatIndex @index}}" style="background-image: url({{img_url}});" data-type="{{type}}">
         <a href="{{link}}" class="block-container">
           <div class="top-unit">
-            <strong>{{{charLimit title 40}}}</strong>
+            <strong>{{charLimit title 40}}</strong>
             <span href="" class="button-hero-inverse"> Read more</span>
           </div>
         </a>
@@ -28,8 +28,8 @@
               {{else}}
                 <div style="height: 15px;"></div>
               {{/if}}
-              <strong>{{{charLimit title 120}}}</strong>
-              <p>{{{description_text}}}</p>
+              <strong>{{charLimit title 100}}</strong>
+              <p>{{description_text}}</p>
             </a>
           </div>
           <div class="meta">
@@ -65,7 +65,7 @@
                 <!-- Tags: {{name}} -->
                 {{/each}}
                 <a href="{{doesItHaveDetails id link}}" target="{{doesItNeedNewWindow id link}}" class="block-container">
-                  <div class="top-unit no-image">
+                  <div class="{{#if img_url}}top-unit{{else}}top-unit no-image{{/if}}">
                     <div class="when">
                       {{formatDateDay start_time}}
                       <time datetime="{{formatDateDMY start_time}}">
@@ -73,13 +73,25 @@
                       </time>
                       {{formatDateTime start_time}} - {{formatDateTime end_time}}
                     </div>
-                    <strong>{{charLimit title 100}}</strong>
+					<!-- add mid-unit -->
+					<div class="mid-unit"> 
+                    	<strong>{{charLimit title 100}}</strong>
+					</div>
+					<!-- add image note best image ratio = 3:2 -->
+					{{#if img_url}}
+                	<div class="crop-height">
+					    <img alt="{{title}}" src="{{image_versions.w1000xh500}}" />
+                	</div>
+              		{{/if}}
+					
                   </div>
                   <div class="meta">
-                    <!-- <span class="meta-left">
+                     <!-- <span class="meta-left">
+					 
 				 		{{#if location.address}} {{location.address}} <br> {{/if}} 				
 				 		{{#if location.building}} {{location.building}} <br> {{/if}}
 				 		{{#if location.room_or_theatre}} {{location.room_or_theatre}} {{/if}} 
+					
               		</span> -->
                     <em class="meta-right">Event</em>
                   </div>
@@ -105,8 +117,8 @@
         <li class="event {{isItAHero id}} {{whatIndex @index}}" data-type="{{event_type}}" data-public="{{public}}">
           <!-- Id: {{id}} -->
           <!-- Days Away: {{daysAwayToday start_time type}} --> 
-          <a href="{{doesItHaveDetails id link}}" target="{{doesItNeedNewWindow id link}}" class="block-container">
-            <div class="top-unit no-image">
+          <a href="{{doesItHaveDetails id link}}" target="_blank" class="block-container">
+             <div class="{{#if img_url}}top-unit{{else}}top-unit no-image{{/if}}">
               <div class="when">
                 {{formatDateDay start_time}}
                 <time datetime="{{formatDateDMY start_time}}">
@@ -114,13 +126,25 @@
                 </time>
                 {{formatDateTime start_time}} - {{formatDateTime end_time}}
               </div>
-              <strong>{{charLimit title 100}}</strong>
+			  <!-- add mid-unit -->
+			  <div class="mid-unit"> 
+				<strong>{{charLimit title 100}}</strong>
+			  </div>
+			  <!-- add image note best image ratio = 3:2 -->
+			  {{#if img_url}}
+              <div class="crop-height">
+				 <img alt="{{title}}" src="{{image_versions.w1000xh500}}" />
+              </div>
+              {{/if}}
+			  
             </div>
             <div class="meta">
-               <!-- <span class="meta-left">
-				 		{{#if location.address}} {{location.address}} <br> {{/if}} 				
-				 		{{#if location.building}} {{location.building}} <br> {{/if}}
-			     		{{#if location.room_or_theatre}} {{location.room_or_theatre}} {{/if}} 
+              <!-- <span class="meta-left">
+					 
+				 {{#if location.address}} {{location.address}} <br> {{/if}} 				
+				 {{#if location.building}} {{location.building}} <br> {{/if}}
+				 {{#if location.room_or_theatre}} {{location.room_or_theatre}} {{/if}} 
+					
               </span> -->
               <em class="meta-right">Event</em>
             </div>
