@@ -117,7 +117,7 @@
         <li class="event {{isItAHero id}} {{whatIndex @index}}" data-type="{{event_type}}" data-public="{{public}}">
           <!-- Id: {{id}} -->
           <!-- Days Away: {{daysAwayToday start_time type}} --> 
-          <a href="{{doesItHaveDetails id link}}" target="_blank" class="block-container">
+          <a href="{{doesItHaveDetails id link}}" target="{{doesItNeedNewWindow id link}}" class="block-container">
              <div class="{{#if img_url}}top-unit{{else}}top-unit no-image{{/if}}">
               <div class="when">
                 {{formatDateDay start_time}}
