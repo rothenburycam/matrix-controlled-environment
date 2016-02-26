@@ -1,0 +1,127 @@
+/**
+ * UniMelb MCE Container Templates
+ * Authoring Styles
+ *
+ * @version 0.1.1
+ * @authors dcook@squiz.net
+ * @requires Edit+ 5.3 or Matrix 5.3 Admin
+ */
+
+
+.content-template h3 {
+    padding: 11px 20px 10px 20px;
+}
+.plus .content-template .metadata > h4 {
+    margin-bottom: 1em;
+}
+
+.plus .content_type_wysiwyg h4 .content-template__info {
+    display: inline-block;
+    margin-left: 0.3rem;
+}
+    .content-template__info-popup {
+        display: none;
+    }
+
+
+/* Hide unused elements */
+.content-template [class^=schemaHeading],
+.content-template .sectionHeading_0, .content-template .sq-backend-section-subheading,
+.content-template .sq-backend-section-heading-container,
+.content-template .sq-metadata-default-wrapper,
+.content-template .section-description .notes {
+    display: none;
+}
+
+
+
+/** Sortable **/
+#ees_eesUi .content-template .sortable {
+    border: none!important;
+    padding: 0!important;
+}
+    .content-template .sortableFieldContainer {
+        background-color: white;
+        position: relative;
+    }
+        .content-template .sortableFieldContainer .row:not(.rowWithWYSIWYG) {
+            padding-top: 5px;
+            border-bottom: none;
+        }
+            .content-template .sortableFieldContainer .row:not(.rowWithWYSIWYG) .cellData {
+                padding-left: 0;
+            }
+        .content-template .sortableFieldContainer .cellName {
+            width: 25px;
+            padding-right: 0.3em;
+        }
+            .content-template .sortableFieldContainer .sortHandle {
+                top: 0;
+                left: 0;
+                margin: 0;
+            }
+        .content-template #ees_editMetadata .sortableFieldContainer .rowWithWYSIWYG .tools,
+        .content-template .sortableFieldContainer .rowWithWYSIWYG .cellName,
+        .content-template .sortableFieldContainer .cellName .inputLabel  {
+            display: none;
+        }
+
+        .content-template .sortableFieldContainer .cellData input[type=text] {
+            width: 100%;
+        }
+        .content-template .sortableFieldContainer .cellData  {
+            background: none;
+            padding-left: 20px;
+            padding-bottom: 0;
+            width: 638px;
+        }
+    /* Semi-transparent during drag */
+    .ui-sortable-helper {
+        opacity: 0.7;
+    }
+
+/** Other Edit+ Interface specific **/
+/**todo: style  .section-description nicer **/
+
+
+/** Other Admin Interface specific **/
+.content-template .sq-metadata-description {
+    padding-left: 0;
+}
+
+
+/** Mods to built-in content_template EES styles: fix for wysiwyg. Selectors should have been :not(.wysiwygContainer) (or something to that effect) **/
+ .plus #ees_editMetadata .wysiwygContainer h3 {
+    background: none;
+    border: none;
+    font-size: 1.714em;
+    padding: 0;
+    margin: 1em 0 .25em;
+}
+
+.plus .content_template_custom_layout .wysiwygContainer p {
+    font-size: 0.9rem;
+    line-height: 1.25;
+}
+
+.plus .wysiwygContainer ul, .plus .wysiwygContainer ol, .plus .wysiwygContainer dl {
+    margin: 1.4em 3em 2em;
+    padding: 0;
+}
+.plus .content_template_custom_layout .wysiwygContainer li {
+    font-size: 0.9rem;
+    margin: 0;
+    padding: 0;
+    line-height: initial;
+}
+.plus .content_template_custom_layout .wysiwygContainer ul li {
+    list-style-type: disc;
+}
+.plus .content_template_custom_layout .wysiwygContainer ul ul {
+    list-style-type: circle;
+}
+
+/** Fix width for relatedAsset **/
+#ees_eesUi.content .relatedMetadata.fieldContainer {
+    width: 350px;
+}
