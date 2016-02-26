@@ -2,11 +2,16 @@
  * UniMelb MCE Container Templates
  * Authoring Styles
  *
- * @version 0.1.1
+ * @version 0.1.2
  * @authors dcook@squiz.net
  * @requires Edit+ 5.3 or Matrix 5.3 Admin
+ *
+ * .plus - Edit+
+ * .sq-backend-data - Admin
  */
 
+
+/** General **/
 
 .content-template h3 {
     padding: 11px 20px 10px 20px;
@@ -23,7 +28,6 @@
         display: none;
     }
 
-
 /* Hide unused elements */
 .content-template [class^=schemaHeading],
 .content-template .sectionHeading_0, .content-template .sq-backend-section-subheading,
@@ -32,10 +36,28 @@
 .content-template .section-description .notes {
     display: none;
 }
+.hidden {
+    display: none;
+}
 
+
+/** Utilities **/
+.col {
+    width: 50%;
+    float: left;
+}
+.one-third {
+    width: 33.33%;
+}
+.two-thirds {
+    width: 66.67%;
+}
 
 
 /** Sortable **/
+.content-template .sortable {
+    list-style: none;
+}
 #ees_eesUi .content-template .sortable {
     border: none!important;
     padding: 0!important;
@@ -44,6 +66,9 @@
         background-color: white;
         position: relative;
     }
+        .content-template .sortable .row {
+            border-bottom-style: dashed;
+        }
         .content-template .sortableFieldContainer .row:not(.rowWithWYSIWYG) {
             padding-top: 5px;
             border-bottom: none;
@@ -66,7 +91,7 @@
             display: none;
         }
 
-        .content-template .sortableFieldContainer .cellData input[type=text] {
+        .content-template .sortableFieldContainer .cellData .multitext__input {
             width: 100%;
         }
         .content-template .sortableFieldContainer .cellData  {
@@ -75,22 +100,104 @@
             padding-bottom: 0;
             width: 638px;
         }
+
     /* Semi-transparent during drag */
     .ui-sortable-helper {
         opacity: 0.7;
     }
 
-/** Other Edit+ Interface specific **/
+
+/** Sortable MultiTextGroup */
+    .content-template-timeline__labels {
+        padding-left: 75px;
+        margin-top: 1.4em;
+    }
+    .content-template-timeline__multitext ul.sortable {
+        margin: 0 10px;
+    }
+    .content-template-timeline__multitext .sortableFieldContainer {
+        height: auto;
+        line-height: 1.1em;
+        padding: 0.3em 0;
+    }
+        .content-template-timeline__multitext .sortableFieldContainer .col:first-child {
+            text-align: right;
+        }
+        .plus .content-template-timeline__multitext .sortableFieldContainer .dragIcon {
+            display: inline-block;
+            top: 0;
+            margin: 0;
+            vertical-align: middle;
+            float: none;
+        }
+        .plus .content-template-timeline__multitext .sortableFieldContainer .assetDeleteOption {
+            /*margin: 0;
+            vertical-align: middle;
+            display: inline-block;*/
+            float: right;
+            margin: 0.9em;
+        }
+        .sq-backend-data .content-template-timeline__multitext .sortableFieldContainer .delete-button {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .content-template-timeline__multitext .sortableFieldContainer .multitext__input {
+            /*@@ Copied from EES .multipleText @@*/
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.10) inset;
+            color: #535353;
+            font-family: arial;
+            font-size: 12px;
+            height: 20px;
+            background: #fff;
+        }
+        .content-template-timeline__multitext .sortableFieldContainer .multitext__input,
+        .content-template-timeline__labels label {
+            display: inline-block;
+            width: 180px;
+            padding: 4px 6px;
+            margin: 5px;
+        }
+        .content-template-timeline__multitext .sortableFieldContainer .blank {
+            color: white; /* hide null character */
+        }
+        .content-template-timeline__multitext .sortableFieldContainer .viper__container {
+            padding: 5px;
+        }
+
+
+/** Custom Viper **/
+.viper__box {
+    display: none;
+    border: 1px solid #dadada;
+    border-radius: 4px;
+    padding: 10px;
+    min-height: 32px;
+}
+.viper__input {
+    width: 100%;
+}
+
+.viper__initialised .viper__input {
+    display: none;
+}
+.viper__initialised .viper__box {
+    display: block;
+}
+
+
+/** Edit+ Interface specific **/
 /**todo: style  .section-description nicer **/
 
 
-/** Other Admin Interface specific **/
-.content-template .sq-metadata-description {
+/** Admin Interface specific **/
+.sq-backend-data .content-template .sq-metadata-description {
     padding-left: 0;
 }
 
 
-/** Mods to built-in content_template EES styles: fix for wysiwyg. Selectors should have been :not(.wysiwygContainer) (or something to that effect) **/
+/** Mods to built-in content_template EES styles: fix for wysiwyg. Selectors should have been :not(.wysiwygContainer) (or something to that effect). TODO: submit patch **/
  .plus #ees_editMetadata .wysiwygContainer h3 {
     background: none;
     border: none;
@@ -119,6 +226,10 @@
 }
 .plus .content_template_custom_layout .wysiwygContainer ul ul {
     list-style-type: circle;
+}
+.plus td.cellName, .plus td.cellData {
+    border: none!important;
+    padding: 11px 20px 10px 20px!important;
 }
 
 /** Fix width for relatedAsset **/
