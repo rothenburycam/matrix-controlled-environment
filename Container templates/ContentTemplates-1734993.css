@@ -2,7 +2,7 @@
  * UniMelb MCE Container Templates
  * Authoring Styles
  *
- * @version 0.1.2
+ * @version 0.1.1
  * @authors dcook@squiz.net
  * @requires Edit+ 5.3 or Matrix 5.3 Admin
  *
@@ -95,10 +95,12 @@
             width: 100%;
         }
         .content-template .sortableFieldContainer .cellData  {
+            display: block; /*@@ try to make EES display less retarded @@*/
             background: none;
             padding-left: 20px;
             padding-bottom: 0;
             width: 638px;
+            max-width: 638px;
         }
 
     /* Semi-transparent during drag */
@@ -168,7 +170,7 @@
 
 
 /** Custom Viper **/
-.viper__box {
+.viper__box, .plus .ees_viperEditCallToAction {
     display: none;
     border: 1px solid #dadada;
     border-radius: 4px;
@@ -183,6 +185,14 @@
     display: none;
 }
 .viper__initialised .viper__box {
+    display: block;
+}
+
+/*@@ Because EES keeps adding .ees_viperEditCallToAction whenever you call attachWysiwygEvents @@*/
+.viper__container .ees_viperEditCallToAction {
+    display: none;
+}
+.viper__container .ees_viperEditCallToAction:nth-child(2) {
     display: block;
 }
 
