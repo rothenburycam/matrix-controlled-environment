@@ -12,12 +12,12 @@ console.log('contentTemplates.js');
 /**
  * ContentTemplates (singleton)
  */
-var nam = 'ContentTemplates'; //
+var nam = 'ContentTemplates'; //Not window.name as this conflicts with Admin interface
 if (!window[nam]) {
   window[nam] = {
     // Constants
-    name: name,
-    version: '0.1.2',
+    name: nam,
+    version: '0.1.6',
     className: 'content-template',
     classNameInit: 'content-template--initialised',
     rowSelector: '.row, .content-template .sq-backend-row',
@@ -36,8 +36,8 @@ if (!window[nam]) {
 
         // Initialise container editor when authoring interface is ready
         if (typeof EasyEditEventManager != 'undefined'){
-
           // Initialise for Edit+ each time Content tab is loaded
+
           EasyEditEventManager.bind('EasyEditScreenLoad',function(){
             if (EasyEditScreens.currentScreen == 'contentPageStandard') {
               self.onScreenLoad();
@@ -51,14 +51,20 @@ if (!window[nam]) {
           });
 
         } else {
-
           // Initialise for Admin Interface
+
           $(document).ready($.proxy(self.onScreenLoad,self));
-          $(document).on('click', '#sq_commit_button', $.proxy(self.onCommit,self)); // todo: try form submit instead
+
+          // Ensure onCommit occurs before native matrix handler
+          var main_form_onsubmit = window.main_form.onsubmit; //form_on_submit()
+          window.main_form.onsubmit = function(){
+            $.proxy(self.onCommit,self)(); // Call ContentTemplates.onSubmit
+            return main_form_onsubmit(); // Call native matrix onsubmit
+          };
         }
 
         this.initialised = true;
-        // console.log(self.name, self.version, 'initialised');
+        console.log(self.name, self.version, 'initialised');
       }
     },
 
@@ -80,6 +86,11 @@ if (!window[nam]) {
           .find(':contains("Section Description")')
           .parents(self.rowSelector)
           .addClass('section-description');
+
+        // Show any WYSIWIGS that got randomly hidden
+        $('.bodycopy_content').each(function() {
+          $(this).show();
+        });
 
         // Set initialised class on dom element
         $contentTemplate.addClass(self.classNameInit);
@@ -162,6 +173,7 @@ if (!window[nam]) {
 
     /**
      * Initialises a group of Multiple Text fields
+     * @param JQuery selector
      * see also https://gitlab.squiz.net/Labs/EditPlus/blob/master/Libs/components/EasyEditBodycopyManager.js#L2531
      */
     initMultiTextGroup: function(selector){
@@ -170,13 +182,22 @@ if (!window[nam]) {
       var $values = $(selector).find('.values input');
       var values = {};
 
+      /** Functions **/
+      /**
+       * Add a new sortable line
+       * @return $sortableFieldContainer
+       */
       function addNewItem($sortable,values,i) {
         var $template = $sortable.find('.sortableFieldContainer.template');
         var $sortableFieldContainer = $template.clone();
+        if (typeof i == 'undefined'){
+          i = $sortable.find('.sortableFieldContainer').length - 1;
+        }
 
         // Make IDs unique
         $sortableFieldContainer.find('[id*=":i:"]').each(function(){
-          this.id = this.id.replace(/:i:/, i);
+          this.id = this.id.replace(/:i:/g, i);
+          this.id = this.id.replace(/:/g, '');
         });
 
         if (values !== '') {
@@ -193,6 +214,8 @@ if (!window[nam]) {
 
         $sortableFieldContainer.removeClass('hidden template');
         $sortable.append($sortableFieldContainer);
+
+        return $sortableFieldContainer;
       }
 
       function deleteOption(e) {
@@ -227,13 +250,16 @@ if (!window[nam]) {
         // If this field has null character, clear it
         if (this.value === self.multiTextNull) {
           this.value = '';
-          $(this).removeClass('blank');
         }
+        $(this).removeClass('blank');
 
         // If last line is not empty
-        var $nonEmptyInputs = $sortable.find('.sortableFieldContainer').last().find('.multitext__input').filter(function(){return this.value.length > 0});
+        var $nonEmptyInputs = $sortable.find('.sortableFieldContainer').last().find('.multitext__input, .viper__input').filter(function(){return this.value.length > 0});
         if($nonEmptyInputs.length > 0){
-          addNewItem($sortable, '');
+          // Add new item
+          var $sortableFieldContainer = addNewItem($sortable, '');
+          // Initialise new WYSIWYG field
+          self.initWysiwygs();
         }
       }
 
@@ -244,7 +270,6 @@ if (!window[nam]) {
         var $inputs = $sortableFieldContainer.find('.multitext__input, .viper__input');
         var nonEmptyInputs = [],
             emptyInputs = [];
-        console.log('checkline');
 
         $inputs.each(function(){
           if (this.value.length > 0){
@@ -266,7 +291,7 @@ if (!window[nam]) {
       function onCommit(){
         console.log('MultiTextGroup:onCommit');
         $sortable.find('.multitext__input, .viper__input').each(function(){
-          this.value = multiTextEscape(this.value); //escape semicolons so they don't inadvertedly split fields
+          this.value = multiTextEscape(this.value); //escape special characters so they don't inadvertedly split fields
           // this.value = htmlEscape(this.value); // i think matrix is handling this anyway.
         });
 
@@ -280,17 +305,18 @@ if (!window[nam]) {
       /**
        * Escape strings for storage within a multitext field.
        * See also Frontend Layout.
-       * ; - %3B
+       * ; -> %3B
+       * \n -> %0A
        */
       function multiTextEscape(str) {
-        //change semicolons so they don't inadvertedly split fields (urlencode, just because it seemed like a good escape sequence)
-        return str && str.replace(/;/g, '%3B');
+        //change semicolons and line-breaks so they don't inadvertedly split fields (urlencode, just because it seemed like a good escape sequence)
+        return str && str.replace(/;/g, '%3B').replace(/\n/g, '%0A');
       }
       function multiTextUnEscape(str) {
-        return str && str.replace(/%3B/g, ';');
+        return str && str.replace(/%0A/g, '\n').replace(/%3B/g, ';');
       }
 
-      // Initialise
+      /** Initialise **/
       var num_values = 0;
       $values.each(function(){
         values[this.name] = this.value.split(self.multiTextDelim);
@@ -325,32 +351,35 @@ if (!window[nam]) {
         },
       });
 
-      // Event Handlers
+      /** Event Handlers **/
       $sortable.on('click', '.assetDeleteOption', deleteOption);
-      $sortable.on('focus', 'input[type=text]', onFocus);
-      $sortable.on('blur', 'input[type=text], textarea', onBlur);
+      $sortable.on('focus', 'input[type=text], textarea, .viper__editable', onFocus);
+      $sortable.on('blur', 'input[type=text], textarea, .viper__editable', onBlur);
       self.onCommitHandlers.push(onCommit);
 
-      $sortable.on('change', 'input', self.unsavedChanges);
-      $sortable.on('keyup', 'input', self.unsavedChanges);
+      $sortable.on('change', 'input, textarea, .viper__editable', self.unsavedChanges);
+      $sortable.on('keyup', 'input, textarea, .viper__editable', self.unsavedChanges);
 
     }, //initMultiTextGroup()
 
 
     /**
-     * Initialise all wysiwygs on the page
+     * Set up all ContentTemplate wysiwygs on the page.
+     * Ensures any wysiwygs added after screenLoad are initialised.
      */
     initWysiwygs: function(){
       var self = this;
-      var bodycopyManager = EasyEditScreens.screen[EasyEditScreens.currentScreen].bodycopyManager;
-      var viper = bodycopyManager.getViper(); // Get EES' global instance of Viper
+      var viper;
 
-      // Ensure newly created wysiwygs are initialised
-      bodycopyManager.attachWysiwygEvents();
+      if (typeof EasyEditScreens !== 'undefined') {
+        var bodycopyManager = EasyEditScreens.screen[EasyEditScreens.currentScreen].bodycopyManager;
+        viper = bodycopyManager.getViper(); // Get EES' global instance of Viper
+        bodycopyManager.attachWysiwygEvents(); // Ensure newly created wysiwygs are initialised by EES
+      }
 
       if (viper) {
         // For each .viper__container
-        $('div[id$="_wysiwyg_container"].viper__container', bodycopyManager.containerId).each(function(){
+        $('div[id$="_wysiwyg_container"].viper__container:not(.viper__initialised)', bodycopyManager.containerId).each(function(){
           var $container = $(this);
 
           // Set wysiwyg value from source .viper__input field.
@@ -360,7 +389,11 @@ if (!window[nam]) {
           $container.addClass('viper__initialised');
         });
 
+
+        // Register Event callbacks: trigger equivalent event on .viper__input
+        // On change
         viper.registerCallback('Viper:nodesChanged', 'EES', function(e, done) {
+          console.log('Viper:nodesChanged');
           if ($(e).length) {
             var $container = $(e).parents('.viper__container'); //sometimes e is the text, sometimes it's the .viper__editable? just get the container and go from there.
 
@@ -370,7 +403,8 @@ if (!window[nam]) {
               var $editable = $container.find('.viper__editable');
               var $input = $container.find('.viper__input');
 
-              // whenever the wysiwyg content is updated, our .viper__input updates as well. (note: can't we just do this onCommit insetad?)
+              // Whenever the wysiwyg content is updated, our .viper__input updates as well.
+              // We do this now instead of waiting until commit so we can always treat .viper__input as the single source of truth.
               setTimeout(function() { // why a timeout? I don't know, but don't mess with it if it works.
                 $input.val($editable.html());
               }, 1);
@@ -381,11 +415,17 @@ if (!window[nam]) {
           done();
         });
 
-        viper.registerCallback('Viper:clickedOutside', 'EES', function(e, done) {
-          // e.fromElement is null so let's just hit them all
-          $('div[id$="_wysiwyg_container"].viper__container .viper__input', bodycopyManager.containerId).trigger('blur');
+        // On focus
+        viper.registerCallback('Viper:focused', 'EES', function(e, done) {
+          $(this.element).parents('.viper__container').find('.viper__input').trigger('focus');
         });
 
+        // On blur
+        viper.registerCallback('Viper:clickedOutside', 'EES', function(e, done) {
+          $(this.element).parents('.viper__container').find('.viper__input').trigger('blur');
+        });
+
+        self.wysiwygsInitialised = true;
       }
     }, //initViper()
 
