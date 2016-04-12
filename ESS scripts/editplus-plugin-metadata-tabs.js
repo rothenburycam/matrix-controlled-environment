@@ -15,6 +15,10 @@
  ** Set the description and order of each tab, and also create the JS API object for the batching */
 var inceptionTabs = [
 {
+  "name": "Article",
+  "desc": "Article settings."
+}, 
+{
   "name": "Design",
   "desc": "Select a page layout and configure the design settings."
 }, 
@@ -30,7 +34,7 @@ var inceptionTabs = [
  
 {
   "name": "Scholarships",
-  "desc": "Manage your research project page here."
+  "desc": "Manage your scholarships here."
 },
  {
   "name": "SEO",
@@ -73,7 +77,7 @@ function iniInceptionMetadataTabs() {
 
     // add some html
     if($('#mt-tabs').length == 0){ //if mt-tabs already exist, do not create again
-       $('#ees_editMetadata').before('<div id="mt-tabs"><ul></ul><h2></h2><p><em>Loading...</em></p></div>');      
+        $('#ees_editMetadata').before('<div id="mt-tabs"><ul></ul><h2></h2><p><em>Loading...</em></p></div>');
     }
 
     // add some syling to hide empty sections
@@ -148,17 +152,15 @@ function iniInceptionMetadataTabs() {
       //console.log($('#metadata-row-82743').attr('rel'));
       //create the tabs
       if( $('#mt-tabs ul li').length == 0 ){ //if tabs already exist, do not create again
-        $(inceptionTabs).each(function(i) {
-          //check if category exists first on the current page, then create it
-          var thisTab = '|' + inceptionTabs[i].name + '|';
-          if (allCats.indexOf(thisTab) > -1) {
-            $('#mt-tabs ul').append('<li><a href="#" title="' + inceptionTabs[i].desc + '" rel="' + inceptionTabs[i].name + '">' + inceptionTabs[i].name + '</a></li>');
-
-          }
-        });
-        
+          $(inceptionTabs).each(function(i) {
+            //check if category exists first on the current page, then create it
+            var thisTab = '|' + inceptionTabs[i].name + '|';
+            if (allCats.indexOf(thisTab) > -1) {
+              $('#mt-tabs ul').append('<li><a href="#" title="' + inceptionTabs[i].desc + '" rel="' + inceptionTabs[i].name + '">' + inceptionTabs[i].name + '</a></li>');
+    
+            }
+          });
       }
-
 
       //if no tabs, then show all fields
       if ($('#mt-tabs a').length < 1) {
