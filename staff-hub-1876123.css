@@ -89,7 +89,7 @@ div.sq-form-captcha {
     .uomcontent .sq-form-question-answer input[type="radio"] {
         left: 0;
         top: 0;
-        clip: unset;
+        clip: auto;
     }
     
     .uomcontent .sq-form-question-answer input[type="checkbox"] + label:after,
