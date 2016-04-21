@@ -2,7 +2,7 @@
  * UniMelb MCE Container Templates
  * Authoring Styles
  *
- * @version 0.1.1
+ * @version 0.1.7
  * @authors dcook@squiz.net
  * @requires Edit+ 5.3 or Matrix 5.3 Admin
  *
@@ -53,8 +53,12 @@
     width: 66.67%;
 }
 
-
 /** Sortable **/
+.ui-sortable-helper {
+    opacity: 0.7; /* Semi-transparent during drag */
+}
+
+/** Sortable Heading and Text **/
 .content-template .sortable {
     list-style: none;
 }
@@ -62,39 +66,39 @@
     border: none!important;
     padding: 0!important;
 }
-    .content-template .sortableFieldContainer {
+    .content-template .sortable .sortableFieldContainer {
         background-color: white;
         position: relative;
     }
         .content-template .sortable .row {
             border-bottom-style: dashed;
         }
-        .content-template .sortableFieldContainer .row:not(.rowWithWYSIWYG) {
+        .content-template .sortable .sortableFieldContainer .row:not(.rowWithWYSIWYG) {
             padding-top: 5px;
             border-bottom: none;
         }
-            .content-template .sortableFieldContainer .row:not(.rowWithWYSIWYG) .cellData {
+            .content-template .sortable .sortableFieldContainer .row:not(.rowWithWYSIWYG) .cellData {
                 padding-left: 0;
             }
-        .content-template .sortableFieldContainer .cellName {
+        .content-template .sortable .sortableFieldContainer .cellName {
             width: 25px;
             padding-right: 0.3em;
         }
-            .content-template .sortableFieldContainer .sortHandle {
+            .content-template .sortable .sortableFieldContainer .sortHandle {
                 top: 0;
                 left: 0;
                 margin: 0;
             }
-        .content-template #ees_editMetadata .sortableFieldContainer .rowWithWYSIWYG .tools,
-        .content-template .sortableFieldContainer .rowWithWYSIWYG .cellName,
-        .content-template .sortableFieldContainer .cellName .inputLabel  {
+        .content-template #ees_editMetadata .sortable .sortableFieldContainer .rowWithWYSIWYG .tools,
+        .content-template .sortable .sortableFieldContainer .rowWithWYSIWYG .cellName,
+        .content-template .sortable .sortableFieldContainer .cellName .inputLabel  {
             display: none;
         }
 
-        .content-template .sortableFieldContainer .cellData .multitext__input {
+        .content-template .sortable .sortableFieldContainer .cellData .multitext__input {
             width: 100%;
         }
-        .content-template .sortableFieldContainer .cellData  {
+        .content-template .sortable .sortableFieldContainer .cellData  {
             display: block; /*@@ try to make EES display less retarded @@*/
             background: none;
             padding-left: 20px;
@@ -103,10 +107,31 @@
             max-width: 638px;
         }
 
-    /* Semi-transparent during drag */
-    .ui-sortable-helper {
-        opacity: 0.7;
+
+/** Sortable Groups **/
+.sortableGroups {}
+    .sortableGroups .sortableFieldContainer:not(:last-child) {
+        border-bottom: 2px dashed #dadada;
     }
+        .sortableGroups .sortableFieldContainer .row {
+            border-bottom-style: none;
+        }
+            .sortableGroups .sortableFieldContainer .sortHandle {
+                top: -5px;
+                left: 0;
+                margin: 0;
+            }
+
+            #ees_editMetadata .sortableGroups .sortableFieldContainer .rowWithWYSIWYG .tools,
+            .sortableGroups .sortableFieldContainer .rowWithWYSIWYG .cellName {
+                display: none;
+            }
+
+            /* Fix relatedAsset styling. Class ess_directChildrenList is used for sortHandle styles, but messes up relatedAsset so we fix it here: */
+            .sortableGroups.ees_directChildrenList .sortableFieldContainer  .assetIcon {
+                margin: 0;
+                background-position: 0 50%;
+            }
 
 
 /** Sortable MultiTextGroup */
@@ -171,7 +196,7 @@
 
 /** Custom Viper **/
 .viper__box, .plus .ees_viperEditCallToAction {
-    display: none;
+    display: none; /* This causes wysiwyg inputs to not work. So we use JS to manually show .htmlarea-div's */
     border: 1px solid #dadada;
     border-radius: 4px;
     padding: 10px;
