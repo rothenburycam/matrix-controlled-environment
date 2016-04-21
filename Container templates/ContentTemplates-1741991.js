@@ -17,7 +17,7 @@ if (!window[nam]) {
   window[nam] = {
     // Constants
     name: nam,
-    version: '0.1.6',
+    version: '0.1.7',
     className: 'content-template',
     classNameInit: 'content-template--initialised',
     rowSelector: '.row, .content-template .sq-backend-row',
@@ -83,12 +83,12 @@ if (!window[nam]) {
         // Add classname so we can style section description
         $contentTemplate
           .find(self.rowSelector)
-          .find(':contains("Section Description")')
+          .find('span:contains("Section Description")')
           .parents(self.rowSelector)
           .addClass('section-description');
 
-        // Show any WYSIWIGS that got randomly hidden
-        $('.bodycopy_content').each(function() {
+        // Show any WYSIWIGS that got randomly hidden. They get hidden because of `.viper__box, .plus .ees_viperEditCallToAction {display: none;}`. Will investigate later.
+        $('.htmlarea-div').each(function() {
           $(this).show();
         });
 
@@ -128,8 +128,7 @@ if (!window[nam]) {
       var $sortableFieldContainers = $contentTemplate.find('.sortableFieldContainer');
       $sortableFieldContainers.find('.row:first-child() .cellName')
         .prepend('<a class="sortHandle alignLeft dragIcon" title="Drag to re-arrange" href="#"></a>');
-      $sortableFieldContainers.wrapAll('<tr><td colspan="2" class="sortable ees_directChildrenList"/></tr>'); // Table elements are required for admin interface.
-
+      $sortableFieldContainers.wrapAll('<tr><td colspan="2" class="sortable ees_directChildrenList"/></tr>'); // Table elements are required for admin interface. .ees_directChildrenList is required for sortHandle styling.
 
       // init jquery.ui.sortable
       // see relatedAsset https://gitlab.squiz.net/Labs/EditPlus/blob/master/Libs/components/screens/EasyEditScreenMetadataDefault.js#L961
@@ -144,6 +143,7 @@ if (!window[nam]) {
           self.unsavedChanges(true);
 
           // Re-set all assetids in field names in the new order
+          // TODO: probably use the method defined in initSortableGroups instead
           var i=0;
           $sortable.find('.sortableFieldContainer').each(function(id){
             // Heading
@@ -169,6 +169,66 @@ if (!window[nam]) {
         }, //stop()
       });
     }, //initSortable()
+
+
+    /**
+     * Initialises groups of fields in a metadata section as sortable.
+     * All groups must be the same number of fields.
+     * Supports Admin and Edit+
+     *
+     * @param $section    Either .editSection or .sq-backend-section-table
+     * @param numFields   Number of fields to group together
+     */
+    initSortableGroups: function($section, numFields){
+      var self = this;
+
+      // Collect assetids
+      var assetids = $section.find('[id]').map(function(){
+        var numbers = this.id.match(/\d+/g);
+        return numbers.length >= 2 ? numbers[1] : ""; // get the second number in the id, or blank string if none
+      });
+
+      // Group elements with .sortableFieldContainers
+      var rows = $section.find(self.rowSelector).get();
+      for (i=0; i < rows.length; i+=numFields) {
+        $(rows.slice(i+0, i+numFields)).wrapAll('<div class="sortableFieldContainer"/>');
+      }
+
+      // Prepare and wrap .sortableFieldContainers
+      var $sortableFieldContainers = $section.find('.sortableFieldContainer');
+      $sortableFieldContainers.find('.row:first-child() .cellName')
+        .prepend('<a class="sortHandle alignLeft dragIcon" title="Drag to re-arrange" href="#"></a>');
+      $sortableFieldContainers.wrapAll('<tr><td colspan="2" class="sortableGroups ees_directChildrenList"/></tr>'); // Table elements are required for admin interface. .ees_directChildrenList is required for sortHandle styling.
+
+
+      // init jquery.ui.sortable
+      var $sortable = $section.find('.sortableGroups');
+      $sortable.sortable({
+        axis:       'y',
+        handle:     '.dragIcon',
+        // cancel:     'li.markedForDeletion',
+        stop:       function(event,ui){
+          // Tell EES that something has been changed
+          self.unsavedChanges(true);
+
+          // Re-set field assetids in field id/names in the new order
+          $sortable.find('[id]').each(function(i){
+            var numbers = this.id.match(/\d+/g);
+            if (numbers.length >= 2) {
+              // get the second number in the id
+              var assetid = numbers[1];
+
+              // Replace assetid in field id and name
+              var newid = this.id.replace(assetid, assetids[i]);
+              // var newname = this.name.replace(assetid, assetids[i]);
+              $(this).attr('id', newid);
+              $(this).attr('name', newid);
+            }
+          }); //each
+
+        }, //stop()
+      });
+    }, //initSortableGroups()
 
 
     /**
