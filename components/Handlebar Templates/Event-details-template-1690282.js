@@ -12,7 +12,7 @@
       </div>
     </aside>
     {{#if image_versions}}
-    <img alt="Photo of my event" src="{{image_versions.w740xh320}}" />
+    <img alt="{{title}}" src="{{image_versions.w740xh320}}" />
     {{/if}}
   </div>
   <div class="lower">
@@ -33,13 +33,13 @@
       <div>
         <ul class="social-links">
           <li>
-            <a href="#"><span class="small icon--hide-label" data-icon="twitter">Share on Twitter</span></a>
+            <a href="https://twitter.com/intent/tweet?text={{{title}}}&amp;url={{link}}"><span class="small icon--hide-label" data-icon="twitter">Share on Twitter</span></a>
           </li>
           <li>
-            <a href="#"><span class="small icon--hide-label" data-icon="facebook">Share on Facebook</span></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{link}}" title="Share on Facebook"><span class="small icon--hide-label" data-icon="facebook">Share on Facebook</span></a>
           </li>
           <li>
-            <a href="#"><span class="small icon--hide-label" data-icon="linkedin">Share on LinkedIn</span></a>
+            <a href="https://www.linkedin.com/shareArticle?title={{{title}}}&amp;url={{link}}"><span class="small icon--hide-label" data-icon="linkedin">Share on LinkedIn</span></a>
           </li>
         </ul>
       </div>
@@ -54,7 +54,14 @@
           <a href="mailto:{{information.email}}">{{information.email}}</a>
         </p>
         {{/if}}
-      </div>
+    </div>
+    {{#if booking.url}}
+    <div>
+        <p>
+          <a href="{{booking.url}}" class="button-small">Book now</a>
+        </p>
+    </div>
+    {{/if}}
     </aside>
     <h2>
       {{title}}
