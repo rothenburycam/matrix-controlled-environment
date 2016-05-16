@@ -87,19 +87,17 @@ if (!window[nam]) {
 		  var $authorLocationField = $('[id$="_metadata_field_related_asset_1949400_default"]',parentScope);
           var $authorLocationLabel = $('[for$="_metadata_field_related_asset_1949400_default"]',parentScope);
 		  	  
+		  // define the rows you want to show and hide  
 		  var $buttonTextRow = $('.row_5',parentScope);
 		  var $buttonLinkRow = $('.row_6',parentScope);
 		  var $authorNameRow = $('.row_7',parentScope);
           var $authorLocationRow = $('.row_8',parentScope);	  
           
           //hide redundant heading sections
-          
           $('.schemaHeading_0').hide();
           $('.sectionHeading_0').hide();
           
-          
-          //uncheck and hide any redundant default checkboxes
-          
+         //uncheck and hide any redundant default checkboxes
          if ( $templateSelectDefault.prop('checked') ){
               $templateSelectDefault.click();                       
           }
@@ -116,37 +114,42 @@ if (!window[nam]) {
           $imageSelectFieldLabel.addClass('visuallyhidden'); 
 		  
 		  
-		  // show additional fields for author templates
-		  
-		   if ($templateSelect.val() === 'article-bottom-align' ||
-		   	  $templateSelect.val() === 'article-mid-align'
-		   
-		   ){
-              
-              $authorNameRow.show();
-              $authorLocationRow.show();
-			  $buttonTextRow.hide();
-			  $buttonLinkRow.hide();
-              
-          } else if ( $templateSelect.val() === 'header-image-mid-align' ||
-		  			 $templateSelect.val() === 'header-image-mid-align-enhanced' ||
-					 $templateSelect.val() === 'header-image-bottom-align' ||
-					 $templateSelect.val() === 'header-image-bottom-align-flat' ||
-					 $templateSelect.val() === 'header-image-box' ||	
-					 $templateSelect.val() === 'header-image-filters' ||	
-					 $templateSelect.val() === 'header-banner-simple' ||	
-					 $templateSelect.val() === 'header-banner-course' ||	 
-					 $templateSelect.val() === 'header-image-course'  
-		  
-		  ){
-              
-              $authorNameRow.hide();
-              $authorLocationRow.hide();
-			  $buttonTextRow.show();
-			  $buttonLinkRow.show(); 
-          }
+		  // show/hide additional fields in template
+		  // note: this fires on page load
+		   if ($templateSelect.val() === 'article-mid-align')	
+			  
+			    {
+              	  $authorNameRow.show();
+              	  $authorLocationRow.show();
+			  	  $buttonTextRow.hide();
+			  	  $buttonLinkRow.hide();
+				
+			 	} else if ($templateSelect.val() === 'article-bottom-align') 
+				
+				{
+				  $authorNameRow.hide();
+				  $authorLocationRow.hide();
+				  $buttonTextRow.hide();
+				  $buttonLinkRow.hide(); 
+				
+              	} else if ( $templateSelect.val() === 'header-image-mid-align' ||
+		  			   	  $templateSelect.val() === 'header-image-mid-align-enhanced' ||
+					 	  $templateSelect.val() === 'header-image-bottom-align' ||
+					 	  $templateSelect.val() === 'header-image-bottom-align-flat' ||
+					 	  $templateSelect.val() === 'header-image-box' ||	
+					 	  $templateSelect.val() === 'header-image-filters' ||	
+					 	  $templateSelect.val() === 'header-banner-simple' ||	
+					 	  $templateSelect.val() === 'header-banner-course' ||	 
+					 	  $templateSelect.val() === 'header-image-course' )
+				{
+				  $authorNameRow.hide();
+				  $authorLocationRow.hide();
+				  $buttonTextRow.show();
+				  $buttonLinkRow.show(); 
+				}
 		     
           // toggle additional fields when changing template
+		  // note: after page load this is how you change templates - basically the same as above
           $templateSelect.change(function(evt){
 
               if (evt.target.value === 'header-image-mid-align' ||
@@ -157,27 +160,28 @@ if (!window[nam]) {
 				  evt.target.value === 'header-image-filters' ||
 				  evt.target.value === 'header-banner-simple' ||
 				  evt.target.value === 'header-banner-course' ||
-				  evt.target.value === 'header-image-course'
-			  
-			  
-			  ) {
-    
+				  evt.target.value === 'header-image-course' ) 
+				  
+				{
                   $authorNameRow.hide();
                   $authorLocationRow.hide();
 				  $buttonTextRow.show();
 			  	  $buttonLinkRow.show(); 
             
-            
-              } else if (evt.target.value === 'article-bottom-align' ||
-			  		     evt.target.value === 'article-mid-align'
-			  
-			  ) {
-                  
-                  $authorNameRow.show();
-                  $authorLocationRow.show();
+              } else if (evt.target.value === 'article-bottom-align' ) 
+				{
+                  $authorNameRow.hide();
+				  $authorLocationRow.hide();
 				  $buttonTextRow.hide();
+				  $buttonLinkRow.hide(); 
+				  
+              } else if ( evt.target.value === 'article-mid-align' ) 
+				{
+                  $authorNameRow.show();
+              	  $authorLocationRow.show();
+			  	  $buttonTextRow.hide();
 			  	  $buttonLinkRow.hide();
-              }
+              	}
           });
 	
     
