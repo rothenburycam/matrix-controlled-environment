@@ -48,16 +48,6 @@ if (!window[nam]) {
         $('.htmlarea-div').each(function() {
           $(this).show();
         });
-
-      $contentTemplates.each(function(){
-        var $contentTemplate = $(this);
-
-        // Update section description label
-        var $sectionDescriptionLabel = $contentTemplate.find(ContentTemplates.rowSelector).find('span:contains("Section Description")');
-        $sectionDescriptionLabel.text($sectionDescriptionLabel.text().replace("Section", "listing"));
-
-
-      });
       
       
       //rest of your container template code
@@ -97,10 +87,10 @@ if (!window[nam]) {
 		  var $authorLocationField = $('[id$="_metadata_field_related_asset_1949400_default"]',parentScope);
           var $authorLocationLabel = $('[for$="_metadata_field_related_asset_1949400_default"]',parentScope);
 		  	  
-		  var $buttonTextRow = $('.row_4',parentScope);
-		  var $buttonLinkRow = $('.row_5',parentScope);
-		  var $authorNameRow = $('.row_6',parentScope);
-          var $authorLocationRow = $('.row_7',parentScope);	  
+		  var $buttonTextRow = $('.row_5',parentScope);
+		  var $buttonLinkRow = $('.row_6',parentScope);
+		  var $authorNameRow = $('.row_7',parentScope);
+          var $authorLocationRow = $('.row_8',parentScope);	  
           
           //hide redundant heading sections
           
