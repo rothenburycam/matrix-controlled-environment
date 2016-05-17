@@ -124,7 +124,13 @@ if (!window[nam]) {
 			  	  $buttonTextRow.hide();
 			  	  $buttonLinkRow.hide();
 				
-			 	} else if ($templateSelect.val() === 'article-bottom-align') 
+			 	} else if ($templateSelect.val() === 'article-bottom-align' ||
+						  $templateSelect.val() === 'header-image-bottom-align' ||
+					 	  $templateSelect.val() === 'header-image-bottom-align-flat' ||
+					 	  $templateSelect.val() === 'header-image-box' ||	
+						  $templateSelect.val() === 'header-image-filters' ||	
+					 	  $templateSelect.val() === 'header-banner-course' ||	 
+					 	  $templateSelect.val() === 'header-image-course' ) 
 				
 				{
 				  $authorNameRow.hide();
@@ -134,19 +140,14 @@ if (!window[nam]) {
 				
               	} else if ( $templateSelect.val() === 'header-image-mid-align' ||
 		  			   	  $templateSelect.val() === 'header-image-mid-align-enhanced' ||
-					 	  $templateSelect.val() === 'header-image-bottom-align' ||
-					 	  $templateSelect.val() === 'header-image-bottom-align-flat' ||
-					 	  $templateSelect.val() === 'header-image-box' ||	
-					 	  $templateSelect.val() === 'header-image-filters' ||	
-					 	  $templateSelect.val() === 'header-banner-simple' ||	
-					 	  $templateSelect.val() === 'header-banner-course' ||	 
-					 	  $templateSelect.val() === 'header-image-course' )
+					 	  $templateSelect.val() === 'header-banner-simple')
 				{
 				  $authorNameRow.hide();
 				  $authorLocationRow.hide();
 				  $buttonTextRow.show();
 				  $buttonLinkRow.show(); 
-				}
+				
+				} 
 		     
           // toggle additional fields when changing template
 		  // note: after page load this is how you change templates - basically the same as above
@@ -154,13 +155,7 @@ if (!window[nam]) {
 
               if (evt.target.value === 'header-image-mid-align' ||
 			      evt.target.value === 'header-image-mid-align-enhanced' ||
-				  evt.target.value === 'header-image-bottom-align' ||
-				  evt.target.value === 'header-image-bottom-align-flat' ||
-				  evt.target.value === 'header-image-box' ||
-				  evt.target.value === 'header-image-filters' ||
-				  evt.target.value === 'header-banner-simple' ||
-				  evt.target.value === 'header-banner-course' ||
-				  evt.target.value === 'header-image-course' ) 
+				  evt.target.value === 'header-banner-simple' ) 
 				  
 				{
                   $authorNameRow.hide();
@@ -168,7 +163,13 @@ if (!window[nam]) {
 				  $buttonTextRow.show();
 			  	  $buttonLinkRow.show(); 
             
-              } else if (evt.target.value === 'article-bottom-align' ) 
+              } else if (evt.target.value === 'article-bottom-align'||
+						 evt.target.value === 'header-image-bottom-align' ||
+					 	 evt.target.value === 'header-image-bottom-align-flat' ||
+					 	 evt.target.value === 'header-image-box' ||	
+						 evt.target.value === 'header-image-filters' ||	
+					 	 evt.target.value === 'header-banner-course' ||	 
+					 	 evt.target.value=== 'header-image-course') 
 				{
                   $authorNameRow.hide();
 				  $authorLocationRow.hide();
