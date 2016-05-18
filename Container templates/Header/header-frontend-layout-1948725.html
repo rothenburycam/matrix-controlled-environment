@@ -1,0 +1,115 @@
+%begin_asset_metadata_header_template^contains:article%
+
+    <article>
+      <header 
+        %begin_asset_metadata_header_image% 
+            style="background-image: url(%asset_metadata_header_image^as_asset:asset_url%);" 
+        %end_asset_metadata_header_image%
+        >
+        <div 
+            %asset_metadata_header_template^eq:article-bottom-align^replace_keywords:eq:1:class="bottom-align blurred"%
+            %asset_metadata_header_template^eq:article-mid-align^replace_keywords:eq:1:class="mid-align blurred"%
+        >
+            %asset_metadata_page_title^tagif:h1%
+            %asset_metadata_subline_text^tagif:p%
+            
+            %begin_asset_metadata_header_template^eq:article-mid-align% 
+                %begin_asset_metadata_author_name%
+                    <p class="author"><em>By %asset_metadata_author_name%</em> 
+                        %begin_asset_metadata_author_location%
+                            <br />%asset_metadata_author_location% 
+                        %end_asset_metadata_author_location%
+                    </p>
+                %end_asset_metadata_author_name%
+            %end_asset_metadata_header_template^eq:article-mid-align%     
+            </div>
+      </header>
+    </article>
+
+%else_asset_metadata_header_template^contains:article%
+
+    <header 
+        %asset_metadata_header_template^contains:header-image^replace_keywords:eq:1:class="image"%
+        %asset_metadata_header_template^contains:header-banner^replace_keywords:eq:1:class="banner"%
+        %asset_metadata_header_template^eq:header-image-box^replace_keywords:eq:1:class="with-box"%
+         %asset_metadata_header_template^eq:header-image-filters^replace_keywords:eq:1:class="image with-filters"%
+    
+        %begin_asset_metadata_header_image% 
+            style="background-image: url(%asset_metadata_header_image^as_asset:asset_url%);" 
+        %end_asset_metadata_header_image% 
+    >
+      
+       %begin_asset_metadata_header_template^contains:filters%  
+                
+            %asset_metadata_subline_text^tagif:p%
+            
+            %asset_contents_paint_1957711%
+        
+        %else_asset_metadata_header_template^contains:filters%  
+      
+              <div 
+                %asset_metadata_header_template^eq:header-image-mid-align^replace_keywords:eq:1:class="mid-align"%
+                %asset_metadata_header_template^eq:header-image-mid-align-enhanced^replace_keywords:eq:1:class="mid-align blurred"%
+                %asset_metadata_header_template^eq:header-image-bottom-align^replace_keywords:eq:1:class="bottom-align"% 
+                %asset_metadata_header_template^eq:header-image-bottom-align-flat^replace_keywords:eq:1:class="bottom-align-flat"% 
+                %asset_metadata_header_template^eq:header-image-box^replace_keywords:eq:1:class="box"% 
+                %asset_metadata_header_template^eq:header-banner-simple^replace_keywords:eq:1:class="mid-align"% 
+                %asset_metadata_header_template^eq:header-banner-course^replace_keywords:eq:1:class="bottom-align-flat"%
+                %asset_metadata_header_template^eq:header-image-course^replace_keywords:eq:1:class="bottom-align-flat"%
+              >
+              
+            
+             %begin_asset_metadata_header_template^contains:course%
+             
+                <form class="course-select">
+                    <div class="left">
+                        %asset_metadata_page_title^tagif:h2%
+                        %asset_metadata_subline_text^tagif:p%
+                    </div>
+                </form>    
+             
+             %else_asset_metadata_header_template^contains:course%
+              
+                %asset_metadata_page_title^tagif:h1%
+                %asset_metadata_subline_text^tagif:p%
+             
+             %end_asset_metadata_header_template^contains:course%
+             
+             %begin_asset_metadata_header_template^contains:header-image-mid%
+                
+                %begin_asset_metadata_button_link%
+                    <p><a href="%asset_metadata_button_link%" class="button-hero-inverse">
+                        %begin_asset_metadata_button_text% 
+                            %asset_metadata_button_text% 
+                        %else_asset_metadata_button_text% 
+                            Read more 
+                        %end_asset_metadata_button_text% </a></p>
+                %end_asset_metadata_button_link%
+             
+             %else_asset_metadata_header_template^contains:header-image-mid%
+             
+                %begin_asset_metadata_header_template^eq:header-banner-simple%
+                
+                    %begin_asset_metadata_button_link%
+                    <p><a href="%asset_metadata_button_link%" class="button-hero-inverse">
+                        %begin_asset_metadata_button_text% 
+                            %asset_metadata_button_text% 
+                        %else_asset_metadata_button_text% 
+                            Read more 
+                        %end_asset_metadata_button_text% </a></p>
+                    %end_asset_metadata_button_link%
+                    
+                %else_asset_metadata_header_template^eq:header-banner-simple%
+                
+                %end_asset_metadata_header_template^eq:header-banner-simple%
+                
+             
+             %end_asset_metadata_header_template^contains:header-image-mid%
+      </div>
+      
+      %end_asset_metadata_header_template^contains:filters%  
+      
+    </header>
+
+
+%end_asset_metadata_header_template^contains:article%
