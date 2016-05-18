@@ -32,20 +32,11 @@
         %asset_metadata_header_template^contains:header-image^replace_keywords:eq:1:class="image"%
         %asset_metadata_header_template^contains:header-banner^replace_keywords:eq:1:class="banner"%
         %asset_metadata_header_template^eq:header-image-box^replace_keywords:eq:1:class="with-box"%
-         %asset_metadata_header_template^eq:header-image-filters^replace_keywords:eq:1:class="image with-filters"%
     
         %begin_asset_metadata_header_image% 
             style="background-image: url(%asset_metadata_header_image^as_asset:asset_url%);" 
         %end_asset_metadata_header_image% 
     >
-      
-       %begin_asset_metadata_header_template^contains:filters%  
-                
-            %asset_metadata_subline_text^tagif:p%
-            
-            %asset_contents_paint_1957711%
-        
-        %else_asset_metadata_header_template^contains:filters%  
       
               <div 
                 %asset_metadata_header_template^eq:header-image-mid-align^replace_keywords:eq:1:class="mid-align"%
@@ -103,13 +94,9 @@
                 
                 %end_asset_metadata_header_template^eq:header-banner-simple%
                 
-             
              %end_asset_metadata_header_template^contains:header-image-mid%
       </div>
       
-      %end_asset_metadata_header_template^contains:filters%  
-      
     </header>
-
 
 %end_asset_metadata_header_template^contains:article%
