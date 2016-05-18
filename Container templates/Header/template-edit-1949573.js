@@ -57,7 +57,6 @@ if (!window[nam]) {
         'header-image-bottom-align': {'id': 1949728},
         'header-image-bottom-align-flat': {'id': 1949727},
         'header-image-box': {'id': 1949720},
-        'header-image-filters': {'id': 1949723},
         'header-banner-simple': {'id': 1949732},
         'header-banner-course': {'id': 1949722},
         'header-image-course': {'id': 1949725},
@@ -127,8 +126,7 @@ if (!window[nam]) {
 			 	} else if ($templateSelect.val() === 'article-bottom-align' ||
 						  $templateSelect.val() === 'header-image-bottom-align' ||
 					 	  $templateSelect.val() === 'header-image-bottom-align-flat' ||
-					 	  $templateSelect.val() === 'header-image-box' ||	
-						  $templateSelect.val() === 'header-image-filters' ||	
+					 	  $templateSelect.val() === 'header-image-box' ||		
 					 	  $templateSelect.val() === 'header-banner-course' ||	 
 					 	  $templateSelect.val() === 'header-image-course' ) 
 				
@@ -167,7 +165,6 @@ if (!window[nam]) {
 						 evt.target.value === 'header-image-bottom-align' ||
 					 	 evt.target.value === 'header-image-bottom-align-flat' ||
 					 	 evt.target.value === 'header-image-box' ||	
-						 evt.target.value === 'header-image-filters' ||	
 					 	 evt.target.value === 'header-banner-course' ||	 
 					 	 evt.target.value=== 'header-image-course') 
 				{
