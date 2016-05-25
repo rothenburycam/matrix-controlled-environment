@@ -1,6 +1,6 @@
 var eventsJSON = JSON.parse(_REST.responses[0].body),
     newsJSON = '%globals_get_news^as_asset:asset_contents_raw^json_encode%',
-    tplTxtDefault = '%globals_asset_contents_raw:1662159^json_encode%',
+    tplTxtDefault = '%globals_asset_contents_raw:1722776^json_encode%',
     tplTxtTag = '%globals_asset_contents_raw:1673277^json_encode%',
     eventType = '%globals_get_type%',
     eventTag = '%globals_get_tag%',
@@ -152,10 +152,10 @@ Handlebars.registerHelper('isItOlderThenDay', function(val, type, options) {
 // If Else Helper for event tags
 Handlebars.registerHelper('ifValue', function(val, options) {
     var eventTypeArr = eventType.split(',');
-
+    
     for (var i = 0; i < eventTypeArr.length; i++) {
-        if (eventTypeArr[i] == val) {
-            return options.fn(this);
+    if (eventTypeArr[i] == val) {
+        return options.fn(this);
         }
     }
     return options.inverse(this);
@@ -163,14 +163,14 @@ Handlebars.registerHelper('ifValue', function(val, options) {
 
 // Checks index and display's none
 Handlebars.registerHelper('whatIndex', function(val, options) {
-    var newRow = positionCounter ++;
-    var limit = maxRowCustom.length ? maxRowCustom : maxRow;
-
-    if (newRow > limit) {
-        return 'hidden-item';
-    } else {
-        return 'visible-item';
-    }
+	var newRow = positionCounter ++;
+	var limit = maxRowCustom.length ? maxRowCustom : maxRow;
+	
+	if (newRow > limit) {
+		return 'hidden-item';
+	} else {
+		return 'visible-item';
+	}
 });
 
 // Show 'load more' button if there's more then 15 items (maxRow)
@@ -197,13 +197,13 @@ Handlebars.registerHelper('ifEqualsWithTag', function(a, b, type, options) {
     var eventTypeArr = eventType.split(',');
     // Loop through the array and check if its in the get var
     for (var i = 0; i < eventTypeArr.length; i++) {
-        if (eventTypeArr[i] == type || type == 'all') {
-            var publicResults = liveResutsCount ++;
-            // If it's reached the limit
-            if (publicResults === 16) {
-                return returnButton(publicResults);
-            }
-            break;
+    if (eventTypeArr[i] == type || type == 'all') {
+    var publicResults = liveResutsCount ++;
+    // If it's reached the limit
+    if (publicResults === 16) {
+        return returnButton(publicResults);
+        }
+        break;
         }
     }
 });
