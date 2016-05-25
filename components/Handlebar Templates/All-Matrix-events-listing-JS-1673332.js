@@ -1,6 +1,6 @@
 var eventsJSON = JSON.parse(_REST.responses[0].body),
     newsJSON = '%globals_get_news^as_asset:asset_contents_raw^json_encode%',
-    tplTxtDefault = '%globals_asset_contents_raw:1662159^json_encode%',
+    tplTxtDefault = '%globals_asset_contents_raw:1722776^json_encode%',
     tplTxtTag = '%globals_asset_contents_raw:1673277^json_encode%',
     eventType = '%globals_get_type%',
     eventTag = '%globals_get_tag%',
@@ -150,19 +150,23 @@ Handlebars.registerHelper('isItOlderThenDay', function(val, type, options) {
 });
 
 // If Else Helper for event tags
-Handlebars.registerHelper("ifValue", function(val, options) {
-    if (val == eventType) {
+Handlebars.registerHelper('ifValue', function(val, options) {
+    var eventTypeArr = eventType.split(',');
+    
+    for (var i = 0; i < eventTypeArr.length; i++) {
+    if (eventTypeArr[i] == val) {
         return options.fn(this);
-    } else {
-        return options.inverse(this);
+        }
     }
+    return options.inverse(this);
 });
 
 // Checks index and display's none
-Handlebars.registerHelper("whatIndex", function(val, options) {
+Handlebars.registerHelper('whatIndex', function(val, options) {
 	var newRow = positionCounter ++;
+	var limit = maxRowCustom.length ? maxRowCustom : maxRow;
 	
-	if (newRow > maxRow) {
+	if (newRow > limit) {
 		return 'hidden-item';
 	} else {
 		return 'visible-item';
@@ -182,7 +186,7 @@ Handlebars.registerHelper('moreThan', function(index, options){
 Handlebars.registerHelper('ifEqualsWithoutTag', function(a, b, options) {
     var publicResults = liveResutsCount ++;
     // If it's reached the limit
-    if (publicResults === 15) {
+    if (publicResults === 16) {
         return returnButton(publicResults);
     }
 });
@@ -190,12 +194,16 @@ Handlebars.registerHelper('ifEqualsWithoutTag', function(a, b, options) {
 // If equals with globals get tag
 Handlebars.registerHelper('ifEqualsWithTag', function(a, b, type, options) {
     // If it's tagged
-    if (type == eventType || type == 'all') {
-    
-        var publicResults = liveResutsCount ++;
-        // If it's reached the limit
-        if (publicResults === 15) {
+    var eventTypeArr = eventType.split(',');
+    // Loop through the array and check if its in the get var
+    for (var i = 0; i < eventTypeArr.length; i++) {
+    if (eventTypeArr[i] == type || type == 'all') {
+    var publicResults = liveResutsCount ++;
+    // If it's reached the limit
+    if (publicResults === 16) {
         return returnButton(publicResults);
+        }
+        break;
         }
     }
 });
