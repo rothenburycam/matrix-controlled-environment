@@ -1,6 +1,8 @@
-<div class="headerless"></div>
+<div class="headerless"></div> 
 <div class="detail">
   <div class="upper">
+      <h1>{{title}}</h1>
+      <h2>{{event_type}}</h2>
     <aside>
       <div class="when">
         <time datetime="2014-09-01">
@@ -12,8 +14,8 @@
         <time datetime="{{formatDateTime start_time}}">{{formatDateTime start_time}} - {{formatDateTime end_time}}</time>
       </div>
     </aside>
-    {{#if image_versions.w740xh320}}
-        <img alt="{{title}}" src="{{image_versions.w740xh320}}" />
+    {{#if image_versions.w1000xh500}}
+        <img alt="{{title}}" src="{{image_versions.w1000xh500}}" />
     {{/if}}
   </div>
   <div class="lower">
@@ -64,16 +66,40 @@
     </div>
     {{/if}}
     </aside>
-    <h2>
-      {{title}}
-    </h2>
+    <p>&nbsp;</p>
     {{{description_html}}}
 
-    {{#each presenters}}
-    <div class="presenters">
-      <strong>Presenters</strong>
-      <a href="">{{title}} {{first_name}} {{last_name}}</a>
-    </div>
-    {{/each}}
+    {{#if presenters}}
+    <hr class="spacer">
+        <h2>Presenters</h2>
+        {{#each presenters}}
+        
+            {{#if biography_text}}
+                <p><strong>{{title}} {{first_name}} {{last_name}}</strong>
+                {{#if position_title}}
+                  <br /> {{position_title}}
+                {{/if}}
+                
+                {{#if organisation}}    
+                   <br /> {{organisation}}
+                {{/if}}
+                </p>
+    
+                <p>{{biography_text}}</p>
+                
+            {{else}}
+            
+            <p><strong>{{title}} {{first_name}} {{last_name}}</strong>
+                {{#if position_title}}
+                  <br /> {{position_title}}
+                {{/if}}
+                
+                {{#if organisation}}    
+                   , {{organisation}}
+                {{/if}}
+                </p>
+            {{/if}}    
+        {{/each}}
+    {{/if}}
   </div>
 </div>
