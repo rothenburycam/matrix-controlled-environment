@@ -1,3 +1,4 @@
+<div class="headerless"></div>
 <div class="detail">
   <div class="upper">
     <aside>
@@ -11,8 +12,8 @@
         <time datetime="{{formatDateTime start_time}}">{{formatDateTime start_time}} - {{formatDateTime end_time}}</time>
       </div>
     </aside>
-    {{#if image_versions}}
-    <img alt="{{title}}" src="{{image_versions.w740xh320}}" />
+    {{#if image_versions.w740xh320}}
+        <img alt="{{title}}" src="{{image_versions.w740xh320}}" />
     {{/if}}
   </div>
   <div class="lower">
@@ -33,13 +34,13 @@
       <div>
         <ul class="social-links">
           <li>
-            <a href="https://twitter.com/intent/tweet?text={{{title}}}&amp;url={{link}}"><span class="small icon--hide-label" data-icon="twitter">Share on Twitter</span></a>
+            <a href="https://twitter.com/intent/tweet?text={{{title}}}&amp;url=%globals_asset_url^with_get:event_details%?event={{id}}"><span class="small icon--hide-label" data-icon="twitter">Share on Twitter</span></a>
           </li>
           <li>
-            <a href="https://www.facebook.com/sharer/sharer.php?u={{link}}" title="Share on Facebook"><span class="small icon--hide-label" data-icon="facebook">Share on Facebook</span></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?title={{{title}}}&amp;description={{description_text}}&amp;u=%globals_asset_url^with_get:event_details%?event={{id}}&amp;picture={{image_versions.w200xh157}}" title="Share on Facebook"><span class="small icon--hide-label" data-icon="facebook">Share on Facebook</span></a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/shareArticle?title={{{title}}}&amp;url={{link}}"><span class="small icon--hide-label" data-icon="linkedin">Share on LinkedIn</span></a>
+            <a href="https://www.linkedin.com/shareArticle?title={{{title}}}&amp;summary={{description_text}}&amp;url=%globals_asset_url^with_get:event_details%?event={{id}}"><span class="small icon--hide-label" data-icon="linkedin">Share on LinkedIn</span></a>
           </li>
         </ul>
       </div>
