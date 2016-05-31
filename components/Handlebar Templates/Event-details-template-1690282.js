@@ -27,7 +27,7 @@
           {{location.building}}<br />
           {{location.address}}
         </p>
-        <a target="_blank" class="button-small" href="https://www.google.com/maps/search/{{location.building}} {{location.address}}">
+        <a target="_blank" class="button-small brand" href="https://www.google.com/maps/search/{{location.building}} {{location.address}}">
             Map
             <span class="small" data-icon="location"></span>
         </a>
@@ -61,7 +61,7 @@
     {{#if booking.url}}
     <div>
         <p>
-          <a href="{{booking.url}}" class="button-small">Book now</a>
+          <a href="{{booking.url}}" class="button-small cta">Book now</a>
         </p>
     </div>
     {{/if}}

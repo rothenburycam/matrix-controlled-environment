@@ -161,6 +161,14 @@ Handlebars.registerHelper('ifValue', function(val, options) {
     return options.inverse(this);
 });
 
+// If Equals value helper
+Handlebars.registerHelper('if_eq', function(a, b, opts) {
+    if(a == b) // Or === depending on your needs
+        return opts.fn(this);
+    else
+        return opts.inverse(this);
+});
+
 // Checks index and display's none
 Handlebars.registerHelper('whatIndex', function(val, options) {
     var newRow = positionCounter ++;
