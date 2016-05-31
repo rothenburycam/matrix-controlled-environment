@@ -93,7 +93,13 @@
 				 		{{#if location.room_or_theatre}} {{location.room_or_theatre}} {{/if}} 
 					
               		</span> -->
-                    <em class="meta-right">Event</em>
+                    <em class="meta-right"> 
+                    {{#if_eq event_type "Other"}}
+                           Event
+                        {{else}}
+                            {{event_type}}
+                        {{/if_eq}}
+                    </em>
                   </div>
                 </a>
               </li>
@@ -149,7 +155,13 @@
 				 {{#if location.room_or_theatre}} {{location.room_or_theatre}} {{/if}} 
 					
               </span> -->
-              <em class="meta-right">Event</em>
+                    <em class="meta-right">
+                        {{#if_eq event_type "Other"}}
+                           Event
+                        {{else}}
+                            {{event_type}}
+                        {{/if_eq}}
+                    </em>
             </div>
           </a>
         </li>
