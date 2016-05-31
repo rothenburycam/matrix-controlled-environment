@@ -137,3 +137,7 @@ div.sq-form-captcha {
         border-color: #adb8c1;
         text-decoration: underline;
     }
+
+/* Corrects styling issue where specific list types are not respected in nested lists */
+li ol[type="a"] li { list-style-type: lower-alpha;}
+.uomcontent ol ol li ol[type="i"] li { list-style-type: lower-roman;}
