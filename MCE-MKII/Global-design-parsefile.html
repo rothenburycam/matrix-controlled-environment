@@ -25,42 +25,47 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 <meta content="IE=edge" http-equiv="X-UA-Compatible" />
 <MySource_AREA id_name="favicon" design_area="nest_content" ><MySource_SET name="type_codes" value="page" /></MySource_AREA>
-<title><MySource_PRINT id_name="__global__" var="asset_name" /> : <MySource_PRINT id_name="__global__" var="site_name" /></title>
+<title><MySource_PRINT id_name="__global__" var="asset_metadata_Title" /></title>
 <!--
 This website is managed centrally by the External Relations Digital Team. digital-team@unimelb.edu.au
 Last updated by: %asset_updated_by_name% on %asset_updated_readable%
 Asset ID: %globals_asset_assetid%
 Web maintainer: %globals_site_metadata_SITE.MaintainerEmail%
 -->
-<!-- Metadata -->
+<!--@@ Metadata @@-->
 <MySource_AREA id_name="metadata" design_area="metadata"/>
-<!-- Social Media, Thumbnail -->
-<!-- og: -->
+<!--@@ Search index @@-->
+<meta name="robots" content="%globals_asset_metadata_Index^replace:_:, %" />
+<!--@@ Canonical @@-->    
+<link rel="canonical" href="%globals_asset_metadata_Canonical%" />
+
+<!--@@ Social Media, Thumbnail @@-->
+<!--@@ og: @@-->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="%globals_asset_url%" />
     <meta property="og:title" content="%globals_asset_name%" />
-    <meta property="og:description" content="%globals_asset_metadata_description%" />
+    <meta property="og:description" content="%globals_asset_metadata_Description%" />
     <meta property="og:site_name" content="%globals_site_name%" />
     <meta property="og:locale" content="en_US" />
-<!-- Twitter card -->
+<!--@@ Twitter card @@-->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="%globals_asset_metadata_Twitter_handle^empty:@unimelb%" />
+    <meta name="twitter:site" content="%globals_asset_metadata_twitter^empty:@unimelb%" />
     <meta name="twitter:title" content="%globals_asset_name%" />
-    <meta name="twitter:description" content="%globals_asset_metadata_description%" />
-<!-- Thumbnail -->
+    <meta name="twitter:description" content="%globals_asset_metadata_Description%" />
+<!--@@ Thumbnail @@-->
     <MySource_AREA id_name="has_thumbnail" design_area="show_if"> <MySource_SET name="condition" value="keyword_regexp" /> <MySource_SET name="condition_keyword" value="asset_thumbnail_assetid" /> <MySource_SET name="condition_keyword_match" value="[0-9]+" /> <MySource_THEN>
     <meta name="twitter:image" content="%asset_thumbnail_url%" />
     <meta property="og:image" content="%asset_thumbnail_url%" />
     <meta name="thumbnail" content="%asset_thumbnail_url%" />
     </MySource_THEN> </MySource_AREA>
-<!-- Geo location -->
+<!--@@ Geo location @@-->
     <meta name="geo.placename" content="Victoria, Australia, Oceania, World">
     <meta name="geo.region" content="AU">
-<!-- Google verification code -->
+<!--@@ Google verification code @@-->
     <MySource_AREA id_name="DESIGN_google" design_area="nest_content" cache="1"><MySource_SET name="type_codes" value="page" /></MySource_AREA>
-<!-- Bing verification code -->
+<!--@@ Bing verification code @@-->
     <MySource_AREA id_name="DESIGN_bing" design_area="nest_content" cache="1"><MySource_SET name="type_codes" value="page" /></MySource_AREA>
-<!-- /Metadata -->
+<!--@@ /Metadata @@-->
 <MySource_AREA id_name="template_version" design_area="declared_vars" print="yes"><MySource_DECLARE name="template_version" value="3.0" type="text" description="Version of the Unimelb Design System in use for this site"/></MySource_AREA>
 <MySource_AREA id_name="set_page_header_home_link" design_area="declared_vars" print="no"><MySource_DECLARE name="set_page_header_home_link" value="" type="text" description="Name of academic division or service area to display next to UoM logo on the home page banner. Must be in the form of <strong>&#60;a class=&#34;page-header-home&#34; href=&#34;/&#34; &#62;Faculty of Foo&#60;./?a=1383744a&#62;</strong>"/></MySource_AREA>
 
@@ -74,7 +79,7 @@ Web maintainer: %globals_site_metadata_SITE.MaintainerEmail%
 <body>
 <div class="uomcontent">
     <div class="page-inner">
-        <!-- breadcrumbs -->     
+        <!--@@ breadcrumbs @@-->     
         <MySource_AREA id_name="page_lineage" design_area="asset_lineage">    
          <ol class="page-local-history" itemscope="" itemtype="http://schema.org/BreadcrumbList">
           <li class="root" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
@@ -97,14 +102,14 @@ Web maintainer: %globals_site_metadata_SITE.MaintainerEmail%
          </MySource_ASSET>
         </ol>
         </MySource_AREA>
-        <!-- breadcrumbs -->
-        <!-- Co-branding customisation -->
+        <!--@@ /breadcrumbs @@-->
+        <!--@@ Co-branding customisation @@-->
           <MySource_AREA id_name="cobranding_logo_css_img_links" design_area="linked_css"/>
           <MySource_AREA id_name="cobranding_logo_code_base" design_area="nest_content" cache="1">
          <MySource_SET name="type_codes"  value="page file" />
           </MySource_AREA>
-        <!-- /Co-branding customisation -->
-<!-- main-content -->
+        <!--@@ /Co-branding customisation @@-->
+<!--@@ main-content @@-->
 <MySource_AREA id_name="home_page_template" design_area="show_if">
 <MySource_SET name="condition" value="logical"/>
 <MySource_THEN><div class="floating"><MySource_PRINT id_name="set_page_header_home_link" var="set_page_header_home_link"/></div></MySource_THEN>
@@ -114,7 +119,7 @@ Web maintainer: %globals_site_metadata_SITE.MaintainerEmail%
 <MySource_AREA id_name="local_footer" design_area="nest_content" cache="1"><MySource_SET name="type_codes" value="page" /></MySource_AREA>
 <MySource_AREA id_name="DESIGN_footer" design_area="nest_content" cache="1"><MySource_SET name="type_codes" value="page" /></MySource_AREA>
         </div>
-<!-- /main-content -->
+<!--@@ /main-content @@-->
 <!--googleoff: all-->
         <div data-absolute-root="%globals_site_href%" class="no-js" id="sitemap" role="navigation">
             <h2>%globals_site_name%</h2>
@@ -157,9 +162,9 @@ Web maintainer: %globals_site_metadata_SITE.MaintainerEmail%
 <MySource_LOGOUT_SECTION><MySource_PRINT var="form_open" /><li><a href="%globals_asset_url:1022685%?SQ_ACTION=logout&end_url=%globals_asset_url^urlencode%">Log out</a></li><MySource_PRINT var="form_close" /></MySource_LOGOUT_SECTION>
 </MySource_AREA>
             </ul>
-        </div><!-- /#sitemap -->
-    </div><!-- /page-inner -->
-</div><!-- /uomcontent -->
+        </div><!--@@ /sitemap @@-->
+    </div><!--@@ /page-inner @@-->
+</div><!--@@ /uomcontent @@-->
 <!--googleon: all-->
 <MySource_AREA id_name="after_body" design_area="nest_content" ><MySource_SET name="type_codes" value="page" /></MySource_AREA>
 <script type="text/javascript">
