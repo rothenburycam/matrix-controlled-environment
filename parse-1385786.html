@@ -35,6 +35,10 @@ Web maintainer: %globals_site_metadata_SITE.MaintainerEmail%
 -->
 <!-- Metadata -->
 <MySource_AREA id_name="metadata" design_area="metadata"/>
+<!--@@ Search index @@-->
+<meta name="robots" content="%globals_asset_metadata_Index^replace:_:, %" />
+<!--@@ Canonical @@-->    
+<link rel="canonical" href="%globals_asset_metadata_Canonical%" />
 <!-- Social Media, Thumbnail -->
 <!-- og: -->
     <meta property="og:type" content="website" />
@@ -66,8 +70,8 @@ Web maintainer: %globals_site_metadata_SITE.MaintainerEmail%
 <MySource_AREA id_name="set_page_header_home_link" design_area="declared_vars" print="no"><MySource_DECLARE name="set_page_header_home_link" value="" type="text" description="Name of academic division or service area to display next to UoM logo on the home page banner. Must be in the form of <strong>&#60;a class=&#34;page-header-home&#34; href=&#34;/&#34; &#62;Faculty of Foo&#60;./?a=1383744a&#62;</strong>"/></MySource_AREA>
 
 <!--[if lt IE 9]><script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><![endif]-->
-<link rel="stylesheet" href="//uom-design-system.s3.amazonaws.com/v<MySource_PRINT id_name='template_version' var='template_version' />/uom.css">
-<script src="//uom-design-system.s3.amazonaws.com/v<MySource_PRINT id_name='template_version' var='template_version' />/uom.js"></script>
+<link rel="stylesheet" href="//d2h9b02ioca40d.cloudfront.net/v<MySource_PRINT id_name='template_version' var='template_version' />/uom.css">
+<script src="//d2h9b02ioca40d.cloudfront.net/v<MySource_PRINT id_name='template_version' var='template_version' />/uom.js"></script>
 <MySource_AREA id_name="head" design_area="head" />
 <MySource_AREA id_name="custom_css" design_area="linked_css" print="yes"><MySource_SET name="tag_type" value="link_tag" /><MySource_SET name="media" value="all" /></MySource_AREA>
 <MySource_AREA id_name="head_extras" design_area="nest_content" ><MySource_SET name="type_codes" value="page" /></MySource_AREA>
