@@ -109,60 +109,64 @@ Web maintainer: %globals_site_metadata_SITE.MaintainerEmail%
          <MySource_SET name="type_codes"  value="page file" />
           </MySource_AREA>
         <!--@@ /Co-branding customisation @@-->
-<!--@@ main-content @@-->
-<MySource_AREA id_name="home_page_template" design_area="show_if">
-<MySource_SET name="condition" value="logical"/>
-<MySource_THEN><div class="floating"><MySource_PRINT id_name="set_page_header_home_link" var="set_page_header_home_link"/></div></MySource_THEN>
-</MySource_AREA>
+        <!--@@ main-content @@-->
+        <MySource_AREA id_name="home_page_template" design_area="show_if">
+        <MySource_SET name="condition" value="logical"/>
+        <MySource_THEN><div class="floating"><MySource_PRINT id_name="set_page_header_home_link" var="set_page_header_home_link"/></div></MySource_THEN>
+        </MySource_AREA>
         <div class='main' id='main-content' role='main'>
-<MySource_AREA id_name="body" design_area="body" />
-<MySource_AREA id_name="local_footer" design_area="nest_content" cache="1"><MySource_SET name="type_codes" value="page" /></MySource_AREA>
-<MySource_AREA id_name="DESIGN_footer" design_area="nest_content" cache="1"><MySource_SET name="type_codes" value="page" /></MySource_AREA>
+            <MySource_AREA id_name="body" design_area="body" />
+            <MySource_AREA id_name="local_footer" design_area="nest_content" cache="1"><MySource_SET name="type_codes" value="page" /></MySource_AREA>
+            <MySource_AREA id_name="DESIGN_footer" design_area="nest_content" cache="1"><MySource_SET name="type_codes" value="page" /></MySource_AREA>
         </div>
-<!--@@ /main-content @@-->
-<!--googleoff: all-->
+        <!--googleoff: all-->
+        <MySource_AREA id_name="standard_menu" design_area="menu_normal" cache="1">
         <div data-absolute-root="%globals_site_href%" class="no-js" id="sitemap" role="navigation">
             <h2>%globals_site_name%</h2>
             <ul>
-<MySource_AREA id_name="standard_menu" design_area="menu_normal" cache="1">
-<MySource_SET name="level" value="top" />
-<MySource_SET name="show_subs" value="always" />
-<MySource_SET name="unwanted_asset_types" value="image, news_item, calendar_event, file" />
-<MySource_ASSET>
+                <MySource_SET name="level" value="top" />
+                <MySource_SET name="show_subs" value="always" />
+                <MySource_SET name="unwanted_asset_types" value="image, news_item, calendar_event, file" />
+                <MySource_ASSET>
                 <li><a href="<MySource_PRINT var='asset_href' />"><MySource_PRINT var="asset_short_name" /></a>
-<MySource_SUB design_area="menu_normal">
-<MySource_SET name="show_subs" value="always" />
-<MySource_SET name="unwanted_asset_types" value="image, news_item, calendar_event, file" />
+                    <MySource_SUB design_area="menu_normal">
+                    <MySource_SET name="show_subs" value="always" />
+                    <MySource_SET name="unwanted_asset_types" value="image, news_item, calendar_event, file" />
                         <div class="inner">
                             <ul>
-<MySource_ASSET>
+								<MySource_ASSET>
                                 <li><a href="<MySource_PRINT var='asset_href' />"> <MySource_PRINT var="asset_short_name" /> </a>
-<MySource_SUB design_area="menu_normal">
-<MySource_SET name="show_subs" value="always" />
-<MySource_SET name="unwanted_asset_types" value="image, news_item, calendar_event, file" />
+                                    <MySource_SUB design_area="menu_normal">
+                                    <MySource_SET name="show_subs" value="always" />
+                                    <MySource_SET name="unwanted_asset_types" value="image, news_item, calendar_event, file" />
                                         <div class="inner">
                                             <ul>
-<MySource_ASSET>
+												<MySource_ASSET>
                                                 <li class="<MySource_PRINT var="settings.class" />"><a href="<MySource_PRINT var='asset_href' />"> <MySource_PRINT var="asset_short_name" /> </a>
                                                 </li>
-</MySource_ASSET>
+												</MySource_ASSET>
                                             </ul>
                                         </div>
-</MySource_SUB>
+									</MySource_SUB>
                                 </li>
-</MySource_ASSET>
+								</MySource_ASSET>
                             </ul>
                         </div>
-</MySource_SUB>
+					</MySource_SUB>
                 </li>
-</MySource_ASSET>
-</MySource_AREA>
-<MySource_AREA id_name="logout_box" design_area="login_form" print="no">
-<MySource_LOGIN_SECTION><li><a class="login" href="%globals_asset_url%/_login">Login</a></li></MySource_LOGIN_SECTION>
-<MySource_LOGOUT_SECTION><MySource_PRINT var="form_open" /><li><a href="%globals_asset_url:1022685%?SQ_ACTION=logout&end_url=%globals_asset_url^urlencode%">Log out</a></li><MySource_PRINT var="form_close" /></MySource_LOGOUT_SECTION>
-</MySource_AREA>
+                </MySource_ASSET>
+                <MySource_AREA id_name="logout_box" design_area="login_form" print="no">
+                    <MySource_LOGIN_SECTION><li><a class="login" href="%globals_asset_url%/_login">Login</a></li></MySource_LOGIN_SECTION>
+                    <MySource_LOGOUT_SECTION><MySource_PRINT var="form_open" /><li><a href="%globals_asset_url:1022685%?SQ_ACTION=logout&end_url=%globals_asset_url^urlencode%">Log out</a></li><MySource_PRINT var="form_close" /></MySource_LOGOUT_SECTION>
+				</MySource_AREA>
             </ul>
-        </div><!--@@ /sitemap @@-->
+        </div>
+        </MySource_AREA>
+        <!--@@ /sitemap @@-->
+        <MySource_AREA id_name="local_nav_custom" design_area="nest_content" cache="1"><MySource_SET name="type_codes" value="page" /></MySource_AREA>
+        <!--@@ /main-content @@-->
+        <!--googleoff: all-->
+
     </div><!--@@ /page-inner @@-->
 </div><!--@@ /uomcontent @@-->
 <!--googleon: all-->
