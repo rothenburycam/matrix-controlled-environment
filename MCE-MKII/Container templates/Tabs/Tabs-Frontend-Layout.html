@@ -1,0 +1,125 @@
+<!--@@ CONTAINER - begin: tabbed-nav/tabbed @@-->
+
+%begin_asset_metadata_type^eq:tabbed-nav%
+<div class="tabbed-nav" data-tabbed="" id="nav">
+  <div class="full-width">
+    <nav class="desktop-nav" role="tablist">
+%else_asset_metadata_type^eq:tabbed-nav%
+<section>
+  <div class="tabbed" data-tabbed="true">
+    <nav role="tablist">
+%end_asset_metadata_type^eq:tabbed-nav%
+
+<!--@@ CONTAINER - tablist-metadata @@-->
+
+%begin_asset_metadata_authoring_type^eq:wysiwyg%
+      <a href="#%asset_metadata_section_1_heading^striphtml^striphtml^preg_replace:3400^lowercase%" role="tab" %asset_metadata_default_selected^eq:1:data-current="true"%>
+        %asset_metadata_section_1_heading%
+      </a>
+      <a href="#%asset_metadata_section_2_heading^striphtml^preg_replace:3400^lowercase%" role="tab" %asset_metadata_default_selected^eq:2:data-current="true"%>
+        %asset_metadata_section_2_heading%
+      </a>
+    %begin_asset_metadata_num_fields^gte:3%
+      <a href="#%asset_metadata_section_3_heading^striphtml^preg_replace:3400^lowercase%" role="tab" %asset_metadata_default_selected^eq:3:data-current="true"%>
+        %asset_metadata_section_3_heading%
+      </a>
+    %end_asset_metadata_num_fields^gte:3%
+    %begin_asset_metadata_num_fields^gte:4%
+      <a href="#%asset_metadata_section_4_heading^striphtml^preg_replace:3400^lowercase%" role="tab" %asset_metadata_default_selected^eq:4:data-current="true"%>
+        %asset_metadata_section_4_heading%
+      </a>
+    %end_asset_metadata_num_fields^gte:4%
+    %begin_asset_metadata_num_fields^gte:5%
+      <a href="#%asset_metadata_section_5_heading^striphtml^preg_replace:3400^lowercase%" role="tab" %asset_metadata_default_selected^eq:5:data-current="true"%>
+        %asset_metadata_section_5_heading%
+      </a>
+    %end_asset_metadata_num_fields^gte:5%
+    %begin_asset_metadata_num_fields^gte:6%
+      <a href="#%asset_metadata_section_6_heading^striphtml^preg_replace:3400^lowercase%" role="tab" %asset_metadata_default_selected^eq:6:data-current="true"%>
+        %asset_metadata_section_6_heading%
+      </a>
+    %end_asset_metadata_num_fields^gte:6%
+%end_asset_metadata_authoring_type^eq:wysiwyg%
+
+<!--@@ INSERT - tablist-listing @@-->
+
+<!--@@ CONTAINER - end: tablist @@-->
+
+%begin_asset_metadata_type^eq:tabbed-nav%
+    </nav>
+  </div><!--@@ /.full-width @@-->
+%else_asset_metadata_type^eq:tabbed-nav%
+    </nav>
+%end_asset_metadata_type^eq:tabbed-nav%
+
+<!--@@ CONTAINER - tabpanels-metdata @@-->
+
+%begin_asset_metadata_authoring_type^eq:wysiwyg%
+  <!--tabpanels -->
+  %begin_asset_metadata_type^eq:tabbed-nav%
+      <div id="%asset_metadata_section_1_heading^striphtml^preg_replace:3400^lowercase%" class="tab" role="tabpanel">
+        %asset_metadata_section_1_content%
+      </div>
+      <div id="%asset_metadata_section_2_heading^striphtml^preg_replace:3400^lowercase%" class="tab" role="tabpanel">
+        %asset_metadata_section_2_content%
+      </div>
+    %begin_asset_metadata_num_fields^gte:3%
+      <div id="%asset_metadata_section_3_heading^striphtml^preg_replace:3400^lowercase%" class="tab" role="tabpanel">
+        %asset_metadata_section_3_content%
+      </div>
+    %end_asset_metadata_num_fields^gte:3%
+    %begin_asset_metadata_num_fields^gte:4%
+      <div id="%asset_metadata_section_4_heading^striphtml^preg_replace:3400^lowercase%" class="tab" role="tabpanel">
+        %asset_metadata_section_4_content%
+      </div>
+    %end_asset_metadata_num_fields^gte:4%
+    %begin_asset_metadata_num_fields^gte:5%
+      <div id="%asset_metadata_section_5_heading^striphtml^preg_replace:3400^lowercase%" class="tab" role="tabpanel">
+        %asset_metadata_section_5_content%
+      </div>
+    %end_asset_metadata_num_fields^gte:5%
+    %begin_asset_metadata_num_fields^gte:6%
+      <div id="%asset_metadata_section_6_heading^striphtml^preg_replace:3400^lowercase%" class="tab" role="tabpanel">
+        %asset_metadata_section_6_content%
+      </div>
+    %end_asset_metadata_num_fields^gte:6%
+  %else_asset_metadata_type^eq:tabbed-nav%
+      <section id="%asset_metadata_section_1_heading^striphtml^preg_replace:3400^lowercase%" role="tabpanel">
+        %asset_metadata_section_1_content%
+      </section>
+      <section id="%asset_metadata_section_2_heading^striphtml^preg_replace:3400^lowercase%" role="tabpanel">
+        %asset_metadata_section_2_content%
+      </section>
+    %begin_asset_metadata_num_fields^gte:3%
+      <section id="%asset_metadata_section_3_heading^striphtml^preg_replace:3400^lowercase%" role="tabpanel">
+        %asset_metadata_section_3_content%
+      </section>
+    %end_asset_metadata_num_fields^gte:3%
+    %begin_asset_metadata_num_fields^gte:4%
+      <section id="%asset_metadata_section_4_heading^striphtml^preg_replace:3400^lowercase%" role="tabpanel">
+        %asset_metadata_section_4_content%
+      </section>
+    %end_asset_metadata_num_fields^gte:4%
+    %begin_asset_metadata_num_fields^gte:5%
+      <section id="%asset_metadata_section_5_heading^striphtml^preg_replace:3400^lowercase%" role="tabpanel">
+        %asset_metadata_section_5_content%
+      </section>
+    %end_asset_metadata_num_fields^gte:5%
+    %begin_asset_metadata_num_fields^gte:6%
+      <section id="%asset_metadata_section_6_heading^striphtml^preg_replace:3400^lowercase%" role="tabpanel">
+        %asset_metadata_section_6_content%
+      </section>
+    %end_asset_metadata_num_fields^gte:6%
+  %end_asset_metadata_type^eq:tabbed-nav%
+%end_asset_metadata_authoring_type^eq:wysiwyg%
+
+<!--@@ INSERT - tabpanels-listing @@-->
+
+<!--@@ CONTAINER - end:tabbed-nav/tabbed @@-->
+
+%begin_asset_metadata_type^eq:tabbed-nav%
+</div><!--@@ .tabbed-nav @@-->
+%else_asset_metadata_type^eq:tabbed-nav%
+  </div><!--@@ .tabbed @@-->
+</section>
+%end_asset_metadata_type^eq:tabbed-nav%
