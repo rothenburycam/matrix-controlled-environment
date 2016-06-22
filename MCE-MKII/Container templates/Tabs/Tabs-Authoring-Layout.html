@@ -1,0 +1,30 @@
+<!--@@
+    MCE Container Templates
+    Tabs - Authoring
+    Note when locks not acquired: Matrix will treat this section as normal content, and therefore strip out script tags (but not link tags).
+    @authors dcook@squiz.net
+    @requires Edit+ 5.3 or Matrix 5.3 Admin Interface
+    @imports jQuery 1.12 if not available
+    @imports jQuery.ui 1.12 if not available
+@@-->
+<script>
+    // Include jQuery and jQueryUI if not already loaded (Admin interface does not include them)
+    window.jQuery || document.write('<script src="//code.jquery.com/jquery-1.12.0.min.js"></'+'script>');
+    window.jQuery && window.jQuery.ui || document.write('<script src="//code.jquery.com/ui/1.12.0-beta.1/jquery-ui.min.js"></'+'script>');
+</script>
+
+<!--@@ global css @@-->
+<link rel="stylesheet" type="text/css" id="ContentTemplates.css" href="./?a=782" />
+
+<!--@@ global js @@-->
+<script id="ContentTemplates.js" src="./?a=781"></script>
+
+<div class="content-template content-template-tabs">
+    <h3>Tabs</h3>
+    <!-- Metadata fields entry -->
+    %metadata-F_metadata_values%
+</div>
+
+
+<!--@@ custom js @@-->
+<script id="template-edit.js" src="./?a=890"></script>
