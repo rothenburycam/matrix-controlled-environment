@@ -1,0 +1,76 @@
+<!--@@
+    Timeline Authoring Layout
+    Note when locks not acquired: Matrix will treat this section as normal content, and therefore strip out script tags (but link and style are always rendered).
+    Tables required for Admin interface. 
+    Todo: arrange into valid html.
+    @authors dcook@squiz.net
+    @requires Edit+ 5.3 or Matrix 5.3 Admin Interface
+    @imports jQuery 1.12 if not available
+    @imports jQuery.ui 1.12 if not available
+@@-->
+
+<script>
+    // Include jQuery and jQueryUI if not already loaded (Admin interface does not include them)
+    window.jQuery || document.write('<script src="//code.jquery.com/jquery-1.12.0.min.js"></'+'script>');
+    window.jQuery && window.jQuery.ui || document.write('<script src="//code.jquery.com/ui/1.12.0-beta.1/jquery-ui.min.js"></'+'script>');
+</script>
+
+<!--@@ global css @@-->
+<link rel="stylesheet" type="text/css" id="ContentTemplates.css" href="./?a=782" />
+
+<!--@@ global js @@-->
+<script id="ContentTemplates.js" src="./?a=781"></script>
+
+
+<div class="content-template content-template-timeline">
+  <h3>Timeline</h3>
+  <div id="ees_editMetadata" class="metadata metadata_value_table">
+      <div class="sq-backend-section-inner-table-wrapper">
+      <h3 class="schemaHeading_0 sq-backend-section-heading" >Metadata Schema</h3>
+      <h4 class="sectionHeading_0 sq-backend-section-subheading">Content</h4>
+      <table class="content-template-timeline__multitext editSection section_0">
+        <tr class="row sq-backend-row section-description">
+          <td class="cellName sq-backend-field"><span class="inputLabel sq-backend-field-label">Section Description</span></td>
+          <td class="cellData sq-backend-data locked"><span title="Non Editable" class="fieldNonEditable"><span></span></span>
+              <i>%metadata-F_section_928_description%</i>
+          </td>
+        </tr>
+        <tr class="row sq-backend-row section-description">
+            <td colspan="2" class="content-template-timeline__multitext"><!--@@ not .multipleText because EES will re-arrange it @@-->
+              <!-- Load values from Matrix -->
+              <div class="hidden values">
+                <input type="hidden" name="metadata_field_multiple_text_929" value="%asset_metadata_day^escapehtml%">
+                <input type="hidden" name="metadata_field_multiple_text_930" value="%asset_metadata_date^escapehtml%">
+                <input type="hidden" name="metadata_field_multiple_text_931" value="%asset_metadata_time^escapehtml%">
+                <input type="hidden" name="metadata_field_multiple_text_932" value="%asset_metadata_content^escapehtml%">
+              </div>
+              <ul class="ees_directChildrenList sortable">
+                <!-- Template markup -->
+                <li class="child row sq-backend-row clearfix sortableFieldContainer hidden template">
+                  <div class="col one-third">
+                    <a class="dragIcon" title="Drag to re-arrange" href="#"></a>
+                    <input type="text" name="container_%asset_assetid%_metadata_field_multiple_text_929_options[]" class="multitext__input" autocomplete="off" value="" placeholder="Day">
+                    <input type="text" name="container_%asset_assetid%_metadata_field_multiple_text_930_options[]" class="multitext__input" autocomplete="off" value="" placeholder="Date">
+                  </div>
+                  <div class="col two-thirds">
+                    <input type="text" name="container_%asset_assetid%_metadata_field_multiple_text_931_options[]" class="multitext__input" autocomplete="off" value="" placeholder="Time">
+                    <a href="#" class="assetDeleteOption delete-button" title="Delete this option"></a>
+                    <div class="box_content viper__container cellData" id="bodycopy_%asset_assetid%_content_type_wysiwyg_:i:_wysiwyg_container"> <!--@@ ID required so EES will initialise it @@-->
+                      <div class="viper__box viper__editable" id="bodycopy_%asset_assetid%_content_type_wysiwyg_:i:_contents_div"> <!--@@ ID required so EES will initialise it @@-->
+                        <!-- comment --> <!--@@ For some reason, it only works if there's a comment here. yeah really. @@-->
+                        <p>&nbsp;</p>
+                      </div>
+                      <textarea name="container_%asset_assetid%_metadata_field_multiple_text_932_options[]" class="viper__input"></textarea>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!--@@ custom js @@-->
+<script id="template-edit.js" src="./?a=946"></script>

@@ -1,0 +1,274 @@
+/**
+ * UniMelb MCE Container Templates
+ * Authoring Styles
+ *
+ * @version 0.1.7
+ * @authors dcook@squiz.net
+ * @requires Edit+ 5.3 or Matrix 5.3 Admin
+ *
+ * .plus - Edit+
+ * .sq-backend-data - Admin
+ */
+
+
+/** General **/
+
+.content-template h3 {
+    padding: 11px 20px 10px 20px;
+}
+.plus .content-template .metadata > h4 {
+    margin-bottom: 1em;
+}
+
+.plus .content_type_wysiwyg h4 .content-template__info {
+    display: inline-block;
+    margin-left: 0.3rem;
+}
+    .content-template__info-popup {
+        display: none;
+    }
+
+/* Hide unused elements */
+.content-template [class^=schemaHeading],
+.content-template .sectionHeading_0, .content-template .sq-backend-section-subheading,
+.content-template .sq-backend-section-heading-container,
+.content-template .sq-metadata-default-wrapper,
+.content-template .section-description .notes, 
+.content-template .section_0 .row_0 .notes {
+    display: none;
+}
+.hidden {
+    display: none;
+}
+
+
+/** Utilities **/
+.col {
+    width: 50%;
+    float: left;
+}
+.one-third {
+    width: 33.33%;
+}
+.two-thirds {
+    width: 66.67%;
+}
+
+/** Sortable **/
+.ui-sortable-helper {
+    opacity: 0.7; /* Semi-transparent during drag */
+}
+
+/** Sortable Heading and Text **/
+.content-template .sortable {
+    list-style: none;
+}
+#ees_eesUi .content-template .sortable {
+    border: none!important;
+    padding: 0!important;
+}
+    .content-template .sortable .sortableFieldContainer {
+        background-color: white;
+        position: relative;
+    }
+        .content-template .sortable .row {
+            border-bottom-style: dashed;
+        }
+        .content-template .sortable .sortableFieldContainer .row:not(.rowWithWYSIWYG) {
+            padding-top: 5px;
+            border-bottom: none;
+        }
+            .content-template .sortable .sortableFieldContainer .row:not(.rowWithWYSIWYG) .cellData {
+                padding-left: 0;
+            }
+        .content-template .sortable .sortableFieldContainer .cellName {
+            width: 25px;
+            padding-right: 0.3em;
+        }
+            .content-template .sortable .sortableFieldContainer .sortHandle {
+                top: 0;
+                left: 0;
+                margin: 0;
+            }
+        .content-template #ees_editMetadata .sortable .sortableFieldContainer .rowWithWYSIWYG .tools,
+        .content-template .sortable .sortableFieldContainer .rowWithWYSIWYG .cellName,
+        .content-template .sortable .sortableFieldContainer .cellName .inputLabel  {
+            display: none;
+        }
+
+        .content-template .sortable .sortableFieldContainer .cellData .multitext__input {
+            width: 100%;
+        }
+        .content-template .sortable .sortableFieldContainer .cellData  {
+            display: block; 
+            background: none;
+            padding-left: 20px;
+            padding-bottom: 0;
+            width: 638px;
+            max-width: 638px;
+        }
+
+
+/** Sortable Groups **/
+.sortableGroups {}
+    .sortableGroups .sortableFieldContainer:not(:last-child) {
+        border-bottom: 2px dashed #dadada;
+    }
+        .sortableGroups .sortableFieldContainer .row {
+            border-bottom-style: none;
+        }
+            .sortableGroups .sortableFieldContainer .sortHandle {
+                top: -5px;
+                left: 0;
+                margin: 0;
+            }
+
+            #ees_editMetadata .sortableGroups .sortableFieldContainer .rowWithWYSIWYG .tools,
+            .sortableGroups .sortableFieldContainer .rowWithWYSIWYG .cellName {
+                display: none;
+            }
+
+            /* Fix relatedAsset styling. Class ess_directChildrenList is used for sortHandle styles, but messes up relatedAsset so we fix it here: */
+            .sortableGroups.ees_directChildrenList .sortableFieldContainer  .assetIcon {
+                margin: 0;
+                background-position: 0 50%;
+            }
+
+
+/** Sortable MultiTextGroup */
+    .content-template-timeline__labels {
+        padding-left: 75px;
+        margin-top: 1.4em;
+    }
+    .content-template-timeline__multitext ul.sortable {
+        margin: 0 10px;
+    }
+    .content-template-timeline__multitext .sortableFieldContainer {
+        height: auto;
+        line-height: 1.1em;
+        padding: 0.3em 0;
+    }
+        .content-template-timeline__multitext .sortableFieldContainer .col:first-child {
+            text-align: right;
+        }
+        .plus .content-template-timeline__multitext .sortableFieldContainer .dragIcon {
+            display: inline-block;
+            top: 0;
+            margin: 0;
+            vertical-align: middle;
+            float: none;
+        }
+        .plus .content-template-timeline__multitext .sortableFieldContainer .assetDeleteOption {
+            /*margin: 0;
+            vertical-align: middle;
+            display: inline-block;*/
+            float: right;
+            margin: 0.9em;
+        }
+        .sq-backend-data .content-template-timeline__multitext .sortableFieldContainer .delete-button {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .content-template-timeline__multitext .sortableFieldContainer .multitext__input {
+            
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.10) inset;
+            color: #535353;
+            font-family: arial;
+            font-size: 12px;
+            height: 20px;
+            background: #fff;
+        }
+        .content-template-timeline__multitext .sortableFieldContainer .multitext__input,
+        .content-template-timeline__labels label {
+            display: inline-block;
+            width: 180px;
+            padding: 4px 6px;
+            margin: 5px;
+        }
+        .content-template-timeline__multitext .sortableFieldContainer .blank {
+            color: white; /* hide null character */
+        }
+        .content-template-timeline__multitext .sortableFieldContainer .viper__container {
+            padding: 5px;
+        }
+
+
+/** Custom Viper **/
+.viper__box, .plus .ees_viperEditCallToAction {
+    display: none; /* This causes wysiwyg inputs to not work. So we use JS to manually show .htmlarea-div's */
+    border: 1px solid #dadada;
+    border-radius: 4px;
+    padding: 10px;
+    min-height: 32px;
+}
+.viper__input {
+    width: 100%;
+}
+
+.viper__initialised .viper__input {
+    display: none;
+}
+.viper__initialised .viper__box {
+    display: block;
+}
+
+
+.viper__container .ees_viperEditCallToAction {
+    display: none;
+}
+.viper__container .ees_viperEditCallToAction:nth-child(2) {
+    display: block;
+}
+
+
+/** Edit+ Interface specific **/
+/**todo: style  .section-description nicer **/
+
+
+/** Admin Interface specific **/
+.sq-backend-data .content-template .sq-metadata-description {
+    padding-left: 0;
+}
+
+
+/** Mods to built-in content_template EES styles: fix for wysiwyg. Selectors should have been :not(.wysiwygContainer) (or something to that effect). TODO: submit patch **/
+ .plus #ees_editMetadata .wysiwygContainer h3 {
+    background: none;
+    border: none;
+    font-size: 1.714em;
+    padding: 0;
+    margin: 1em 0 .25em;
+}
+
+.plus .content_template_custom_layout .wysiwygContainer p {
+    font-size: 0.9rem;
+    line-height: 1.25;
+}
+
+.plus .wysiwygContainer ul, .plus .wysiwygContainer ol, .plus .wysiwygContainer dl {
+    margin: 1.4em 3em 2em;
+    padding: 0;
+}
+.plus .content_template_custom_layout .wysiwygContainer li {
+    font-size: 0.9rem;
+    margin: 0;
+    padding: 0;
+    line-height: initial;
+}
+.plus .content_template_custom_layout .wysiwygContainer ul li {
+    list-style-type: disc;
+}
+.plus .content_template_custom_layout .wysiwygContainer ul ul {
+    list-style-type: circle;
+}
+.plus td.cellName, .plus td.cellData {
+    border: none!important;
+    padding: 11px 20px 10px 20px!important;
+}
+
+/** Fix width for relatedAsset **/
+#ees_eesUi.content .relatedMetadata.fieldContainer {
+    width: 350px;
+}
