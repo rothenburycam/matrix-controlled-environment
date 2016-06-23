@@ -33,7 +33,7 @@
             </a>
           </div>
           <div class="meta">
-            <time class="meta-left" datetime="{{start_time_readable}}">
+            <time class="meta-left" datetime="{{start_time}}">
               {{start_time_readable}}
             </time>
             <em class="meta-right">News</em>
@@ -68,16 +68,16 @@
                   <div class="{{#if img_url}}top-unit{{else}}top-unit no-image{{/if}}">
                     <div class="when">
                       {{formatDateDay start_time}}
-                      <time datetime="{{formatDateDMY start_time}}">
+                      <time datetime="{{start_time}}">
                           {{formatDateDMY start_time}}
                       </time>
                       {{formatDateTime start_time}} - {{formatDateTime end_time}}
                     </div>
-					<!-- add mid-unit -->
+					<!--@@ add mid-unit @@-->
 					<div class="mid-unit"> 
                     	<strong>{{charLimit title 100}}</strong>
 					</div>
-					<!-- add image note best image ratio = 3:2 -->
+					<!-- best image ratio = 3:2 landscape -->
 					{{#if img_url}}
                 	<div class="crop-height">
 					    <img alt="{{title}}" src="{{img_url}}" />
@@ -86,13 +86,13 @@
 					
                   </div>
                   <div class="meta">
-                     <!-- <span class="meta-left">
+                     <!--@@ <span class="meta-left">
 					 
 				 		{{#if location.address}} {{location.address}} <br> {{/if}} 				
 				 		{{#if location.building}} {{location.building}} <br> {{/if}}
 				 		{{#if location.room_or_theatre}} {{location.room_or_theatre}} {{/if}} 
 					
-              		</span> -->
+              		</span> @@-->
                     <em class="meta-right">Event</em>
                   </div>
                 </a>
@@ -121,16 +121,16 @@
              <div class="{{#if img_url}}top-unit{{else}}top-unit no-image{{/if}}">
               <div class="when">
                 {{formatDateDay start_time}}
-                <time datetime="{{formatDateDMY start_time}}">
+                <time datetime="{{start_time}}">
                     {{formatDateDMY start_time}}
                 </time>
                 {{formatDateTime start_time}} - {{formatDateTime end_time}}
               </div>
-			  <!-- add mid-unit -->
+			  <!--@@ add mid-unit @@-->
 			  <div class="mid-unit"> 
 				<strong>{{charLimit title 100}}</strong>
 			  </div>
-			  <!-- add image note best image ratio = 3:2 -->
+			  <!-- best image ratio = 3:2 landscape -->
 			  {{#if img_url}}
               <div class="crop-height">
 				 <img alt="{{title}}" src="{{img_url}}" />
@@ -139,13 +139,13 @@
 			  
             </div>
             <div class="meta">
-              <!-- <span class="meta-left">
+              <!--@@ <span class="meta-left">
 					 
 				 {{#if location.address}} {{location.address}} <br> {{/if}} 				
 				 {{#if location.building}} {{location.building}} <br> {{/if}}
 				 {{#if location.room_or_theatre}} {{location.room_or_theatre}} {{/if}} 
 					
-              </span> -->
+              </span> @@-->
               <em class="meta-right">Event</em>
             </div>
           </a>
