@@ -36,7 +36,7 @@
             <time class="meta-left" datetime="{{start_time}}">
               {{start_time_readable}}
             </time>
-            <em class="meta-right">News</em>
+            <em class="meta-right"> {{#if tag_keyword}} {{tag_keyword}} {{else}} News {{/if}}</em>
           </div>
         </div>
       </li>
@@ -86,14 +86,7 @@
 					
                   </div>
                   <div class="meta">
-                     <!--@@ <span class="meta-left">
-					 
-				 		{{#if location.address}} {{location.address}} <br> {{/if}} 				
-				 		{{#if location.building}} {{location.building}} <br> {{/if}}
-				 		{{#if location.room_or_theatre}} {{location.room_or_theatre}} {{/if}} 
-					
-              		</span> @@-->
-                    <em class="meta-right">Event</em>
+                    <em class="meta-right">{{#if tag_keyword}} {{tag_keyword}} {{else}} Event {{/if}}</em>
                   </div>
                 </a>
               </li>
@@ -139,14 +132,7 @@
 			  
             </div>
             <div class="meta">
-              <!--@@ <span class="meta-left">
-					 
-				 {{#if location.address}} {{location.address}} <br> {{/if}} 				
-				 {{#if location.building}} {{location.building}} <br> {{/if}}
-				 {{#if location.room_or_theatre}} {{location.room_or_theatre}} {{/if}} 
-					
-              </span> @@-->
-              <em class="meta-right">Event</em>
+              <em class="meta-right">{{#if tag_keyword}} {{tag_keyword}} {{else}} Event {{/if}}</em>
             </div>
           </a>
         </li>

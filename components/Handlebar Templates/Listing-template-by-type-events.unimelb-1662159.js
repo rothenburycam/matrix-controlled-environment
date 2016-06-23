@@ -36,7 +36,7 @@
             <time class="meta-left" datetime="{{start_time_readable}}">
               {{start_time_readable}}
             </time>
-            <em class="meta-right">News</em>
+            <em class="meta-right"> {{#if tag_keyword}} {{tag_keyword}} {{else}} News {{/if}} </em>
           </div>
         </div>
       </li>
