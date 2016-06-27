@@ -1,0 +1,68 @@
+<!--@@
+  Ordered List Steps - Authoring Layout
+  Simple Edit Layout for Admin and Edit+
+  tables required for Admin interface. todo: arrange into valid html
+@@-->
+<div class="content-template content-template-ordered-list">
+  <!-- <h3>Ordered List Steps</h3> -->
+  <div id="ees_editMetadata" class="metadata metadata_value_table">
+      <div class="sq-backend-section-inner-table-wrapper">
+      <h3 class="schemaHeading_0 sq-backend-section-heading" >Metadata Schema</h3>
+      <h4 class="sectionHeading_0 sq-backend-section-subheading">Content</h4>
+      <table class="content-template-timeline__multitext editSection section_0">
+        <tr class="row sq-backend-row section-description">
+          <td class="cellName sq-backend-field"><span class="inputLabel sq-backend-field-label">Section Description</span></td>
+          <td class="cellData sq-backend-data locked"><span title="Non Editable" class="fieldNonEditable"><span></span></span>
+              <i>%metadata-F_section_949_description%</i>
+          </td>
+        </tr>
+        <tr class="row sq-backend-row section-description">
+            <td colspan="2" class="content-template-ordered-list__multitext"><!--@@ not .multipleText because EES will re-arrange it @@-->
+              <!-- Load values from Matrix -->
+              <div class="hidden values">
+                <input type="hidden" name="metadata_field_multiple_text_950" value="%asset_metadata_title^escapehtml%">
+                <input type="hidden" name="metadata_field_multiple_text_951" value="%asset_metadata_content^escapehtml%">
+              </div>
+              <ol class="ees_directChildrenList sortable">
+                <!-- Template markup -->
+                <li class="child row sq-backend-row clearfix sortableFieldContainer hidden template">
+                    <a class="dragIcon" title="Drag to re-arrange" href="#"></a>
+                    <input type="text" name="container_%asset_assetid%_metadata_field_multiple_text_950_options[]" class="multitext__input" autocomplete="off" value="" placeholder="Title">
+                    <a href="#" class="assetDeleteOption delete-button" title="Delete this option"></a>
+                    <div class="box_content viper__container cellData" id="bodycopy_%asset_assetid%_content_type_wysiwyg_:i:_wysiwyg_container::"> <!--@@ ID required so EES will initialise it. Colons will be replaced on clone. @@-->
+                      <div class="viper__box viper__editable" id="bodycopy_%asset_assetid%_content_type_wysiwyg_:i:_contents_div::"> <!--@@ ID required so EES will initialise it. Colons will be replaced on clone. @@-->
+                        <!-- comment --> <!--@@ For some reason, it only works if there's a comment here. yeah really. @@-->
+                        <p>&nbsp;</p>
+                      </div>
+                      <textarea name="container_%asset_assetid%_metadata_field_multiple_text_951_options[]" class="viper__input"></textarea>
+                    </div>
+                </li>
+              </ol>
+            </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!--@@
+    MCE Container Templates
+    Ordered List Steps - Authoring Styles and Scripts
+    Note when locks not acquired: Matrix will treat this section as normal content, and therefore strip out script tags (but not link tags).
+    @authors dcook@squiz.net
+    @requires Edit+ 5.3 or Matrix 5.3 Admin Interface
+    @imports jQuery 1.12 if not available
+    @imports jQuery.ui 1.12 if not available
+@@-->
+<script>
+    // Include jQuery and jQueryUI if not already loaded (Admin interface does not include them)
+    window.jQuery || document.write('<script src="//code.jquery.com/jquery-1.12.0.min.js"></'+'script>');
+    window.jQuery && window.jQuery.ui || document.write('<script src="//code.jquery.com/ui/1.12.0-beta.1/jquery-ui.min.js"></'+'script>');
+</script>
+
+<!--@@ Global Authoring Assets @@-->
+<link rel="stylesheet" type="text/css" id="template_edit.css" href="./?a=782" />
+<script id="template_edit.js" src="./?a=781"></script>
+
+<!--@@ local assets @@-->
+<script id="template_edit.js" src="./?a=965"></script>
