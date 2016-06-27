@@ -1,0 +1,23 @@
+<!--
+MCE Container Templates
+@authors dcook@squiz.net
+         mvaldman@squiz.net
+@requires Edit+ 5.3 or Matrix 5.3 Admin Interface
+@imports jQuery 1.12 if not available
+@imports jQuery.ui 1.12 if not available
+ -->
+<link rel="stylesheet" type="text/css" id="ContentTemplates.css" href="./?a=782" />
+<link rel="stylesheet" type="text/css" id="listing_custom.css" href="./?a=1126" />
+<script>
+    // Include jQuery and jQueryUI if not already loaded (Admin interface does not include them)
+    window.jQuery || document.write('<script src="//code.jquery.com/jquery-1.12.0.min.js"></'+'script>');
+    window.jQuery && window.jQuery.ui || document.write('<script src="//code.jquery.com/ui/1.12.0-beta.1/jquery-ui.min.js"></'+'script>');
+</script>
+
+<h4>Listing</h4>
+<div class="list-container-template-metadata">
+    %metadata-F_metadata_values%
+    <!--@@ %metadata-F_1035% @@-->
+</div>
+
+<script id="listing_template_init.js" src="./?a=1127"></script>
