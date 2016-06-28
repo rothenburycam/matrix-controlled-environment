@@ -8,7 +8,7 @@ var nam = 'ContentTemplateHeader';
 if (!window[nam]) {
   window[nam] = {
     name: nam,
-    version: '0.1.0',
+    version: '0.1.1',
     className: 'content-template-header',
     classNameInit: 'content-template-header--initialised',
 
@@ -52,6 +52,7 @@ if (!window[nam]) {
       
       // thumbnail images 
       var templateKeyArr = {
+		'header-blue': {'id': 3752},  
         'header-image-mid-align': {'id': 758},
         'header-image-mid-align-enhanced': {'id': 759},
         'header-image-bottom-align': {'id': 760},
@@ -86,7 +87,8 @@ if (!window[nam]) {
 		  var $authorLocationField = $('[id$="_metadata_field_related_asset_747_default"]',parentScope);
           var $authorLocationLabel = $('[for$="_metadata_field_related_asset_747_default"]',parentScope);
 		  	  
-		  // define the rows you want to show and hide  
+		  // define the rows you want to show and hide
+		  var $backgroundImageRow = $('.row_2',parentScope);
 		  var $buttonTextRow = $('.row_5',parentScope);
 		  var $buttonLinkRow = $('.row_6',parentScope);
 		  var $authorNameRow = $('.row_7',parentScope);
@@ -122,6 +124,7 @@ if (!window[nam]) {
               	  $authorLocationRow.show();
 			  	  $buttonTextRow.hide();
 			  	  $buttonLinkRow.hide();
+				  $backgroundImageRow.show();
 				
 			 	} else if ($templateSelect.val() === 'article-bottom-align' ||
 						  $templateSelect.val() === 'header-image-bottom-align' ||
@@ -135,6 +138,7 @@ if (!window[nam]) {
 				  $authorLocationRow.hide();
 				  $buttonTextRow.hide();
 				  $buttonLinkRow.hide(); 
+				  $backgroundImageRow.show();
 				
               	} else if ( $templateSelect.val() === 'header-image-mid-align' ||
 		  			   	  $templateSelect.val() === 'header-image-mid-align-enhanced' ||
@@ -144,14 +148,32 @@ if (!window[nam]) {
 				  $authorLocationRow.hide();
 				  $buttonTextRow.show();
 				  $buttonLinkRow.show(); 
+				  $backgroundImageRow.show();
+				} 
 				
+				else if ( $templateSelect.val() === 'header-blue')
+				{
+				  $authorNameRow.hide();
+				  $authorLocationRow.hide();
+				  $buttonTextRow.hide();
+				  $buttonLinkRow.hide(); 
+				  $backgroundImageRow.hide();
 				} 
 		     
           // toggle additional fields when changing template
 		  // note: after page load this is how you change templates - basically the same as above
           $templateSelect.change(function(evt){
 
-              if (evt.target.value === 'header-image-mid-align' ||
+             if  (evt.target.value === 'header-blue' ) 
+				  
+				{
+                  $authorNameRow.hide();
+				  $authorLocationRow.hide();
+				  $buttonTextRow.hide();
+				  $buttonLinkRow.hide(); 
+				  $backgroundImageRow.hide();
+            
+              } else if (evt.target.value === 'header-image-mid-align' ||
 			      evt.target.value === 'header-image-mid-align-enhanced' ||
 				  evt.target.value === 'header-banner-simple' ) 
 				  
@@ -160,6 +182,7 @@ if (!window[nam]) {
                   $authorLocationRow.hide();
 				  $buttonTextRow.show();
 			  	  $buttonLinkRow.show(); 
+				  $backgroundImageRow.show();
             
               } else if (evt.target.value === 'article-bottom-align'||
 						 evt.target.value === 'header-image-bottom-align' ||
@@ -172,6 +195,7 @@ if (!window[nam]) {
 				  $authorLocationRow.hide();
 				  $buttonTextRow.hide();
 				  $buttonLinkRow.hide(); 
+				  $backgroundImageRow.show();
 				  
               } else if ( evt.target.value === 'article-mid-align' ) 
 				{
@@ -179,6 +203,7 @@ if (!window[nam]) {
               	  $authorLocationRow.show();
 			  	  $buttonTextRow.hide();
 			  	  $buttonLinkRow.hide();
+				  $backgroundImageRow.show();
               	}
           });
 	

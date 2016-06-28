@@ -46,7 +46,12 @@ h1,h2,h3,h4,h5,h6 {
 }
     
 /* update the metadata fields and thumbnail images */
-    
+
+label[for$="_metadata_field_select_740_header-blue"] span {
+	background-image: url(/?a=3752:v2);
+	opacity: 0.3;
+}	    
+	
 label[for$="_metadata_field_select_740_header-image-mid-align"] span {
 	background-image: url(/?a=758:v2);
 	opacity: 0.3;
@@ -99,6 +104,10 @@ label[for$="_metadata_field_select_740_article-mid-align"] span {
 
 /* add the thumbnails - if the sizes are different, change them here */
 
+.select-thumb.selected-header-blue {
+	background-image: url(/?a=3752:v2); background-repeat: no-repeat; background-size: 470px 110px;
+}	
+
 .select-thumb.selected-header-image-mid-align {
 	background-image: url(/?a=758:v2); background-repeat: no-repeat; background-size: 470px 110px;
 }	
@@ -140,6 +149,7 @@ label[for$="_metadata_field_select_740_article-mid-align"] span {
 }
 
 /* update the metadata values */
+[id$="_metadata_field_select_740_header-blue"]:checked+label span,
 [id$="_metadata_field_select_740_header-image-mid-align"]:checked+label span, 
 [id$="_metadata_field_select_740_header-image-mid-align-enhanced"]:checked+label span, 
 [id$="_metadata_field_select_740_header-image-bottom-align"]:checked+label span, 
