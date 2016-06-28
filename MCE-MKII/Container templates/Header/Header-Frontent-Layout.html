@@ -26,17 +26,11 @@
 %else_asset_metadata_header_template^contains:article%
     
     %begin_asset_metadata_header_template^contains:header-blue%
-    <!--@@ 28/06/16 Bug with first header on page if using headerless and jump nav. Adding this div is a workaround  @@-->
-    <div>
     <header>
          %asset_metadata_page_title^tagif:h1%
          %asset_metadata_subline_text^tagif:p%
     </header>
-    </div>
     %else_asset_metadata_header_template^contains:header-blue%
-    
-    <!--@@ 28/06/16 Bug with first header on page if using headerless and jump nav. Adding this div is a workaround  @@-->
-    <div>
     <header 
         %asset_metadata_header_template^contains:header-image^replace_keywords:eq:1:class="image"%
         %asset_metadata_header_template^contains:header-banner^replace_keywords:eq:1:class="banner"%
@@ -90,7 +84,6 @@
              %end_asset_metadata_header_template^contains:header-image-mid%
       </div>
     </header>
-    </div>
     %end_asset_metadata_header_template^contains:header-blue%
     
 %end_asset_metadata_header_template^contains:article%
