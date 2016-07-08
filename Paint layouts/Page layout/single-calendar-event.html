@@ -1,3 +1,4 @@
+<div class="headerless"></div>
 <div class="detail">
   <div class="upper">
     <h1>
@@ -71,6 +72,15 @@
       </div>
       %else_enable_contact%
       %end_enable_contact%
+      
+      %begin_asset_metadata_BOOKING.Url%
+      <div>
+        <p>
+          <a href="%asset_metadata_BOOKING.Url%" class="button-small cta" target="_blank">Book now</a>
+        </p>
+      </div>
+      %else_asset_metadata_BOOKING.Url%
+      %end_asset_metadata_BOOKING.Url%
 
     </aside>
      %asset_attribute_description%
