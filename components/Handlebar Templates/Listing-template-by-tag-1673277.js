@@ -66,18 +66,27 @@
                 <!-- Days Away: {{daysAwayToday ../start_time ../type}} --> 
                 <!-- Tag: {{name}} -->
                 <a href="{{doesItHaveDetails ../id ../link}}" target="{{doesItNeedNewWindow ../id ../link}}" class="block-container">
-                  <div class="top-unit no-image">
+                  <div class="{{#if ../img_url}} top-unit {{else}} top-unit no-image {{/if}}">
                     <div class="when">
-                      {{formatDateDay start_time}}
+                      {{formatDateDay ../start_time}}
                       <time datetime="{{formatDateDMY ../start_time}}">
                           {{formatDateDMY ../start_time}}
                       </time>
                       {{formatDateTime ../start_time}} - {{formatDateTime ../end_time}}
                     </div>
-                    <strong>{{charLimit ../title 100}}</strong>
+					<div class="mid-unit">
+                    	<strong>{{charLimit ../title 100}}</strong>
+					</div>
+					<!-- add image note best image ratio = 3:2 -->
+					{{#if ../img_url}}
+					<div class="crop-height">
+					    <img alt="{{../title}}" src="{{../image_versions.w1000xh500}}" />
+                	</div>
+              		{{/if}}	
+					
                   </div>
                   <div class="meta">
-                    <span class="meta-left">
+                  <!--  <span class="meta-left">
 
                       {{#if ../location.address}}
                       {{../location.address}}<br>
@@ -88,8 +97,14 @@
                       {{#if ../location.room_or_theatre}}
                       {{../location.room_or_theatre}}
                       {{/if}}
-                    </span>
-                    <em class="meta-right">Event</em>
+                    </span> -->
+                    <em class="meta-right">
+                        {{#if_eq ../event_type "Other"}}
+                           Event
+                        {{else}}
+                            {{../event_type}}
+                        {{/if_eq}}
+                    </em>
                   </div>
                 </a>
               </li>
@@ -100,7 +115,7 @@
       {{/each}}
       
   %else_globals_get_tag%
-      {{#isItOlderThenDay start_time event_type}}
+  	  {{#isItOlderThenDay ../start_time ../event_type}}
         {{#isItAHeroTest id}}
           <!--@@ Events All Hero @@-->
           <li class="event double {{whatIndex @index}}" style="background-image: url({{img_url}});" data-type="{{event_type}}" data-public="{{public}}">
@@ -116,32 +131,46 @@
           <li class="event {{whatIndex @index}}" data-tag="{{event_type}}" data-public="{{public}}">
             <!-- Id: {{id}} -->
             <!-- Days Away: {{daysAwayToday start_time type}} --> 
-            <a href="{{doesItHaveDetails id link}}" target="{{doesItNeedNewWindow id link}}" class="block-container">
-              <div class="top-unit no-image">
-                <div class="when">
-                  {{formatDateDay start_time}}
-                  <time datetime="{{formatDateDMY start_time}}">
-                      {{formatDateDMY start_time}}
-                  </time>
-                  {{formatDateTime start_time}} - {{formatDateTime end_time}}
-                </div>
-                <strong>{{charLimit title 100}}</strong>
-              </div>
-              <div class="meta">
-                <span class="meta-left">
-                  {{#if location.address}}
-                  {{location.address}}<br>
-                  {{/if}}
-                  {{#if location.building}}
-                  {{location.building}}<br>
-                  {{/if}}
-                  {{#if location.room_or_theatre}}
-                  {{location.room_or_theatre}}
-                  {{/if}}
-                </span>
-                <em class="meta-right">Event</em>
-              </div>
-            </a>
+            <div class="{{#if ../img_url}} top-unit {{else}} top-unit no-image {{/if}}">
+                    <div class="when">
+                      {{formatDateDay ../start_time}}
+                      <time datetime="{{formatDateDMY ../start_time}}">
+                          {{formatDateDMY ../start_time}}
+                      </time>
+                      {{formatDateTime ../start_time}} - {{formatDateTime ../end_time}}
+                    </div>
+					<div class="mid-unit">
+                    	<strong>{{charLimit ../title 100}}</strong>
+					</div>
+					<!-- add image note best image ratio = 3:2 -->
+					{{#if ../img_url}}
+					<div class="crop-height">
+					    <img alt="{{../title}}" src="{{../image_versions.w1000xh500}}" />
+                	</div>
+              		{{/if}}	
+					
+                  </div>
+                  <div class="meta">
+                  <!--  <span class="meta-left">
+
+                      {{#if ../location.address}}
+                      {{../location.address}}<br>
+                      {{/if}}
+                      {{#if ../location.building}}
+                      {{../location.building}}<br>
+                      {{/if}}
+                      {{#if ../location.room_or_theatre}}
+                      {{../location.room_or_theatre}}
+                      {{/if}}
+                    </span> -->
+                    <em class="meta-right">
+                        {{#if_eq ../event_type "Other"}}
+                           Event
+                        {{else}}
+                            {{../event_type}}
+                        {{/if_eq}}
+                    </em>
+                  </div>
           </li>
         {{/isItAHeroTest}}
       
