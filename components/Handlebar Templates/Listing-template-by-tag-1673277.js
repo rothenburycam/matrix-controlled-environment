@@ -68,7 +68,7 @@
                 <a href="{{doesItHaveDetails ../id ../link}}" target="{{doesItNeedNewWindow ../id ../link}}" class="block-container">
                   <div class="{{#if ../img_url}} top-unit {{else}} top-unit no-image {{/if}}">
                     <div class="when">
-                      {{formatDateDay start_time}}
+                      {{formatDateDay ../start_time}}
                       <time datetime="{{formatDateDMY ../start_time}}">
                           {{formatDateDMY ../start_time}}
                       </time>
@@ -115,7 +115,7 @@
       {{/each}}
       
   %else_globals_get_tag%
-      {{#isItOlderThenDay start_time event_type}}
+  	  {{#isItOlderThenDay ../start_time ../event_type}}
         {{#isItAHeroTest id}}
           <!--@@ Events All Hero @@-->
           <li class="event double {{whatIndex @index}}" style="background-image: url({{img_url}});" data-type="{{event_type}}" data-public="{{public}}">
@@ -133,7 +133,7 @@
             <!-- Days Away: {{daysAwayToday start_time type}} --> 
             <div class="{{#if ../img_url}} top-unit {{else}} top-unit no-image {{/if}}">
                     <div class="when">
-                      {{formatDateDay start_time}}
+                      {{formatDateDay ../start_time}}
                       <time datetime="{{formatDateDMY ../start_time}}">
                           {{formatDateDMY ../start_time}}
                       </time>
