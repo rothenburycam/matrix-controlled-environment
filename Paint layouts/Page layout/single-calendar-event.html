@@ -11,8 +11,12 @@
       <div class="when">
       
       <time datetime="%event_start_datetime_o-m-d%"> %event_start_datetime_l% <strong>%event_start_datetime_j% %event_start_datetime_M%</strong> %event_start_datetime_Y%</time>
-
-      <time datetime="%event_start_time_24h%">%event_short_start_time% - %event_short_end_time%</time>
+        
+        %begin_event_short_start_time%
+            <time datetime="%event_start_time_24h%">%event_short_start_time^append_if: -% %event_short_end_time%</time>
+        %else_event_short_start_time%
+            <br>
+        %end_event_short_start_time%
      
       </div>
     </aside>
@@ -22,7 +26,15 @@
   </div>
   <div class="lower">
     <aside>
-
+     %begin_asset_metadata_BOOKING.Url%
+      <div>
+        <p>
+          <a href="%asset_metadata_BOOKING.Url%" class="button-small cta" target="_blank">Book now</a>
+        </p>
+      </div>
+      %else_asset_metadata_BOOKING.Url%
+      
+      %end_asset_metadata_BOOKING.Url%
       %begin_enable_map%
       <div>
       
@@ -73,14 +85,7 @@
       %else_enable_contact%
       %end_enable_contact%
       
-      %begin_asset_metadata_BOOKING.Url%
-      <div>
-        <p>
-          <a href="%asset_metadata_BOOKING.Url%" class="button-small cta" target="_blank">Book now</a>
-        </p>
-      </div>
-      %else_asset_metadata_BOOKING.Url%
-      %end_asset_metadata_BOOKING.Url%
+      
 
     </aside>
      %asset_attribute_description%
