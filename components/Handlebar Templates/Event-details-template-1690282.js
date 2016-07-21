@@ -20,6 +20,14 @@
   </div>
   <div class="lower">
     <aside>
+	  {{#if booking.url}}
+      <div>
+        <p>
+          <a href="{{booking.url}}" class="button-small cta">Book now</a>
+        </p>
+      </div>
+      {{/if}}
+	
       {{#if location}}    
       <div>
         <p>
@@ -58,20 +66,14 @@
         </p>
         {{/if}}
     </div>
-    {{#if booking.url}}
-    <div>
-        <p>
-          <a href="{{booking.url}}" class="button-small cta">Book now</a>
-        </p>
-    </div>
-    {{/if}}
+   
     </aside>
     <p>&nbsp;</p>
     {{{description_html}}}
 
     {{#if presenters}}
     <hr class="spacer">
-        <h2>Presenters</h2>
+        <h2>Presenter(s)</h2>
         {{#each presenters}}
         
             {{#if biography_text}}
