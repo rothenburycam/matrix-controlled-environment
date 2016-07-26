@@ -1,8 +1,8 @@
 /* 
 Template Name: uom-mce.css
-UOM Version: 3.4.5
+UOM DDS Version: 4.3
 Author: External Relations Digital Team - Based on UoM Design Template
-Updated: 6/04/2016
+Updated: 26/26/2016
 */
 
 /* give some padding to the top of pages - this is a fix until release 5.3*/
@@ -174,3 +174,10 @@ ol[type="i"].brackets > li:before {
   counter-increment: list-i;
   content: "(" counter(list-i, lower-roman) ") ";
 }
+
+/* 26/07/16 online quiz overrides */
+.uomcontent .sq-online-quiz-question-multichoice ul {padding-left: 0px;}
+.uomcontent .sq-online-quiz-question-multichoice ul li {list-style: none; margin-left: 0px}  
+.uomcontent .sq-online-quiz-question-multichoice label {padding-left: 0.4em;}
+.uomcontent .quiz-results .correct {color: #008a00;}
+.uomcontent .quiz-results .incorrect {color: #DF0620;}
