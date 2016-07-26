@@ -139,5 +139,38 @@ div.sq-form-captcha {
     }
 
 /* Corrects styling issue where specific list types are not respected in nested lists */
-li ol[type="a"] li { list-style-type: lower-alpha;}
-.uomcontent ol ol li ol[type="i"] li { list-style-type: lower-roman;}
+li li li[type="a"], ol ol[type="a"] { list-style-type: lower-alpha;}
+
+/* Adds styling that allows ordered listing to have brackets */
+/* Fixes all nested ol problems as per JSFiddle: https://jsfiddle.net/7jznw692/ */
+
+ol.brackets > li {
+    list-style: none !important;
+    position: relative;
+}
+ol.brackets {
+    counter-reset: list-1;
+}
+ol[type="a"].brackets {
+    counter-reset: list-a;
+}
+ol[type="i"].brackets {
+    counter-reset: list-i;
+}
+
+ol.brackets > li:before {
+    position: absolute;
+    left: -1.6em;
+}
+ol.brackets > li:before {
+  counter-increment: list-1;
+  content: "(" counter(list-1, decimal) ") ";
+}
+ol[type="a"].brackets > li:before {
+  counter-increment: list-a;
+  content: "(" counter(list-a, lower-alpha) ") ";
+}
+ol[type="i"].brackets > li:before {
+  counter-increment: list-i;
+  content: "(" counter(list-i, lower-roman) ") ";
+}
