@@ -1,8 +1,8 @@
 /* 
 Template Name: uom-mce.css
-UOM DDS Version: 4.3
+UOM DDS Version: 4.4
 Author: External Relations Digital Team - Based on UoM Design Template
-Updated: 26/26/2016
+Updated: 02/08/2016
 */
 
 /* give some padding to the top of pages - this is a fix until release 5.3*/
@@ -138,42 +138,6 @@ div.sq-form-captcha {
         text-decoration: underline;
     }
 
-/* Corrects styling issue where specific list types are not respected in nested lists */
-li li li[type="a"], ol ol[type="a"] { list-style-type: lower-alpha;}
-
-/* Adds styling that allows ordered listing to have brackets */
-/* Fixes all nested ol problems as per JSFiddle: https://jsfiddle.net/7jznw692/ */
-
-ol.brackets > li {
-    list-style: none !important;
-    position: relative;
-}
-ol.brackets {
-    counter-reset: list-1;
-}
-ol[type="a"].brackets {
-    counter-reset: list-a;
-}
-ol[type="i"].brackets {
-    counter-reset: list-i;
-}
-
-ol.brackets > li:before {
-    position: absolute;
-    left: -1.6em;
-}
-ol.brackets > li:before {
-  counter-increment: list-1;
-  content: "(" counter(list-1, decimal) ") ";
-}
-ol[type="a"].brackets > li:before {
-  counter-increment: list-a;
-  content: "(" counter(list-a, lower-alpha) ") ";
-}
-ol[type="i"].brackets > li:before {
-  counter-increment: list-i;
-  content: "(" counter(list-i, lower-roman) ") ";
-}
 
 /* 26/07/16 online quiz overrides */
 .uomcontent .sq-online-quiz-question-multichoice ul {padding-left: 0px;}
