@@ -4,19 +4,20 @@
 	  <div class="upper">
 	    %begin_asset_metadata_TAG.Keyword%
 	    <h2>%asset_metadata_TAG.Keyword%</h2>
+	    %else_asset_metadata_TAG.Keyword%
+	    <h2>Event</h2>
 	    %end_asset_metadata_TAG.Keyword%
 	    <aside>
-	      <div class="when">
-	      
-	      <time datetime="%event_start_datetime_o-m-d%"> %event_start_datetime_l% <strong>%event_start_datetime_j% %event_start_datetime_M%</strong> %event_start_datetime_Y%</time>
-	
-	        %begin_event_short_start_time%
-	            <time datetime="%event_start_time_24h%">%event_short_start_time^append_if: -% %event_short_end_time%</time>
-	        %else_event_short_start_time%
-	            <br>
-	        %end_event_short_start_time%
-	        
-	      </div>
+	      <div class="when range">
+		      <time datetime="%asset_attribute_start_date^date_format:Y%-%asset_attribute_start_date^date_format:M%- %asset_attribute_start_date^date_format:D%" itemprop="startDate" content="%asset_attribute_start_date^replace: :T%">%asset_attribute_start_date^date_format:jS% %asset_attribute_start_date^date_format:M% %asset_attribute_start_date^date_format:Y%</time> 
+		        %begin_event_frequency^contains:further%
+		        %else_event_frequency^contains:further%
+			    <time datetime="%event_stop_date^date_format:Y%-%event_stop_date^date_format:M%- %event_stop_date^date_format:D%" itemprop="endDate" content="%event_stop_date%">%event_stop_date_jS% %event_stop_date_M% %event_stop_date_Y%</time>
+			    %end_event_frequency^contains:further%
+		    </div>
+		  <div class="when" style="margin-top: 1.5rem; padding-top: 1.5rem;">
+		      %event_frequency%<br />%event_short_start_time% - %event_short_end_time%
+		  </div>
 	    </aside>
 	   %begin_asset_thumbnail%
 	     %asset_thumbnail%
@@ -35,14 +36,16 @@
 	      %end_asset_metadata_BOOKING.Url%
 	      
 	      %begin_enable_maps%
-	      <div>
+	      <div itemprop="location" itemscope itemtype="http://schema.org/Place">
 	      
 	      %begin_asset_metadata_LOCATION.Address%       
-	      <p>%asset_metadata_LOCATION.Address%</p>
+	      <p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">%asset_metadata_LOCATION.Address%</p>
 	      %end_asset_metadata_LOCATION.Address%  
 	
 	      %begin_asset_metadata_LOCATION.Map%  
-	        <a class="button-small" href="%asset_metadata_LOCATION.Map%" target="_blank">Map<span class="small" data-icon="location"></span></a>
+	      <span itemprop="hasMap">
+	        <a class="button-small" href="%asset_metadata_LOCATION.Map%" target="_blank" itemprop="map" itemtype="https://schema.org/Map">Map<span class="small" data-icon="location"></span></a>
+	      </span>
 	      %end_asset_metadata_LOCATION.Map%     
 	      
 	      </div>
@@ -79,6 +82,8 @@
 	      <p><a href="tel:%asset_metadata_CONTACT.Phone^replace:(\s):%">T: %asset_metadata_CONTACT.Phone%</a></p>
 	      %else_asset_metadata_CONTACT.Phone%
 	      %end_asset_metadata_CONTACT.Phone%
+	      
+	      <span class="hidden" itemprop="url">%asset_url%</span>
 	     
 	      </div>
 	      %else_enable_contact%
@@ -86,7 +91,7 @@
 	
 	    </aside>
 	    <h2 itemprop="name">%asset_attribute_name%</h2>
-	    
+
 	    <span itemprop="description">
 	     %asset_attribute_description%
 	    </span>
