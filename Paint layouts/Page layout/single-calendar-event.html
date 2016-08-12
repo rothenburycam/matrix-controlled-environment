@@ -2,6 +2,9 @@
 	<div class="headerless"></div>
 	<div class="detail">
 	  <div class="upper">
+	    <h1 itemprop="name">
+	      %asset_attribute_name%
+	    </h1>
 	    %begin_asset_metadata_TAG.Keyword%
 	    <h2>%asset_metadata_TAG.Keyword%</h2>
 	    %else_asset_metadata_TAG.Keyword%
@@ -85,13 +88,9 @@
 	      %end_enable_contact%	
 	    </aside>
 	    
-	    <h2 itemprop="name">
-	      %asset_attribute_name%
-	    </h2>
-	    
-	    <span itemprop="description">
+	    <section itemprop="description">
 	     %asset_attribute_description%
-	    </span>
+	    </section>
 	  </div>
 	</div>
 </span>
