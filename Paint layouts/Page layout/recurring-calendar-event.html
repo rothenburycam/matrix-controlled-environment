@@ -1,93 +1,96 @@
-<div class="headerless"></div>
-<div class="detail">
-  <div class="upper">
-    <h1>
-      %asset_attribute_name%
-    </h1>
-    %begin_asset_metadata_TAG.Keyword%
-    <h2>%asset_metadata_TAG.Keyword%</h2>
-    %end_asset_metadata_TAG.Keyword%
-    <aside>
-      <div class="when">
-      
-      <time datetime="%event_start_datetime_o-m-d%"> %event_start_datetime_l% <strong>%event_start_datetime_j% %event_start_datetime_M%</strong> %event_start_datetime_Y%</time>
-
-        %begin_event_short_start_time%
-            <time datetime="%event_start_time_24h%">%event_short_start_time^append_if: -% %event_short_end_time%</time>
-        %else_event_short_start_time%
-            <br>
-        %end_event_short_start_time%
-        
-      </div>
-    </aside>
-   %begin_asset_thumbnail%
-     %asset_thumbnail%
-   %end_asset_thumbnail%
-  </div>
-  <div class="lower">
-    <aside>
-        
-    %begin_asset_metadata_BOOKING.Url%
-      <div>
-        <p>
-          <a href="%asset_metadata_BOOKING.Url%" class="button-small cta" target="_blank">Book now</a>
-        </p>
-      </div>
-      %else_asset_metadata_BOOKING.Url%
-      %end_asset_metadata_BOOKING.Url%
-      
-      %begin_enable_maps%
-      <div>
-      
-      %begin_asset_metadata_LOCATION.Address%       
-      <p>%asset_metadata_LOCATION.Address%</p>
-      %end_asset_metadata_LOCATION.Address%  
-
-      %begin_asset_metadata_LOCATION.Map%  
-        <a class="button-small" href="%asset_metadata_LOCATION.Map%" target="_blank">Map<span class="small" data-icon="location"></span></a>
-      %end_asset_metadata_LOCATION.Map%     
-      
-      </div>
-      %end_enable_maps%
-      
-      <div>
-        <ul class="social-links">
-        <li>
-          <a href="https://twitter.com/intent/tweet?text=%asset_name^replace:(\s):+%++%asset_url%" title="Tweet This">
-            <span class="small" data-icon="twitter"></span>
-          </a>
-        </li>
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=%asset_url%" title="Share on Facebook"><span class="small" data-icon="facebook"></span></a></li>
-        <li><a href="https://www.linkedin.com/shareArticle?title=%asset_name^replace:(\s):+%&amp;url=%asset_url%" title="Share on LinkedIn"><span class="small" data-icon="linkedin"></span></a></li>
-      </ul>
-      </div>
-      
-      %begin_enable_contact%
-      <div>
-      <p>
-        <em>More Information</em>
-      </p>
-      %begin_asset_metadata_CONTACT.Name%
-      <p>%asset_metadata_CONTACT.Name%</p>
-      %else_asset_metadata_CONTACT.Name%
-      %end_asset_metadata_CONTACT.Name%
-     
-      %begin_asset_metadata_CONTACT.Email%
-      <p><a href="mailto:%asset_metadata_CONTACT.Email%">%asset_metadata_CONTACT.Email%</a></p>
-      %else_asset_metadata_CONTACT.Email%
-      %end_asset_metadata_CONTACT.Email%
-
-      %begin_asset_metadata_CONTACT.Phone%
-      <p><a href="tel:%asset_metadata_CONTACT.Phone^replace:(\s):%">T: %asset_metadata_CONTACT.Phone%</a></p>
-      %else_asset_metadata_CONTACT.Phone%
-      %end_asset_metadata_CONTACT.Phone%
-     
-      </div>
-      %else_enable_contact%
-      %end_enable_contact%
-
-    </aside>
-     %asset_attribute_description%
-  </div>
-</div>
+<span itemscope itemtype="http://schema.org/Event">
+	<div class="headerless"></div>
+	<div class="detail">
+	  <div class="upper">
+	    %begin_asset_metadata_TAG.Keyword%
+	    <h2>%asset_metadata_TAG.Keyword%</h2>
+	    %end_asset_metadata_TAG.Keyword%
+	    <aside>
+	      <div class="when">
+	      
+	      <time datetime="%event_start_datetime_o-m-d%"> %event_start_datetime_l% <strong>%event_start_datetime_j% %event_start_datetime_M%</strong> %event_start_datetime_Y%</time>
+	
+	        %begin_event_short_start_time%
+	            <time datetime="%event_start_time_24h%">%event_short_start_time^append_if: -% %event_short_end_time%</time>
+	        %else_event_short_start_time%
+	            <br>
+	        %end_event_short_start_time%
+	        
+	      </div>
+	    </aside>
+	   %begin_asset_thumbnail%
+	     %asset_thumbnail%
+	   %end_asset_thumbnail%
+	  </div>
+	  <div class="lower">
+	    <aside>
+	        
+	    %begin_asset_metadata_BOOKING.Url%
+	      <div>
+	        <p>
+	          <a href="%asset_metadata_BOOKING.Url%" class="button-small cta" target="_blank">Book now</a>
+	        </p>
+	      </div>
+	      %else_asset_metadata_BOOKING.Url%
+	      %end_asset_metadata_BOOKING.Url%
+	      
+	      %begin_enable_maps%
+	      <div>
+	      
+	      %begin_asset_metadata_LOCATION.Address%       
+	      <p>%asset_metadata_LOCATION.Address%</p>
+	      %end_asset_metadata_LOCATION.Address%  
+	
+	      %begin_asset_metadata_LOCATION.Map%  
+	        <a class="button-small" href="%asset_metadata_LOCATION.Map%" target="_blank">Map<span class="small" data-icon="location"></span></a>
+	      %end_asset_metadata_LOCATION.Map%     
+	      
+	      </div>
+	      %end_enable_maps%
+	      
+	      <div>
+	        <ul class="social-links">
+	        <li>
+	          <a href="https://twitter.com/intent/tweet?text=%asset_name^replace:(\s):+%++%asset_url%" title="Tweet This">
+	            <span class="small" data-icon="twitter"></span>
+	          </a>
+	        </li>
+	        <li><a href="https://www.facebook.com/sharer/sharer.php?u=%asset_url%" title="Share on Facebook"><span class="small" data-icon="facebook"></span></a></li>
+	        <li><a href="https://www.linkedin.com/shareArticle?title=%asset_name^replace:(\s):+%&amp;url=%asset_url%" title="Share on LinkedIn"><span class="small" data-icon="linkedin"></span></a></li>
+	      </ul>
+	      </div>
+	      
+	      %begin_enable_contact%
+	      <div>
+	      <p>
+	        <em>More Information</em>
+	      </p>
+	      %begin_asset_metadata_CONTACT.Name%
+	      <p>%asset_metadata_CONTACT.Name%</p>
+	      %else_asset_metadata_CONTACT.Name%
+	      %end_asset_metadata_CONTACT.Name%
+	     
+	      %begin_asset_metadata_CONTACT.Email%
+	      <p><a href="mailto:%asset_metadata_CONTACT.Email%">%asset_metadata_CONTACT.Email%</a></p>
+	      %else_asset_metadata_CONTACT.Email%
+	      %end_asset_metadata_CONTACT.Email%
+	
+	      %begin_asset_metadata_CONTACT.Phone%
+	      <p><a href="tel:%asset_metadata_CONTACT.Phone^replace:(\s):%">T: %asset_metadata_CONTACT.Phone%</a></p>
+	      %else_asset_metadata_CONTACT.Phone%
+	      %end_asset_metadata_CONTACT.Phone%
+	     
+	      </div>
+	      %else_enable_contact%
+	      %end_enable_contact%
+	
+	    </aside>
+	    <h2 itemprop="name">%asset_attribute_name%</h2>
+	    
+	    <span itemprop="description">
+	     %asset_attribute_description%
+	    </span>
+	  </div>
+	</div>
+</span>
 <footer></footer>
