@@ -14,7 +14,7 @@
         %else_begin_event_duration^contains:day% <!--@@ When event goes for 1 day @@-->
             <div class="when">
                 <time datetime="%event_start_datetime_o-m-d%" itemprop="startDate" content="%event_start_datetime_o-m-d%"> %event_start_datetime_l% <strong>%event_start_datetime_j% %event_start_datetime_M%</strong> %event_start_datetime_Y%</time>
-                <time itemprop="endDate" content="%event_end_datetime_o-m-d%" class="hidden">
+                <time itemprop="endDate" content="%event_end_datetime_o-m-d%">All day</time>
             </div>
         %else_begin_event_duration^contains:hour% <!--@@ When event goes for less than 1 day (specify times) @@-->
             <div class="when">
