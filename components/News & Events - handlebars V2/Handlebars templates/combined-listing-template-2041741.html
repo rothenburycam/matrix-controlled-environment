@@ -1,0 +1,95 @@
+<ul class="block-listing">
+{{#displayByDate this}} <!--@@ Sort everything by date @@-->
+  {{#if type}}<!--@@ NEWS ITEM FORMATS - Presence of "type" in JSON response indicates this is a news item @@-->
+    {{#isItAHeroTest id}} <!--@@ Local news hero format @@-->	      
+      <li class="event double {{whatIndex @index}}" style="background-image: url({{img_url}});" data-type="{{type}}">
+        <!-- Id: {{id}} -->
+        <a href="{{link}}" class="block-container">
+          <div class="top-unit">
+            <strong>{{{charLimit title 40}}}</strong>
+            <span href="" class="button-hero-inverse"> Read more</span>
+          </div>
+        </a>
+      </li>
+    {{else}} <!--@@ Standard local news format @@-->
+      <li class="news {{whatIndex @index}}" data-type="{{type}}">
+        <!-- Id: {{id}} -->
+        <div class="block-container">
+          <div class="top-unit">
+            <a href="{{link}}">
+              {{#if img_url}}
+                <div class="crop-height">
+                    <img src="{{img_url}}" alt="{{title}}" />
+                </div>
+              {{else}}
+                <div style="height: 15px;"></div>
+              {{/if}}
+              <strong>{{{charLimit title 100}}}</strong> <!--@@ Triple brackets required to print HTML to DOM, otherwise it gets printed as a text string @@-->
+              <p>{{{description_text}}}</p>
+            </a>
+          </div>
+          <div class="meta">
+            <time class="meta-left" datetime="{{start_time}}">
+              {{start_time_readable}}
+            </time>
+            <em class="meta-right"> {{#if tag_keyword}} {{tag_keyword}} {{else}} News {{/if}}</em>
+          </div>
+        </div>
+      </li>
+    {{/isItAHeroTest}}
+    {{else}}<!--@@ EVENT ITEM FORMATS - Absence of "type" in JSON response indicates this is an event @@-->	  
+		{{#currentItem end_time event_type}}
+			{{#isItAHeroTest id}} <!--@@ Events hero format @@-->
+				<li style="background-image: url({{#if image_versions.w700xh466}}{{image_versions.w700xh466}}{{else}}{{img_url}}{{/if}});" class="event double {{whatIndex @index}}" data-type="{{event_type}}" data-public="{{public}}"><!--@@ if this is an event from events.unimelb, use the w700xh466 image version for the hero @@-->
+				    <!-- Id: {{id}} -->
+					<a href="{{#if local_asset}}{{link}}{{else}}{{doesItHaveDetails id link}}{{/if}}" class="block-container">
+						<div class="top-unit">
+							<strong>{{charLimit title 40}}</strong>
+							<span href="" class="button-hero-inverse"> Read more</span>
+						</div>
+					</a>
+				</li>
+			{{else}} <!--@@ Events default format @@-->
+			
+				<li class="event {{isItAHero id}} {{whatIndex @index}}" data-type="{{event_type}}" data-public="{{public}}">
+                    <!-- Id: {{id}} -->
+					<a href="{{#if local_asset}}{{link}}{{else}}{{doesItHaveDetails id link}}{{/if}}" class="block-container">
+						<div class="{{#if img_url}}top-unit{{else}}top-unit no-image{{/if}}">
+						{{#compareDates start_time end_time operator="<"}} <!--@@ Multiday event @@-->
+							<div class="when range">
+								<time datetime="{{start_time}}">{{formatDateDMY start_time}}</time>
+								<time datetime="{{end_time}}">{{formatDateDMY end_time}}</time>
+							</div>
+						{{else}} <!--@@ Single day event @@-->
+							<div class="when"> 
+								{{formatDateDay start_time}}
+								<time datetime="{{start_time}}">{{formatDateDMY start_time}}</time>
+								{{#compare start_time end_time operator="!="}} <!--@@ If start and end times are not the same, display them @@-->
+									{{formatDateTime start_time}} - {{formatDateTime end_time}}
+								{{else}}
+									All day <!--@@ If start and end times are the same, show "All day" @@-->
+								{{/compare}}
+							</div>
+						{{/compareDates}}{{log "look at me"}}
+							<div class="mid-unit"> 
+								<strong>{{charLimit title 100}}</strong>
+							</div>
+							{{#if img_url}}
+							<div class="crop-height">
+								<img alt="{{title}}" src="{{#if image_versions.w674xh337}}{{image_versions.w674xh337}}{{else}}{{img_url}}{{/if}}" /><!--@@ if this is an event from events.unimelb, use the w674xh337 image version @@-->
+							</div>
+							{{/if}}
+						</div>
+						<div class="meta">
+							<em class="meta-right">{{#if local_asset}}Event{{else}}{{event_type}}{{/if}}</em><!--@@ If a local event, print "Event", ortherwise print the event type @@-->
+						</div>
+					</a>
+				</li>
+			{{/isItAHeroTest}}
+		{{/currentItem}}
+	{{/if}}
+{{/displayByDate}}
+</ul>
+{{#each this}} <!--@@ Show more button. Adds to cound with each item outputted. If 16 items, prints the Show More button. @@-->
+	{{{showMore}}} <!--@@ Triple brackets required to print HTML to DOM, otherwise it gets printed as a text string @@-->
+{{/each}}
