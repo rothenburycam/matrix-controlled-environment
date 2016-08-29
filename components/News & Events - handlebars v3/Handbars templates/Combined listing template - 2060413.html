@@ -7,7 +7,7 @@
       <li class="double newshero special hidden-item" style="background-image: url({{img_url}});" {{#if local_asset}}data-location="local" {{else}}data-location="remote" {{/if}}data-type="{{type}}">
         <!-- Id: {{id}} --><!--@@ Included to help people identify items to feature using the "hero" variable @@-->
         <a href="{{link}}" class="block-container"{{#if use_target_blank}} target="_blank"{{/if}}><!--@@ If this is a Pursuit article, open it in a new window @@-->
-          <strong><span><em>{{pursuit_first_tag}}</em><br />{{{charLimit title 40}}}</span></strong>
+          <strong><span><em>{{first_tag}}</em><br />{{{charLimit title 40}}}</span></strong>
         </a>
       </li>
     %else_globals_get_itemDisplay%<!--@@ Otherwise, show the standard double format @@-->
@@ -42,7 +42,7 @@
             <time class="meta-left" datetime="{{start_time}}">
               {{dateTimeFormatter start_time "DD MMM YYYY"}}
             </time>
-            <em class="meta-right">{{#if pursuit_first_tag}}{{pursuit_first_tag}}{{else if tag_keyword}}{{tag_keyword}}{{else}}News{{/if}}</em>
+            <em class="meta-right">{{#if first_tag}}{{first_tag}}{{else if tag_keyword}}{{tag_keyword}}{{else}}News{{/if}}</em>
           </div>
         </div>
       </li>
