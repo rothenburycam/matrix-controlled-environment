@@ -40,9 +40,5 @@
     "link": "%ds__link%",
     "start_time": "%ds__pubdate^date_format:c%",
     "public": true,
-    "img_url": "%ds__content^preg_replace:2068869%",<!--@@ Regex returns first image from Pursuit post using 370x560px format @@-->
-    "img_hero_url": "%ds__content^preg_replace:2070862%",<!--@@ Regex returns first image from Pursuit post using 550x440px format @@-->
-    "description_text": "%ds__summary^as_json^json_encode%",
-    "first_tag": "%ds__category^preg_replace:2070716%",
-    "tags": "%ds__category%"
+    "description_text": "%ds__description^striphtml^as_json^json_encode%"
 },%end_ds__link^contains:newsroom.melbourne%
