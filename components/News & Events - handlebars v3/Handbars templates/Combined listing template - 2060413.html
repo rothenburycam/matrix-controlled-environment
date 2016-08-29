@@ -11,7 +11,7 @@
         </a>
       </li>
     %else_globals_get_itemDisplay%<!--@@ Otherwise, show the standard double format @@-->
-      <li class="event double hidden-item" style="background-image: url({{#if pursuit}}{{img_hero_url}}{{else}}{{img_url}}{{/if}});" {{#if local_asset}}data-location="local" {{else}}data-location="remote" {{/if}}data-type="{{type}}"><!--@@ If this is a Pursuit article, use the "img_hero_url" format @@-->
+      <li class="event double hidden-item" style="background-image: url({{#if img_hero_url}}{{img_hero_url}}{{else}}{{img_url}}{{/if}});" {{#if local_asset}}data-location="local" {{else}}data-location="remote" {{/if}}data-type="{{type}}"><!--@@ If this is a Pursuit article, use the "img_hero_url" format @@-->
         <!-- Id: {{id}} -->
         <a href="{{link}}" class="block-container"{{#if use_target_blank}} target="_blank"{{/if}}><!--@@ If this is a Pursuit article, open it in a new window @@-->
           <div class="top-unit">
