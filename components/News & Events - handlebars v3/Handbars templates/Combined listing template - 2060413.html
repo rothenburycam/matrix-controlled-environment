@@ -6,14 +6,14 @@
     %begin_globals_get_itemDisplay%<!--@@ If the itemDisplay variable has been set, show the newshero special format @@-->
       <li class="double newshero special hidden-item" style="background-image: url({{img_url}});" {{#if local_asset}}data-location="local" {{else}}data-location="remote" {{/if}}data-type="{{type}}">
         <!-- Id: {{id}} --><!--@@ Included to help people identify items to feature using the "hero" variable @@-->
-        <a href="{{link}}" class="block-container"{{#if use_target_blank}} target="_blank"{{/if}}><!--@@ If this is a Pursuit article, open it in a new window @@-->
+        <a href="{{link}}" class="block-container"{{#if use_target_blank}} target="_blank"{{/if}}><!--@@ If specified, open in a new window @@-->
           <strong><span><em>{{first_tag}}</em><br />{{{charLimit title 40}}}</span></strong>
         </a>
       </li>
     %else_globals_get_itemDisplay%<!--@@ Otherwise, show the standard double format @@-->
-      <li class="event double hidden-item" style="background-image: url({{#if img_hero_url}}{{img_hero_url}}{{else}}{{img_url}}{{/if}});" {{#if local_asset}}data-location="local" {{else}}data-location="remote" {{/if}}data-type="{{type}}"><!--@@ If this is a Pursuit article, use the "img_hero_url" format @@-->
+      <li class="event double hidden-item" style="background-image: url({{#if img_hero_url}}{{img_hero_url}}{{else}}{{img_url}}{{/if}});" {{#if local_asset}}data-location="local" {{else}}data-location="remote" {{/if}}data-type="{{type}}"><!--@@ If "img_hero_url" available, use it @@-->
         <!-- Id: {{id}} -->
-        <a href="{{link}}" class="block-container"{{#if use_target_blank}} target="_blank"{{/if}}><!--@@ If this is a Pursuit article, open it in a new window @@-->
+        <a href="{{link}}" class="block-container"{{#if use_target_blank}} target="_blank"{{/if}}><!--@@ If specified, open in a new window @@-->
           <div class="top-unit">
             <strong>{{{charLimit title 40}}}</strong>
             <span href="" class="button-hero-inverse"> Read more</span>
@@ -26,7 +26,7 @@
         <!-- Id: {{id}} -->
         <div class="block-container">
           <div class="top-unit">
-            <a href="{{link}}"{{#if use_target_blank}} target="_blank"{{/if}}><!--@@ If this is Pursuit article, open it in a new window @@-->
+            <a href="{{link}}"{{#if use_target_blank}} target="_blank"{{/if}}><!--@@ If specified, open in a new window @@-->
               {{#if img_url}}
                 <div class="crop-height">
                     <img src="{{img_url}}" alt="{{title}}" />
