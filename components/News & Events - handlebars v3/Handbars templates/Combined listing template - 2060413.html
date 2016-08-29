@@ -4,14 +4,14 @@
   {{#if type}}<!--@@ NEWS ITEM FORMATS - Presence of "type" in JSON response indicates this is a news item @@-->
     {{#isItAHeroTest id}}<!--@@ News hero format @@-->
     %begin_globals_get_itemDisplay%<!--@@ If the itemDisplay variable has been set, show the newshero special format @@-->
-      <li class="double newshero special hidden-item{{#if pursuit}} pursuit{{/if}}" style="background-image: url({{img_url}});" {{#if local_asset}}data-location="local" {{else}}data-location="remote" {{/if}}data-type="{{type}}"><!--@@ If this is a Pursuit article, add "pursuit" as a class - this gets used by the filtering js@@-->
+      <li class="double newshero special hidden-item" style="background-image: url({{img_url}});" {{#if local_asset}}data-location="local" {{else}}data-location="remote" {{/if}}data-type="{{type}}">
         <!-- Id: {{id}} --><!--@@ Included to help people identify items to feature using the "hero" variable @@-->
         <a href="{{link}}" class="block-container"{{#if pursuit}} target="_blank"{{/if}}><!--@@ If this is a Pursuit article, open it in a new window @@-->
           <strong><span><em>{{pursuit_first_tag}}</em><br />{{{charLimit title 40}}}</span></strong>
         </a>
       </li>
     %else_globals_get_itemDisplay%<!--@@ Otherwise, show the standard double format @@-->
-      <li class="event double hidden-item{{#if pursuit}} pursuit{{/if}}" style="background-image: url({{#if pursuit}}{{img_hero_url}}{{else}}{{img_url}}{{/if}});" {{#if local_asset}}data-location="local" {{else}}data-location="remote" {{/if}}data-type="{{type}}"><!--@@ If this is a Pursuit article, add "pursuit" as a class - this gets used by the filtering js. Also use the "img_hero_url" format @@-->
+      <li class="event double hidden-item" style="background-image: url({{#if pursuit}}{{img_hero_url}}{{else}}{{img_url}}{{/if}});" {{#if local_asset}}data-location="local" {{else}}data-location="remote" {{/if}}data-type="{{type}}"><!--@@ If this is a Pursuit article, use the "img_hero_url" format @@-->
         <!-- Id: {{id}} -->
         <a href="{{link}}" class="block-container"{{#if pursuit}} target="_blank"{{/if}}><!--@@ If this is a Pursuit article, open it in a new window @@-->
           <div class="top-unit">
