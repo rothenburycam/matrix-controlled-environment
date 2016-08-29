@@ -26,7 +26,7 @@ $(document).ready(function() {
     var tagsRequested = eventTags.toLowerCase(); // Fetch the tags set by the edit/admin user and convert to lowercase
     var tagArrayRaw = tagsRequested.split(','); // Turn them into an array
     var tagArray = jQuery.trim(tagArrayRaw); // Tidy up any extra spaces
-    var events = $('li.event:not(.pursuit)[data-location="remote"]'); // Get all remote events, exclude pursuit hero items (that are listed in the dom as <li class="event double pursuit">...)
+    var events = $('li.event[data-location="remote"]:not([data-type="news"])'); // Get all remote events, exclude pursuit hero items (that are listed in the dom as <li class="event double">...)
     console.log(events);
 		
     $(events).each(function(index) { // For each remote event
@@ -49,7 +49,7 @@ $(document).ready(function() {
   if (eventType) { // If tags have been set using the global $tags variable, remove any event that doesn't use this tag
     var eventTypeRequested = eventType.toLowerCase(); // Fetch the tags set by the edit/admin user and convert to lowercase
     var eventTypeArray = eventTypeRequested.split(', '); // Turn them into an array
-    var events = $('li.event:not(.pursuit)[data-location="remote"]'); // Get all remote events
+    var events = $('li.event[data-location="remote"]:not([data-type="news"])'); // Get all remote events, exclude pursuit hero items (that are listed in the dom as <li class="event double">...)
     $(events).each(function(index) { // For each remote event
       var rawTypes = $(this).find('.meta em.meta-right').text().toLowerCase(); // Fetch the type for each event
       if (eventTypeArray.indexOf(rawTypes) === -1) { // If this type is NOT one of the requested types, remove it
