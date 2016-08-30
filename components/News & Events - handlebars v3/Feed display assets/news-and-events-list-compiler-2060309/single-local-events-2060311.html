@@ -1,0 +1,27 @@
+{ 
+    "local_asset": true,<!--@@ 'true' indicates that this is a local asset, not an item from a remote feed @@-->
+    "id": %asset_assetid%, 
+    "title": "%asset_short_name^json_encode%",<!--@@ ^json_encode required to ensure special characters don't break the feed @@-->
+    "link": "%asset_url%",
+    "event_type": "all",
+    "start_time": "%event_start_datetime_c%",<!--@@ 'c' format is ISO8601 datetime @@-->
+    "end_time": "%begin_event_end_date%%event_end_datetime_c%%else_event_end_date%%event_start_datetime_c%%end_event_end_date%",<!--@@ If the event has an end date, use it, otherwise use the start date @@-->
+    "public": true,
+    "img_url": "%asset_thumbnail_url%",
+    "description_html": "%asset_attribute_description^json_encode%",
+    "description_text": "%asset_attribute_description^striphtml^json_encode%",
+    "tag_keyword": "%asset_metadata_TAG.Keyword%",
+    "location": {
+        "address": "%asset_metadata_LOCATION.Address^json_encode%",
+        "building": "",
+        "room_or_theatre": ""
+    },
+    "information": {
+        "email": "%asset_metadata_CONTACT.Email%",
+        "phone": "%asset_metadata_CONTACT.Phone%",
+        "url": ""
+    },
+    "booking": {
+        "url": "%asset_metadata_BOOKING.Url%"
+    }
+},

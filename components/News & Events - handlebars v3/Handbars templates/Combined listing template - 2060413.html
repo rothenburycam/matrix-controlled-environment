@@ -1,0 +1,106 @@
+{{{filteringOptions}}}<!--@@ Output the filtering options (if specified) to be consumed by the filtering javascript file @@-->
+<ul class="block-listing %begin_globals_get_itemDisplay%narrow%end_globals_get_itemDisplay%"><!--@@ If itemDisplay variable is used print the narrow class @@-->
+{{#displayByDate this}}<!--@@ Sort everything by date @@-->
+  {{#if type}}<!--@@ NEWS ITEM FORMATS - Presence of "type" in JSON response indicates this is a news item @@-->
+    {{#isItAHeroTest id}}<!--@@ News hero format @@-->
+    %begin_globals_get_itemDisplay%<!--@@ If the itemDisplay variable has been set, show the newshero special format @@-->
+      <li class="double newshero special hidden-item" style="background-image: url({{img_url}});" {{#if local_asset}}data-location="local" {{else}}data-location="remote" {{/if}}data-type="{{type}}">
+        <!-- Id: {{id}} --><!--@@ Included to help people identify items to feature using the "hero" variable @@-->
+        <a href="{{link}}" class="block-container"{{#if use_target_blank}} target="_blank"{{/if}}><!--@@ If specified, open in a new window @@-->
+          <strong><span><em>{{first_tag}}</em><br />{{{charLimit title 40}}}</span></strong>
+        </a>
+      </li>
+    %else_globals_get_itemDisplay%<!--@@ Otherwise, show the standard double format @@-->
+      <li class="event double hidden-item" style="background-image: url({{#if img_hero_url}}{{img_hero_url}}{{else}}{{img_url}}{{/if}});" {{#if local_asset}}data-location="local" {{else}}data-location="remote" {{/if}}data-type="{{type}}"><!--@@ If "img_hero_url" available, use it @@-->
+        <!-- Id: {{id}} -->
+        <a href="{{link}}" class="block-container"{{#if use_target_blank}} target="_blank"{{/if}}><!--@@ If specified, open in a new window @@-->
+          <div class="top-unit">
+            <strong>{{{charLimit title 40}}}</strong>
+            <span href="" class="button-hero-inverse"> Read more</span>
+          </div>
+        </a>
+      </li>
+    %end_globals_get_itemDisplay%
+    {{else}} <!--@@ Standard local news format @@-->
+      <li class="news hidden-item" {{#if local_asset}}data-location="local" {{else}}data-location="remote" {{/if}}data-type="{{type}}">
+        <!-- Id: {{id}} -->
+        <div class="block-container">
+          <div class="top-unit">
+            <a href="{{link}}"{{#if use_target_blank}} target="_blank"{{/if}}><!--@@ If specified, open in a new window @@-->
+              {{#if img_url}}
+                <div class="crop-height">
+                    <img src="{{img_url}}" alt="{{title}}" />
+                </div>
+              {{else}}
+                <div style="height: 15px;"></div><!--@@ If no image is provided, add some padding so the title still lines up nicely @@-->
+              {{/if}}
+              <strong>{{{charLimit title 100}}}</strong>
+              <p>{{{description_text}}}</p>
+            </a>
+          </div>
+          <div class="meta">
+            <time class="meta-left" datetime="{{start_time}}">
+              {{dateTimeFormatter start_time "DD MMM YYYY"}}
+            </time>
+            <em class="meta-right">{{#if first_tag}}{{first_tag}}{{else if tag_keyword}}{{tag_keyword}}{{else}}News{{/if}}</em>
+          </div>
+        </div>
+      </li>
+    {{/isItAHeroTest}}
+    {{else}}<!--@@ EVENT ITEM FORMATS - Absence of "type" in JSON response indicates this is an event @@-->	 
+		{{#currentItem end_time event_type}}<!--@@ If this item is current (ie - not past) @@-->
+			{{#isItAHeroTest id}}<!--@@ Events hero format @@-->
+				<li style="background-image: url({{#if image_versions.w700xh466}}{{image_versions.w700xh466}}{{else}}{{img_url}}{{/if}});" class="event double hidden-item" {{#if local_asset}}data-location="local" {{else}}data-location="remote" {{/if}}data-type="{{event_type}}" data-public="{{public}}"><!--@@ if this is an event from events.unimelb, use the w700xh466 image version for the hero @@-->
+				    <!-- Id: {{id}} -->
+					<a href="{{#if local_asset}}{{link}}{{else}}{{doesItHaveDetails id link}}{{/if}}" class="block-container"><!--@@ If a link is not specified in the JSON response, use the eventDetails page @@-->
+						<div class="top-unit">
+							<strong>{{charLimit title 40}}</strong>
+							<span href="" class="button-hero-inverse"> Read more</span>
+						</div>
+					</a>
+					<span class="meta hidden"><!--@@ these items are hidden, but required for the filtering, otherwise hero items get removed @@-->
+					    <em class="meta-right">{{#if local_asset}}Event{{else}}{{event_type}}{{/if}}</em><!--@@ If a local event, print "Event", ortherwise print the event type @@-->
+					    <span class="hidden">{{#each tags}}{{name}};{{/each}}</span><!--@@ Included to allow filtering by tag @@-->
+					</span>
+				</li>
+			{{else}}<!--@@ Events default format @@-->
+				<li class="event {{isItAHero id}} hidden-item" {{#if local_asset}}data-location="local" {{else}}data-location="remote" {{/if}}data-type="{{event_type}}" data-public="{{public}}">
+                    <!-- Id: {{id}} -->
+					<a href="{{#if local_asset}}{{link}}{{else}}{{doesItHaveDetails id link}}{{/if}}" class="block-container"><!--@@ If a link is not specified in the JSON response, use the eventDetails page @@-->
+						<div class="{{#if img_url}}top-unit{{else}}top-unit no-image{{/if}}">
+						{{#compareDates start_time end_time operator="<"}}<!--@@ Multiday event @@-->
+							<div class="when range">
+								<time datetime="{{start_time}}">{{dateTimeFormatter start_time "Do MMM YYYY"}}</time>
+								<time datetime="{{end_time}}">{{dateTimeFormatter end_time "Do MMM YYYY"}}</time>
+							</div>
+						{{else}}<!--@@ Single day event @@-->
+							<div class="when"> 
+								{{dateTimeFormatter start_time "dddd"}}
+								<time datetime="{{start_time}}">{{dateTimeFormatter start_time "Do MMM YYYY"}}</time>
+								{{#compare start_time end_time operator="!="}}<!--@@ If start and end times are not the same, display them @@-->
+									{{dateTimeFormatter start_time "h:mma"}} - {{dateTimeFormatter end_time "h:mma"}}
+								{{else}}
+									All day<!--@@ If start and end times are the same, show "All day" @@-->
+								{{/compare}}
+							</div>
+						{{/compareDates}}
+							<div class="mid-unit"> 
+								<strong>{{charLimit title 100}}</strong>
+							</div>
+							{{#if img_url}}
+							<div class="crop-height">
+								<img alt="{{title}}" src="{{#if image_versions.w674xh337}}{{image_versions.w674xh337}}{{else}}{{img_url}}{{/if}}" /><!--@@ if this is an event from events.unimelb, use the w674xh337 image version @@-->
+							</div>
+							{{/if}}
+						</div>
+						<div class="meta">
+							<em class="meta-right">{{#if local_asset}}Event{{else}}{{event_type}}{{/if}}</em><!--@@ If a local event, print "Event", ortherwise print the event type @@-->
+							<span class="hidden">{{#each tags}}{{name}};{{/each}}</span><!--@@ Included to allow filtering by tag @@-->
+						</div>
+					</a>
+				</li>
+			{{/isItAHeroTest}}
+		{{/currentItem}}
+	{{/if}}
+{{/displayByDate}}
+</ul>

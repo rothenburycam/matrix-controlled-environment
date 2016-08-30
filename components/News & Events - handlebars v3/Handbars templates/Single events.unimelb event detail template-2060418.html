@@ -1,0 +1,152 @@
+<span itemscope itemtype="http://schema.org/Event">
+	<div class="headerless"></div> 
+	<div class="detail">
+	  <div class="upper">
+	      <h1 itemprop="name">{{title}}</h1>
+	      {{#if event_type}}
+	      <h2>{{event_type}}</h2>
+	      {{/if}}
+	    <aside>
+			{{#compareDates start_time end_time operator="<"}} <!--@@ Multiday event @@-->
+                <div class="when range">
+                	<time datetime="{{dateTimeFormatter start_time "YYYY-MM-DD"}}" itemprop="startDate" content="{{start_time}}">{{dateTimeFormatter start_time "dddd"}}<strong>{{dateTimeFormatter start_time "D MMM"}}</strong> {{dateTimeFormatter start_time "YYYY"}}</time>
+                	<time datetime="{{dateTimeFormatter end_time "YYYY-MM-DD"}}" itemprop="endDate" content="{{end_time}}">{{dateTimeFormatter end_time "dddd"}}<strong>{{dateTimeFormatter end_time "D MMM"}}</strong> {{dateTimeFormatter end_time "YYYY"}}</time>
+                </div>
+			{{else}} <!--@@ Single day event @@-->
+				<div class="when"> 
+					<time datetime="{{dateTimeFormatter start_time "YYYY-MM-DD"}}" itemprop="startDate" content="{{start_time}}">
+					    {{dateTimeFormatter start_time "dddd"}}
+					    <strong>{{dateTimeFormatter start_time "D MMM"}}</strong>
+					    {{dateTimeFormatter start_time "YYYY"}}
+					</time>
+					{{#compare start_time end_time operator="!="}} <!--@@ If start and end times are not the same, display them @@-->
+						<time datetime="{{dateTimeFormatter start_time "HH:mm"}}">{{dateTimeFormatter start_time "h:mma"}} - {{dateTimeFormatter end_time "h:mma"}}</time>
+					{{else}}
+						All day <!--@@ If start and end times are the same, show "All day" @@-->
+					{{/compare}}
+					<time class="hidden" datetime="{{dateTimeFormatter end_time "YYYY-MM-DD"}}" itemprop="endDate" content="{{end_time}}"></time>
+				</div>
+			{{/compareDates}} 
+			</aside>
+	    {{#if image_versions.w1000xh500}}
+	        <img alt="{{title}}" src="{{image_versions.w1000xh500}}" itemprop="image" />
+	    {{/if}}
+	  </div>
+	  <div class="lower">
+	    <aside>
+		  {{#if booking.url}}
+	      <div>
+	        <p>
+	          <a href="{{booking.url}}" class="button-small cta" target="_blank">Book now</a>
+	        </p>
+	      </div>
+	      {{/if}}
+		
+	      {{#if location}}    
+	      <div itemprop="location" itemscope itemtype="http://schema.org/Place">
+	        <p>
+	            {{#if location.room_or_theatre}}<span itemprop="name">{{location.room_or_theatre}}</span><br />{{/if}}
+	            {{#if location.building}}<span itemprop="name">{{location.building}}</span><br />{{/if}}
+	            {{#if location.address}}<span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">{{location.address}}</span>{{/if}}
+	        </p>
+	        <span itemprop="hasMap">
+	          <a target="_blank" class="button-small" href="https://www.google.com/maps/search/{{location.building}} {{location.address}}" itemprop="map" itemtype="https://schema.org/Map">
+	            Map
+	            <span class="small" data-icon="location"></span>
+	          </a>
+	        </span>
+	      </div>
+	      {{/if}}
+	      
+	      <div>
+	        <ul class="social-links">
+	          <li>
+	            <a href="https://twitter.com/intent/tweet?text={{{title}}}&amp;url=%globals_asset_url^with_get:event_details%?event={{id}}"><span class="small icon--hide-label" data-icon="twitter">Share on Twitter</span></a>
+	          </li>
+	          <li>
+	            <a href="https://www.facebook.com/sharer/sharer.php?title={{{title}}}&amp;description={{description_text}}&amp;u=%globals_asset_url^with_get:event_details%?event={{id}}&amp;picture={{image_versions.w200xh157}}" title="Share on Facebook"><span class="small icon--hide-label" data-icon="facebook">Share on Facebook</span></a>
+	          </li>
+	          <li>
+	            <a href="https://www.linkedin.com/shareArticle?title={{{title}}}&amp;summary={{description_text}}&amp;url=%globals_asset_url^with_get:event_details%?event={{id}}"><span class="small icon--hide-label" data-icon="linkedin">Share on LinkedIn</span></a>
+	          </li>
+	        </ul>
+	      </div>
+	      
+	      {{#if information}}
+	      <div>
+	        <p><em>More information</em></p>
+	        {{#if information.phone}}
+	        <p>
+	          T: {{information.phone}}
+	        </p>
+	        {{/if}}
+	        {{#if information.email}}
+	        <p>
+	          <a href="mailto:{{information.email}}">{{information.email}}</a>
+	        </p>
+	        {{/if}}
+	        {{#if information.url}}
+	        <p>
+	            <a href="{{information.url}}" itemprop="url" >{{information.url}}</a>
+	        </p>
+	        {{/if}}
+    	  </div>  
+    	  {{/if}}
+	   
+	    </aside>
+	    
+	    <section itemprop="description">
+	    {{{description_html}}}
+	    </section>
+	    
+	    {{#if presenters}}
+	    {{#compare presenters.length 1 operator="=="}}
+	     <h2>Presenter</h2>
+	    {{else}}
+	     <h2>Presenters</h2>
+	    {{/compare}}
+	           <ul class="staff-listing min">
+	               {{#each presenters}}
+                  <li itemprop="performer" itemscope="" itemtype="http://schema.org/Person">
+                    <div class="profile">
+                      <div class="frame">
+                        <img alt="{{title}} {{first_name}} {{last_name}}" src="{{#if photo_url}}{{photo_url}}{{else}}https://d2h9b02ioca40d.cloudfront.net/shared/assets/avatar-lt.png{{/if}}" itemprop="image"/>
+                      </div>
+                    </div>
+                    <div class="details">
+                        {{#if biography_text}}<a data-modal-target="{{first_name}}{{last_name}}" href="#">{{/if}}
+                        <span itemprop="name">{{#if title}}{{title}} {{/if}}{{#if first_name}}{{first_name}} {{/if}}{{#if last_name}}{{last_name}}{{/if}}{{#if biography_text}}</span></a>{{/if}}{{#if position_title}}, <em><span itemprop="jobTitle">{{position_title}}</span>{{else}}, {{organisation}}</em>{{/if}}
+                    </div>
+                    {{#if biography_text}}
+                    <div class="modal__dialog" id="{{first_name}}{{last_name}}">
+                      <h1>
+                        {{title}} {{first_name}} {{last_name}}
+                      </h1>
+                      
+                      
+                      <p>{{#if position_title}}<strong>{{position_title}}<br />{{/if}}</strong>{{#if organisation}}<em>{{organisation}}</em>{{/if}}</p>
+ 
+                      
+                      
+                      {{#if photo_url}}<img alt="{{title}} {{first_name}} {{last_name}}" src="{{photo_url}}" />{{/if}}
+
+                      <p>
+                        {{biography_text}}
+                      </p>
+                      {{#if find_an_expert_url}}
+                      <p><a href="{{find_an_expert_url}}">Find an expert profile</strong>
+                      {{/if}}
+                    </div>
+                    {{/if}}
+                  </li>
+                  {{/each}}
+                </ul>
+	    {{/if}}
+	  </div>
+	</div>
+</span>
+<script>
+    (function() {
+         document.title = "{{title}}";
+    })();
+</script>
