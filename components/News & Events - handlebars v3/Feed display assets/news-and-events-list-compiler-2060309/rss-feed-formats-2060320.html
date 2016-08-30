@@ -18,18 +18,17 @@
 %begin_ds__link^contains:blogs.unimelb%<!--@@ JSON response format for blogs.unimelb feed @@-->
 {
     "local_asset": false,
-    "pursuit": true,
+    "platform": "Blogs",
+    "use_target_blank": true,
     "type": "news",
-    "id": "%ds__guid^preg_replace:2074086%b",<!--@@ Regex returns just the ID number, the "p" helps identify it's pursuit and should prevent conflicts with other IDs @@-->
+    "id": "%ds__guid^preg_replace:2074086%b",<!--@@ Regex returns just the ID number, the "b" helps identify as blogs.unimelb and should prevent conflicts with other IDs @@-->
     "title": "%ds__title^as_json^json_encode%",
     "link": "%ds__link%",
     "start_time": "%ds__pubdate^date_format:c%",
     "public": true,
-    "img_url": "%ds__content^preg_replace:2068869%",<!--@@ Regex returns first image from Pursuit post using 370x560px format @@-->
-    "img_hero_url": "%ds__content^preg_replace:2070862%",<!--@@ Regex returns first image from Pursuit post using 550x440px format @@-->
-    "description_text": "%ds__summary^as_json^json_encode%",
-    "pursuit_first_tag": "%ds__category^preg_replace:2070716%",
-    "pursuit_tags": "%ds__category%"
+    "description_text": "%ds__description^as_json^json_encode%",
+    "first_tag": "%ds__category^preg_replace:2070716%",<!--@@ Regex returns just the first category if multiple @@-->
+    "tags": "%ds__category%"
 },%end_ds__link^contains:blogs.unimelb%
 %begin_ds__link^contains:newsroom.melbourne%<!--@@ JSON response format for newsroom.melbourne.edu feed @@-->
 {
