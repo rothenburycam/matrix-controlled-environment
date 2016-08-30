@@ -1,7 +1,7 @@
 ##Updating to news and events combined Version 3
 
 1./ (if used) Update "events.unimelb" remote feed asset to use the truncated feed 
-	- remove the &full=true from the end
+a./ remove the &full=true from the end
 
 2./ create new "Combined feed references" page in site config
 	- clone: Combined listing page (Id: #2062228)
