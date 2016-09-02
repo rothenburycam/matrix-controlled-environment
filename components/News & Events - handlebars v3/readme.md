@@ -4,24 +4,23 @@
 - remove the &full=true from the end
 
 2./ create new "Combined feed references" page in site config
-- clone: Combined feed references (Id: #2062681)
+- clone: "v3 - Combined feed references (Id: #2062681)
 - update with relevant references
-- check it has override front-end design (on settings screen) of: JSON (Id: #2058607)
-- check it has an override paint layout of: Correct when events.unimelb missing (Id: #2062731)
-- preview to make sure it looks ok.
+- preview to make sure it looks ok
+- make it live
 
 3./ (if used) Update in-site "single events.unimelb event detail page"
-- from: Single events.unimelb event processor (Id: #2042493)
-- to: Single events.unimelb event processor (Id: #2060412)
+- from: "v2 - Single events.unimelb event processor" (Id: #2042493)
+- to: "v3 - Single events.unimelb event processor" (Id: #2060412)
 
 4./ Update in-site "Combined listing page" 
-- from: Combined listing processor (Id: #2041710)
-- to: Combined listing processor (Id: #2060422) 
+- from: "v2 - Combined listing processor" (Id: #2041710)
+- to: "v3 - Combined listing processor" (Id: #2060422) 
 AND
-- from: Show more button (Id: #2055735)
-- to: Apply filtering button options (Id: #2067520)
+- from: "Show more button" (Id: #2055735)
+- to: "Apply filtering button options" (Id: #2067520)
 AND
-- Update "combinedFeedID" variable to new "Combined feed references" page created above
+- Update "combinedFeedID" variable to new "v3 - Combined feed references" page created above (in Step 2)
 - Configure variables 
 - if button used, include "useButton" = true
 - see https://cms.unimelb.edu.au/controlled-environment/guide/new-how-to-manage-your-news-and-events-block-listing/
