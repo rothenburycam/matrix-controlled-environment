@@ -10,6 +10,6 @@
     "public": true,
     "img_url": "%asset_thumbnail_url%",
     "description_html": "%asset_attribute_summary^as_json^json_encode%",<!--@@ ^json_encode required to ensure special characters don't break the feed @@-->
-    "description_text": "%asset_attribute_summary^as_json^json_encode%",<!--@@ ^json_encode required to ensure special characters don't break the feed @@-->
+    "description_text": "%asset_attribute_summary^striphtml^as_json^json_encode%",<!--@@ ^json_encode required to ensure special characters don't break the feed @@-->
     "tag_keyword": "%asset_metadata_TAG.Keyword%"
 },
