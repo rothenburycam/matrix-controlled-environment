@@ -4,7 +4,7 @@
 - remove the &full=true from the end
 
 2./ create new "Combined feed references" page in site config
-- clone: Combined listing page (Id: #2062228)
+- clone: Combined feed references (Id: #2062681)
 - update with relevant references
 - check it has override front-end design (on settings screen) of: JSON (Id: #2058607)
 - check it has an override paint layout of: Correct when events.unimelb missing (Id: #2062731)
