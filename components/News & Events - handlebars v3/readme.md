@@ -17,8 +17,8 @@
 - from: "v2 - Combined listing processor" (Id: #2041710)
 - to: "v3 - Combined listing processor" (Id: #2060422) 
 AND
-- from: "Show more button" (Id: #2055735)
-- to: "Apply filtering button options" (Id: #2067520)
+- from: "v2 - Show more button" (Id: #2055735)
+- to: "v3 - Apply filtering button options" (Id: #2067520)
 AND
 - Update "combinedFeedID" variable to new "v3 - Combined feed references" page created above (in Step 2)
 - Configure variables 
