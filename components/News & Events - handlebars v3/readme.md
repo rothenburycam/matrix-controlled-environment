@@ -48,21 +48,21 @@ AND
 - from: "v2 - Single events.unimelb event processor" (Id: #2042493)
 - to: "v3 - Single events.unimelb event processor" (Id: #2060412)
 
-3./ Update in-site "Combined listing page(s)" 
+4./ Update in-site "Combined listing page(s)" 
 - from: "v2 - Combined listing processor" (Id: #2041710)
 - to: the relevant event processor created in Step 2 above.
 
-4./ Update the "Arbitrary paint layout" of the last instance to: "v3 - Apply filtering button options" (Id: #2067520)
+5./ Update the "Arbitrary paint layout" of the last instance to: "v3 - Apply filtering button options" (Id: #2067520)
 - As this paint layout injects the filter/button control javascript, you only need to apply it to the page once.
 
-5./ Remove the "Abitrary paint layout" from all earlier instances
+6./ Remove the "Abitrary paint layout" from all earlier instances
 
-6./ Configure variables
+7./ Configure variables
 - Remove the "combinedFeedID" variable as this is now handled directly by the processor you've embedded (see step 2 above).
 - if button used, include "useButton" = true
 - see https://cms.unimelb.edu.au/controlled-environment/guide/new-how-to-manage-your-news-and-events-block-listing/
 
-7./ Preview and test
+8./ Preview and test
 - Check list displays as expected (you may need to recache a couple of times)
 - Check events.unimelb event detail page is displaying ok
 - Check button is working as expected
