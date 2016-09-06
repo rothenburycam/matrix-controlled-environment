@@ -7,6 +7,7 @@ var tplTxt = '%globals_asset_contents_raw:2060413^json_encode%', // Layout templ
     eventType = '%globals_get_eventType%',
     useButton = '%globals_get_useButton%',
     paginate = '%globals_get_paginate%',
+    itemDisplay = '%globals_get_itemDisplay%',
     error = [{"title": "Whoops", "body": "It borked!"}]; // This variable just has to be present as a JSON object for the error template to work - it doesn't actually output anywhere
 
 // Converts date to seconds
@@ -160,7 +161,7 @@ Handlebars.registerHelper('doesItHaveDetails', function(id, url) {
 Handlebars.registerHelper('filteringOptions', function() {
   var valuesExist = eventTags + eventType + useButton + paginate;
 	if (valuesExist.length){
-		return "<script>var $eventTags = '" + eventTags + "', $paginate = '" + paginate + "', $useButton = '" + useButton + "', $eventType = '" + eventType + "';</script>";
+    return "data-eventTags='" + eventTags + "' data-paginate='" + paginate + "' data-useButton='" + useButton + "' data-eventType='" + eventType + "' data-itemDisplay='" + itemDisplay +"'";
 	} 
 });
 
