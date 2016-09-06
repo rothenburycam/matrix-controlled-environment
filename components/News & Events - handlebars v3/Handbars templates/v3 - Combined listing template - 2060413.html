@@ -1,5 +1,4 @@
-{{{filteringOptions}}}<!--@@ Output the filtering options (if specified) to be consumed by the filtering javascript file @@-->
-<ul class="block-listing %begin_globals_get_itemDisplay%narrow%end_globals_get_itemDisplay%"><!--@@ If itemDisplay variable is used print the narrow class @@-->
+<ul class="block-listing %begin_globals_get_itemDisplay%narrow%end_globals_get_itemDisplay%" data-type="filter" {{{filteringOptions}}}><!--@@ If itemDisplay variable is used print the narrow class @@-->
 {{#displayByDate this}}<!--@@ Sort everything by date @@-->
   {{#if type}}<!--@@ NEWS ITEM FORMATS - Presence of "type" in JSON response indicates this is a news item @@-->
     {{#isItAHeroTest id}}<!--@@ News hero format @@-->
