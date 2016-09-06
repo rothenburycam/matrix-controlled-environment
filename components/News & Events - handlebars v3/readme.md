@@ -32,7 +32,9 @@ AND
 - Check button is working as expected
 
 ##Updating to news and events combined Version 3 - multiple instances on a page (including tabs)
+
 **This process is required where more than one combined listing is used on a page (ie - one listing on two different tabs, or two listings on a single page)**
+
 1./ create new "Combined feed references" page in site config
 - if different feed combinations are required for multiple listings, repeat this step for each one
 - clone: "v3 - Combined feed references (Id: #2062681)
