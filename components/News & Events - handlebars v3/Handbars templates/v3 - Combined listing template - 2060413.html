@@ -28,7 +28,7 @@
             <a href="{{link}}"{{#if use_target_blank}} target="_blank"{{/if}}><!--@@ If specified, open in a new window @@-->
               {{#if img_url}}
                 <div class="crop-height">
-                    <img src="{{img_url}}" alt="{{title}}" />
+                    <img src="{{img_url}}" alt="" />
                 </div>
               {{else}}
                 <div style="height: 15px;"></div><!--@@ If no image is provided, add some padding so the title still lines up nicely @@-->
@@ -88,7 +88,7 @@
 							</div>
 							{{#if img_url}}
 							<div class="crop-height">
-								<img alt="{{title}}" src="{{#if image_versions.w674xh337}}{{image_versions.w674xh337}}{{else}}{{img_url}}{{/if}}" /><!--@@ if this is an event from events.unimelb, use the w674xh337 image version @@-->
+								<img alt="" src="{{#if image_versions.w674xh337}}{{image_versions.w674xh337}}{{else}}{{img_url}}{{/if}}" /><!--@@ if this is an event from events.unimelb, use the w674xh337 image version @@-->
 							</div>
 							{{/if}}
 						</div>
