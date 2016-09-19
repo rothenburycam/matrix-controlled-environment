@@ -70,7 +70,15 @@
 						{{#compareDates start_time end_time operator="<"}}<!--@@ Multiday event @@-->
 							<div class="when range">
 								<time datetime="{{start_time}}">{{dateTimeFormatter start_time "Do MMM YYYY"}}</time>
-								<time datetime="{{end_time}}">{{dateTimeFormatter end_time "Do MMM YYYY"}}</time>
+								{{#compare event_type "recurring" operator="=="}}<!--@@ If this is a recurring event, print "Recurring event" instead of the end date @@-->
+								    {{#compare end_time "2050-00-01T00:00:00+10:00" operator="=="}} <!--@@ If an end date has not been specified @@-->
+								        Recurring until further notice
+								    {{else}}
+								        <time datetime="{{end_time}}">Recurring until {{dateTimeFormatter end_time "Do MMM YYYY"}}</time> <!--@@ Otherwise show the end date @@-->
+								    {{/compare}}
+								{{else}}
+								    <time datetime="{{end_time}}">{{dateTimeFormatter end_time "Do MMM YYYY"}}</time>
+							    {{/compare}}
 							</div>
 						{{else}}<!--@@ Single day event @@-->
 							<div class="when"> 
