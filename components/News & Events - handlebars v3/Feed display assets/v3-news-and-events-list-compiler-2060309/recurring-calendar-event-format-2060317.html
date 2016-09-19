@@ -5,7 +5,7 @@
     "link": "%asset_url%",
     "event_type": "recurring",
     "start_time": "%event_start_datetime_c%",
-    "end_time": "%begin_event_stop_date%%event_stop_date_c%%else_event_stop_date%%asset_attribute_start_date_c%%end_event_stop_date%",
+    "end_time": "%begin_event_stop_date_Y^eq:1970%2050-00-01T00:00:00+10:00%else_event_stop_date_Y^eq:1970%%event_stop_date_c%%end_event_stop_date_Y^eq:1970%",
     "public": true,
     "img_url": "%asset_thumbnail_url%",
     "description_html": "%asset_attribute_description^json_encode%",
