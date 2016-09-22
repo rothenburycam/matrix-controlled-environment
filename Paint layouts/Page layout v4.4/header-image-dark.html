@@ -1,10 +1,10 @@
-%begin_asset_metadata_DESIGN.PageTemplate^contains:template-event-block-listing%
-
+%begin_asset_metadata_DESIGN.PageTemplate^contains:template-header-image-dark%
+        
 <!-- Begin background image header -->
 <header %begin_enable_banner_image% 
 class="image" style="background-image: url(%asset_metadata_BANNER.Image^as_asset:asset_url%);"
 %end_enable_banner_image%>
-	<div class="mid-align">
+	<div class="mid-align blurred">
      
   	%begin_asset_metadata_HEADER.HeaderText% 
         <h1>%asset_metadata_HEADER.HeaderText%</h1>     
@@ -18,12 +18,18 @@ class="image" style="background-image: url(%asset_metadata_BANNER.Image^as_asset
   	%end_asset_metadata_HEADER.Subline% 
     
 	%begin_hero_button% 	
-  	<p><a href="%asset_metadata_CONTENT.HeaderHeroButtonLink%" class="button-hero-inverse">%asset_metadata_CONTENT.HeaderHeroButtonText%</a></p>
+  	<p><a href="../Page layout/%asset_metadata_CONTENT.HeaderHeroButtonLink%" class="button-hero-inverse">%asset_metadata_CONTENT.HeaderHeroButtonText%</a></p>
     %else_hero_button% 
   	%end_hero_button% 
 	</div>
 </header>
 <!-- End background image header -->
+        
+%asset_metadata_CONTENT.JumpNav%
+
+%begin_tabbed_nav%
+%globals_asset_contents_raw:1383610% 
+%else_tabbed_nav%
 
 %begin_asset_metadata_CONTENT.LandingPageShort% 
 <section class="lead">
@@ -32,6 +38,8 @@ class="image" style="background-image: url(%asset_metadata_BANNER.Image^as_asset
 %else_asset_metadata_CONTENT.LandingPageShort% 
 %end_asset_metadata_CONTENT.LandingPageShort%
 
-%globals_asset_contents_raw:1617713% 
+%end_tabbed_nav%
 
-%end_asset_metadata_DESIGN.PageTemplate^contains:template-event-block-listing%
+    %asset_contents%
+      
+%end_asset_metadata_DESIGN.PageTemplate^contains:template-header-image-dark%

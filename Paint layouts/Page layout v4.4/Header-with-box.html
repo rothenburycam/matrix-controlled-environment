@@ -1,10 +1,10 @@
-%begin_asset_metadata_DESIGN.PageTemplate^contains:template-header-image-bottom%
+%begin_asset_metadata_DESIGN.PageTemplate^contains:template-header-box%
         
 <!-- Begin background image header -->
 <header %begin_enable_banner_image% 
 class="image" style="background-image: url(%asset_metadata_BANNER.Image^as_asset:asset_url%);"
 %end_enable_banner_image%>
-	<div class="bottom-align">
+	<div class="box">
 
         %begin_asset_metadata_HEADER.HeaderText% 
         <h1>%asset_metadata_HEADER.HeaderText%</h1>     
@@ -18,7 +18,7 @@ class="image" style="background-image: url(%asset_metadata_BANNER.Image^as_asset
   	%end_asset_metadata_HEADER.Subline% 
   
 	%begin_asset_metadata_HEADER.ButtonLink% 	
-  	<p><a href="%asset_metadata_HEADER.ButtonLink%" class="button-hero-inverse">%asset_metadata_HEADER.ButtonText%</a></p>
+  	<p><a href="../Page layout/%asset_metadata_HEADER.ButtonLink%" class="button-hero-inverse">%asset_metadata_HEADER.ButtonText%</a></p>
         %else_asset_metadata_HEADER.ButtonLink% 
   	%end_asset_metadata_HEADER.ButtonLink% 
 
@@ -39,6 +39,6 @@ class="image" style="background-image: url(%asset_metadata_BANNER.Image^as_asset
 
 %end_tabbed_nav%
 
-    %asset_contents%
+ %asset_contents%
       
-%end_asset_metadata_DESIGN.PageTemplate^contains:template-header-image-bottom%
+%end_asset_metadata_DESIGN.PageTemplate^contains:template-header-box%
