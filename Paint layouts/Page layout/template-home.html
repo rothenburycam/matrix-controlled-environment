@@ -1,0 +1,40 @@
+%begin_asset_metadata_DESIGN.PageTemplate_value^contains:Home%
+<!--@@ Begin banner @@-->
+    %begin_asset_metadata_DESIGN.PageTemplate_key^eq:template-home-dark% 
+    <div style="background-image: url(%asset_metadata_BANNER.Image^as_asset:asset_url%);" class="contrast-helper">
+        <header class="banner">
+    %else_asset_metadata_DESIGN.PageTemplate_key^eq:template-home-dark%
+        <header class="banner" style="background-image: url(%asset_metadata_BANNER.Image^as_asset:asset_url%);">
+    %end_asset_metadata_DESIGN.PageTemplate_key^eq:template-home-dark%
+    
+            <div class="mid-align">
+          	%begin_asset_metadata_HEADER.HeaderText% 
+                %asset_metadata_HEADER.HeaderText^tag:h1%
+          	%else_asset_metadata_HEADER.HeaderText%
+                %globals_site_name^tag:h1%
+          	%end_asset_metadata_HEADER.HeaderText%
+          	
+               %asset_metadata_HEADER.Subline^tag:p%
+               
+        	%begin_asset_metadata_CONTENT.HeaderHeroButtonLink%
+          	<p><a href="%asset_metadata_CONTENT.HeaderHeroButtonLink%" class="button-hero-inverse">%asset_metadata_CONTENT.HeaderHeroButtonText%</a></p>
+          	%end_asset_metadata_CONTENT.HeaderHeroButtonLink%
+            </div>
+        </header>
+    %begin_asset_metadata_DESIGN.PageTemplate_key^eq:template-home-dark%
+    </div>
+    %end_asset_metadata_DESIGN.PageTemplate_key^eq:template-home-dark%
+<!--@@ End banner @@-->
+%begin_tabbed_nav%
+    %globals_asset_contents_raw:1383610%
+%end_tabbed_nav%
+
+ %begin_asset_metadata_CONTENT.LandingPageShort% 
+    <section class="lead">
+      <p>%asset_metadata_CONTENT.LandingPageShort%</p>
+    </section>
+  %end_asset_metadata_CONTENT.LandingPageShort% 
+
+  %asset_contents%
+  
+%end_asset_metadata_DESIGN.PageTemplate_value^contains:Home%

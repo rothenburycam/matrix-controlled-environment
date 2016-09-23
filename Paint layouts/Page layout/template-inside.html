@@ -1,0 +1,61 @@
+%begin_asset_metadata_DESIGN.PageTemplate_value^contains:Inside%
+    <!--@@ Inside page with blue header @@-->
+	%begin_asset_metadata_DESIGN.PageTemplate_key^eq:template-standard-page-blue-header%
+        <header>
+            %begin_asset_metadata_HEADER.HeaderText%
+                %asset_metadata_HEADER.HeaderText^tag:h1%
+            %else_asset_metadata_HEADER.HeaderText%
+                %asset_name^tag:h1%
+            %end_asset_metadata_HEADER.HeaderText%
+        </header>
+	%asset_metadata_CONTENT.JumpNav%
+
+    %begin_tabbed_nav%
+    	%globals_asset_contents_raw:1383610%
+    %else_tabbed_nav%
+    
+        %begin_add_content%
+            <section class="lead">
+              <p>%asset_metadata_CONTENT.LandingPageShort%</p>
+            </section>
+        %end_add_content%
+    
+    %end_tabbed_nav%
+    
+    	%asset_contents%
+
+%else_asset_metadata_DESIGN.PageTemplate_key^eq:template-standard-page-blue-header%
+    <div class="headerless"></div>
+    
+    %begin_asset_metadata_DESIGN.PageTemplate_key^eq:template-aside%
+    <div class="with-aside">
+        <div class="bside">
+    %end_asset_metadata_DESIGN.PageTemplate_key^eq:template-aside%
+        
+        %begin_asset_metadata_HEADER.HeaderText%
+            <h1 class="aligned-title">%asset_metadata_HEADER.HeaderText%</h1>
+        %else_asset_metadata_HEADER.HeaderText%
+        	<h1 class="aligned-title">%asset_name%</h1>
+        %end_asset_metadata_HEADER.HeaderText%
+        
+        %asset_metadata_CONTENT.JumpNav%
+        
+        %begin_asset_metadata_CONTENT.LandingPageShort%
+            <section class="lead left">
+              <p> %asset_metadata_CONTENT.LandingPageShort%</p>
+            </section>
+        %end_asset_metadata_CONTENT.LandingPageShort%
+        
+        %asset_contents%
+     
+    %begin_asset_metadata_DESIGN.PageTemplate_key^eq:template-aside%
+        </div>
+        <aside>
+          %asset_metadata_CONTENT.Aside^as_asset:asset_contents_raw%
+         </aside>
+    </div>
+    %end_asset_metadata_DESIGN.PageTemplate_key^eq:template-aside%
+
+	%end_asset_metadata_DESIGN.PageTemplate_key^eq:template-standard-page-blue-header%
+    
+%end_asset_metadata_DESIGN.PageTemplate_value^contains:Inside%

@@ -1,0 +1,34 @@
+%begin_asset_metadata_DESIGN.PageTemplate^contains:template-filtered-listing%
+        
+<!-- Begin banner -->
+<header class="image" style="background-image: url(%asset_metadata_BANNER.Image^as_asset:asset_url%);">
+  <div class="mid-align">
+   
+  	%begin_asset_metadata_HEADER.HeaderText% 
+        <h1>%asset_metadata_HEADER.HeaderText%</h1>     
+  	%else_asset_metadata_HEADER.HeaderText% 
+        <h1>%asset_name%</h1> 
+  	%end_asset_metadata_HEADER.HeaderText% 
+  
+  	%begin_asset_metadata_HEADER.Subline% 
+        <p>%asset_metadata_HEADER.Subline%</p>
+  	%else_asset_metadata_HEADER.Subline% 
+  	%end_asset_metadata_HEADER.Subline% 
+  
+    </div>
+</header>
+<!-- End banner -->
+
+%begin_asset_metadata_CONTENT.LandingPageShort% 
+<section>
+  <p class="lead">%asset_metadata_CONTENT.LandingPageShort%</p>
+</section>
+<hr class="spacer" />
+%else_asset_metadata_CONTENT.LandingPageShort% 
+%end_asset_metadata_CONTENT.LandingPageShort% 
+
+    %globals_asset_contents_raw:1882481% 
+    
+    %asset_contents% 
+      
+%end_asset_metadata_DESIGN.PageTemplate^contains:template-filtered-listing%
