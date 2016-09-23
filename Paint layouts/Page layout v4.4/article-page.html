@@ -1,0 +1,38 @@
+%begin_asset_metadata_DESIGN.PageTemplate^contains:template-article%
+<article>
+%begin_enable_banner_image%
+<header style="background-image: url(%asset_metadata_BANNER.Image^as_asset:asset_url%);"> 
+    <div class="mid-align blurred">
+     
+        %begin_asset_metadata_HEADER.HeaderText% 
+        <h1>%asset_metadata_HEADER.HeaderText%</h1>     
+  	%else_asset_metadata_HEADER.HeaderText% 
+        <h1>%asset_name%</h1> 
+  	%end_asset_metadata_HEADER.HeaderText% 
+      
+        %begin_asset_metadata_CONTACT.Name%
+        <p class="author">        
+          <em>By %asset_metadata_CONTACT.Name%</em>
+        </p>
+        %end_asset_metadata_CONTACT.Name%
+    </div>
+  </header>
+%else_enable_banner_image%  
+
+<header class="noimg"> 
+        %begin_asset_metadata_HEADER.HeaderText% 
+        <h1>%asset_metadata_HEADER.HeaderText%</h1>     
+  	%else_asset_metadata_HEADER.HeaderText% 
+        <h1>%asset_name%</h1> 
+  	%end_asset_metadata_HEADER.HeaderText% 
+      
+        %begin_asset_metadata_CONTACT.Name%
+        <p class="author">        
+          <em>By %asset_metadata_CONTACT.Name%</em>
+        </p>
+        %end_asset_metadata_CONTACT.Name%
+  </header>
+%end_enable_banner_image%
+</article>
+%asset_contents%
+%end_asset_metadata_DESIGN.PageTemplate^contains:template-article%

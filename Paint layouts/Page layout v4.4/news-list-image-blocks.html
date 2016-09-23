@@ -1,0 +1,25 @@
+%begin_asset_metadata_DESIGN.PageTemplate^contains:template-news-list-image-blocks%
+
+%begin_enable_header_subtext% 
+<h1 %asset_metadata_HEADER.HeaderTextHighlight%>%asset_metadata_HEADER.HeaderText%</h1>
+<p>%asset_metadata_HEADER.Subline%</p>
+	%begin_hero_button%
+<p><a href="../Page layout/%asset_metadata_CONTENT.HeaderHeroButtonLink%" class="button-hero%asset_metadata_CONTENT.HeaderHeroButtonInverse%">%asset_metadata_CONTENT.HeaderHeroButtonText%</a></p>
+	%end_hero_button%
+%else_enable_header_subtext%
+<h1 %asset_metadata_HEADER.HeaderTextHighlight%>%asset_metadata_HEADER.HeaderText%</h1>
+	%begin_hero_button%
+<p><a href="../Page layout/%asset_metadata_CONTENT.HeaderHeroButtonLink%" class="button-hero%asset_metadata_CONTENT.HeaderHeroButtonInverse%">%asset_metadata_CONTENT.HeaderHeroButtonText%</a></p>
+	%end_hero_button%
+%end_enable_header_subtext%
+
+
+  %begin_add_content% 
+    <section class="lead">
+      <p>%asset_metadata_CONTENT.LandingPageShort%</p>
+    </section>
+  %end_add_content% 
+
+  %globals_asset_contents_raw:1447018%
+
+%end_asset_metadata_DESIGN.PageTemplate^contains:template-news-list-image-blocks%
