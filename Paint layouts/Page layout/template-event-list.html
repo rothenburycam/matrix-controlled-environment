@@ -1,0 +1,28 @@
+%begin_asset_metadata_DESIGN.PageTemplate^contains:template-event-block-listing%
+<!--@@ Begin background image header @@-->
+<header %begin_enable_banner_image%
+class="image" style="background-image: url(%asset_metadata_BANNER.Image^as_asset:asset_url%);"
+%end_enable_banner_image%>
+	<div class="mid-align">
+  	%begin_asset_metadata_HEADER.HeaderText%
+        %asset_metadata_HEADER.HeaderText^tag:h1%
+  	%else_asset_metadata_HEADER.HeaderText%
+        %asset_name^tag:h1%
+  	%end_asset_metadata_HEADER.HeaderText%
+
+    %asset_metadata_HEADER.Subline^tag:p%
+
+	%begin_hero_button%
+  	<p><a href="%asset_metadata_CONTENT.HeaderHeroButtonLink%" class="button-hero-inverse">%asset_metadata_CONTENT.HeaderHeroButtonText%</a></p>
+  	%end_hero_button%
+	</div>
+</header>
+<!--@@ End background image header @@-->
+%begin_asset_metadata_CONTENT.LandingPageShort%
+<section class="lead">
+  <p>%asset_metadata_CONTENT.LandingPageShort%</p>
+</section>
+%end_asset_metadata_CONTENT.LandingPageShort%
+	<!--@@ insert upcoming events listing @@-->
+	%globals_asset_contents_raw:1617713%
+%end_asset_metadata_DESIGN.PageTemplate^contains:template-event-block-listing%

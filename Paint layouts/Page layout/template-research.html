@@ -1,0 +1,43 @@
+%begin_asset_metadata_DESIGN.PageTemplate_value^contains:Research%
+<div class="headerless"></div>
+	<div class="with-aside">
+		<div class="bside">
+        	<h1 class="aligned-title">
+        	%begin_asset_metadata_HEADER.HeaderText%
+				%asset_metadata_HEADER.HeaderText%
+            %else_asset_metadata_HEADER.HeaderText%
+                %asset_name%
+            %end_asset_metadata_HEADER.HeaderText%
+			</h1>
+            
+  			%begin_asset_metadata_CONTENT.LandingPageShort%
+    		<section class="lead left">
+     			%asset_metadata_CONTENT.LandingPageShort^tag:p%
+    		</section>
+   			%end_asset_metadata_CONTENT.LandingPageShort%
+            
+    		%asset_contents%
+		</div>
+		<aside>
+       		 %begin_asset_metadata_DESIGN.PageTemplate_key^eq:template-researchprogram%
+                    %begin_asset_metadata_TAG.Keyword%
+            			%asset_metadata_TAG.Keyword^tag:h2%
+           			%else_asset_metadata_TAG.Keyword%
+            		<h2>Research Projects</h2>
+            		%end_asset_metadata_TAG.Keyword%
+                    
+                    %globals_asset_contents_raw:1669438% 
+                    
+                %else_asset_metadata_DESIGN.PageTemplate_key^eq:template-researchprogram%
+                	%begin_asset_metadata_TAG.Keyword%
+            			%asset_metadata_TAG.Keyword^tag:h2%
+           			%else_asset_metadata_TAG.Keyword%
+            		<h2>Research Program</h2>
+            		%end_asset_metadata_TAG.Keyword%
+                    
+                    %globals_asset_contents_raw:1669557%
+                %end_asset_metadata_DESIGN.PageTemplate_key^eq:template-researchprogram%
+       	</aside>
+</div>
+<!-- End Simple Header -->
+%end_asset_metadata_DESIGN.PageTemplate_value^contains:Research%
