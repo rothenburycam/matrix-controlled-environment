@@ -1,0 +1,26 @@
+%begin_asset_metadata_DESIGN.PageTemplate_value^contains:News%
+<header>
+    %begin_asset_metadata_HEADER.HeaderText%
+        %asset_metadata_HEADER.HeaderText^tag:h1%
+    %else_asset_metadata_HEADER.HeaderText%
+        %asset_name^tag:h1%
+    %end_asset_metadata_HEADER.HeaderText%
+    
+    %asset_metadata_HEADER.Subline^tag:p%
+    
+</header>
+  %begin_asset_metadata_CONTENT.LandingPageShort%
+    <section class="lead">
+      %asset_metadata_CONTENT.LandingPageShort^tag:p%
+    </section>
+  %else_asset_metadata_CONTENT.LandingPageShort%
+  <div class="spacer"></div>
+  %end_asset_metadata_CONTENT.LandingPageShort%
+  <section>
+  %begin_asset_metadata_DESIGN.PageTemplate_key^eq:template-news-list-basic%
+  	%globals_asset_contents_raw:1447005%
+  %else_asset_metadata_DESIGN.PageTemplate_key^eq:template-news-list-basic%
+  	%globals_asset_contents_raw:1447018%
+  %end_asset_metadata_DESIGN.PageTemplate_key^eq:template-news-list-basic%
+  </section>
+%end_asset_metadata_DESIGN.PageTemplate_value^contains:News%
