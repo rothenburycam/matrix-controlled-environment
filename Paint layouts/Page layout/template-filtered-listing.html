@@ -1,0 +1,87 @@
+%begin_asset_metadata_DESIGN.PageTemplate_value^contains:Filtered%
+<!--@@ Begin banner @@-->
+<div style="background-image: url(%asset_metadata_BANNER.Image^as_asset:asset_url%);" class="contrast-helper">
+
+    %begin_asset_metadata_DESIGN.PageTemplate_key^eq:template-filtered-listing%
+	<header class="image">
+  		<div class="mid-align">
+            %begin_asset_metadata_HEADER.HeaderText%
+                %asset_metadata_HEADER.HeaderText^tag:h1%
+            %else_asset_metadata_HEADER.HeaderText%
+                %asset_name^tag:h1%
+            %end_asset_metadata_HEADER.HeaderText%
+            
+                %asset_metadata_HEADER.Subline^tag:p%
+        </div>
+    %else_asset_metadata_DESIGN.PageTemplate_key^eq:template-filtered-listing%
+	<header class="image with-filters">
+	  	%begin_asset_metadata_HEADER.HeaderText%
+        	%asset_metadata_HEADER.HeaderText^tag:h1%
+  		%else_asset_metadata_HEADER.HeaderText%
+        	%asset_name^tag:h1%
+  		%end_asset_metadata_HEADER.HeaderText%
+        <div class="bottom-align-flat">
+    		<div class="filtered-listing-wrapper">
+                <form class="filtered-listing-select">
+                <fieldset class="left">
+                  %begin_asset_metadata_DESIGN.PageTemplate_key^eq:template-filtered-list-course%
+                      <!--@@ insert course @@-->
+                      <legend>Course type</legend>
+                      %globals_asset_contents_raw:1878673%
+                  %else_asset_metadata_DESIGN.PageTemplate_key^eq:template-filtered-list-course%
+                      <!--@@ insert project @@-->
+                      <legend>Project status</legend>
+                        %globals_asset_contents_raw:1882360% 
+                  %end_asset_metadata_DESIGN.PageTemplate_key^eq:template-filtered-list-course%
+                </fieldset>
+                 <!--@@ insert the drop down @@-->
+                <div class="right">
+                <label for="f-select2">Area of interest</label>
+                    <div>
+                        <select class="clear" id="f-select2" name="f[select2]" title="Please make a selection from the 2nd dropdown">
+                          <option value="-1">
+                            All areas
+                          </option>
+                         %begin_asset_metadata_DESIGN.PageTemplate_key^eq:template-filtered-list-course%
+                            <!--@@ insert course dropdown @@-->
+                         	%globals_asset_contents_raw:1878712%
+                         %else_asset_metadata_DESIGN.PageTemplate_key^eq:template-filtered-list-course%
+                            <!--@@ insert project dropdown @@-->
+                         	%globals_asset_contents_raw:1882567%
+                         %end_asset_metadata_DESIGN.PageTemplate_key^eq:template-filtered-list-course%
+                        </select>
+                    </div>
+                </div>
+              </form>
+			</div>
+		</div>
+    %end_asset_metadata_DESIGN.PageTemplate_key^eq:template-filtered-listing%
+</header>
+</div>
+<!--@@ End banner @@-->
+%begin_asset_metadata_CONTENT.LandingPageShort%
+<section>
+  <p class="lead">%asset_metadata_CONTENT.LandingPageShort%</p>
+</section>
+<hr class="spacer" />
+%else_asset_metadata_CONTENT.LandingPageShort%
+<div class="section-spacer"></div>
+%end_asset_metadata_CONTENT.LandingPageShort%
+
+    %begin_asset_metadata_DESIGN.PageTemplate_key^eq:template-filtered-listing%
+    	<!--@@ insert filtered listing @@-->
+    	 %globals_asset_contents_raw:1882481%
+    %end_asset_metadata_DESIGN.PageTemplate_key^eq:template-filtered-listing%
+    
+    %begin_asset_metadata_DESIGN.PageTemplate_key^eq:template-filtered-list-course%
+    	<!--@@ insert filtered list course @@-->
+   	 	%globals_asset_contents_raw:1878640%
+    %end_asset_metadata_DESIGN.PageTemplate_key^eq:template-filtered-list-course%
+    
+    %begin_asset_metadata_DESIGN.PageTemplate_key^eq:template-filtered-list-project%
+    	<!--@@ insert filtered list project @@-->
+    	%globals_asset_contents_raw:1882513%
+    %end_asset_metadata_DESIGN.PageTemplate_key^eq:template-filtered-list-project%
+    
+    %asset_contents%
+%end_asset_metadata_DESIGN.PageTemplate_value^contains:Filtered%
