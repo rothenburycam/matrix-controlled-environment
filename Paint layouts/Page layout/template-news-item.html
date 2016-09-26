@@ -1,0 +1,59 @@
+<div class="headerless"></div>
+<hr class="hidden">
+<article class="news"> 
+  <div class="article">  
+    <h1>
+      %asset_attribute_name%
+    </h1>
+    %begin_asset_attribute_show_summary%
+    %asset_attribute_summary%
+    %else_asset_attribute_show_summary%
+    %end_asset_attribute_show_summary%
+    %begin_asset_attribute_show_body%
+    %asset_attribute_body%
+    %else_asset_attribute_show_body%
+    %end_asset_attribute_show_body%
+  </div>
+  <aside>
+    <div>
+      <time datetime="%asset_published_short%">%asset_published_readabledate%</time>
+    </div>
+    <div>
+      <ul class="social-links">
+        <li>
+          <a href="https://twitter.com/intent/tweet?text=%asset_attribute_name^replace:(\s):+%++%asset_url%" title="Tweet This">
+            <span class="small" data-icon="twitter"></span>
+          </a>
+        </li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=%asset_url%" title="Share on Facebook"><span class="small" data-icon="facebook"></span></a></li>
+        <li><a href="https://www.linkedin.com/shareArticle?title=%asset_attribute_name^replace:(\s):+%&amp;url=%asset_url%" title="Share on LinkedIn"><span class="small" data-icon="linkedin"></span></a></li>
+      </ul>
+    </div>
+    <div>
+     %begin_enable_more_information%
+      <p>
+        <em>More Information</em>
+      </p>
+      %begin_asset_attribute_show_contact_name%
+      <p>
+        %asset_attribute_contact_name%
+      </p>
+      %else_asset_attribute_show_contact_name% 
+      %end_asset_attribute_show_contact_name% 
+      %begin_asset_metadata_NEWS.EmailAddress%
+      <p><a href="mailto:%asset_metadata_NEWS.EmailAddress%">%asset_metadata_NEWS.EmailAddress%</a></p>
+      %else_asset_metadata_NEWS.EmailAddress%
+      %end_asset_metadata_NEWS.EmailAddress%
+      %begin_asset_attribute_show_contact_phone%
+        %begin_phone%
+      <p><a href="tel:%asset_attribute_contact_phone^replace:(\s):%">T: %asset_attribute_contact_phone%</a></p>
+        %else_phone%
+        %end_phone%
+      %else_asset_attribute_show_contact_phone%
+      %end_asset_attribute_show_contact_phone%
+     %else_enable_more_information%
+     %end_enable_more_information%
+    </div>
+  </aside>
+</article>
+<footer></footer>

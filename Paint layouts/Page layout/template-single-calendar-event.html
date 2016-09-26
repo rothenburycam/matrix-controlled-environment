@@ -1,0 +1,93 @@
+<!--@@ Single local event detail format @@-->
+<span itemscope itemtype="http://schema.org/Event">
+	<div class="headerless"></div>
+	<div class="detail">
+	  <div class="upper">
+	    <h1 itemprop="name">
+	      %asset_attribute_name%
+	    </h1>
+	    %begin_asset_metadata_TAG.Keyword%
+	    <h2>%asset_metadata_TAG.Keyword%</h2>
+	    %end_asset_metadata_TAG.Keyword%
+	    <aside>
+        %begin_event_duration^contains:days% <!--@@ When event goes for more than 1 day @@-->
+            <div class="when range">
+                <time datetime="%event_start_datetime_o-m-d%" itemprop="startDate" content="%event_start_datetime_o-m-d%"> %event_start_datetime_l% <strong>%event_start_datetime_j% %event_start_datetime_M%</strong> %event_start_datetime_Y%</time>
+                <time datetime="%event_end_datetime_o-m-d%" itemprop="endDate" content="%event_end_datetime_o-m-d%"> %event_end_datetime_l% <strong>%event_end_datetime_j% %event_end_datetime_M%</strong> %event_end_datetime_Y%</time>
+            </div>
+        %else_begin_event_duration^contains:day and% <!--@@ When event goes for 1 day and x hours - same format as above @@-->
+            <div class="when range">
+                <time datetime="%event_start_datetime_o-m-d%" itemprop="startDate" content="%event_start_datetime_o-m-d%"> %event_start_datetime_l% <strong>%event_start_datetime_j% %event_start_datetime_M%</strong> %event_start_datetime_Y%</time>
+                <time datetime="%event_end_datetime_o-m-d%" itemprop="endDate" content="%event_end_datetime_o-m-d%"> %event_end_datetime_l% <strong>%event_end_datetime_j% %event_end_datetime_M%</strong> %event_end_datetime_Y%</time>
+            </div>
+        %else_begin_event_duration^contains:day% <!--@@ When event goes for 1 day @@-->
+            <div class="when">
+                <time datetime="%event_start_datetime_o-m-d%" itemprop="startDate" content="%event_start_datetime_o-m-d%"> %event_start_datetime_l% <strong>%event_start_datetime_j% %event_start_datetime_M%</strong> %event_start_datetime_Y%</time>
+                <time itemprop="endDate" content="%event_end_datetime_o-m-d%">All day</time>
+            </div>
+        %else_begin_event_duration^contains:hour% <!--@@ When event goes for less than 1 day (specify times) @@-->
+            <div class="when">
+                <time datetime="%event_start_datetime_o-m-d%" itemprop="startDate" content="%asset_attribute_start_date^replace: :T%"> %event_start_datetime_l% <strong>%event_start_datetime_j% %event_start_datetime_M%</strong> %event_start_datetime_Y%</time>
+        		<time datetime="%event_start_time_24h%">%event_short_start_time% - %event_short_end_time%</time>
+        		<time itemprop="endDate" content="%asset_attribute_end_date^replace: :T%" class="hidden">
+        	</div>
+        %end_event_duration^contains:days% 
+	    </aside>
+      %begin_asset_thumbnail%
+      <img src="%asset_thumbnail_url%" itemprop="image" >
+      %end_asset_thumbnail%
+	  </div>
+	  <div class="lower">
+	    <aside>
+	     %begin_asset_metadata_BOOKING.Url%
+	      <div>
+	        <p>
+	          <a href="%asset_metadata_BOOKING.Url%" class="button-small cta" target="_blank">Book now</a>
+	        </p>
+	      </div>	      
+	      %end_asset_metadata_BOOKING.Url%
+	      %begin_enable_map%
+	      <div itemscope="location" itemtype="http://schema.org/Place">	      
+	      %begin_asset_metadata_LOCATION.Address%       
+	      <p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">%asset_metadata_LOCATION.Address%</p>
+	      %end_asset_metadata_LOCATION.Address%  
+	      %begin_asset_metadata_LOCATION.Map%  
+	        <span itemprop="hasMap"><a class="button-small" href="%asset_metadata_LOCATION.Map%"  itemprop="map" itemtype="https://schema.org/Map" target="_blank">Map<span class="small" data-icon="location"></span></a></span>
+	      %end_asset_metadata_LOCATION.Map%     
+	      </div>
+	      %end_enable_map%
+	      <div>
+	        <ul class="social-links">
+	        <li>
+	          <a href="https://twitter.com/intent/tweet?text=%asset_name^replace:(\s):+%++%asset_url%" title="Tweet This">
+	            <span class="small" data-icon="twitter"></span>
+	          </a>
+	        </li>
+	        <li><a href="https://www.facebook.com/sharer/sharer.php?u=%asset_url%" title="Share on Facebook"><span class="small" data-icon="facebook"></span></a></li>
+	        <li><a href="https://www.linkedin.com/shareArticle?title=%asset_name^replace:(\s):+%&amp;url=%asset_url%" title="Share on LinkedIn"><span class="small" data-icon="linkedin"></span></a></li>
+	      </ul>
+	      </div>
+	      %begin_enable_contact%
+	      <div>
+		      <p>
+		        <em>More Information</em>
+		      </p>
+		      %begin_asset_metadata_CONTACT.Name%
+		      <p>%asset_metadata_CONTACT.Name%</p>
+		      %end_asset_metadata_CONTACT.Name%
+		      %begin_asset_metadata_CONTACT.Email%
+		      <p><a href="mailto:%asset_metadata_CONTACT.Email%">%asset_metadata_CONTACT.Email%</a></p>
+		      %end_asset_metadata_CONTACT.Email%
+		      %begin_asset_metadata_CONTACT.Phone%
+		      <p><a href="tel:%asset_metadata_CONTACT.Phone^replace:(\s):%">T: %asset_metadata_CONTACT.Phone%</a></p>
+		      %end_asset_metadata_CONTACT.Phone%	     
+	      </div>
+	      %end_enable_contact%	
+	    </aside>
+	    <section itemprop="description">
+	     %asset_attribute_description%
+	    </section>
+	  </div>
+	</div>
+</span>
+<footer></footer>
