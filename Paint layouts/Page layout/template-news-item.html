@@ -2,19 +2,17 @@
 <hr class="hidden">
 <article class="news"> 
   <div class="article">  
-    <h1>
-      %asset_attribute_name%
-    </h1>
+    %asset_attribute_name^tag:h1%
+ 
     %begin_asset_attribute_show_summary%
-    %asset_attribute_summary%
-    %else_asset_attribute_show_summary%
+    	%asset_attribute_summary%
     %end_asset_attribute_show_summary%
+    
     %begin_asset_attribute_show_body%
-    %asset_attribute_body%
-    %else_asset_attribute_show_body%
+    	%asset_attribute_body%
     %end_asset_attribute_show_body%
   </div>
-  <aside>
+  <div class="aside">
     <div>
       <time datetime="%asset_published_short%">%asset_published_readabledate%</time>
     </div>
@@ -34,26 +32,21 @@
       <p>
         <em>More Information</em>
       </p>
-      %begin_asset_attribute_show_contact_name%
-      <p>
-        %asset_attribute_contact_name%
-      </p>
-      %else_asset_attribute_show_contact_name% 
-      %end_asset_attribute_show_contact_name% 
+
+      %asset_attribute_contact_name^tag:p%
+      
       %begin_asset_metadata_NEWS.EmailAddress%
-      <p><a href="mailto:%asset_metadata_NEWS.EmailAddress%">%asset_metadata_NEWS.EmailAddress%</a></p>
-      %else_asset_metadata_NEWS.EmailAddress%
+      	<p><a href="mailto:%asset_metadata_NEWS.EmailAddress%">%asset_metadata_NEWS.EmailAddress%</a></p>
       %end_asset_metadata_NEWS.EmailAddress%
+      
       %begin_asset_attribute_show_contact_phone%
         %begin_phone%
       <p><a href="tel:%asset_attribute_contact_phone^replace:(\s):%">T: %asset_attribute_contact_phone%</a></p>
-        %else_phone%
         %end_phone%
-      %else_asset_attribute_show_contact_phone%
       %end_asset_attribute_show_contact_phone%
-     %else_enable_more_information%
+      
      %end_enable_more_information%
     </div>
-  </aside>
+  </div>
 </article>
 <footer></footer>
