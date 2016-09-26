@@ -6,7 +6,8 @@
 	    %begin_asset_metadata_TAG.Keyword%
 	    <h2>%asset_metadata_TAG.Keyword%</h2>
 	    %end_asset_metadata_TAG.Keyword%
-	    <aside>
+        <!--@@ aside start @@-->
+	    <div class="aside">
 	      <div class="when range">
 		      <time datetime="%asset_attribute_start_date^date_format:Y%-%asset_attribute_start_date^date_format:M%- %asset_attribute_start_date^date_format:D%" itemprop="startDate" content="%asset_attribute_start_date^replace: :T%">%asset_attribute_start_date^date_format:jS% %asset_attribute_start_date^date_format:M% %asset_attribute_start_date^date_format:Y%</time> 
 		        %begin_event_frequency^contains:further%
@@ -17,20 +18,21 @@
 		  <div class="when" style="margin-top: 1.5rem; padding-top: 1.5rem;">
 		      %event_frequency%<br />%begin_event_duration^contains:N/A%All day%else_event_duration^contains:N/A%%event_short_start_time% - %event_short_end_time%%end_event_duration^contains:N/A%
 		  </div>
-	    </aside>
+	    </div>
+        <!--@@ aside end @@-->
       %begin_asset_thumbnail%
       <img src="%asset_thumbnail_url%" itemprop="image" >
       %end_asset_thumbnail%
 	  </div>
 	  <div class="lower">
-	    <aside>
+      	<!--@@ aside start @@-->
+	    <div class="aside">
 	    %begin_asset_metadata_BOOKING.Url%
 	      <div>
 	        <p>
 	          <a href="%asset_metadata_BOOKING.Url%" class="button-small cta" target="_blank">Book now</a>
 	        </p>
 	      </div>
-	      %else_asset_metadata_BOOKING.Url%
 	      %end_asset_metadata_BOOKING.Url%
 	      %begin_enable_maps%
 	      <div itemprop="location" itemscope itemtype="http://schema.org/Place">
@@ -60,23 +62,21 @@
 	      <p>
 	        <em>More Information</em>
 	      </p>
-	      %begin_asset_metadata_CONTACT.Name%
-	      <p>%asset_metadata_CONTACT.Name%</p>
-	      %else_asset_metadata_CONTACT.Name%
-	      %end_asset_metadata_CONTACT.Name%
+	
+	      %asset_metadata_CONTACT.Name^tag:p%
+	
 	      %begin_asset_metadata_CONTACT.Email%
-	      <p><a href="mailto:%asset_metadata_CONTACT.Email%">%asset_metadata_CONTACT.Email%</a></p>
-	      %else_asset_metadata_CONTACT.Email%
+	      	<p><a href="mailto:%asset_metadata_CONTACT.Email%">%asset_metadata_CONTACT.Email%</a></p>
 	      %end_asset_metadata_CONTACT.Email%
-	      %begin_asset_metadata_CONTACT.Phone%
+	      
+          %begin_asset_metadata_CONTACT.Phone%
 	      <p><a href="tel:%asset_metadata_CONTACT.Phone^replace:(\s):%">T: %asset_metadata_CONTACT.Phone%</a></p>
-	      %else_asset_metadata_CONTACT.Phone%
 	      %end_asset_metadata_CONTACT.Phone%
 	      <span class="hidden" itemprop="url">%asset_url%</span>
 	      </div>
-	      %else_enable_contact%
 	      %end_enable_contact%
-	    </aside>
+	    </div>
+        <!--@@ aside end @@-->
 	    <section itemprop="description">
 	     %asset_attribute_description%
 	    </section>
