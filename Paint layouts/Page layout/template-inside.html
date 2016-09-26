@@ -28,31 +28,35 @@
     <div class="headerless"></div>
     
     %begin_asset_metadata_DESIGN.PageTemplate_key^eq:template-aside%
-    <div class="with-aside">
-        <div class="bside">
-    %end_asset_metadata_DESIGN.PageTemplate_key^eq:template-aside%
+    <div class="layout-sidebar layout-sidebar--right">
+        <div class="layout-sidebar__main box">
+            <div class="layout-sidebar__main__inner box">
+            %end_asset_metadata_DESIGN.PageTemplate_key^eq:template-aside%
+                
+                %begin_asset_metadata_HEADER.HeaderText%
+                    <h1 class="aligned-title">%asset_metadata_HEADER.HeaderText%</h1>
+                %else_asset_metadata_HEADER.HeaderText%
+                	<h1 class="aligned-title">%asset_name%</h1>
+                %end_asset_metadata_HEADER.HeaderText%
+                
+                %asset_metadata_CONTENT.JumpNav%
+                
+                %begin_asset_metadata_CONTENT.LandingPageShort%
+                    <section class="lead left">
+                      <p> %asset_metadata_CONTENT.LandingPageShort%</p>
+                    </section>
+                %end_asset_metadata_CONTENT.LandingPageShort%
+                
+                %asset_contents%
         
-        %begin_asset_metadata_HEADER.HeaderText%
-            <h1 class="aligned-title">%asset_metadata_HEADER.HeaderText%</h1>
-        %else_asset_metadata_HEADER.HeaderText%
-        	<h1 class="aligned-title">%asset_name%</h1>
-        %end_asset_metadata_HEADER.HeaderText%
-        
-        %asset_metadata_CONTENT.JumpNav%
-        
-        %begin_asset_metadata_CONTENT.LandingPageShort%
-            <section class="lead left">
-              <p> %asset_metadata_CONTENT.LandingPageShort%</p>
-            </section>
-        %end_asset_metadata_CONTENT.LandingPageShort%
-        
-        %asset_contents%
-     
-    %begin_asset_metadata_DESIGN.PageTemplate_key^eq:template-aside%
+            %begin_asset_metadata_DESIGN.PageTemplate_key^eq:template-aside%
+            </div>
         </div>
-        <aside>
-          %asset_metadata_CONTENT.Aside^as_asset:asset_contents_raw%
-         </aside>
+        <div class="aside layout-sidebar__side box">
+            <div class="layout-sidebar__side__inner box">
+                %asset_metadata_CONTENT.Aside^as_asset:asset_contents_raw%
+            </div>
+         </div>
     </div>
     %end_asset_metadata_DESIGN.PageTemplate_key^eq:template-aside%
 
