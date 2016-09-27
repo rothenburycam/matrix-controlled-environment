@@ -1,6 +1,6 @@
 /**
- *News Events Container Templates
- * Header - Authoring Scripts
+ * News events Container Templates
+ * News events Authoring Scripts
  * @author dkevey@unimelb.edu.au 
  */
 
@@ -8,7 +8,7 @@ var nam = 'ContentTemplateNewsEvents';
 if (!window[nam]) {
   window[nam] = {
     name: nam,
-    version: '0.1.0',
+    version: '0.1.1',
     className: 'content-template-newsevents',
     classNameInit: 'content-template-newsevents--initialised',
 
@@ -34,7 +34,7 @@ if (!window[nam]) {
         }
 
         this.initialised = true;
-        // console.log(self.name, self.version, 'initialised');
+        console.log(self.name, self.version, 'initialised');
       }
 
     },
@@ -50,152 +50,161 @@ if (!window[nam]) {
         });
       
       
-      //rest of your container template code
+      // thumbnail images 
       var templateKeyArr = {
-        'block-listing': {'id': 1962358},
-        'block-listing-narrow': {'id': 1962359},
+		'block-listing': {'id': 1962358},  
         'news-listing': {'id': 1962357},
-        'news-listing-dense': {'id': 1962355}	
+        'news-listing-dense': {'id': 1962355}
       }
 
 
       var toggleTemplateType = function(parentScope){
           
-		  // select field style
-          var $templateSelect = $('[id$="_metadata_field_select_1961328"]',parentScope);
-		  var $templateSelectDefault = $('[id$="_metadata_field_select_1961328_default"]',parentScope);
-          var $templateSelectDefaultLabel = $('[for$="_metadata_field_select_1961328_default"]',parentScope);
-		  
-		  var $styleSelect = $('[id$="_metadata_field_select_1961337"]',parentScope);
-		  var $styleSelectDefault = $('[id$="_metadata_field_select_1961337_default"]',parentScope);
-          var $styleSelectDefaultLabel = $('[for$="_metadata_field_select_1961337_default"]',parentScope);
+          var $assetTypeSelect = $('[id$="_metadata_field_select_2079026"]',parentScope);
+		  var $assetTypeSelectDefault = $('[id$="_metadata_field_select_2079026_default"]',parentScope);
+          var $assetTypeSelectDefaultLabel = $('[for$="_metadata_field_select_2079026_default"]',parentScope);
+         
+          var $newsTemplateSelect = $('[id$="_metadata_field_select_1961328"]',parentScope);
+		  var $newsTemplateSelectDefault = $('[id$="_metadata_field_select_1961328_default"]',parentScope);
+          var $newsTemplateSelectDefaultLabel = $('[for$="_metadata_field_select_1961328_default"]',parentScope);
           
-		  // related asset style
-	//	  var $eventsLinkField = $('[id$="_metadata_field_related_asset_1961341_default"]',parentScope);
-//          var $eventsLinkFieldLabel = $('[for$="_metadata_field_related_asset_1961341_default"]',parentScope);
-//		  
-//		  var $newsLinkField = $('[id$="_metadata_field_related_asset_1961346_default"]',parentScope);
-//          var $newsLinkFieldLabel = $('[for$="_metadata_field_related_asset_1961346_default"]',parentScope);
-//		  
-//		  var $moreeventsLinkField = $('[id$="_metadata_field_related_asset_1961352_default"]',parentScope);
-//          var $moreeventsLinkFieldLabel = $('[for$="_metadata_field_related_asset_1961352_default"]',parentScope);
-//		  
-//		  var $morenewsLinkField = $('[id$="_metadata_field_related_asset_1961351_default"]',parentScope);
-//          var $morenewsLinkFieldLabel = $('[for$="_metadata_field_related_asset_1961351_default"]',parentScope);
+          var $eventTypeSelect = $('[id$="_metadata_field_select_2080829"]',parentScope);
+		  var $eventTypeSelectDefault = $('[id$="_metadata_field_select_2080829_default"]',parentScope);
+          var $eventTypeSelectDefaultLabel = $('[for$="_metadata_field_select_2080829_default"]',parentScope);
+          
+          var $bgStyleSelect = $('[id$="_metadata_field_select_1961337"]',parentScope);
+		  var $bgStyleSelectDefault = $('[id$="_metadata_field_select_1961337_default"]',parentScope);
+          var $bgStyleSelectDefaultLabel = $('[for$="_metadata_field_select_1961337_default"]',parentScope);
+          
+          var $showMoreSelect = $('[id$="_metadata_field_select_2078723"]',parentScope);
+		  var $showMoreSelectDefault = $('[id$="_metadata_field_select_2078723_default"]',parentScope);
+          var $showMoreSelectDefaultLabel = $('[for$="_metadata_field_select_2078723_default"]',parentScope);
 		  
-		  // text field style
-		 //var $twitterTextField = $('[id$="_metadata_field_text_1961358_default"]',parentScope);
-          //var $twitterTextFieldLabel = $('[for$="_metadata_field_text_1961358_default"]',parentScope);
-		  
-		 // var $twitterLinkField = $('[id$="_metadata_field_text_1961359_default"]',parentScope);
-          //var $twitterLinkFieldLabel = $('[for$="_metadata_field_text_1961359_default"]',parentScope);
-		  
-	//	  		  
-//		  var $facebookTextField = $('[id$="_metadata_field_text_1961360_default"]',parentScope);
-//          var $facebookTextFieldLabel = $('[for$="_metadata_field_text_1961360_default"]',parentScope);
-//		  
-//		  var $facebookLinkField = $('[id$="_metadata_field_text_1961361_default"]',parentScope);
-//          var $facebookLinkFieldLabel = $('[for$="_metadata_field_text_1961361_default"]',parentScope);	  
-//		  
-//		  
-//		  var $instagramTextField = $('[id$="_metadata_field_text_1961362_default"]',parentScope);
-//          var $instagramTextFieldLabel = $('[for$="_metadata_field_text_1961362_default"]',parentScope);
-//		  
-//		  var $instagramLinkField = $('[id$="_metadata_field_text_1961363_default"]',parentScope);
-//          var $instagramLinkFieldLabel = $('[for$="_metadata_field_text_1961363_default"]',parentScope);
-//		  
-		  
-		  // define the rows you want to show and hide  
-		  var $morenewsTextRow = $('.row_5',parentScope);
-		  var $moreeventsTextRow = $('.row_6',parentScope);
-		  var $twitterTextRow = $('.row_7',parentScope);
-		  var $twitterLinkRow = $('.row_8',parentScope); 
-		  var $facebookTextRow = $('.row_9',parentScope);
-		  var $facebookLinkRow = $('.row_10',parentScope); 
-		  var $instagramTextRow = $('.row_11',parentScope);
-		  var $instagramLinkRow = $('.row_12',parentScope); 
+		  // related asset field 
+		  var $parentIdField = $('[id$="_metadata_field_related_asset_1961341_default"]',parentScope);
+          var $parentIdFieldLabel = $('[for$="_metadata_field_related_asset_1961341_default"]',parentScope);
+		  	  
+		  // define the rows you want to show and hide
+		  var $eventTypeRow = $('.row_2',parentScope)
+		  var $newsTemplateRow = $('.row_3',parentScope); 
+		  var $showMoreRow = $('.row_8',parentScope); 
           
           //hide redundant heading sections
           $('.schemaHeading_0').hide();
           $('.sectionHeading_0').hide();
           
          //uncheck and hide any redundant default checkboxes
-         if ( $templateSelectDefault.prop('checked') ){
-              $templateSelectDefault.click();                       
+         if ( $assetTypeSelectDefault.prop('checked') ){
+              $assetTypeSelectDefault.click();                       
           }
           
-          $templateSelectDefault.addClass('visuallyhidden');
-          $templateSelectDefaultLabel.addClass('visuallyhidden'); 
-		  
-		  
-		  if ( $styleSelectField.prop('checked') ){
-              $styleSelectField.click();
+          $assetTypeSelectDefault.addClass('visuallyhidden');
+          $assetTypeSelectDefaultLabel.addClass('visuallyhidden'); 
+         
+         if ( $newsTemplateSelectDefault.prop('checked') ){
+              $newsTemplateSelectDefault.click();                       
           }
           
-          $styleSelectField.addClass('visuallyhidden');
-          $styleSelectFieldLabel.addClass('visuallyhidden'); 
+          $newsTemplateSelectDefault.addClass('visuallyhidden');
+          $newsTemplateSelectDefaultLabel.addClass('visuallyhidden'); 
+          
+          if ( $eventTypeSelectDefault.prop('checked') ){
+              $eventTypeSelectDefault.click();                       
+          }
+          
+          $eventTypeSelectDefault.addClass('visuallyhidden');
+          $eventTypeSelectDefaultLabel.addClass('visuallyhidden');
+          
+           if ( $bgStyleSelectDefault.prop('checked') ){
+              $bgStyleSelectDefault.click();                       
+          }
+          
+          $bgStyleSelectDefault.addClass('visuallyhidden');
+          $bgStyleSelectDefaultLabel.addClass('visuallyhidden');
+          
+          if ( $parentIdField.prop('checked') ){
+              $parentIdField.click();                       
+          }
+          
+          $parentIdField.addClass('visuallyhidden');
+          $parentIdFieldLabel.addClass('visuallyhidden');
+          
+          if ( $showMoreSelectDefault.prop('checked') ){
+              $showMoreSelectDefault.click();                       
+          }
+          
+          $showMoreSelectDefault.addClass('visuallyhidden');
+          $showMoreSelectDefaultLabel.addClass('visuallyhidden');
 		  
 		  
-		  // show/hide additional fields in template
+		  // show or hide additional fields in template
 		  // note: this fires on page load
-		   if ($templateSelect.val() === 'block-listing'
-		      $templateSelect.val() === 'news-listing' ||
-			  $templateSelect.val() === 'news-listing-dense')	
+		   if ($assetTypeSelect.val() === 'news')	
 			  
 			    {
-			  	  $morenewsTextRow.hide();
-			  	  $moreeventsTextRow.hide();
-				  $twitterTextRow.hide();
-				  $twitterLinkRow.hide();
-				  $facebookTextRow.hide();
-				  $facebookLinkRow.hide();
-				  $instagramTextRow.hide();
-				  $instagramLinkRow.hide();
+              	  $eventTypeRow.hide();
+              	  $newsTemplateRow.show();
 				
-			 	} else if ($templateSelect.val() === 'block-listing-narrow') 
+			 	} else if ($assetTypeSelect.val() === 'events') 
 				
 				{
-				  $morenewsTextRow.show();
-			  	  $moreeventsTextRow.show();
-				  $twitterTextRow.show();
-				  $twitterLinkRow.show();
-				  $facebookTextRow.show();
-				  $facebookLinkRow.show();
-				  $instagramTextRow.show();
-				  $instagramLinkRow.show(); 
+				  $eventTypeRow.show();
+				  $newsTemplateRow.hide();
 				
               	} 
+
 		     
           // toggle additional fields when changing template
 		  // note: after page load this is how you change templates - basically the same as above
-          $templateSelect.change(function(evt){
+          $assetTypeSelect.change(function(evt){
 
-              if (evt.target.value === 'block-listing-narrow' ) 
+             if  (evt.target.value === 'events') 
 				  
 				{
-                  $morenewsTextRow.show();
-			  	  $moreeventsTextRow.show();
-				  $twitterTextRow.show();
-				  $twitterLinkRow.show();
-				  $facebookTextRow.show();
-				  $facebookLinkRow.show();
-				  $instagramTextRow.show();
-				  $instagramLinkRow.show();  
+                  $eventTypeRow.show();
+				  $newsTemplateRow.hide();
             
-              } else if (evt.target.value === 'block-listing'||
-						 evt.target.value === 'news-listing' ||
-					 	 evt.target.value === 'news-listing-dense') 
-				{
-                  $morenewsTextRow.hide();
-			  	  $moreeventsTextRow.hide();
-				  $twitterTextRow.hide();
-				  $twitterLinkRow.hide();
-				  $facebookTextRow.hide();
-				  $facebookLinkRow.hide();
-				  $instagramTextRow.hide();
-				  $instagramLinkRow.hide();
+              } else if (evt.target.value === 'news') 
 				  
-              } 
+				{
+                  $eventTypeRow.hide();
+              	  $newsTemplateRow.show();
+            
+              }
+          });
+		  
+		  // toggle news listing options
+		  
+		   if ($newsTemplateSelect.val() === 'block-listing')	
+			  
+			    {
+              	  $showMoreRow.show();
+				
+			 	} else if ($newsTemplateSelect.val() === 'news-listing' ||
+			 	           $newsTemplateSelect.val() === 'news-listing-dense') 
+				
+				{
+				 $showMoreRow.hide();
+				
+              	} 
+
+		     
+           // toggle news listing options
+		  // note: after page load this is how you change templates - basically the same as above
+          $newsTemplateSelect.change(function(evt){
+
+             if  (evt.target.value === 'news-listing' ||
+                  evt.target.value === 'news-listing-dense') 
+				  
+				{
+                  $showMoreRow.hide();
+            
+              } else if (evt.target.value === 'block-listing') 
+				  
+				{
+                  $showMoreRow.show();
+            
+              }
           });
 	
     
@@ -260,9 +269,7 @@ if (!window[nam]) {
 }
 
 
-/*@@ Note this only needs to be called once per page, but because it is included for each content template,
- *   it might get called multiple times. So we'll check if already initialised.
- @@*/
+
 if (!window[nam].initialised)
 {
   window[nam].init();
