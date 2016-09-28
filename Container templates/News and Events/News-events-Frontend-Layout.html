@@ -1,0 +1,69 @@
+<section %asset_metadata_style^contains:alt^replace_keywords:eq:1:class="alt"% id="newsevents-%asset_assetid%">
+
+    %begin_asset_metadata_title%
+        <h2 class="title">%asset_metadata_title%</h2>
+    %end_asset_metadata_title% 
+    
+%begin_asset_metadata_asset_type_key^eq:news%
+
+    <!--@@ display news @@-->
+    <!--@@ TODO: remove narrow from block listing in v5.0 @@-->
+    %begin_asset_metadata_news_template^eq:block-listing%    
+    <ul class="block-listing narrow" data-type="filter" data-paginate="%asset_metadata_number_assets^empty:12%" data-useButton="%asset_metadata_show_more_button%">
+    %else_asset_metadata_news_template^eq:block-listing% 
+    <div class="news-index %asset_metadata_news_template^eq:news-listing-dense^replace_keywords:eq:1:dense%">
+    %end_asset_metadata_news_template^eq:block-listing% 
+    
+            %begin_asset_metadata_parent_id%
+                <!--@@ parent asset layout 2078747 @@-->
+                %asset_contents_paint_2078747%
+            %else_asset_metadata_parent_id%
+                <!--@@ no results page @@-->
+                 %globals_asset_contents_raw:2078793%
+            %end_asset_metadata_parent_id%
+    
+    %begin_asset_metadata_news_template^eq:block-listing%    
+    </ul>
+    %else_asset_metadata_news_template^eq:block-listing% 
+    </div>
+    %end_asset_metadata_news_template^eq:block-listing% 
+    
+%else_asset_metadata_asset_type_key^eq:news%
+    <!--@@ TODO: remove narrow from block listing in v5.0 @@-->
+    <ul class="block-listing narrow" data-type="filter" data-paginate="%asset_metadata_number_assets^empty:12%" data-useButton="%asset_metadata_show_more_button%"> 
+     
+     <!--@@ display events @@-->
+     
+     %begin_asset_metadata_event_type^eq:upcoming%
+     
+            %begin_asset_metadata_parent_id%
+                <!--@@ upcoming events parent asset listing 2080706 @@-->
+                %asset_contents_paint_2080706%
+            %else_asset_metadata_parent_id%
+                <!--@@ no results page @@-->
+                %globals_asset_contents_raw:2078793%
+            %end_asset_metadata_parent_id%
+            
+     %else_asset_metadata_event_type^eq:upcoming%
+     
+            %begin_asset_metadata_parent_id%
+                <!--@@ past events parent asset listing 2080795 @@-->
+                %asset_contents_paint_2080795%
+            %else_asset_metadata_parent_id%
+                <!--@@ no results page @@-->
+                %globals_asset_contents_raw:2078793%
+            %end_asset_metadata_parent_id%
+     
+     %end_asset_metadata_event_type^eq:upcoming%
+     
+%end_asset_metadata_asset_type_key^eq:news%        
+    
+
+</section>
+
+<script src="./?a=2055709"></script><!--@@ jQuery 3.1.0 library @@-->
+<script src="./?a=2084568"></script><!--@@ Button script @@-->
+<style>
+.uomcontent [role="main"] .block-listing li.hidden-item {display: none;}
+.uomcontent .block-listing .block-container {background-color: #fff;} /* override until v5.0 */
+</style>
