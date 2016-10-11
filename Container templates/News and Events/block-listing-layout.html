@@ -6,7 +6,7 @@
                      <a href="%asset_url%">
                         <!--@@ TODO: add image variety in here @@-->  
                         %begin_asset_thumbnail%
-                            <div class="crop-height">%asset_thumbnail%</div>
+                            <div class="crop-height">%begin_asset_thumbnail_v_medium%%asset_thumbnail_v_medium%%else_asset_thumbnail_v_medium%%asset_thumbnail%%end_asset_thumbnail_v_medium%</div>
                         %else_asset_thumbnail%
                             <div style="height: 15px;"></div>
                         %end_asset_thumbnail%
