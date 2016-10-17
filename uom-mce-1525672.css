@@ -1,8 +1,8 @@
 /* 
 Template Name: uom-mce.css
-UOM DDS Version: 4.4
+UOM DDS Version: 5.0
 Author: External Relations Digital Team - Based on UoM Design Template
-Updated: 02/08/2016 
+Updated: 18/10/2016
 */
 
 /* give some padding to the top of pages - this is a fix until release 5.3*/
@@ -21,9 +21,6 @@ Updated: 02/08/2016
    template: blue header with jump nav    
    page: apply now */
 .uomcontent fieldset label {width: 40rem;}
-
-/* bug 22/01/2016 for images on events.unimelb feed. temporay fix */
-.uomcontent [role="main"] .block-listing .crop-height img {width: 100%;}
 
 /* correcting issues with styles when using native Matrix form builder */
 .uomcontent legend.sq-form-section-title {
