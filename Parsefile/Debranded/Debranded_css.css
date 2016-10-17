@@ -1,0 +1,15 @@
+/* remove global styles */
+.uomcontent .page-header a.page-header-logo,
+.uomcontent .page-header.floating a.page-header-logo,
+.uomcontent .page-header-tools .page-header-icon[title="Search"],
+.uomcontent .page-header .page-header-tools .page-header-icon[title="Login"],
+.uomcontent .sitemap-label,
+.uomcontent [role="navigation"]#sitemap .sitemap-link,
+.page-footer {display: none;}
+
+
+/* add unbranded site footer */
+.uomcontent ul.quicklinks { border-bottom: none; border-top: none;}
+.uomcontent footer.cta ul {max-width: none;}
+.uomcontent footer.cta ul.quicklinks {padding: 20px 0 0 0;}
+.uomcontent footer.cta .center {margin: 0 auto; padding: 0}

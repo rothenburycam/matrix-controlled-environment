@@ -1,0 +1,8 @@
+/*Set SVG version of Logo Image*/ 
+.uomcontent .page-header header a.page-header-logo, .uomcontent .page-header a.page-header-logo {background-image: url(./?a=1506646);}
+
+/*Set PNG version of Logo Image for IE backward compatibility*/ 
+.ie .uomcontent .page-header header a.page-header-logo, .ie .uomcontent .page-header a.page-header-logo {background-image: url(./?a=1506642);}
+
+/*Set default background colour logo container*/ 
+.uomcontent .page-header header a.page-header-logo, .uomcontent .page-header a.page-header-logo, .uomcontent .page-header a.wide {background-color: #f0f;}

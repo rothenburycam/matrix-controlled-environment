@@ -1,0 +1,126 @@
+<!--@@ ============== Edit+ Design Area Start ============== @@-->
+<MySource_AREA id_name="exit_area" design_area="exit" print="no"></MySource_AREA>
+<MySource_AREA id_name="nested_EES_code" design_area="nest_content" print="no" />
+<MySource_AREA id_name="simple_edit_EES" design_area="show_if">
+    <MySource_SET name="condition" value="simple_edit_mode" /> 
+    <MySource_THEN>
+        <!DOCTYPE html>
+        <html lang="en">
+            <head>
+                <meta charset="utf-8" />
+                <!-- EES install and implementation help: http://manuals.matrix.squizsuite.net/ees/chapters/installation -->
+                <!-- The title tag is dynamically replaced by EES code, see your EES config.js file to customise -->
+                <!-- Related install step: http://manuals.matrix.squizsuite.net/ees/chapters/installation/#Constructing-the-Configuration-File -->
+                <title>Loading Easy Edit Suite...</title>
+                <!-- Use a nested standard page (set to raw html) for custom CSS and JS file references. Avoids editing design file. -->
+                <MySource_PRINT id_name="nested_EES_code" />
+            </head>
+            <body></body>
+        </html>     
+        <MySource_PRINT id_name="exit_area" />
+    </MySource_THEN>
+</MySource_AREA>
+<!--@@ ============== Edit+ Design Area End ============== @@-->
+<!--@@ ============== Optional Vars Start ================ @@-->
+<MySource_AREA id_name="body_vars" design_area="declared_vars" print="no">
+    <MySource_DECLARE name="body_class" value="" type="text" description="Additional classes to apply to the body tag."/>
+</MySource_AREA>
+<!--@@ ============== Optional Vars End ================== @@-->
+<!--@@ ============== Frontend Start ===================== @@-->
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<MySource_AREA id_name="global_head" design_area="nest_content" />
+<MySource_AREA id_name="head_extras" design_area="nest_content" />
+</head>
+<body>
+<div class="uomcontent">
+    <div class="page-inner">
+        <!--@@ ========== breadcrumbs start =========== @@-->
+        <MySource_AREA id_name="page_lineage" design_area="asset_lineage">
+         <ol class="page-local-history" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+          <li class="root" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            <a href="<MySource_PRINT id_name='__global__' var='site_link' full_url='true'/>" title="Home" itemprop="item"><span itemprop="name"><MySource_PRINT id_name="__global__" var="site_name" /></span></a>
+            <meta content="1" itemprop="position" />
+          </li>
+         <MySource_SET name="levels_to_print" value="0" />
+         <MySource_SET name="prefix_with_home_link" value="false" />
+         <MySource_SET name="suffix_with_current_link" value="true" />
+         <MySource_SET name="prefix_with_divider" value="false" />
+         <MySource_SET name="suffix_with_divider" value="false" />
+         <MySource_SET name="show_hidden_links" value="true" />
+         <MySource_SET name="unwanted_asset_types" value="image, folder" />
+         <MySource_DIVIDER></MySource_DIVIDER>
+         <MySource_ASSET>
+            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+               <a href="<MySource_PRINT var='asset_link' />" itemprop="item" title="<MySource_PRINT var='asset_short_name' />"><span itemprop="name"><MySource_PRINT var='asset_short_name' /></span></a>
+               <meta content="" itemprop="position" />
+            </li>
+         </MySource_ASSET>
+        </ol>
+        </MySource_AREA>
+        <!--@@ ========== breadcrumbs end ============ @@-->
+        <!--@@ ========== page header start ========== @@-->
+        <MySource_AREA id_name="page_header" design_area="nest_content" />
+        <!--@@ ========== page header end ============ @@-->
+        <!--@@ ========== main-content start ========= @@-->
+        <div class='main' id='main-content' role='main'>
+            <MySource_AREA id_name="body" design_area="body" />
+            <!--@@ local site footer start - set this on site globe @@-->
+            <MySource_AREA id_name="DESIGN_footer" design_area="nest_content" />
+            <!--@@ local site footer end @@-->
+        </div>
+        <!--@@ ========== main-content end =========== @@-->
+        <!--@@ avoid google crawling this menu @@-->
+        <!--googleoff: all-->
+        <div data-absolute-root="%globals_site_href%" class="no-js" id="sitemap" role="navigation">
+            <h2>%globals_site_name%</h2>
+            <ul>
+            <!--@@ start hamburger menu @@-->
+            <MySource_AREA id_name="standard_menu" design_area="menu_normal" cache="1">
+            <MySource_SET name="level" value="top" />
+            <MySource_SET name="show_subs" value="always" />
+            <MySource_SET name="unwanted_asset_types" value="image, news_item, calendar_event, file" />
+                <MySource_ASSET>
+                <li><a href="<MySource_PRINT var='asset_href' />"><MySource_PRINT var="asset_short_name" /></a>
+                    <MySource_SUB design_area="menu_normal">
+                    <MySource_SET name="show_subs" value="always" />
+                    <MySource_SET name="unwanted_asset_types" value="image, news_item, calendar_event, file" />
+                        <div class="inner">
+                            <ul>
+                                <MySource_ASSET>
+                                <li><a href="<MySource_PRINT var='asset_href' />"> <MySource_PRINT var="asset_short_name" /> </a>
+                                    <MySource_SUB design_area="menu_normal">
+                                    <MySource_SET name="show_subs" value="always" />
+                                    <MySource_SET name="unwanted_asset_types" value="image, news_item, calendar_event, file" />
+                                        <div class="inner">
+                                            <ul>
+                                                <MySource_ASSET>
+                                                <li class="<MySource_PRINT var="settings.class" />"><a href="<MySource_PRINT var='asset_href' />"> <MySource_PRINT var="asset_short_name" /> </a>
+                                                </li>
+                                                </MySource_ASSET>
+                                            </ul>
+                                        </div>
+                                    </MySource_SUB>
+                                </li>
+                                </MySource_ASSET>
+                            </ul>
+                        </div>
+                    </MySource_SUB>
+                </li>
+                </MySource_ASSET>
+            </MySource_AREA>
+            <MySource_AREA id_name="logout_box" design_area="login_form" print="no">
+            <MySource_LOGIN_SECTION><li><a class="login" href="%globals_asset_url%/_login">Login</a></li></MySource_LOGIN_SECTION>
+            <MySource_LOGOUT_SECTION><MySource_PRINT var="form_open" /><li><a href="%globals_asset_url:1022685%?SQ_ACTION=logout&end_url=%globals_asset_url^urlencode%">Log out</a></li><MySource_PRINT var="form_close" /></MySource_LOGOUT_SECTION>
+            </MySource_AREA>
+            </ul>
+            <!--@@ end hamburger menu @@-->
+        </div>
+    </div><!--@@ /page-inner @@-->
+</div><!--@@ /uomcontent @@-->
+<!--googleon: all-->
+<MySource_AREA id_name="after_body" design_area="nest_content" ><MySource_SET name="type_codes" value="page" /></MySource_AREA>
+<MySource_AREA id_name="global_after_body" design_area="nest_content" />
+</body>
+</html>
