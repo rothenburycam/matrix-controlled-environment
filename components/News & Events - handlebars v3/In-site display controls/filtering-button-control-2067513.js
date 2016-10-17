@@ -7,7 +7,6 @@ $(document).ready(function() {
     var eventTags = $(this).data('eventtags'),
         useButton = $(this).data('usebutton'),
         paginate = $(this).data('paginate'),
-        itemDisplay = $(this).data('itemdisplay'),
         eventType = $(this).data('eventtype');
 
     $(this).attr('data-type', 'filter' + index); // Set data-type attribute to include its index for reference
@@ -50,11 +49,7 @@ $(document).ready(function() {
       /* *** CALCULATE SHOW MORE BUTTON *** */
       var remainingItems = $(this).find('li');
       var remainingItemsCount = $(remainingItems).length;
-			if (itemDisplay) { // Default number of items to show if paginate not set
-				var showMoreDefault = 12; // if using wide format use this
-			} else {
-				var showMoreDefault = 15; // if using skinny format, use this
-			}
+			var showMoreDefault = 12; // default number of items to display on first load
       
      
       function pagination(compareAgainst, listing) { // Create a function for re-use further down the script
