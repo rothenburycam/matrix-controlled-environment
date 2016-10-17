@@ -6,7 +6,7 @@
 	      {{#if event_type}}
 	      <h2>{{event_type}}</h2>
 	      {{/if}}
-	    <aside>
+	    <div class="aside">
 			{{#compareDates start_time end_time operator="<"}} <!--@@ Multiday event @@-->
                 <div class="when range">
                 	<time datetime="{{dateTimeFormatter start_time "YYYY-MM-DD"}}" itemprop="startDate" content="{{start_time}}">{{dateTimeFormatter start_time "dddd"}}<strong>{{dateTimeFormatter start_time "D MMM"}}</strong> {{dateTimeFormatter start_time "YYYY"}}</time>
@@ -27,13 +27,13 @@
 					<time class="hidden" datetime="{{dateTimeFormatter end_time "YYYY-MM-DD"}}" itemprop="endDate" content="{{end_time}}"></time>
 				</div>
 			{{/compareDates}} 
-			</aside>
+			</div>
 	    {{#if image_versions.w1000xh500}}
 	        <img alt="{{title}}" src="{{image_versions.w1000xh500}}" itemprop="image" />
 	    {{/if}}
 	  </div>
 	  <div class="lower">
-	    <aside>
+	    <div class="aside">
 		  {{#if booking.url}}
 	      <div>
 	        <p>
@@ -93,7 +93,7 @@
     	  </div>  
     	  {{/if}}
 	   
-	    </aside>
+	    </div>
 	    
 	    <section itemprop="description">
 	    {{{description_html}}}
@@ -110,7 +110,7 @@
                   <li itemprop="performer" itemscope="" itemtype="http://schema.org/Person">
                     <div class="profile">
                       <div class="frame">
-                        <img alt="{{title}} {{first_name}} {{last_name}}" src="{{#if photo_url}}{{photo_url}}{{else}}https://d2h9b02ioca40d.cloudfront.net/shared/assets/avatar-lt.png{{/if}}" itemprop="image"/>
+                        <img alt="{{title}} {{first_name}} {{last_name}}" src="{{#if photo_url}}{{photo_url}}{{else}}https://d2h9b02ioca40d.cloudfront.net/shared/assets/avatar-lt.png{{/if}}" class="desaturate" itemprop="image"/>
                       </div>
                     </div>
                     <div class="details">
