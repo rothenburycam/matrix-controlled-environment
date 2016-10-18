@@ -9,6 +9,12 @@ Updated: 18/10/2016
 .uomcontent .section-spacer {padding-bottom: 3rem;}
 .uomcontent .section-spacer-top {padding-top: 3rem;}
 
+/* Fix image sizes in block-listings https://github.com/marcom-unimelb/unimelb-design-system/issues/746 */
+.uomcontent [role="main"] .block-listing .crop-height img { 
+    max-height: none; 
+    max-width: 100%
+}
+
 /* fix padding in local site footer */
 
 .uomcontent footer.cta .center {margin: 0 auto; padding: 0;}
