@@ -5,6 +5,12 @@ Template: %asset_metadata_list_template_value%
 -->
 %begin_asset_metadata_list_template_key^eq:hero-listing%
 
+            %begin_asset_metadata_listing_title%
+            <h1 class="aligned-title">%asset_metadata_listing_title%</h1>
+            %end_asset_metadata_listing_title%
+            
+            %asset_metadata_listing_description^tagif:p%
+
     <ul class="%asset_metadata_list_template_key%">
         %begin_asset_metadata_authoring_type^eq:parent%
             %begin_asset_metadata_parent_id%
@@ -51,12 +57,14 @@ Template: %asset_metadata_list_template_value%
             
         </section>
         %else_asset_metadata_list_template_key^eq:nav-with-text%
-        
+
         <section class="navigation-block-listing %asset_metadata_list_template_key^eq:stacked:stacked%">
             
             %begin_asset_metadata_listing_title%
             <h1 class="aligned-title">%asset_metadata_listing_title%</h1>
             %end_asset_metadata_listing_title%
+            
+            %asset_metadata_listing_description^tagif:p%
             
                 <ul class="%asset_metadata_list_template_key%">
                     %begin_asset_metadata_authoring_type^eq:parent%
@@ -79,7 +87,14 @@ Template: %asset_metadata_list_template_value%
         %end_asset_metadata_list_template_key^eq:nav-with-text%
         
     %else_asset_metadata_list_template_value^contains:Nav%
-        <ul class="%asset_metadata_list_template_key%">
+            
+            %begin_asset_metadata_listing_title%
+            <h1 class="aligned-title">%asset_metadata_listing_title%</h1>
+            %end_asset_metadata_listing_title%
+            
+            %asset_metadata_listing_description^tagif:p%
+            
+            <ul class="%asset_metadata_list_template_key%">
                 %begin_asset_metadata_authoring_type^eq:parent%
                     %begin_asset_metadata_parent_id%
                         %asset_contents_paint_1921533%
@@ -95,7 +110,7 @@ Template: %asset_metadata_list_template_value%
                         %globals_asset_contents_raw:1929713%
                     %end_asset_metadata_child_ids%
                 %end_asset_metadata_authoring_type^eq:selected-children%
-        </ul>
+            </ul>
     %end_asset_metadata_list_template_value^contains:Nav%
 %end_asset_metadata_list_template_key^eq:hero-listing%
 <!-- // MCE: Listing container template end -->
