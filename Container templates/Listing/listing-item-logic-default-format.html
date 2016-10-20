@@ -1,7 +1,3 @@
-<!--@@  %asset_contents_paint_1921545% @@-->
-<!--@@ template key: %nested_get_list_template_key% @@-->
-<!--@@ template value: %nested_get_list_template_value% @@-->
-
 %begin_nested_get_list_template_value^contains:Nav%
     
     %begin_nested_get_list_template_key^eq:nav-with-text%
@@ -13,7 +9,6 @@
     %begin_nested_get_list_template_key^eq:nav-linked-header%
         <li>
             <h3><a href="%asset_url%">%asset_name%</a></h3>
-            <!--@@ 2nd level child link lister @@-->
             %asset_contents_paint_1925970%
         </li>
     %end_nested_get_list_template_key^eq:nav-linked-header%
@@ -21,7 +16,6 @@
     %begin_nested_get_list_template_key^eq:nav-unlinked-header%
         <li>
             <h3>%asset_name%</h3>
-            <!--@@ 2nd level child link lister @@-->
             %asset_contents_paint_1925970%
         </li>
     %end_nested_get_list_template_key^eq:nav-unlinked-header%
@@ -29,56 +23,50 @@
     %begin_nested_get_list_template_key^eq:nav-block-with-text%
         <li>
             <h3><a href="%asset_url%">%asset_name%</a></h3>
-            <p>%asset_metadata_CONTENT.LandingPageShort%</p>
+            %asset_metadata_CONTENT.LandingPageShort^tagif:p%
         </li>
     %end_nested_get_list_template_key^eq:nav-block-with-text%
     
     %begin_nested_get_list_template_key^eq:wide%
         <li>
             <h3><a href="%asset_url%">%asset_name%</a></h3>
-            <p>%asset_metadata_CONTENT.LandingPageShort%</p>
+            %asset_metadata_CONTENT.LandingPageShort^tagif:p%
         </li>
     %end_nested_get_list_template_key^eq:wide%
     
     %begin_nested_get_list_template_key^eq:narrow%
         <li>
             <h3><a href="%asset_url%">%asset_name%</a></h3>
-            <p>%asset_metadata_CONTENT.LandingPageShort%</p>
+            %asset_metadata_CONTENT.LandingPageShort^tagif:p%
         </li>
     %end_nested_get_list_template_key^eq:narrow%    
     
     %begin_nested_get_list_template_key^eq:stacked%
         <li>
             <h3><a href="%asset_url%">%asset_name%</a></h3>
-            <p>%asset_metadata_CONTENT.LandingPageShort%</p>
+            %asset_metadata_CONTENT.LandingPageShort^tagif:p%
         </li>
     %end_nested_get_list_template_key^eq:stacked%
-    
-
 
 %else_nested_get_list_template_value^contains:Nav%
-
     <li>
         %begin_nested_get_list_template_key^eq:hero-listing%
-        <a href="%asset_url%" style="background-image:url(%asset_thumbnail_url%)">
+        <a href="%asset_url%" style="background-image:url(%begin_asset_thumbnail_v_large_url% %asset_thumbnail_v_large_url% %else_asset_thumbnail_v_large_url% %asset_thumbnail_url% %end_asset_thumbnail_v_large_url%)">
           <div class="inner">
         %else_nested_get_list_template_key^eq:hero-listing%
         <a href="%asset_url%">
           <figure>
-            <img alt="%asset_thumbnail_alt%" src="%asset_thumbnail_url%" />
+            <img alt="%asset_thumbnail_alt%" src="%begin_asset_thumbnail_v_medium_url% %asset_thumbnail_v_medium_url% %else_asset_thumbnail_v_medium_url% %asset_thumbnail_url% %end_asset_thumbnail_v_medium_url%" />
           </figure>
         %end_nested_get_list_template_key^eq:hero-listing%
-        
     
           <strong role="heading">%asset_name%</strong>
-          <p>
-        %asset_metadata_CONTENT.LandingPageShort%
-          </p>
+          %asset_metadata_CONTENT.LandingPageShort^tagif:p%
+          
          %begin_nested_get_list_template_key^eq:hero-listing%
          </div>
          %end_nested_get_list_template_key^eq:hero-listing%
           
         </a>
     </li>
-
 %end_nested_get_list_template_value^contains:Nav%
