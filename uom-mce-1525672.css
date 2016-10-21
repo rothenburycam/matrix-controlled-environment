@@ -2,7 +2,7 @@
 Template Name: uom-mce.css
 UOM DDS Version: 5.0
 Author: External Relations Digital Team - Based on UoM Design Template
-Updated: 18/10/2016
+Updated: 21/10/2016
 */
 
 /* give some padding to the top of pages - this is a fix until release 5.3*/
@@ -55,7 +55,7 @@ Updated: 18/10/2016
     margin: 0;
     text-transform: none
 }
-.uomcontent fieldset div.sq-form-question-answer {padding: 0px;}
+
 .uomcontent fieldset div.sq-form-question-answer div.styled-select { margin-top: 0.3125rem; }
 .uomcontent span#sq_normal_captcha input[type="text"]:hover {border-color: #adb8c1}
 .uomcontent span#sq_normal_captcha input[type="text"] {
@@ -94,16 +94,10 @@ div.sq-form-captcha {
     .uomcontent .sq-form-question-title[for] {
         cursor: pointer;
     }
-
-    .uomcontent .sq-form-question-answer ul {
-        padding-left: 0;
-    }
     
     .uomcontent .sq-form-question-answer li {
         position: relative;
         margin-left: 0;
-        padding-left: 24px;
-        padding-left: 1.5rem;
         list-style-type: none;
     }
     
@@ -140,6 +134,22 @@ div.sq-form-captcha {
         border-color: #adb8c1;
         text-decoration: underline;
     }
+
+/* 21/10/16 unstyled form overrides for checkboxes to work */
+.uomcontent#top form:not(.unstyled-controls) fieldset input[type=checkbox]:not(.unstyled),
+.uomcontent#top form:not(.unstyled-controls) fieldset input[type=radio]:not(.unstyled) {
+  position: static !important;
+}
+
+.uomcontent#top form:not(.unstyled-controls) fieldset input[type=checkbox]:not(.unstyled)+label,
+.uomcontent#top form:not(.unstyled-controls) fieldset input[type=radio]:not(.unstyled)+label {
+  display: inline;
+}
+
+.uomcontent#top form:not(.unstyled-controls) fieldset input[type=checkbox]:not(.unstyled)+label:after,
+.uomcontent#top form:not(.unstyled-controls) fieldset input[type=radio]:not(.unstyled)+label:after {
+  display: none;
+}
 
 
 /* 26/07/16 online quiz overrides */
