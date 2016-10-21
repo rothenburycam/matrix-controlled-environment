@@ -12,7 +12,8 @@ Updated: 21/10/2016
 /* Fix image sizes in block-listings https://github.com/marcom-unimelb/unimelb-design-system/issues/746 */
 .uomcontent [role="main"] .block-listing .crop-height img { 
     max-height: none; 
-    max-width: 100%
+    max-width: 100%;
+    width: 100%;
 }
 
 /* fix padding in local site footer */
