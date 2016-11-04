@@ -2,7 +2,7 @@
 Template Name: uom-mce.css
 UOM DDS Version: 5.0
 Author: External Relations Digital Team - Based on UoM Design Template
-Updated: 21/10/2016
+Updated: 04/11/2016
 */
 
 /* give some padding to the top of pages - this is a fix until release 5.3*/
@@ -137,21 +137,35 @@ div.sq-form-captcha {
     }
 
 /* 21/10/16 unstyled form overrides for checkboxes to work */
-.uomcontent#top form:not(.unstyled-controls) fieldset input[type=checkbox]:not(.unstyled),
-.uomcontent#top form:not(.unstyled-controls) fieldset input[type=radio]:not(.unstyled) {
+uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset input[type=checkbox]:not(.unstyled),
+.uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset input[type=radio]:not(.unstyled) {
   position: static !important;
 }
 
-.uomcontent#top form:not(.unstyled-controls) fieldset input[type=checkbox]:not(.unstyled)+label,
-.uomcontent#top form:not(.unstyled-controls) fieldset input[type=radio]:not(.unstyled)+label {
+.uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset input[type=checkbox]:not(.unstyled)+label,
+.uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset input[type=radio]:not(.unstyled)+label {
   display: inline;
 }
 
-.uomcontent#top form:not(.unstyled-controls) fieldset input[type=checkbox]:not(.unstyled)+label:after,
-.uomcontent#top form:not(.unstyled-controls) fieldset input[type=radio]:not(.unstyled)+label:after {
+.uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset input[type=checkbox]:not(.unstyled)+label:after,
+.uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset input[type=radio]:not(.unstyled)+label:after {
   display: none;
 }
 
+/* 7/11/16 additional css to get checkboxes to work again */
+#top.uomcontent form:not(.unstyled-controls):not(.filtered-listing-select) {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#top.uomcontent form:not(.unstyled-controls):not(.filtered-listing-select) fieldset input[type="checkbox"]:not(.unstyled),
+#top.uomcontent form:not(.unstyled-controls):not(.filtered-listing-select) fieldset input[type="radio"]:not(.unstyled) {
+  position: static !important;
+}
+
+#top.uomcontent form:not(.unstyled-controls):not(.filtered-listing-select) fieldset ul {
+  padding-left: 0;
+}
 
 /* 26/07/16 online quiz overrides */
 .uomcontent .sq-online-quiz-question-multichoice ul {padding-left: 0px;}
