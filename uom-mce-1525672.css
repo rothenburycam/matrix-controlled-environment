@@ -2,7 +2,7 @@
 Template Name: uom-mce.css
 UOM DDS Version: 5.0
 Author: External Relations Digital Team - Based on UoM Design Template
-Updated: 04/11/2016
+Updated: 16/11/2016
 */
 
 /* give some padding to the top of pages - this is a fix until release 5.3*/
@@ -23,11 +23,6 @@ Updated: 04/11/2016
 .uomcontent footer.cta ul.quicklinks li {padding: 0px;}
 .uomcontent footer.cta ul.site-links li {padding: 0px;}
 .uomcontent [role="main"] footer {padding-bottom: 0rem;}
-
-/* bug 3/11/2015 issue #420 and #419 from v3.3.1 to v3.4.1 
-   template: blue header with jump nav    
-   page: apply now */
-.uomcontent fieldset label {width: 40rem;}
 
 /* correcting issues with styles when using native Matrix form builder */
 .uomcontent legend.sq-form-section-title {
@@ -137,7 +132,7 @@ div.sq-form-captcha {
     }
 
 /* 21/10/16 unstyled form overrides for checkboxes to work */
-uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset input[type=checkbox]:not(.unstyled),
+.uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset input[type=checkbox]:not(.unstyled),
 .uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset input[type=radio]:not(.unstyled) {
   position: static !important;
 }
@@ -163,9 +158,7 @@ uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fields
   position: static !important;
 }
 
-#top.uomcontent form:not(.unstyled-controls):not(.filtered-listing-select) fieldset ul {
-  padding-left: 0;
-}
+#top.uomcontent form:not(.unstyled-controls):not(.filtered-listing-select) fieldset ul.checklist input[type="checkbox"]:not(.unstyled) {position: absolute!important;}
 
 /* 26/07/16 online quiz overrides */
 .uomcontent .sq-online-quiz-question-multichoice ul {padding-left: 0px;}
