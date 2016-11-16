@@ -158,7 +158,16 @@ div.sq-form-captcha {
   position: static !important;
 }
 
-#top.uomcontent form:not(.unstyled-controls):not(.filtered-listing-select) fieldset ul.checklist input[type="checkbox"]:not(.unstyled) {position: absolute!important;}
+/* 16/11/16 remove double boxes on checklist styles and display tick*/
+#top.uomcontent form:not(.unstyled-controls):not(.filtered-listing-select) fieldset ul.checklist input[type="checkbox"]:not(.unstyled) {
+  position: absolute!important;
+}
+.uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset ul.checklist input[type=checkbox]:not(.unstyled)+label,
+.uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset ul.checklist input[type=checkbox]:not(.unstyled)+label:after,
+.uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset ul.checklist input[type=radio]:not(.unstyled)+label,
+.uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset ul.checklist input[type=radio]:not(.unstyled)+label:after {
+  display: block;
+}
 
 /* 26/07/16 online quiz overrides */
 .uomcontent .sq-online-quiz-question-multichoice ul {padding-left: 0px;}
