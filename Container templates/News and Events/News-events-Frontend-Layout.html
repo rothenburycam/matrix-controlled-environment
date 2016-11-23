@@ -1,4 +1,10 @@
-<style>.uomcontent [role="main"] .block-listing .crop-height img { max-height: none; }</style><!--@@ makes images fit new style without distortion @@-->
+<!-- MCE: News or Events content template version %globals_asset_version:1961275% -->
+%begin_asset_metadata_asset_type^eq:news%
+<div class="ct-newsevents__news_%asset_metadata_news_template%"> 
+%else_asset_metadata_asset_type^eq:news%
+<div class="ct-newsevents__events_%asset_metadata_event_type%_block-listing">
+%end_asset_metadata_asset_type^eq:news%
+
 <section %asset_metadata_style^contains:alt^replace_keywords:eq:1:class="alt"% id="newsevents-%asset_assetid%">
 
     %begin_asset_metadata_title%
@@ -10,9 +16,9 @@
     <!--@@ display news @@-->
     <!--@@ TODO: remove narrow from block listing in v5.0 @@-->
     %begin_asset_metadata_news_template^eq:block-listing%    
-    <ul class="block-listing narrow" data-type="filter" data-paginate="%asset_metadata_number_assets^empty:12%" data-useButton="%asset_metadata_show_more_button%">
+    <ul class="ctnewsevents block-listing" data-type="filter" data-paginate="%asset_metadata_number_assets^empty:12%" data-useButton="%asset_metadata_show_more_button%">
     %else_asset_metadata_news_template^eq:block-listing% 
-    <div class="news-index %asset_metadata_news_template^eq:news-listing-dense^replace_keywords:eq:1:dense%">
+    <div class="ctnewsevents news-index %asset_metadata_news_template^eq:news-listing-dense^replace_keywords:eq:1:dense%" data-type="filter" data-paginate="%asset_metadata_number_assets^empty:12%" data-useButton="%asset_metadata_show_more_button%">
     %end_asset_metadata_news_template^eq:block-listing% 
     
             %begin_asset_metadata_parent_id%
@@ -31,7 +37,7 @@
     
 %else_asset_metadata_asset_type_key^eq:news%
     <!--@@ TODO: remove narrow from block listing in v5.0 @@-->
-    <ul class="block-listing narrow" data-type="filter" data-paginate="%asset_metadata_number_assets^empty:12%" data-useButton="%asset_metadata_show_more_button%"> 
+    <ul class="ctnewsevents block-listing" data-type="filter" data-paginate="%asset_metadata_number_assets^empty:12%" data-useButton="%asset_metadata_show_more_button%"> 
      
      <!--@@ display events @@-->
      
@@ -63,9 +69,10 @@
 </section>
 %begin_asset_metadata_news_template^eq:block-listing% <!--@@ Only insert additional js and css if using the block-listing format @@-->
 <script src="./?a=2055709"></script><!--@@ jQuery 3.1.0 library @@-->
-<script src="./?a=2084568"></script><!--@@ Button script @@-->
+<script src="./?a=2084568?v=%globals_asset_version:2084568%"></script><!--@@ Button script @@-->
 <style>
-.uomcontent [role="main"] .block-listing li.hidden-item {display: none;}
-.uomcontent .block-listing .block-container {background-color: #fff;} /* override until v5.0 */
+.uomcontent [role="main"] .ctnewsevents li.hidden-item, .uomcontent [role="main"] .ctnewsevents article.hidden-item {display: none;}
+
 </style>
 %end_asset_metadata_news_template^eq:block-listing% 
+</div>

@@ -87,7 +87,7 @@ if (!window[nam]) {
 		  // define the rows you want to show and hide
 		  var $eventTypeRow = $('.row_2',parentScope)
 		  var $newsTemplateRow = $('.row_3',parentScope); 
-		  var $showMoreRow = $('.row_8',parentScope); 
+		  //var $showMoreRow = $('.row_8',parentScope); 
           
           //hide redundant heading sections
           $('.schemaHeading_0').hide();
@@ -173,40 +173,6 @@ if (!window[nam]) {
               }
           });
 		  
-		  // toggle news listing options
-		  
-		   if ($newsTemplateSelect.val() === 'block-listing')	
-			  
-			    {
-              	  $showMoreRow.show();
-				
-			 	} else if ($newsTemplateSelect.val() === 'news-listing' ||
-			 	           $newsTemplateSelect.val() === 'news-listing-dense') 
-				
-				{
-				 $showMoreRow.hide();
-				
-              	} 
-
-		     
-           // toggle news listing options
-		  // note: after page load this is how you change templates - basically the same as above
-          $newsTemplateSelect.change(function(evt){
-
-             if  (evt.target.value === 'news-listing' ||
-                  evt.target.value === 'news-listing-dense') 
-				  
-				{
-                  $showMoreRow.hide();
-            
-              } else if (evt.target.value === 'block-listing') 
-				  
-				{
-                  $showMoreRow.show();
-            
-              }
-          });
-	
     
       };
 
