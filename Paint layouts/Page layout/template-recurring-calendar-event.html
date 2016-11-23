@@ -9,10 +9,10 @@
         <!--@@ aside start @@-->
 	    <div class="aside">
 	      <div class="when range">
-		      <time datetime="%asset_attribute_start_date^date_format:Y%-%asset_attribute_start_date^date_format:M%- %asset_attribute_start_date^date_format:D%" itemprop="startDate" content="%asset_attribute_start_date^replace: :T%">%asset_attribute_start_date^date_format:jS% %asset_attribute_start_date^date_format:M% %asset_attribute_start_date^date_format:Y%</time> 
+		      <time datetime="%asset_attribute_start_date^date_format:Y%-%asset_attribute_start_date^date_format:M%- %asset_attribute_start_date^date_format:D%" itemprop="startDate" content="%asset_attribute_start_date^replace: :T%">%asset_attribute_start_date^date_format:j% %asset_attribute_start_date^date_format:M% %asset_attribute_start_date^date_format:Y%</time> 
 		        %begin_event_frequency^contains:further%
 		        %else_event_frequency^contains:further%
-			    <time datetime="%event_stop_date^date_format:Y%-%event_stop_date^date_format:M%- %event_stop_date^date_format:D%" itemprop="endDate" content="%event_stop_date%">%event_stop_date_jS% %event_stop_date_M% %event_stop_date_Y%</time>
+			    <time datetime="%event_stop_date^date_format:Y%-%event_stop_date^date_format:M%- %event_stop_date^date_format:D%" itemprop="endDate" content="%event_stop_date%">%event_stop_date_j% %event_stop_date_M% %event_stop_date_Y%</time>
 			    %end_event_frequency^contains:further%
 		    </div>
 		  <div class="when" style="margin-top: 1.5rem; padding-top: 1.5rem;">
