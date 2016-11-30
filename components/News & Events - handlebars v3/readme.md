@@ -42,7 +42,7 @@ AND
 - preview to make sure it looks ok
 - make it live
 
-2./ For each listing on the page, create a clone of "v3 - Single events.unimelb event processor" (Id: #2060412) in the site config folder
+2./ For each listing on the page, create a clone of "v3 - Combined listing processor" (Id: #2060422) in the site config folder
 - name it something identifiable (ie - "Law listing on home page - V3 - processor")
 - on the details screen, update the "Http request" url from ```%globals_get_combinedFeedID^as_asset:asset_url%``` to the full URL of the relevant "Combined feed references" page created in Step 1 above (note: it must be the full URL, it can't be an asset reference).
 
