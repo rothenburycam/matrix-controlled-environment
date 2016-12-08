@@ -1,0 +1,15 @@
+{
+    "local_asset": true,
+    "type": "news",
+    "id": %asset_assetid%,
+    "title": "%asset_short_name^as_json^json_encode%",<!--@@ ^json_encode required to ensure special characters don't break the feed @@-->
+    "link": "%link_url%",
+    "event_type": "all",
+    "start_time": "%asset_published_iso8601%",
+    "start_time_readable": "%asset_published_readabledate%",
+    "public": true,
+    "img_url": "%asset_thumbnail_url%",
+    "description_html": "%asset_metadata_CONTENT.LandingPageShort^as_json^json_encode%",<!--@@ ^json_encode required to ensure special characters don't break the feed @@-->
+    "description_text": "%asset_metadata_CONTENT.LandingPageShort^striphtml^as_json^json_encode%",<!--@@ ^json_encode required to ensure special characters don't break the feed @@-->
+    "tag_keyword": "%asset_metadata_TAG.Keyword%"
+},
