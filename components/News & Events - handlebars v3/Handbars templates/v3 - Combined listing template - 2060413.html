@@ -58,7 +58,7 @@
 						</div>
 					</a>
 					<span class="meta hidden"><!--@@ these items are hidden, but required for the filtering, otherwise hero items get removed @@-->
-					    <em class="meta-right">{{#if local_asset}}Event{{else}}{{event_type}}{{/if}}</em><!--@@ If a local event, print "Event", ortherwise print the event type @@-->
+					    <em class="meta-right">{{#if local_asset}}{{#if tag_keyword}}{{tag_keyword}}{{else}}Event{{/if}}{{else}}{{event_type}}{{/if}}</em><!--@@ If a local event, use tag keyword else print "Event", otherwise print the event type @@-->
 					    <span class="hidden">{{#each tags}}{{name}};{{/each}}</span><!--@@ Included to allow filtering by tag @@-->
 					</span>
 				</li>
@@ -101,7 +101,7 @@
 							{{/if}}
 						</div>
 						<div class="meta">
-							<em class="meta-right">{{#if local_asset}}Event{{else}}{{event_type}}{{/if}}</em><!--@@ If a local event, print "Event", ortherwise print the event type @@-->
+							<em class="meta-right">{{#if local_asset}}{{#if tag_keyword}}{{tag_keyword}}{{else}}Event{{/if}}{{else}}{{event_type}}{{/if}}</em><!--@@ If a local event, use tag keyword else print "Event", otherwise print the event type @@-->
 							<span class="hidden">{{#each tags}}{{name}};{{/each}}</span><!--@@ Included to allow filtering by tag @@-->
 						</div>
 					</a>
