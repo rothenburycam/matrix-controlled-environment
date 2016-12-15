@@ -1,0 +1,30 @@
+<!--
+MCE Container Templates
+@authors dcook@squiz.net
+@requires Edit+ 5.3 or Matrix 5.3 Admin Interface
+@imports jQuery 1.12 if not available
+@imports jQuery.ui 1.12 if not available
+ -->
+<script>
+    // Include jQuery and jQueryUI if not already loaded (Admin interface does not include them)
+    window.jQuery || document.write('<script src="//code.jquery.com/jquery-1.12.0.min.js"></'+'script>');
+    window.jQuery && window.jQuery.ui || document.write('<script src="//code.jquery.com/ui/1.12.0-beta.1/jquery-ui.min.js"></'+'script>');
+</script>
+
+<!-- Global Authoring Assets -->
+<link rel="stylesheet" type="text/css" id="contentTemplates.css" href="./?a=1734993?v=%globals_asset_version:1734993%" /> 
+
+<!--@@ Custom CSS @@-->
+<link rel="stylesheet" type="text/css" id="template_edit.css" href="./?a=1720082?v=%globals_asset_version:1720082%" />
+
+<div class="content-template content-template--accordion">
+    <h3>%globals_asset_name:1720067%</h3>
+    <p>For help using this component read the <a href="./?a=1736029" target="_blank">accordion help guide</a>.</p>
+    <!-- Metadata fields entry -->
+    %metadata-F_metadata_values%
+</div>
+    
+<!--@@ Custom JS @@-->
+<script id="template-edit.js">
+    %globals_asset_file_contents:1720083%
+</script>
