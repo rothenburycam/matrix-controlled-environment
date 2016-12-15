@@ -1,0 +1,65 @@
+/* 
+Edit+ template: Accordion 
+Version: 1.0
+*/
+
+/** Sortable (note this is fairly accordion-specific) **/
+#ees_eesUi .content-template .sortable {
+	border: none!important;
+	padding-top: 0!important;
+}
+#ees_eesUi .content-template .sortableFieldContainer {
+	background-color: white;
+	position: relative;
+}
+#ees_eesUi .content-template .sortableFieldContainer .row:not(.rowWithWYSIWYG) {
+	padding-top: 5px;
+	border-bottom: none;
+}
+#ees_eesUi .content-template .sortableFieldContainer .row > div {
+	padding-bottom: 0;
+	width: 638px;
+}
+#ees_eesUi .content-template .sortableFieldContainer .rowWithWYSIWYG .tools,  #ees_eesUi .content-template .sortableFieldContainer .cellName {
+	display: none;
+}
+#ees_eesUi .content-template .sortableFieldContainer .cellData input[type=text] {
+	width: 100%;
+}
+#ees_eesUi .content-template .sortableFieldContainer .cellData {
+	background: none;
+	padding-left: 20px;
+}
+#ees_eesUi .content-template .sortableFieldContainer .sortHandle {
+	position: absolute;
+	top: 30px;
+	left: -6px;
+}
+/** Mods to built-in EES styles: fix for wysiwyg **/
+.plus #ees_editMetadata .content_type_wysiwyg h3 {
+	background: none;
+	border: none;
+	font-size: 1.714em;
+	padding: 0;
+	margin: 1em 0 .25em;
+}
+.plus .content_template_custom_layout .content_type_wysiwyg p {
+	font-size: 0.9rem;
+	line-height: 1.25;
+}
+.plus .content_type_wysiwyg ul, .plus .content_type_wysiwyg ol, .plus .content_type_wysiwyg dl {
+	margin: 1.4em 3em 2em;
+	padding: 0;
+}
+.plus .content_template_custom_layout .content_type_wysiwyg li {
+	font-size: 0.9rem;
+	margin: 0;
+	padding: 0;
+	line-height: initial;
+}
+.plus .content_template_custom_layout .content_type_wysiwyg ul li {
+	list-style-type: disc;
+}
+.plus .content_template_custom_layout .content_type_wysiwyg ul ul {
+	list-style-type: circle;
+}
