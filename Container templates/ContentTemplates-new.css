@@ -1,0 +1,20 @@
+/* 
+Content Container Templates Global Styles
+Version: 1.0
+Author: dkevey@unimelb.edu.au
+*/
+
+/* --- generic styles that could be re-used ---- */
+
+/* style the intro section */
+.content-template h3 {padding: 0px 20px;}
+.content-template p.guide {padding: 0 20px}
+
+/* hide the section heading and description area */
+.content-template .schemaHeading_0, .content-template .sectionHeading_0 {display: none;}
+
+/* hide the default labels */
+.content-template .cellData .defaultLabel, .content-template .cellData .defaultCheckbox {display: none;}
+
+/* make the text inside the WYSIYWG areas bigger */
+.content-template .content_type_wysiwyg p, .content-template .content_type_wysiwyg input[type="text"], .content-template .content_type_wysiwyg textarea, .content-template .content_type_wysiwyg ul, .content-template .content_type_wysiwyg ol {font-size: 1.2em;}
