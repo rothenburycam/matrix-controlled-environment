@@ -51,12 +51,12 @@
 %else_nested_get_list_template_value^contains:Nav%
     <li>
         %begin_nested_get_list_template_key^eq:hero-listing%
-        <a href="%link_url%" style="background-image:url(%begin_asset_thumbnail_v_medium_url% %asset_thumbnail_v_medium_url% %else_asset_thumbnail_v_medium_url% %asset_thumbnail_url% %end_asset_thumbnail_v_medium_url%)">
+        <a href="%link_url%" style="background-image:url(%asset_thumbnail_url%)">
           <div class="inner">
         %else_nested_get_list_template_key^eq:hero-listing%
         <a href="%link_url%">
           <figure>
-            <img alt="%asset_thumbnail_alt%" src="%begin_asset_thumbnail_v_medium_url% %asset_thumbnail_v_medium_url% %else_asset_thumbnail_v_medium_url% %asset_thumbnail_url% %end_asset_thumbnail_v_medium_url%" />
+            <img alt="%asset_thumbnail_alt%" src="%asset_thumbnail_url%" />
           </figure>
         %end_nested_get_list_template_key^eq:hero-listing%
     
