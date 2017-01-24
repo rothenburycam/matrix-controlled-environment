@@ -7,7 +7,8 @@
 
 <!--
 This website is managed centrally by the External Relations Digital Team. digital-team@unimelb.edu.au
-Last updated by: %asset_updated_by_name% on %asset_updated_readable%
+Last updated by: %globals_asset_updated_by_name% on %globals_asset_updated_readable%
+Last published by: %globals_asset_published_by_name% on %globals_asset_published_readable%
 Asset ID: %globals_asset_assetid%
 Asset Type: %globals_asset_type%
 Asset Status: %globals_asset_status_description%
@@ -48,6 +49,7 @@ Web maintainer: %globals_site_metadata_SITE.MaintainerEmail%
 <meta name="twitter:title" content="%globals_asset_name%" />
 <meta name="twitter:description" content="%globals_asset_metadata_description%" />
 
+<!-- og:image and twitter:image needs to set on details screen to appear here -->
 %begin_globals_asset_thumbnail%
 <meta name="twitter:image" content="%globals_asset_thumbnail_url%" />
 <meta property="og:image" content="%globals_asset_thumbnail_url%" />
@@ -61,5 +63,6 @@ Web maintainer: %globals_site_metadata_SITE.MaintainerEmail%
 <link rel="stylesheet" href="//d2h9b02ioca40d.cloudfront.net/v5.0/uom.css">
 <script src="//d2h9b02ioca40d.cloudfront.net/v5.0/uom.js"></script>
 <!--@@ ============== Digital Design System End ===================== @@-->
-!--@@ -------------- MCE css overrides for DDS --------------------- @@-->
+
+<!--@@ -------------- MCE css overrides for DDS --------------------- @@-->
 <link rel="stylesheet" href="./?a=1525672?v=%globals_asset_version:1525672%">
