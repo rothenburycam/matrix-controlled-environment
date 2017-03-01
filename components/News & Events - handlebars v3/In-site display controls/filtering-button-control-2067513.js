@@ -14,8 +14,9 @@ $(document).ready(function() {
       /* *** PERFORM TAG FILTERING *** */
       if (eventTags) { // If tags have been set using the global $tags variable, remove any event that doesn't use this tag
         var tagsRequested = eventTags.toLowerCase(); // Fetch the tags set by the edit/admin user and convert to lowercase
-        var tagArrayRaw = tagsRequested.split(','); // Turn them into an array
-        var tagArray = jQuery.trim(tagArrayRaw); // Tidy up any extra spaces
+        tagArray.forEach(function(item, index) {    //Loop through each tag in array to strip out leading or training spaces
+            tagArray[index] = jQuery.trim(item);     
+        });   
         var events = $(this).find('li.event[data-location="remote"]:not([data-type="news"])').toArray(); // Get all remote events, exclude pursuit hero items (that are listed in the dom as <li class="event double">)
     		
         $(events).each(function(index) { // For each remote event
