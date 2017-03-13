@@ -1,0 +1,15 @@
+/* generic edit+ overrides */
+.content-template-listing .content-template .select-thumb {width:344px; height:120px;}
+
+/* add the thumbnails - if the sizes are different, change them here */
+.content-template-listing .select-thumb.selected-listing {background-image: url(/?a=1894859);  background-size: 344px 120px;}
+.content-template-listing .select-thumb.selected-feature-listing-3 {background-image: url(/?a=1894842); background-size: 344px 120px;}
+.content-template-listing .select-thumb.selected-feature-listing {background-image: url(/?a=1894824); background-size: 344px 120px;}
+.content-template-listing .select-thumb.selected-hero-listing {background-image: url(/?a=1894807); background-size: 344px 120px;}
+.content-template-listing .select-thumb.selected-nav-with-text {background-image: url(/?a=1894951); background-size: 344px 120px;}
+.content-template-listing .select-thumb.selected-nav-linked-header {background-image: url(/?a=1894898); background-size: 344px 120px;}
+.content-template-listing .select-thumb.selected-nav-unlinked-header {background-image: url(/?a=1894969); background-size: 344px 120px;}
+.content-template-listing .select-thumb.selected-nav-block-with-text {background-image: url(/?a=1894878); background-size: 344px 120px;}
+.content-template-listing .select-thumb.selected-wide {background-image: url(/?a=1894987); background-size: 344px 120px;}
+.content-template-listing .select-thumb.selected-narrow {background-image: url(/?a=1894916); background-size: 344px 120px;}
+.content-template-listing .select-thumb.selected-stacked {background-image: url(/?a=1894933); background-size: 344px 120px;}
