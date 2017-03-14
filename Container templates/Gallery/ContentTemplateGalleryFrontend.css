@@ -1,0 +1,4 @@
+.galleryWidget::after, .galleryWidget ul.image-gallery::after {
+    clear: both;
+    content: ' ';
+}
