@@ -1,0 +1,38 @@
+    <!-- single event: %asset_assetid% -->
+    <li class="event %asset_metadata_TAG.Keyword^eq:Exhibition:exhibition%">
+    <div class="block-container">
+    <a href="%asset_url%" class="block-container">
+      <div class="top-unit">
+           
+          %begin_event_start_date^replace_keywords:neq:{event_end_date}:yes%
+          
+         <div class="when range">
+            <time datetime="%asset_attribute_start_date%">  %event_start_datetime_j% %event_start_datetime_F% %event_start_datetime_Y%</time><time datetime="%asset_attribute_end_date%">%event_end_datetime_j% %event_end_datetime_F% %event_end_datetime_Y%</time>
+        </div>
+        
+          %else_event_start_date^replace_keywords:neq:{event_end_date}:yes%
+          
+          <div class="when"> %event_start_datetime_l% 
+          <time datetime="%asset_attribute_start_date%">%event_start_datetime_j% %event_start_datetime_F% %event_start_datetime_Y%</time>
+              %begin_event_short_start_time%
+                %event_short_start_time^append_if: -% %event_short_end_time%
+               %else_event_short_start_time%
+                <br>
+               %end_event_short_start_time%
+          </div> 
+          
+          %end_event_start_date^replace_keywords:neq:{event_end_date}:yes%
+          <!--@@ TODO: image thumbnail variety @@-->
+           %begin_asset_thumbnail%
+           <div class="mid-unit"><strong>%asset_name%</strong></div>
+           <div class="crop-height">%asset_thumbnail%</div>  
+           %else_asset_thumbnail% 
+           <strong>%asset_name%</strong>
+           %end_asset_thumbnail%
+    
+      </div>  
+      <div class="meta"><em class="meta-right">
+    %begin_asset_metadata_TAG.Keyword% %asset_metadata_TAG.Keyword% %else_asset_metadata_TAG.Keyword% Event %end_asset_metadata_TAG.Keyword%</em></div>
+      </a>
+    </div>
+    </li>
