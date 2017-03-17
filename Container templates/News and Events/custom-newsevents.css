@@ -1,0 +1,6 @@
+.container-template-newsevents .content-template .select-thumb {width:400px; height:130px;}
+
+/* add the thumbnails - if the sizes are different, change them here */
+.container-template-newsevents .select-thumb.selected-block-listing {background-image: url(/?a=1962358:v2); background-size: 400px 130px;}
+.container-template-newsevents .select-thumb.selected-news-listing {background-image: url(/?a=1962357:v2); background-size: 360px 130px; width: 360px;}
+.container-template-newsevents .select-thumb.selected-news-listing-dense {background-image: url(/?a=1962355:v2); background-size: 400px 130px;}
