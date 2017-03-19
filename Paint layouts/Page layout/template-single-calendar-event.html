@@ -8,6 +8,7 @@
 	    </h1>
         
 	    %asset_metadata_TAG.Keyword^tagif:h2%
+	    
         <!--@@ aside start @@-->
 	    <div class="aside">
         %begin_event_duration^contains:days% <!--@@ When event goes for more than 1 day @@-->
@@ -25,13 +26,13 @@
                 <time datetime="%event_start_datetime_o-m-d%" itemprop="startDate" content="%event_start_datetime_o-m-d%"> %event_start_datetime_l% <strong>%event_start_datetime_j% %event_start_datetime_M%</strong> %event_start_datetime_Y%</time>
                 <time itemprop="endDate" content="%event_end_datetime_o-m-d%">All day</time>
             </div>
-        %else_begin_event_duration^contains:hour% <!--@@ When event goes for less than 1 day (specify times) @@-->
+        %else_event_duration% <!--@@ When event goes for less than 1 day (specify times) @@-->
             <div class="when">
                 <time datetime="%event_start_datetime_o-m-d%" itemprop="startDate" content="%asset_attribute_start_date^replace: :T%"> %event_start_datetime_l% <strong>%event_start_datetime_j% %event_start_datetime_M%</strong> %event_start_datetime_Y%</time>
         		<time datetime="%event_start_time_24h%">%event_short_start_time% - %event_short_end_time%</time>
         		<time itemprop="endDate" content="%asset_attribute_end_date^replace: :T%" class="hidden">
         	</div>
-        %end_event_duration^contains:days% 
+        %end_event_duration^contains:days%
 	    </div>
         <!--@@ aside end @@-->
       %begin_asset_thumbnail%
@@ -46,10 +47,10 @@
 	        <p>
 	          <a href="%asset_metadata_BOOKING.Url%" class="button-small cta" target="_blank">Book now</a>
 	        </p>
-	      </div>	      
+	      </div>
 	      %end_asset_metadata_BOOKING.Url%
 	      %begin_enable_map%
-	      <div itemscope="location" itemtype="http://schema.org/Place">	      
+	      <div itemscope="location" itemtype="http://schema.org/Place">
 	      %begin_asset_metadata_LOCATION.Address%       
 	      <p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">%asset_metadata_LOCATION.Address%</p>
 	      %end_asset_metadata_LOCATION.Address%  
@@ -82,8 +83,8 @@
 		      %end_asset_metadata_CONTACT.Email%
               
 		      %begin_asset_metadata_CONTACT.Phone%
-		      <p><a href="tel:%asset_metadata_CONTACT.Phone^replace:(\s):%">T: %asset_metadata_CONTACT.Phone%</a></p>
-		      %end_asset_metadata_CONTACT.Phone%	     
+		      <p><a href="tel:%asset_metadata_CONTACT.Phone^replace:(\s):%">%asset_metadata_CONTACT.Phone%</a></p>
+		      %end_asset_metadata_CONTACT.Phone%
 	      </div>
 	      %end_enable_contact%	
 	    </div>
