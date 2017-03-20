@@ -12,24 +12,34 @@
         <!--@@ aside start @@-->
 	    <div class="aside">
         %begin_event_duration^contains:days% <!--@@ When event goes for more than 1 day @@-->
+        <!-- event goes for more than 1 day -->
             <div class="when range">
                 <time datetime="%event_start_datetime_o-m-d%" itemprop="startDate" content="%event_start_datetime_o-m-d%"> %event_start_datetime_l% <strong>%event_start_datetime_j% %event_start_datetime_M%</strong> %event_start_datetime_Y%</time>
                 <time datetime="%event_end_datetime_o-m-d%" itemprop="endDate" content="%event_end_datetime_o-m-d%"> %event_end_datetime_l% <strong>%event_end_datetime_j% %event_end_datetime_M%</strong> %event_end_datetime_Y%</time>
-            </div>
+             </div>
         %else_begin_event_duration^contains:day and% <!--@@ When event goes for 1 day and x hours - same format as above @@-->
+        <!-- event goes for 1 day and x hours -->
             <div class="when range">
                 <time datetime="%event_start_datetime_o-m-d%" itemprop="startDate" content="%event_start_datetime_o-m-d%"> %event_start_datetime_l% <strong>%event_start_datetime_j% %event_start_datetime_M%</strong> %event_start_datetime_Y%</time>
                 <time datetime="%event_end_datetime_o-m-d%" itemprop="endDate" content="%event_end_datetime_o-m-d%"> %event_end_datetime_l% <strong>%event_end_datetime_j% %event_end_datetime_M%</strong> %event_end_datetime_Y%</time>
             </div>
         %else_begin_event_duration^contains:day% <!--@@ When event goes for 1 day @@-->
+        <!-- event goes for 1 day -->
             <div class="when">
                 <time datetime="%event_start_datetime_o-m-d%" itemprop="startDate" content="%event_start_datetime_o-m-d%"> %event_start_datetime_l% <strong>%event_start_datetime_j% %event_start_datetime_M%</strong> %event_start_datetime_Y%</time>
+                <!-- all day -->
                 <time itemprop="endDate" content="%event_end_datetime_o-m-d%">All day</time>
             </div>
         %else_event_duration% <!--@@ When event goes for less than 1 day (specify times) @@-->
+        <!-- event goes for less than 1 day -->
             <div class="when">
                 <time datetime="%event_start_datetime_o-m-d%" itemprop="startDate" content="%asset_attribute_start_date^replace: :T%"> %event_start_datetime_l% <strong>%event_start_datetime_j% %event_start_datetime_M%</strong> %event_start_datetime_Y%</time>
-        		<time datetime="%event_start_time_24h%">%event_short_start_time% - %event_short_end_time%</time>
+        		<time datetime="%event_start_time_24h%">%event_short_start_time%
+        	     %begin_event_short_end_time^contains:59am%
+        	     %else_event_short_end_time^contains:59am%
+        	      -  %event_short_end_time%
+        	     %end_event_short_end_time^contains:59am%
+        		 </time>
         		<time itemprop="endDate" content="%asset_attribute_end_date^replace: :T%" class="hidden">
         	</div>
         %end_event_duration^contains:days%
@@ -83,7 +93,7 @@
 		      %end_asset_metadata_CONTACT.Email%
               
 		      %begin_asset_metadata_CONTACT.Phone%
-		      <p><a href="tel:%asset_metadata_CONTACT.Phone^replace:(\s):%">%asset_metadata_CONTACT.Phone%</a></p>
+		      <p><a href="tel:%asset_metadata_CONTACT.Phone^replace:(\s):%">T: %asset_metadata_CONTACT.Phone%</a></p>
 		      %end_asset_metadata_CONTACT.Phone%
 	      </div>
 	      %end_enable_contact%	
