@@ -2,22 +2,13 @@
 Template Name: uom-mce.css
 UOM DDS Version: 5.0
 Author: External Relations Digital Team - Based on UoM Design Template
-Updated: 16/11/2016
+Updated: 20/03/2017 DK
 */
 
-/* give some padding to the top of pages - this is a fix until release 5.3*/
-.uomcontent .section-spacer {padding-bottom: 3rem;}
-.uomcontent .section-spacer-top {padding-top: 3rem;}
-
 /* Fix image sizes in block-listings https://github.com/marcom-unimelb/unimelb-design-system/issues/746 */
-.uomcontent [role="main"] .block-listing .crop-height img { 
-    max-height: none; 
-    max-width: 100%;
-    width: 100%;
-}
+.uomcontent [role="main"] .block-listing .crop-height img {max-height: none; max-width: 100%; width: 100%;}
 
 /* fix padding in local site footer */
-
 .uomcontent footer.cta .center {margin: 0 auto; padding: 0;}
 .uomcontent footer.cta ul.quicklinks {max-width: 100%;}
 .uomcontent footer.cta ul.quicklinks li {padding: 0px;}
@@ -25,149 +16,37 @@ Updated: 16/11/2016
 .uomcontent [role="main"] footer {padding-bottom: 0rem;}
 
 /* correcting issues with styles when using native Matrix form builder */
-.uomcontent legend.sq-form-section-title {
-    font-size: 0.9375rem;
-    font-weight: 700;
-    letter-spacing: 0.0625rem;
-    line-height: 1.5rem;
-    text-transform: uppercase;
-    padding-top: 10px;
-}
-.sq-form-question.sq-form-question-error input.sq-form-field,
-.sq-form-error.sq-captcha-error {
-    background-color: #fff;
-    border-color: #fb6a7b;
-    color: #fb6a7b;
-}
-.sq-form-question.sq-form-question-error p.sq-form-error,
-.sq-form-error.sq-captcha-error {
-    font-size: 0.875rem;
-    padding: 0.3125rem 0;
-    -webkit-animation: flash 0.4s 0.1s 1 ease-in-out;
-    animation: flash 0.4s 0.1s 1 ease-in-out;
-    color: #df0620;
-    display: block;
-    font-style: italic;
-    margin: 0;
-    text-transform: none
-}
-
+.uomcontent legend.sq-form-section-title {font-size: 0.9375rem; font-weight: 700; letter-spacing: 0.0625rem; line-height: 1.5rem; text-transform: uppercase; padding-top: 10px;}
+.sq-form-question.sq-form-question-error input.sq-form-field, .sq-form-error.sq-captcha-error {background-color: #fff; border-color: #fb6a7b; color: #fb6a7b;}
+.sq-form-question.sq-form-question-error p.sq-form-error, .sq-form-error.sq-captcha-error {font-size: 0.875rem; padding: 0.3125rem 0; -webkit-animation: flash 0.4s 0.1s 1 ease-in-out; animation: flash 0.4s 0.1s 1 ease-in-out; color: #df0620; display: block; font-style: italic; margin: 0; text-transform: none}
 .uomcontent fieldset div.sq-form-question-answer div.styled-select { margin-top: 0.3125rem; }
 .uomcontent span#sq_normal_captcha input[type="text"]:hover {border-color: #adb8c1}
-.uomcontent span#sq_normal_captcha input[type="text"] {
-    font-size: 1.25rem;
-    background-color: #f6f6f6;
-    border: 1px solid #d3d3d3;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
-    padding: 0.5rem 0.625rem;
-    font-family: Roboto, Helvetica, Arial, sans-serif;
-    font-weight: 300;
-    margin-top: 0.3125rem;
-    border-radius: 0.1875rem;
-}
-div.sq-form-captcha {
-    border-bottom: 1px solid #e9e9e9;
-    border-top: 1px solid #e9e9e9;
-    padding-top: 3rem;
-    padding-bottom: 48px;
-    padding-bottom: 3rem;
-}
-.uomcontent ul.sq-form-summary-semantic {
-    padding-top: 48px;
-    padding-top: 3rem;
-    padding-bottom: 48px;
-    padding-bottom: 3rem;
-}
-.uomcontent ul.sq-form-summary-semantic li {
-    list-style-type: none;
-}
-.uomcontent ul.sq-form-summary-semantic li dl {
-    font-size: 16px;
-    overflow: hidden;
-}
+.uomcontent span#sq_normal_captcha input[type="text"] {font-size: 1.25rem; background-color: #f6f6f6; border: 1px solid #d3d3d3; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15); padding: 0.5rem 0.625rem; font-family: Roboto, Helvetica, Arial, sans-serif; font-weight: 300; margin-top: 0.3125rem; border-radius: 0.1875rem;}
+div.sq-form-captcha {border-bottom: 1px solid #e9e9e9; border-top: 1px solid #e9e9e9; padding-top: 3rem; padding-bottom: 48px; padding-bottom: 3rem;}
+.uomcontent ul.sq-form-summary-semantic {padding-top: 48px; padding-top: 3rem; padding-bottom: 48px; padding-bottom: 3rem;}
+.uomcontent ul.sq-form-summary-semantic li {list-style-type: none;}
+.uomcontent ul.sq-form-summary-semantic li dl {font-size: 16px; overflow: hidden;}
 
 /*overrides for checkbox, radio button and file upload */
-    .uomcontent .sq-form-question-title[for] {
-        cursor: pointer;
-    }
-    
-    .uomcontent .sq-form-question-answer li {
-        position: relative;
-        margin-left: 0;
-        list-style-type: none;
-    }
-    
-    .uomcontent .sq-form-question-answer input[type="checkbox"],
-    .uomcontent .sq-form-question-answer input[type="radio"] {
-        left: 0;
-        top: 0;
-        clip: auto;
-    }
-    
-    .uomcontent .sq-form-question-answer input[type="checkbox"] + label:after,
-    .uomcontent .sq-form-question-answer input[type="radio"] + label:after {
-        content: none;
-    }
-    
-    .uomcontent .sq-form-question-answer input[type="file"] {
-        padding: 8px;
-        padding: .5rem;
-        margin-top: 5px;
-        margin-top: .3125rem;
-        width: 100%;
-        background-color: #f6f6f6;
-        border: 1px solid #d3d3d3;
-        box-shadow: inset 0 1px 3px rgba(0,0,0,0.15);
-        border-radius: 3px;
-        font-size: 16px;
-        font-size: 1rem;
-        font-weight: 300;
-        cursor: pointer;
-        color: #000;
-    }
-    
-    .uomcontent .sq-form-question-answer input[type="file"]:hover {
-        border-color: #adb8c1;
-        text-decoration: underline;
-    }
+.uomcontent .sq-form-question-title[for] {cursor: pointer;}    
+.uomcontent .sq-form-question-answer li {position: relative; margin-left: 0; list-style-type: none;}
+.uomcontent .sq-form-question-answer input[type="checkbox"], .uomcontent .sq-form-question-answer input[type="radio"] {left: 0; top: 0; clip: auto;}    
+.uomcontent .sq-form-question-answer input[type="checkbox"] + label:after, .uomcontent .sq-form-question-answer input[type="radio"] + label:after {content: none;}   
+.uomcontent .sq-form-question-answer input[type="file"] {padding: 8px; padding: .5rem; margin-top: 5px; margin-top: .3125rem; width: 100%; background-color: #f6f6f6; border: 1px solid #d3d3d3; box-shadow: inset 0 1px 3px rgba(0,0,0,0.15); border-radius: 3px; font-size: 16px; font-size: 1rem; font-weight: 300; cursor: pointer; color: #000;} 
+.uomcontent .sq-form-question-answer input[type="file"]:hover {border-color: #adb8c1; text-decoration: underline;}
 
 /* 21/10/16 unstyled form overrides for checkboxes to work */
-.uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset input[type=checkbox]:not(.unstyled),
-.uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset input[type=radio]:not(.unstyled) {
-  position: static !important;
-}
-
-.uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset input[type=checkbox]:not(.unstyled)+label,
-.uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset input[type=radio]:not(.unstyled)+label {
-  display: inline;
-}
-
-.uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset input[type=checkbox]:not(.unstyled)+label:after,
-.uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset input[type=radio]:not(.unstyled)+label:after {
-  display: none;
-}
+.uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset input[type=checkbox]:not(.unstyled), .uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset input[type=radio]:not(.unstyled) {position: static !important;}
+.uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset input[type=checkbox]:not(.unstyled)+label, .uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset input[type=radio]:not(.unstyled)+label {display: inline;}
+.uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset input[type=checkbox]:not(.unstyled)+label:after, .uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset input[type=radio]:not(.unstyled)+label:after {display: none;}
 
 /* 7/11/16 additional css to get checkboxes to work again */
-#top.uomcontent form:not(.unstyled-controls):not(.filtered-listing-select) {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-#top.uomcontent form:not(.unstyled-controls):not(.filtered-listing-select) fieldset input[type="checkbox"]:not(.unstyled),
-#top.uomcontent form:not(.unstyled-controls):not(.filtered-listing-select) fieldset input[type="radio"]:not(.unstyled) {
-  position: static !important;
-}
+#top.uomcontent form:not(.unstyled-controls):not(.filtered-listing-select) {padding-left: 0; padding-right: 0;}
+#top.uomcontent form:not(.unstyled-controls):not(.filtered-listing-select) fieldset input[type="checkbox"]:not(.unstyled), #top.uomcontent form:not(.unstyled-controls):not(.filtered-listing-select) fieldset input[type="radio"]:not(.unstyled) {position: static !important;}
 
 /* 16/11/16 remove double boxes on checklist styles and display tick*/
-#top.uomcontent form:not(.unstyled-controls):not(.filtered-listing-select) fieldset ul.checklist input[type="checkbox"]:not(.unstyled) {
-  position: absolute!important;
-}
-.uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset ul.checklist input[type=checkbox]:not(.unstyled)+label,
-.uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset ul.checklist input[type=checkbox]:not(.unstyled)+label:after,
-.uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset ul.checklist input[type=radio]:not(.unstyled)+label,
-.uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset ul.checklist input[type=radio]:not(.unstyled)+label:after {
-  display: block;
-}
+#top.uomcontent form:not(.unstyled-controls):not(.filtered-listing-select) fieldset ul.checklist input[type="checkbox"]:not(.unstyled) {position: absolute!important;}
+.uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset ul.checklist input[type=checkbox]:not(.unstyled)+label, .uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset ul.checklist input[type=checkbox]:not(.unstyled)+label:after, .uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset ul.checklist input[type=radio]:not(.unstyled)+label, .uomcontent#top form:not(.unstyled-controls):not(.filtered-listing-select) fieldset ul.checklist input[type=radio]:not(.unstyled)+label:after {display: block;}
 
 /* 26/07/16 online quiz overrides */
 .uomcontent .sq-online-quiz-question-multichoice ul {padding-left: 0px;}
@@ -175,3 +54,6 @@ div.sq-form-captcha {
 .uomcontent .sq-online-quiz-question-multichoice label {padding-left: 0.4em;}
 .uomcontent .quiz-results .correct {color: #008a00;}
 .uomcontent .quiz-results .incorrect {color: #DF0620;}
+
+/* 20/03/17 #238 fix for note field */
+.uomcontent fieldset em.sq-form-question-note {display: block;}
