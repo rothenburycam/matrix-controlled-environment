@@ -1,19 +1,15 @@
     %begin_nested_get_template_key^eq:block-listing%
         <!-- link id: %asset_assetid% -->
         <li class="news">
-              <div class="block-container">
-                <div class="top-unit">
-                     <a href="%link_url%">
-                        <!--@@ TODO: add image variety in here @@-->  
-                        %begin_asset_thumbnail%
-                            <div class="crop-height">%begin_asset_thumbnail_v_medium%%asset_thumbnail_v_medium%%else_asset_thumbnail_v_medium%%asset_thumbnail%%end_asset_thumbnail_v_medium%</div>
-                        %else_asset_thumbnail%
-                            <div style="height: 15px;"></div>
-                        %end_asset_thumbnail%
-                        <strong>%asset_name%</strong>
-                        <p>%asset_metadata_CONTENT.LandingPageShort%</p>
-                    </a>
+           <a class="block-container" href="%link_url%">
+            	%begin_asset_thumbnail%        
+                <div class="crop-height">
+                    <!-- asset thumbnail -->
+                    <div class="block-listing__img" %begin_asset_thumbnail_v_medium% style="background-image: url(%asset_thumbnail_v_medium_url%);" %else_asset_thumbnail_v_medium% style="background-image: url(%asset_thumbnail_url%);" %end_asset_thumbnail_v_medium% ></div>                
                 </div>
+            	%end_asset_thumbnail%
+                <strong>%asset_name%</strong>
+                %asset_metadata_CONTENT.LandingPageShort^tagif:p%
                 <div class="meta">
                   <time class="meta-left" datetime="%asset_published_readabledate%">
                     %asset_published_readabledate% 
@@ -26,7 +22,7 @@
                       %end_asset_metadata_TAG.Keyword%
                    </em>
                 </div>
-              </div>
+            </a>
         </li>
         
         %else_nested_get_template_key^eq:block-listing%
