@@ -53,7 +53,7 @@
 					</span>
 				</li>
 			{{else}}<!--@@ Events default format @@-->
-				<li class="event {{isItAHero id}} hidden-item" {{#if local_asset}}data-location="local" {{else}}data-location="remote" {{/if}}data-type="{{event_type}}" data-public="{{public}}">
+				<li class="event {{isItAHero id}} {{#if tag_keyword}}{{toLowerCase tag_keyword}}{{/if}} hidden-item" {{#if local_asset}}data-location="local" {{else}}data-location="remote" {{/if}}data-type="{{event_type}}" data-public="{{public}}">
                     <!-- Id: {{id}} -->
 					<a href="{{#if local_asset}}{{link}}{{else}}{{doesItHaveDetails id link}}{{/if}}" class="block-container"><!--@@ If a link is not specified in the JSON response, use the eventDetails page @@-->
 						{{#compareDates start_time end_time operator="<"}}<!--@@ Multiday event @@-->

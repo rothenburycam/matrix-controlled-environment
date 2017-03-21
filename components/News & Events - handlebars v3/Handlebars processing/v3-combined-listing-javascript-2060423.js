@@ -132,6 +132,11 @@ Handlebars.registerHelper('isItAHero', function(id) {
     }
 });
 
+// convert tags to lowercase
+Handlebars.registerHelper('toLowerCase', function(str) {
+  return str.toLowerCase();
+});
+
 // Check if the item is 24 hours older than current date
 // Use CSS to display none
 Handlebars.registerHelper('currentItem', function(val, type, options) {
