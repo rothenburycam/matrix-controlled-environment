@@ -2,7 +2,7 @@
         <!-- news asset: %asset_assetid% -->
         <li class="news">
            <a class="block-container" href="%asset_url%">
-            	%begin_asset_thumbnail%        
+            	%begin_asset_thumbnail%
                 <div class="crop-height">
                     <!-- asset thumbnail -->
                     <div class="block-listing__img" %begin_asset_thumbnail_v_medium% style="background-image: url(%asset_thumbnail_v_medium_url%);" %else_asset_thumbnail_v_medium% style="background-image: url(%asset_thumbnail_url%);" %end_asset_thumbnail_v_medium% ></div>                
@@ -35,7 +35,7 @@
                         <img alt="%asset_thumbnail_alt%" src="./?a=%asset_thumbnail_assetid%" />
                     %end_asset_thumbnail%
                 %else_nested_get_template_key^eq:news-listing%
-                <!--@@ hide the thumbnail if news-listing-dense - because it looks funny @@-->    
+                <!--@@ hide the thumbnail if news-listing-dense - because it looks funny @@-->
                 %end_nested_get_template^eq:news-listing%
               <p class="topic">
                 %asset_metadata_TAG.Keyword%

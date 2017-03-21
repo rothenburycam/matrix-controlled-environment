@@ -4,6 +4,7 @@ UOM DDS Version: 6.0
 Author: External Relations Digital Team - Based on UoM Design Template
 Updated: 21/03/2017 DK
 */
+
 /* fix padding in local site footer */
 .uomcontent footer.cta .center {margin: 0 auto; padding: 0;}
 .uomcontent footer.cta ul.quicklinks {max-width: 100%;}
@@ -53,6 +54,7 @@ div.sq-form-captcha {border-bottom: 1px solid #e9e9e9; border-top: 1px solid #e9
 
 /* 20/03/17 #238 fix for note field */
 .uomcontent fieldset em.sq-form-question-note {display: block;}
+
 
 /* 21/03/17 alert-notices removed from v6.0 - temp fix */ 
 .uomcontent [role=main] .alert-danger,.uomcontent [role=main] .alert-info,.uomcontent [role=main] .alert-success,.uomcontent [role=main] .alert-warning{margin-bottom:15px;margin-bottom:.9375rem;padding:15px;padding:.9375rem;border:1px solid rgba(0,0,0,.05);border:1px solid transparent}.uomcontent [role=main] .alert-success{background-color:#d2f1cf;color:#205a1a}.uomcontent [role=main] .alert-success a{color:#205a1a}.uomcontent [role=main] .alert-info{background-color:#e1eaf5;color:#234268}.uomcontent [role=main] .alert-info a{color:#234268}.uomcontent [role=main] .alert-warning{background-color:#fffbcc;color:#807600}.uomcontent [role=main] .alert-warning a{color:#205a1a}.uomcontent [role=main] .alert-danger{background-color:#ea4f62;color:#fdeef0}.uomcontent [role=main] .alert-danger a{color:#fff}
