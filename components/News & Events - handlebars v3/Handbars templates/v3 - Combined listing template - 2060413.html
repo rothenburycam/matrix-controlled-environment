@@ -13,28 +13,22 @@
       <li class="event double hidden-item" style="background-image: url({{#if img_hero_url}}{{img_hero_url}}{{else}}{{img_url}}{{/if}});" {{#if local_asset}}data-location="local" {{else}}data-location="remote" {{/if}}data-type="{{type}}"><!--@@ If "img_hero_url" available, use it @@-->
         <!-- Id: {{id}} -->
         <a href="{{link}}" class="block-container"{{#if use_target_blank}} target="_blank"{{/if}}><!--@@ If specified, open in a new window @@-->
-          <div class="top-unit">
             <strong>{{{charLimit title 40}}}</strong>
             <span href="" class="button-hero-inverse"> Read more</span>
-          </div>
         </a>
       </li>
     %end_globals_get_itemDisplay%
     {{else}} <!--@@ Standard local news format @@-->
-      <li class="news hidden-item" {{#if local_asset}}data-location="local" {{else}}data-location="remote" {{/if}}data-type="{{type}}">
+       <li class="news hidden-item" {{#if local_asset}}data-location="local" {{else}}data-location="remote" {{/if}}data-type="{{type}}">
         <!-- Id: {{id}} --> 
 		<a class="block-container" href="{{link}}"{{#if use_target_blank}} target="_blank"{{/if}}><!--@@ If specified, open in a new window @@-->
 		  {{#if img_url}}
 			<div class="crop-height">
 				<div class="block-listing__img" style="background-image: url({{img_url}})"></div>
 			</div>
-		  {{else}}
-
 		  {{/if}}
 		  <strong>{{{charLimit title 100}}}</strong>
 		  <p>{{{description_text}}}</p>
-            
-       
           <div class="meta">
             <time class="meta-left" datetime="{{start_time}}">
               {{dateTimeFormatter start_time "DD MMM YYYY"}}
@@ -50,10 +44,8 @@
 				<li style="background-image: url({{#if image_versions.w700xh466}}{{image_versions.w700xh466}}{{else}}{{img_url}}{{/if}});" class="event double hidden-item" {{#if local_asset}}data-location="local" {{else}}data-location="remote" {{/if}}data-type="{{event_type}}" data-public="{{public}}"><!--@@ if this is an event from events.unimelb, use the w700xh466 image version for the hero @@-->
 				    <!-- Id: {{id}} -->
 					<a href="{{#if local_asset}}{{link}}{{else}}{{doesItHaveDetails id link}}{{/if}}" class="block-container"><!--@@ If a link is not specified in the JSON response, use the eventDetails page @@-->
-						<div class="top-unit">
-							<strong>{{charLimit title 40}}</strong>
-							<span href="" class="button-hero-inverse"> Read more</span>
-						</div>
+					    <strong>{{{charLimit title 40}}}</strong>
+					    <span href="" class="button-hero-inverse"> Read more</span>
 					</a>
 					<span class="meta hidden"><!--@@ these items are hidden, but required for the filtering, otherwise hero items get removed @@-->
 					    <em class="meta-right">{{#if local_asset}}{{#if tag_keyword}}{{tag_keyword}}{{else}}Event{{/if}}{{else}}{{event_type}}{{/if}}</em><!--@@ If a local event, use tag keyword else print "Event", otherwise print the event type @@-->
@@ -64,7 +56,6 @@
 				<li class="event {{isItAHero id}} hidden-item" {{#if local_asset}}data-location="local" {{else}}data-location="remote" {{/if}}data-type="{{event_type}}" data-public="{{public}}">
                     <!-- Id: {{id}} -->
 					<a href="{{#if local_asset}}{{link}}{{else}}{{doesItHaveDetails id link}}{{/if}}" class="block-container"><!--@@ If a link is not specified in the JSON response, use the eventDetails page @@-->
-						<div class="{{#if img_url}}top-unit{{else}}top-unit no-image{{/if}}">
 						{{#compareDates start_time end_time operator="<"}}<!--@@ Multiday event @@-->
 							<div class="when range">
 								<time datetime="{{start_time}}">{{dateTimeFormatter start_time "D MMMM YYYY"}}</time>
@@ -90,14 +81,13 @@
 							</div>
 						{{/compareDates}}
 							<div class="mid-unit"> 
-								<strong>{{charLimit title 100}}</strong>
+								<strong>{{{charLimit title 100}}}</strong>
 							</div>
 							{{#if img_url}}
 							<div class="crop-height">
 								<img alt="" src="{{#if image_versions.w674xh337}}{{image_versions.w674xh337}}{{else}}{{img_url}}{{/if}}" /><!--@@ if this is an event from events.unimelb, use the w674xh337 image version @@-->
 							</div>
 							{{/if}}
-						</div>
 						<div class="meta">
 							<em class="meta-right">{{#if local_asset}}{{#if tag_keyword}}{{tag_keyword}}{{else}}Event{{/if}}{{else}}{{event_type}}{{/if}}</em><!--@@ If a local event, use tag keyword else print "Event", otherwise print the event type @@-->
 							<span class="hidden">{{#each tags}}{{name}};{{/each}}</span><!--@@ Included to allow filtering by tag @@-->

@@ -5,9 +5,6 @@ Author: External Relations Digital Team - Based on UoM Design Template
 Updated: 21/03/2017 DK
 */
 
-/* Fix image sizes in block-listings https://github.com/marcom-unimelb/unimelb-design-system/issues/746 
-.uomcontent [role="main"] .block-listing .crop-height img {max-height: none; max-width: 100%; width: 100%;}*/
-
 /* fix padding in local site footer */
 .uomcontent footer.cta .center {margin: 0 auto; padding: 0;}
 .uomcontent footer.cta ul.quicklinks {max-width: 100%;}
