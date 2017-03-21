@@ -22,28 +22,26 @@
     %end_globals_get_itemDisplay%
     {{else}} <!--@@ Standard local news format @@-->
       <li class="news hidden-item" {{#if local_asset}}data-location="local" {{else}}data-location="remote" {{/if}}data-type="{{type}}">
-        <!-- Id: {{id}} -->
-        <div class="block-container">
-          <div class="top-unit">
-            <a href="{{link}}"{{#if use_target_blank}} target="_blank"{{/if}}><!--@@ If specified, open in a new window @@-->
-              {{#if img_url}}
-                <div class="crop-height">
-                    <img src="{{img_url}}" alt="" />
-                </div>
-              {{else}}
-                <div style="height: 15px;"></div><!--@@ If no image is provided, add some padding so the title still lines up nicely @@-->
-              {{/if}}
-              <strong>{{{charLimit title 100}}}</strong>
-              <p>{{{description_text}}}</p>
-            </a>
-          </div>
+        <!-- Id: {{id}} --> 
+		<a class="block-container" href="{{link}}"{{#if use_target_blank}} target="_blank"{{/if}}><!--@@ If specified, open in a new window @@-->
+		  {{#if img_url}}
+			<div class="crop-height">
+				<div class="block-listing__img" style="background-image: url({{img_url}})"></div>
+			</div>
+		  {{else}}
+
+		  {{/if}}
+		  <strong>{{{charLimit title 100}}}</strong>
+		  <p>{{{description_text}}}</p>
+            
+       
           <div class="meta">
             <time class="meta-left" datetime="{{start_time}}">
               {{dateTimeFormatter start_time "DD MMM YYYY"}}
             </time>
             <em class="meta-right">{{#if first_tag}}{{first_tag}}{{else if tag_keyword}}{{tag_keyword}}{{else}}News{{/if}}</em>
-          </div>
-        </div>
+		  </div>
+        </a>
       </li>
     {{/isItAHeroTest}}
     {{else}}<!--@@ EVENT ITEM FORMATS - Absence of "type" in JSON response indicates this is an event @@-->	 
