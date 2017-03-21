@@ -1,10 +1,8 @@
 <meta charset="utf-8" />
 <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 <meta content="IE=edge" http-equiv="X-UA-Compatible" />
-<link rel="icon" href="./?a=1456044" type="image/gif" sizes="16x16">	
-
+<link rel="icon" href="./?a=1456044" type="image/gif" sizes="16x16">
 <title>%globals_asset_metadata_Title%</title>
-
 <!--
 This website is managed centrally by the External Relations Digital Team. digital-team@unimelb.edu.au
 Last updated by: %globals_asset_updated_by_name% on %globals_asset_updated_readable%
@@ -16,24 +14,19 @@ Page Template: %globals_asset_metadata_DESIGN.PageTemplate_value%
 Paint Layout: %asset_paint_layout_id^as_asset:asset_name% %asset_paint_layout_id%
 Web maintainer: %globals_site_metadata_SITE.MaintainerEmail%
 -->
-
 <!--@@ ============== Metata Start ================================== @@-->
-
 <!--@@ -------------- SEO start   ----------------------------------- @@-->
 <!--@@ GSA description - specific text field for overriding descriptions shown in GSA results @@-->
+<meta name="title" content="%globals_asset_name%" />
+<meta name="description" content="%globals_asset_metadata_description%" />
 %begin_globals_asset_metadata_gsa-description%
 <meta name="gsa-description" content="%globals_asset_metadata_gsa-description%" />
 %end_globals%
-
-<!--@@ Search index @@-->
-<meta name="robots" content="%globals_asset_metadata_Index^replace:_:, %" />
+<meta name="robots" content="%globals_asset_metadata_Index^replace:_:, %" /><!--@@ Search index @@-->
 <link rel="canonical" href="%globals_asset_metadata_Canonical%" />
-
-<!--@@ Geo location @@-->
-<meta name="geo.placename" content="Victoria, Australia, Oceania, World">
+<meta name="geo.placename" content="Victoria, Australia, Oceania, World"><!--@@ Geo location @@-->
 <meta name="geo.region" content="AU">
-
-<meta name="google-site-verification" content="%globals_site_metadata_SITE.Google%" />
+<meta name="google-site-verification" content="%globals_site_metadata_SITE.Google%" /><!--@@ webmaster tools@@-->
 <meta name="msvalidate.01" content="%globals_site_metadata_SITE.Bing%" />
 <!--@@ -------------- SEO end  -------------------------------------- @@-->
 <!--@@ -------------- Social Media start ---------------------------- @@-->
@@ -43,13 +36,11 @@ Web maintainer: %globals_site_metadata_SITE.MaintainerEmail%
 <meta property="og:description" content="%globals_asset_metadata_description%" />
 <meta property="og:site_name" content="%globals_site_name%" />
 <meta property="og:locale" content="en_US" />
-
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="%globals_asset_metadata_Twitter_handle^empty:@unimelb%" />
 <meta name="twitter:title" content="%globals_asset_name%" />
 <meta name="twitter:description" content="%globals_asset_metadata_description%" />
-
-<!-- og:image and twitter:image needs to set on details screen to appear here -->
+<!-- og:image and twitter:image needs to be set on details screen to appear here -->
 %begin_globals_asset_thumbnail%
 <meta name="twitter:image" content="%globals_asset_thumbnail_url%" />
 <meta property="og:image" content="%globals_asset_thumbnail_url%" />
@@ -57,12 +48,10 @@ Web maintainer: %globals_site_metadata_SITE.MaintainerEmail%
 %end_globals%
 <!--@@ -------------- Social Media end ------------------------------ @@-->
 <!--@@ ============== Metata End ==================================== @@-->
-
 <!--@@ ============== Digital Design System Start =================== @@-->
 <!--[if lt IE 9]><script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><![endif]-->
 <link rel="stylesheet" href="//d2h9b02ioca40d.cloudfront.net/v6.0/uom.css">
 <script src="//d2h9b02ioca40d.cloudfront.net/v6.0/uom.js"></script>
 <!--@@ ============== Digital Design System End ===================== @@-->
-
 <!--@@ -------------- MCE css overrides for DDS --------------------- @@-->
 <link rel="stylesheet" href="./?a=1525672?v=%globals_asset_version:1525672%">
