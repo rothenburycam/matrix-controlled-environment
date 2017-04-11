@@ -19,37 +19,48 @@
               <p>%asset_metadata_CONTENT.LandingPageShort%</p>
             </section>
         %end_add_content%
-    
+
     %end_tabbed_nav%
-    
-    	%asset_contents%
+
+    %asset_contents%
 
 %else_asset_metadata_DESIGN.PageTemplate_key^eq:template-standard-page-blue-header%
     <div class="headerless"></div>
-    
+
     %begin_asset_metadata_DESIGN.PageTemplate_key^eq:template-aside%
     <div class="layout-sidebar layout-sidebar--right">
         <div class="layout-sidebar__main box">
             <div class="layout-sidebar__main__inner box">
-            %end_asset_metadata_DESIGN.PageTemplate_key^eq:template-aside%
-                
+    %end_asset_metadata_DESIGN.PageTemplate_key^eq:template-aside%
+
                 %begin_asset_metadata_HEADER.HeaderText%
                     <h1 class="aligned-title">%asset_metadata_HEADER.HeaderText%</h1>
                 %else_asset_metadata_HEADER.HeaderText%
                 	<h1 class="aligned-title">%asset_name%</h1>
                 %end_asset_metadata_HEADER.HeaderText%
-                
-                %asset_metadata_CONTENT.JumpNav%
-                
-                %begin_asset_metadata_CONTENT.LandingPageShort%
-                    <section class="lead left">
-                      <p> %asset_metadata_CONTENT.LandingPageShort%</p>
-                    </section>
-                %end_asset_metadata_CONTENT.LandingPageShort%
-                
+
+                %begin_asset_metadata_CONTENT.JumpNav_key^contains:jumpnav%
+               		<!-- jump nav on --> 
+                	%asset_metadata_CONTENT.JumpNav%
+
+					%begin_asset_metadata_CONTENT.LandingPageShort%
+						<section class="lead">
+						  <p>%asset_metadata_CONTENT.LandingPageShort%</p>
+						</section>
+					%end_asset_metadata_CONTENT.LandingPageShort%
+                %else_asset_metadata_CONTENT.JumpNav_key^contains:jumpnav%
+
+					%begin_asset_metadata_CONTENT.LandingPageShort%
+						<section class="lead left">
+						  <p> %asset_metadata_CONTENT.LandingPageShort%</p>
+						</section>
+					%end_asset_metadata_CONTENT.LandingPageShort%
+
+                %end_asset_metadata_CONTENT.JumpNav_key^contains:jumpnav%
+
                 %asset_contents%
-        
-            %begin_asset_metadata_DESIGN.PageTemplate_key^eq:template-aside%
+
+    %begin_asset_metadata_DESIGN.PageTemplate_key^eq:template-aside%
             </div>
         </div>
         <div class="aside layout-sidebar__side box">
@@ -61,5 +72,5 @@
     %end_asset_metadata_DESIGN.PageTemplate_key^eq:template-aside%
 
 	%end_asset_metadata_DESIGN.PageTemplate_key^eq:template-standard-page-blue-header%
-    
+
 %end_asset_metadata_DESIGN.PageTemplate_value^contains:Inside%
