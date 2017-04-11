@@ -1,114 +1,54 @@
 <!-- MCE: Listing content template version %globals_asset_version:1891541% -->
-<div class="ct-listing__%asset_metadata_authoring_type%_%asset_metadata_list_template% %asset_metadata_style^contains:alt^replace_keywords:eq:1:alt%">
+<div class="ct-listing__%asset_metadata_authoring_type%_%asset_metadata_list_template% %asset_metadata_style^contains:alt^replace_keywords:eq:1:alt%" style="padding-top: 30px">
 
-%begin_asset_metadata_list_template_key^eq:hero-listing%
+    %begin_asset_metadata_listing_title%
+        <h2 class="title" id="%asset_metadata_listing_title^preg_replace:1761066^lowercase%">%asset_metadata_listing_title%</h2>
+    %end_asset_metadata_listing_title%
+    %asset_metadata_listing_description^tagif:p%
 
-            %begin_asset_metadata_listing_title%
-            <h1 class="aligned-title">%asset_metadata_listing_title%</h1>
-            %end_asset_metadata_listing_title%
-            
-            %asset_metadata_listing_description^tagif:p%
+    %begin_asset_metadata_list_template_key^eq:listing%
+        <ul class="simple-listing simple-listing--four">
+    %end_asset_metadata_list_template_key^eq:listing%
 
-    <ul class="%asset_metadata_list_template_key%">
-        %begin_asset_metadata_authoring_type^eq:parent%
-            %begin_asset_metadata_parent_id%
-                %asset_contents_paint_1921533%
-            %else_asset_metadata_parent_id%
-                %globals_asset_contents_raw:1929713%
-            %end_asset_metadata_parent_id%
-        %end_asset_metadata_authoring_type^eq:parent%
+    %begin_asset_metadata_list_template_key^eq:feature-listing-3%
+        <ul class="simple-listing simple-listing--three">
+    %end_asset_metadata_list_template_key^eq:feature-listing-3%
 
-        %begin_asset_metadata_authoring_type^eq:selected-children%
-            %begin_asset_metadata_child_ids%
-                %asset_contents_paint_1891781%
-            %else_asset_metadata_child_ids%
-                %globals_asset_contents_raw:1929713%
-            %end_asset_metadata_child_ids%
-        %end_asset_metadata_authoring_type^eq:selected-children%
+    %begin_asset_metadata_list_template_key^eq:feature-listing%
+        <ul class="simple-listing simple-listing--two">
+    %end_asset_metadata_list_template_key^eq:feature-listing%
+
+    %begin_asset_metadata_list_template_key^eq:nav-block-with-text%
+        <ul class="simple-listing simple-listing--text simple-listing--four">
+    %end_asset_metadata_list_template_key^eq:nav-block-with-text%
+
+    %begin_asset_metadata_list_template_key^eq:wide%
+        <ul class="simple-listing simple-listing--text simple-listing--three">
+    %end_asset_metadata_list_template_key^eq:wide%
+
+    %begin_asset_metadata_list_template_key^eq:narrow%
+        <ul class="simple-listing simple-listing--text simple-listing--two">
+    %end_asset_metadata_list_template_key^eq:narrow%
+
+    %begin_asset_metadata_list_template_key^eq:stacked%
+        <ul class="simple-listing simple-listing--text simple-listing--one">
+    %end_asset_metadata_list_template_key^eq:stacked%
+
+    %begin_asset_metadata_authoring_type^eq:parent%
+        %begin_asset_metadata_parent_id%
+            %asset_contents_paint_1921533%
+        %else_asset_metadata_parent_id%
+            %globals_asset_contents_raw:1929713%
+        %end_asset_metadata_parent_id%
+    %end_asset_metadata_authoring_type^eq:parent%
+
+    %begin_asset_metadata_authoring_type^eq:selected-children%
+        %begin_asset_metadata_child_ids%
+            %asset_contents_paint_1891781%
+        %else_asset_metadata_child_ids%
+            %globals_asset_contents_raw:1929713%
+        %end_asset_metadata_child_ids%
+    %end_asset_metadata_authoring_type^eq:selected-children%
     </ul>
-%else_asset_metadata_list_template_key^eq:hero-listing%
 
-    %begin_asset_metadata_list_template_value^contains:Nav%
-        %begin_asset_metadata_list_template_key^eq:nav-with-text%    
-        <section class="navigation-text-listing">
-
-            %asset_metadata_listing_title^tagif:h1%
-            %asset_metadata_listing_description^tagif:p%
-            
-            <ul>
-                %begin_asset_metadata_authoring_type^eq:parent%
-                    %begin_asset_metadata_parent_id%
-                        %asset_contents_paint_1921533%
-                    %else_asset_metadata_parent_id%
-                        %globals_asset_contents_raw:1929713%                    
-                    %end_asset_metadata_parent_id%
-                %end_asset_metadata_authoring_type^eq:parent%    
-                
-                %begin_asset_metadata_authoring_type^eq:selected-children%
-                    %begin_asset_metadata_child_ids%
-                        %asset_contents_paint_1891781%
-                    %else_asset_metadata_child_ids%
-                        %globals_asset_contents_raw:1929713%
-                    %end_asset_metadata_child_ids%
-                %end_asset_metadata_authoring_type^eq:selected-children%
-            </ul>
-            
-        </section>
-        %else_asset_metadata_list_template_key^eq:nav-with-text%
-
-        <section class="navigation-block-listing %asset_metadata_list_template_key^eq:stacked:stacked%">
-            
-            %begin_asset_metadata_listing_title%
-            <h1 class="aligned-title">%asset_metadata_listing_title%</h1>
-            %end_asset_metadata_listing_title%
-            
-            %asset_metadata_listing_description^tagif:p%
-            
-                <ul class="%asset_metadata_list_template_key%">
-                    %begin_asset_metadata_authoring_type^eq:parent%
-                        %begin_asset_metadata_parent_id%
-                            %asset_contents_paint_1921533%
-                        %else_asset_metadata_parent_id%
-                            %globals_asset_contents_raw:1929713%                    
-                        %end_asset_metadata_parent_id%
-                    %end_asset_metadata_authoring_type^eq:parent%    
-                
-                    %begin_asset_metadata_authoring_type^eq:selected-children%
-                        %begin_asset_metadata_child_ids%
-                            %asset_contents_paint_1891781%
-                        %else_asset_metadata_child_ids%
-                            %globals_asset_contents_raw:1929713%
-                        %end_asset_metadata_child_ids%
-                    %end_asset_metadata_authoring_type^eq:selected-children%
-                </ul>
-        </section>
-        %end_asset_metadata_list_template_key^eq:nav-with-text%
-        
-    %else_asset_metadata_list_template_value^contains:Nav%
-            
-            %begin_asset_metadata_listing_title%
-            <h1 class="aligned-title">%asset_metadata_listing_title%</h1>
-            %end_asset_metadata_listing_title%
-            
-            %asset_metadata_listing_description^tagif:p%
-            
-            <ul class="%asset_metadata_list_template_key%">
-                %begin_asset_metadata_authoring_type^eq:parent%
-                    %begin_asset_metadata_parent_id%
-                        %asset_contents_paint_1921533%
-                    %else_asset_metadata_parent_id%
-                        %globals_asset_contents_raw:1929713%                    
-                    %end_asset_metadata_parent_id%
-                %end_asset_metadata_authoring_type^eq:parent%    
-                
-                %begin_asset_metadata_authoring_type^eq:selected-children%
-                    %begin_asset_metadata_child_ids%
-                        %asset_contents_paint_1891781%
-                    %else_asset_metadata_child_ids%
-                        %globals_asset_contents_raw:1929713%
-                    %end_asset_metadata_child_ids%
-                %end_asset_metadata_authoring_type^eq:selected-children%
-            </ul>
-    %end_asset_metadata_list_template_value^contains:Nav%
-%end_asset_metadata_list_template_key^eq:hero-listing%
 </div>
