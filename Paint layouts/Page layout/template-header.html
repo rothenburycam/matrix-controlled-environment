@@ -37,17 +37,30 @@ class="image" style="background-image: url(%asset_metadata_BANNER.Image^as_asset
 	</div>
 </header>
 <!--@@ End header @@-->
-%asset_metadata_CONTENT.JumpNav%
 
 %begin_tabbed_nav%
     %globals_asset_contents_raw:1383610%
 %else_tabbed_nav%
+    
+	%begin_asset_metadata_CONTENT.JumpNav_key^contains:jumpnav%
+		<!-- jump nav on --> 
+		%asset_metadata_CONTENT.JumpNav%
 
-    %begin_asset_metadata_CONTENT.LandingPageShort%
-    <section class="lead">
-      <p>%asset_metadata_CONTENT.LandingPageShort%</p>
-    </section>
-    %end_asset_metadata_CONTENT.LandingPageShort%
+		%begin_asset_metadata_CONTENT.LandingPageShort%
+		<section class="lead left">
+			<p>%asset_metadata_CONTENT.LandingPageShort%</p>
+		</section>
+		%end_asset_metadata_CONTENT.LandingPageShort%
+	
+	%else_asset_metadata_CONTENT.JumpNav_key^contains:jumpnav%
+
+		%begin_asset_metadata_CONTENT.LandingPageShort%
+			<section class="lead">
+			  <p> %asset_metadata_CONTENT.LandingPageShort%</p>
+			</section>
+		%end_asset_metadata_CONTENT.LandingPageShort%
+
+	%end_asset_metadata_CONTENT.JumpNav_key^contains:jumpnav%
 
 %end_tabbed_nav%
 
