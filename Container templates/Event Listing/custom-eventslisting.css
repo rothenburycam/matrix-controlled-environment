@@ -1,0 +1,5 @@
+.content-template-eventslisting .select-thumb {width:400px; height:128px;}
+
+/* add the thumbnails - if the sizes are different, change them here */
+.content-template-eventslisting .select-thumb.selected-upcoming {background-image: url(/?a=2364594);}
+.content-template-eventslisting .select-thumb.selected-past {background-image: url(/?a=2364594);}

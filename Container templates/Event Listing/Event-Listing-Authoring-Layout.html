@@ -1,0 +1,35 @@
+<!--@@
+    MCE Container Templates - Events Listing
+    @author dkevey@unimelb.edu.au based on Squiz templates
+    @requires Edit+ 5.3 or Matrix 5.3 Admin Interface
+    @imports jQuery 1.12 if not available
+    @imports jQuery.ui 1.12 if not available
+@@-->
+<script>
+    // Include jQuery and jQueryUI if not already loaded (Admin interface does not include them)
+    window.jQuery || document.write('<script src="//code.jquery.com/jquery-1.12.0.min.js"></'+'script>');
+    window.jQuery && window.jQuery.ui || document.write('<script src="//code.jquery.com/ui/1.12.0-beta.1/jquery-ui.min.js"></'+'script>');
+</script>
+<!-- Global CSS -->
+<link rel="stylesheet" type="text/css" id="contentTemplates.css" href="./?a=2278787?v=%globals_asset_version:2278787%" />
+
+<!-- Custom CSS -->
+<link rel="stylesheet" type="text/css" id="custom-eventslisting.css" href="./?a=2362475?v=%globals_asset_version:2362475%" />
+
+<!-- Metadata fields entry -->
+<div class="content-template">
+    <div class="content-template-eventslisting" id="ct-eventslisting-%asset_assetid%">
+       <h3>%globals_asset_name:2362452%</h3>
+       <p class="guide">For help using this component read the <a href="./?a=2362899">events listing guide</a>.</p>
+        %metadata-F_metadata_values%
+    </div>
+</div>
+<!--@@ Global JS @@-->
+<script id="ContentTemplates.js">
+    %globals_asset_file_contents:2278785%
+</script>
+
+<!--@@ Global JS @@-->
+<script id="custom-eventslisting.js">
+    %globals_asset_file_contents:2362474%
+</script>

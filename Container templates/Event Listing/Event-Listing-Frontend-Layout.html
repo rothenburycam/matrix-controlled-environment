@@ -1,0 +1,41 @@
+<!-- MCE: Events listing content template version %globals_asset_version:2362452% -->
+<section class="ct-eventslisting %asset_metadata_style^contains:alt^replace_keywords:eq:1:alt%" id="%asset_metadata_title^preg_replace:1761066^lowercase%">
+    %begin_asset_metadata_title%
+        <h2 class="title">%asset_metadata_title%</h2>
+    %end_asset_metadata_title% 
+
+    <ul class="ctevents block-listing" data-type="filter" data-paginate="%asset_metadata_number_assets^empty:12%" data-useButton="%asset_metadata_show_more_button%"> 
+     <!--@@ display events @@-->
+     %begin_asset_metadata_template^eq:upcoming%
+            %begin_asset_metadata_parent_id%
+                <!--@@ upcoming events parent asset listing @@-->
+                %asset_contents_paint_2362519%
+            %else_asset_metadata_parent_id%
+                <!--@@ no results page @@-->
+                %globals_asset_contents_raw:2362476%
+            %end_asset_metadata_parent_id%
+
+             %begin_asset_metadata_more_block%
+                <li class="more visible-item">
+                    <div class="block-container">
+                        %asset_metadata_more_block%
+                    </div>
+                </li>
+             %end_asset_metadata_more_block%
+
+     %else_asset_metadata_template^eq:upcoming%
+            %begin_asset_metadata_parent_id%
+                <!--@@ past events parent asset listing @@-->
+                %asset_contents_paint_2362551%
+            %else_asset_metadata_parent_id%
+                <!--@@ no results page @@-->
+                %globals_asset_contents_raw:2362476%
+            %end_asset_metadata_parent_id%
+     %end_asset_metadata_template^eq:upcoming%
+     </ul>
+</section>
+<script src="./?a=2055709"></script><!--@@ jQuery 3.1.0 library @@-->
+<script src="./?a=2362589?v=%globals_asset_version:2362589%"></script><!--@@ Button script @@-->
+<style>
+.uomcontent [role="main"] .ctevents li.hidden-item, .uomcontent [role="main"] .ctevents article.hidden-item {display: none;}
+</style>
