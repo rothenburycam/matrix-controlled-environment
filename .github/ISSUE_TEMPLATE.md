@@ -1,5 +1,5 @@
 #### Expected behaviour
-How you'd like or expect template to behave (include your name, department and why you need this issue resolved).
+How you'd like or expect the template to behave (include your name, department and why you need this issue resolved).
 
 #### Actual behaviour
 How the template actually behaves.
