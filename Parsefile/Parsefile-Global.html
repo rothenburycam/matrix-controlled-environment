@@ -56,50 +56,47 @@
         <!--@@ ========== main-content end =========== @@-->
         <!--@@ avoid google crawling this menu @@-->
         <!--googleoff: all-->
-        <div data-absolute-root="%globals_site_href%" id="sitemap" role="navigation">
-            <h2>%globals_site_name%</h2>
-            <ul>
-            <!--@@ start hamburger menu @@-->
-            <MySource_AREA id_name="standard_menu" design_area="menu_normal" cache="1">
-            <MySource_SET name="level" value="top" />
-            <MySource_SET name="show_subs" value="always" />
-            <MySource_SET name="unwanted_asset_types" value="image, news_item, calendar_event, file" />
-                <MySource_ASSET>
-                <li><a href="<MySource_PRINT var='asset_href' />"><MySource_PRINT var="asset_short_name" /></a>
-                    <MySource_SUB design_area="menu_normal">
-                    <MySource_SET name="show_subs" value="always" />
-                    <MySource_SET name="unwanted_asset_types" value="image, news_item, calendar_event, file" />
-                        <div class="inner">
-                            <ul>
-                                <MySource_ASSET>
-                                <li><a href="<MySource_PRINT var='asset_href' />"> <MySource_PRINT var="asset_short_name" /> </a>
-                                    <MySource_SUB design_area="menu_normal">
-                                    <MySource_SET name="show_subs" value="always" />
-                                    <MySource_SET name="unwanted_asset_types" value="image, news_item, calendar_event, file" />
-                                        <div class="inner">
-                                            <ul>
-                                                <MySource_ASSET>
-                                                <li class="<MySource_PRINT var="settings.class" />"><a href="<MySource_PRINT var='asset_href' />"> <MySource_PRINT var="asset_short_name" /> </a>
-                                                </li>
-                                                </MySource_ASSET>
-                                            </ul>
-                                        </div>
-                                    </MySource_SUB>
-                                </li>
-                                </MySource_ASSET>
-                            </ul>
-                        </div>
-                    </MySource_SUB>
-                </li>
-                </MySource_ASSET>
-            </MySource_AREA>
-            <MySource_AREA id_name="logout_box" design_area="login_form" print="no">
-            <MySource_LOGIN_SECTION><li><a class="login" href="%globals_asset_url%/_login">Login</a></li></MySource_LOGIN_SECTION>
-            <MySource_LOGOUT_SECTION><MySource_PRINT var="form_open" /><li><a href="%globals_asset_url:1022685%?SQ_ACTION=logout&end_url=%globals_asset_url^urlencode%">Log out</a></li><MySource_PRINT var="form_close" /></MySource_LOGOUT_SECTION>
-            </MySource_AREA>
-            </ul>
-            <!--@@ end hamburger menu @@-->
-        </div>
+        <!--@@ new curated hamburger menu @@-->
+        <MySource_AREA id_name="local_menu" design_area="nest_content" />
+		<!--@@ start original hamburger menu @@-->
+		<MySource_AREA id_name="standard_menu" design_area="menu_normal" cache="1" print="yes">
+			<div data-absolute-root="%globals_site_href%" id="sitemap" role="navigation" class="original-site-menu">
+			<h2>%globals_site_name%</h2>
+				<ul>
+					<MySource_SET name="level" value="top" />
+					<MySource_SET name="show_subs" value="always" />
+					<MySource_SET name="unwanted_asset_types" value="image, news_item, calendar_event, file, folder" />
+						<MySource_ASSET>
+						<li><a href="<MySource_PRINT var='asset_href' />"><MySource_PRINT var="asset_short_name" /></a>
+							<MySource_SUB design_area="menu_normal">
+							<MySource_SET name="show_subs" value="always" />
+							<MySource_SET name="unwanted_asset_types" value="image, news_item, calendar_event, file, folder" />
+								<ul>
+									<MySource_ASSET>
+									<li><a href="<MySource_PRINT var='asset_href' />"> <MySource_PRINT var="asset_short_name" /> </a>
+										<MySource_SUB design_area="menu_normal">
+										<MySource_SET name="show_subs" value="always" />
+										<MySource_SET name="unwanted_asset_types" value="image, news_item, calendar_event, file, folder" />
+											<ul>
+												<MySource_ASSET>
+												<li class="<MySource_PRINT var="settings.class" />"><a href="<MySource_PRINT var='asset_href' />"> <MySource_PRINT var="asset_short_name" /> </a></li>
+												</MySource_ASSET>
+											</ul>
+										</MySource_SUB>
+									</li>
+									</MySource_ASSET>
+								</ul>
+							</MySource_SUB>
+						</li>
+						</MySource_ASSET>
+				</ul>
+			</div>
+		</MySource_AREA>
+		<MySource_AREA id_name="logout_box" design_area="login_form" print="no">
+		<MySource_LOGIN_SECTION><li><a class="login" href="%globals_asset_url%/_login">Login</a></li></MySource_LOGIN_SECTION>
+		<MySource_LOGOUT_SECTION><MySource_PRINT var="form_open" /><li><a href="%globals_asset_url:1022685%?SQ_ACTION=logout&end_url=%globals_asset_url^urlencode%">Log out</a></li><MySource_PRINT var="form_close" /></MySource_LOGOUT_SECTION>
+		</MySource_AREA>
+		<!--@@ end hamburger menu @@-->
     </div><!--@@ /page-inner @@-->
 </div><!--@@ /uomcontent @@-->
 <!--googleon: all-->
