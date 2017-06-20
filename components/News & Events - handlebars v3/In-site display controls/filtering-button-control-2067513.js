@@ -134,7 +134,13 @@ $(document).ready(function() {
             $(this).removeClass('hidden-item').addClass('visible-item');
           });
         }
-      }   
+      }
     
   }); // End each
+  // Check to see if filtering has returned 0 results and if so, display a 'no results found' message for that specific listing
+  $('ul.block-listing[data-type*="filter"]').each(function(index) { 
+    if (($(this).find('li').length) == 0) {
+      $(this).replaceWith('<p class="lead">We currently have no upcoming events scheduled.<br />See the <a href="http://events.unimelb.edu.au">University&#39;s events calendar</a> for more options.</p>');
+    };
+  });
 });
