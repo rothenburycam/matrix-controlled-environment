@@ -1,7 +1,6 @@
 $(document).ready(function() {
   var numOccurrences = $('[data-type="filter"]').length;
   var occurrences = $('[data-type="filter"]');
-
   
   $(occurrences).each(function(index) {  // For each occurrence
     var eventTags = $(this).data('eventtags'),
@@ -9,8 +8,7 @@ $(document).ready(function() {
         paginate = $(this).data('paginate'),
         eventType = $(this).data('eventtype');
 
-    $(this).attr('data-type', 'filter' + index); // Set data-type attribute to include its index for reference
-		
+    $(this).attr('data-type', 'filter' + index); // Set data-type attribute to include its index for reference    
       /* *** PERFORM TAG FILTERING *** */
       if (eventTags) { // If tags have been set using the global $tags variable, remove any event that doesn't use this tag
         var tagsRequested = eventTags.toLowerCase(); // Fetch the tags set by the edit/admin user and convert to lowercase
@@ -18,10 +16,9 @@ $(document).ready(function() {
         tagArray.forEach(function(item, index) {    //Loop through each tag in the array to strip out leading or trailing spaces surronding each tag. 
             tagArray[index] = jQuery.trim(item);     
         });           
-        
-        
+                
         var events = $(this).find('li.event[data-location="remote"]:not([data-type="news"])').toArray(); // Get all remote events, exclude pursuit hero items (that are listed in the dom as <li class="event double">)
-    		
+        
         $(events).each(function(index) { // For each remote event
           var rawTags = $(this).find('.meta span.hidden').text().toLowerCase().split(';'); // Fetch tags and turn them into an array
           rawTags.pop(); // Remove last (empty) tag
@@ -53,8 +50,7 @@ $(document).ready(function() {
       /* *** CALCULATE SHOW MORE BUTTON *** */
       var remainingItems = $(this).find('li');
       var remainingItemsCount = $(remainingItems).length;
-			var showMoreDefault = 12; // default number of items to display on first load
-      
+      var showMoreDefault = 12; // default number of items to display on first load
      
       function pagination(compareAgainst, listing) { // Create a function for re-use further down the script
         if (remainingItemsCount > compareAgainst) { // If there are more items than the 'compareAgainst' value
@@ -135,7 +131,6 @@ $(document).ready(function() {
           });
         }
       }
-    
   }); // End each
   // Check to see if filtering has returned 0 results and if so, display a 'no results found' message for that specific listing
   $('ul.block-listing[data-type*="filter"]').each(function(index) { 
