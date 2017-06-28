@@ -48,7 +48,7 @@ $(document).ready(function() {
       }
 
       /* *** CALCULATE SHOW MORE BUTTON *** */
-      var remainingItems = $(this).find('li');
+      var remainingItems = $(this).find('li, article');
       var remainingItemsCount = $(remainingItems).length;
       var showMoreDefault = 12; // default number of items to display on first load
      
@@ -79,7 +79,7 @@ $(document).ready(function() {
           'use strict';
             
           var $blockListingMore = $('.showMore' + index),
-            $blockListing = $('ul.block-listing[data-type="filter' + index + '"]');
+            $blockListing = $('[data-type="filter' + index + '"]');
    
           function addRemoveClass(el) { // On-click display behaviour for use further down
             el.hide();
@@ -133,8 +133,8 @@ $(document).ready(function() {
       }
   }); // End each
   // Check to see if filtering has returned 0 results and if so, display a 'no results found' message for that specific listing
-  $('ul.block-listing[data-type*="filter"]').each(function(index) { 
-    if (($(this).find('li').length) == 0) {
+  $('[data-type*="filter"]').each(function(index) { 
+    if (($(this).find('li, article').length) == 0) {
       $(this).replaceWith('<p class="lead">We currently have no upcoming events scheduled.<br />See the <a href="http://events.unimelb.edu.au">University&#39;s events calendar</a> for more options.</p>');
     };
   });
