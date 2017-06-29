@@ -133,9 +133,13 @@ $(document).ready(function() {
       }
   }); // End each
   // Check to see if filtering has returned 0 results and if so, display a 'no results found' message for that specific listing
-  $('[data-type*="filter"]').each(function(index) { 
+  $('[data-type*="filter"]').each(function(index) {
     if (($(this).find('li, article').length) == 0) {
-      $(this).replaceWith('<p class="lead">We currently have no upcoming events scheduled.<br />See the <a href="http://events.unimelb.edu.au">University&#39;s events calendar</a> for more options.</p>');
+        if ($(this).hasClass("ctnews")) { // If this is a news list, print the news list no results message
+            $(this).replaceWith('<p class="lead">There are no current news items to display.</p>');
+        } else { // Otherwise, print the events no results message
+            $(this).replaceWith('<p class="lead">We currently have no upcoming events scheduled.<br />See the <a href="http://events.unimelb.edu.au">University&#39;s events calendar</a> for more options.</p>');
+        }
     };
   });
 });
