@@ -18,6 +18,6 @@ if (!document.getElementById(jQueryId))
     var link  = document.createElement('script');
     link.id   = jQueryId;
     link.type = 'text/javascript';
-    link.src = './?a=2392839';
+    link.src = '//cms.unimelb.edu.au/__data/assets/js_file_folder/0009/2392839/filtered-list.min.js';
     body.appendChild(link);
 }
