@@ -17,8 +17,8 @@ Web maintainer: %globals_site_metadata_SITE.MaintainerEmail%
 <!--@@ ============== Metata Start ================================== @@-->
 <!--@@ -------------- SEO start   ----------------------------------- @@-->
 <!--@@ GSA description - specific text field for overriding descriptions shown in GSA results @@-->
-<meta name="title" content="%globals_asset_name%" />
-<meta name="description" content="%globals_asset_metadata_description%" />
+<meta name="title" content="%begin_globals_asset_metadata_Title%%globals_asset_metadata_Title%%else_globals_asset_metadata_Title%%globals_asset_name%%end_globals_asset_metadata_Title%" />
+<meta name="description" content="%begin_globals_asset_metadata_description%%globals_asset_metadata_description%%else_globals_asset_metadata_description%%globals_asset_name%%end_globals_asset_metadata_description%" />
 %begin_globals_asset_metadata_gsa-description%
 <meta name="gsa-description" content="%globals_asset_metadata_gsa-description%" />
 %end_globals%
@@ -40,13 +40,13 @@ Web maintainer: %globals_site_metadata_SITE.MaintainerEmail%
 <meta property="og:type" content="website" />
 <meta property="og:url" content="%begin_globals_asset_metadata_Canonical%%globals_asset_metadata_Canonical%%else_globals_asset_metadata_Canonical%%globals_asset_url%%end_globals_asset_metadata_Canonical%" />
 <meta property="og:title" content="%globals_asset_metadata_Title%" />
-<meta property="og:description" content="%globals_asset_metadata_description%" />
-<meta property="og:site_name" content="%globals_site_name%" />
+<meta property="og:description" content="%begin_globals_asset_metadata_description%%globals_asset_metadata_description%%else_globals_asset_metadata_description%%globals_asset_name%%end_globals_asset_metadata_description%" />
+<meta property="og:site_name" content="%begin_globals_asset_metadata_Title%%globals_asset_metadata_Title%%else_globals_asset_metadata_Title%%globals_asset_name%%end_globals_asset_metadata_Title%" />
 <meta property="og:locale" content="en_US" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="%globals_asset_metadata_Twitter_handle^empty:@unimelb%" />
-<meta name="twitter:title" content="%globals_asset_metadata_Title%" />
-<meta name="twitter:description" content="%globals_asset_metadata_description%" />
+<meta name="twitter:title" content="%begin_globals_asset_metadata_Title%%globals_asset_metadata_Title%%else_globals_asset_metadata_Title%%globals_asset_name%%end_globals_asset_metadata_Title%" />
+<meta name="twitter:description" content="%begin_globals_asset_metadata_description%%globals_asset_metadata_description%%else_globals_asset_metadata_description%%globals_asset_name%%end_globals_asset_metadata_description%" />
 <!-- og:image and twitter:image needs to be set on details screen to appear here -->
 %begin_globals_asset_thumbnail%
 <meta name="twitter:image" content="%globals_asset_thumbnail_url%" />
@@ -61,4 +61,4 @@ Web maintainer: %globals_site_metadata_SITE.MaintainerEmail%
 <script src="//d2h9b02ioca40d.cloudfront.net/v7.0/uom.js"></script>
 <!--@@ ============== Digital Design System End ===================== @@-->
 <!--@@ -------------- MCE css overrides for DDS --------------------- @@-->
-<link rel="stylesheet" href="./?a=1525672?v=%globals_asset_version:1525672%">s
+<link rel="stylesheet" href="./?a=1525672?v=%globals_asset_version:1525672%">
